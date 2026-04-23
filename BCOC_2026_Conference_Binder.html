@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<title>BCOC 2026 Conference Binder</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+/* ===== BINDER MODE OVERRIDES (added) ===== */
+@page{size:Letter;margin:0.35in}
+html,body{background:#d9d3c4}
+.binder-toolbar{position:sticky;top:0;z-index:50;background:rgba(20,33,61,0.96);color:#fff;padding:10px 20px;display:flex;align-items:center;justify-content:space-between;gap:14px;box-shadow:0 2px 10px rgba(0,0,0,0.25);font-family:'Inter',sans-serif}
+.binder-toolbar .bt-title{font-family:'Playfair Display',serif;font-size:17px;font-weight:900;letter-spacing:0.5px}
+.binder-toolbar .bt-title span{color:#c8962e;font-weight:700;letter-spacing:2px;font-size:11px;font-family:'Inter',sans-serif;margin-left:10px}
+.binder-toolbar .bt-dl{background:#c8962e;color:#14213d;text-decoration:none;padding:9px 20px;border-radius:4px;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;border:none;cursor:pointer;transition:background 0.2s}
+.binder-toolbar .bt-dl:hover{background:#e0b055}
+.binder-viewport{padding:24px 20px 40px;display:flex;flex-direction:column;align-items:center;gap:24px}
+.book-wrap{max-width:none!important;margin:0!important}
+.page-nav,.flip-row{display:none!important}
+.binder-viewport .page{display:none!important;width:8.5in;min-height:11in;max-width:8.5in;background:#fff;margin:0 auto;border-radius:4px;box-shadow:0 4px 24px rgba(0,0,0,0.18);overflow:hidden;position:relative}
+.binder-viewport .page.show{display:block!important}
+.binder-viewport .page:last-child{page-break-after:auto}
+/* Bottom flip controls */
+.binder-controls{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:40;display:flex;align-items:center;gap:14px;background:#14213d;padding:10px 18px;border-radius:999px;box-shadow:0 6px 24px rgba(0,0,0,0.35);border:2px solid #c8962e}
+.binder-controls button{width:42px;height:42px;border-radius:50%;border:none;background:#c8962e;color:#14213d;font-size:18px;font-weight:900;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.15s}
+.binder-controls button:hover:not(:disabled){background:#fff}
+.binder-controls button:disabled{opacity:0.35;cursor:default}
+.binder-controls .bc-ind{color:#fff;font-family:'Inter',sans-serif;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;min-width:140px;text-align:center}
+.binder-controls .bc-ind strong{color:#c8962e}
+/* Right-edge binder tab strip */
+.binder-tabs{position:absolute;top:0;right:0;width:42px;height:100%;display:flex;flex-direction:column;padding-top:0.4in;pointer-events:none;z-index:5}
+.binder-tab{flex:1;max-height:1.05in;background:#ece6d6;color:#5a4a2a;font-family:'Inter',sans-serif;font-size:9.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;writing-mode:vertical-rl;transform:rotate(180deg);display:flex;align-items:center;justify-content:center;border-bottom:2px solid #d9d3c4;border-left:2px solid #d9d3c4;padding:6px 0;position:relative;cursor:pointer;pointer-events:auto;transition:background 0.15s,color 0.15s,width 0.15s}
+.binder-tab:hover{background:#e0b055;color:#14213d}
+.binder-tab:first-child{border-top-left-radius:4px}
+.binder-tab:last-child{border-bottom:none;border-bottom-left-radius:4px}
+.binder-tab.active{background:#c8962e;color:#14213d;font-weight:900;width:50px;margin-left:-8px;box-shadow:-2px 0 6px rgba(0,0,0,0.18);z-index:6}
+/* Inner content shifted so tabs don't overlap */
+.page > .sg-cover,
+.page > .sg-day-page{margin-right:42px}
+.sg-cover{min-height:calc(11in - 24px);border-radius:0!important}
+.sg-day-page{min-height:calc(11in - 24px)}
+/* Day color accents on active tab */
+.page[data-label="Overview"] .binder-tab.active{background:#14213d;color:#c8962e}
+/* Print rules */
+@media print{
+  @page{size:Letter;margin:0.35in}
+  html,body{background:#fff;margin:0;padding:0}
+  .binder-toolbar,.binder-controls{display:none!important}
+  .binder-viewport{padding:0;gap:0;display:block}
+  .binder-viewport .page{display:block!important;box-shadow:none;border-radius:0;margin:0;width:100%;max-width:none;min-height:10.1in;overflow:visible;page-break-after:always;break-after:page;position:relative}
+  .binder-viewport .page:last-child{page-break-after:auto;break-after:auto}
+  .binder-tabs{padding-top:0.3in;width:36px}
+  .binder-tab{font-size:8.5px;letter-spacing:1.2px;padding:5px 0}
+  .binder-tab.active{width:42px;margin-left:-6px}
+  /* keep day-page content from running into the binder tab strip */
+  .page > .sg-cover,
+  .page > .sg-day-page{margin-right:42px}
+  /* Don't split cards or schedule rows mid-element */
+  .sg-card,.dt-row,.sp-person{page-break-inside:avoid;break-inside:avoid}
+  /* Tighten print-only spacing so most days fit one page */
+  .sg-day-body{padding:14px 18px}
+  .sg-card{padding:14px;margin-bottom:10px}
+  .sg-card-header{margin-bottom:10px;gap:12px}
+  .sg-avatar{width:54px;height:54px}
+  .sg-card-title{font-size:18px}
+  .sg-card-speaker{font-size:14px}
+  .sg-card-org{font-size:12px}
+  .sg-desc{font-size:13px;line-height:1.5;margin-bottom:10px}
+  .sg-obj{padding:10px 12px;margin-bottom:8px;font-size:12.5px;line-height:1.5}
+  .sg-obj-label{font-size:11px;margin-bottom:4px}
+  .sg-bio{padding-top:8px;margin-top:6px;font-size:12.5px;line-height:1.5}
+  .sg-bio-label{font-size:11px;margin-bottom:4px}
+  .sg-time{margin:-4px 0 10px;padding:5px 10px;font-size:11px}
+  .day-timeline{padding:12px 14px 10px;margin-bottom:14px}
+  .day-timeline-head{font-size:13px;margin-bottom:8px}
+  .dt-row{padding:4px 0;font-size:11.5px}
+  .dt-time{font-size:10.5px}
+  .dt-by{font-size:11px;margin-top:2px}
+  .dt-tag{font-size:10px;padding:2px 8px}
+  a[href]:after{content:""!important}
+}
+/* Daily schedule timeline */
+.day-timeline{background:#f9f7f1;border-left:4px solid #c8962e;border-radius:8px;padding:16px 18px 14px;margin-bottom:22px}
+.day-timeline-head{font-family:'Playfair Display',serif;font-size:17px;font-weight:900;color:#14213d;margin-bottom:12px;letter-spacing:2px;text-transform:uppercase;border-bottom:2px solid #c8962e;padding-bottom:6px;display:inline-block}
+.dt-row{display:grid;grid-template-columns:150px 14px 1fr;gap:10px;padding:7px 0;border-bottom:1px dashed #ddd7c5;font-size:14px;line-height:1.45;align-items:start}
+.dt-row:last-child{border-bottom:none}
+.dt-time{color:#14213d;font-weight:700;font-size:12.5px;letter-spacing:0.3px}
+.dt-dot{width:10px;height:10px;border-radius:50%;margin-top:5px;background:#c8962e;flex-shrink:0}
+.dt-dot.keynote{background:#b82040}
+.dt-dot.brk{background:#8a8a8a}
+.dt-dot.meal{background:#14213d}
+.dt-dot.social{background:#0a7e4a}
+.dt-dot.exhibit{background:#a08f68}
+.dt-dot.ceremony{background:#c8962e}
+.dt-title{color:#2b3244;font-weight:500}
+.dt-title strong{color:#14213d;font-weight:700}
+.dt-tag{display:inline-block;background:#14213d;color:#fff;font-size:12px;padding:3px 10px;border-radius:4px;margin-left:5px;letter-spacing:0.4px;vertical-align:baseline;font-weight:700}
+.dt-tag.kn{background:#b82040;color:#fff}
+.dt-by{display:block;color:#6b5a3a;font-size:12.5px;font-style:italic;font-weight:500;margin-top:3px}
+.dt-tbc{color:#b82040;font-style:italic;font-size:10px;font-weight:700;letter-spacing:0.5px}
+/* Binder mobile overrides */
+@media(max-width:768px){
+  .binder-toolbar{padding:8px 12px;gap:8px;flex-wrap:wrap}
+  .binder-toolbar .bt-title{font-size:13px;line-height:1.3}
+  .binder-toolbar .bt-title span{font-size:9px;letter-spacing:1.5px;margin-left:0;display:block;margin-top:2px}
+  .binder-toolbar .bt-dl{padding:7px 12px;font-size:10.5px;letter-spacing:1.2px}
+  .binder-viewport{padding:14px 10px 110px;gap:14px}
+  .binder-viewport .page{width:100%;max-width:100%;min-height:auto;border-radius:6px}
+  .binder-tabs{display:none}
+  .page > .sg-cover,
+  .page > .sg-day-page{margin-right:0}
+  .sg-cover{min-height:auto}
+  .sg-day-page{min-height:auto}
+  .binder-controls{padding:8px 12px;gap:10px;bottom:12px}
+  .binder-controls button{width:38px;height:38px;font-size:16px}
+  .binder-controls .bc-ind{font-size:11px;min-width:90px;letter-spacing:1px}
+  .day-timeline{padding:12px 14px}
+  .dt-row{grid-template-columns:110px 12px 1fr;gap:8px;font-size:13px}
+  .dt-time{font-size:11.5px}
+}
+@media(max-width:420px){
+  .binder-toolbar .bt-title{font-size:12px}
+  .binder-toolbar .bt-dl{padding:6px 10px;font-size:10px;letter-spacing:1px}
+  .binder-controls .bc-ind{min-width:70px;font-size:10.5px}
+  .dt-row{grid-template-columns:1fr;gap:2px}
+  .dt-dot{display:none}
+}
+/* ===== END BINDER OVERRIDES ===== */
+
+:root{--navy:#14213d;--gold:#c8962e;--white:#fdfcfa;--bg:#f5f2ec}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:#333;padding:16px 0 32px}
+.book-wrap{max-width:820px;margin:0 auto;position:relative}
+.page-nav{display:flex;justify-content:center;gap:10px;padding:0 16px;margin-bottom:10px;flex-wrap:nowrap;overflow-x:auto}
+.page-nav button{background:#fff;border:2px solid #ddd;padding:9px 18px;border-radius:999px;font-family:'Inter',sans-serif;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--navy);cursor:pointer;transition:all 0.2s;box-shadow:0 2px 6px rgba(0,0,0,0.08);flex-shrink:0;white-space:nowrap}
+.page-nav button.active{background:var(--navy);color:var(--gold);border-color:var(--navy);box-shadow:0 0 0 2px var(--gold),0 3px 10px rgba(20,33,61,.3)}
+.page-nav button:hover{border-color:var(--gold)}
+.page{display:none!important;background:var(--white);border-radius:10px;box-shadow:0 2px 20px rgba(0,0,0,0.08);overflow:hidden}
+.page.show{display:block!important}
+.flip-row{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:14px;padding:0 16px}
+.flip-btn{width:48px;height:48px;border-radius:50%;border:none;background:var(--navy);color:var(--gold);font-size:20px;cursor:pointer;transition:all 0.2s;display:flex;align-items:center;justify-content:center}
+.flip-btn:hover{background:var(--gold);color:var(--navy)}
+.flip-btn:disabled{opacity:0.3;cursor:default}
+#pgInd{font-size:13px;color:#999;letter-spacing:1px;font-weight:600;min-width:70px;text-align:center}
+
+/* COVER */
+.sg-cover{background:var(--navy);display:flex;flex-direction:column;position:relative}
+.sg-cover-inner{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:24px 24px 32px;text-align:center;gap:10px}
+.sg-cover-logo{width:150px;height:150px;border-radius:50%;margin:4px 0 6px;border:4px solid rgba(200,150,46,0.55);box-shadow:0 6px 24px rgba(0,0,0,0.35)}
+.sg-cover-40{font-family:'Playfair Display',serif;font-size:64px;font-weight:900;color:var(--gold);line-height:1;margin:4px 0 0}
+.sg-cover-40 sup{font-size:26px}
+.sg-cover-label{font-size:13px;letter-spacing:6px;color:rgba(255,255,255,0.85);font-weight:700;margin-bottom:8px}
+.sg-cover h1{font-family:'Playfair Display',serif;font-size:42px;font-weight:900;color:#fff;line-height:1.15;margin:6px 0 10px}
+.sg-cover-theme{font-family:'Playfair Display',serif;font-size:18px;font-style:italic;color:var(--gold);padding:10px 22px;border:1px solid rgba(200,150,46,0.45);border-radius:8px;margin-bottom:12px;max-width:760px}
+.sg-cover-intro{max-width:720px;margin:0 auto 14px;text-align:left;color:#fff;font-size:15.5px;line-height:1.7;padding:18px 24px;background:rgba(255,255,255,0.06);border-left:4px solid var(--gold);border-radius:4px}
+.sg-cover-intro p{margin:0 0 10px}
+.sg-cover-intro p:last-child{margin-bottom:0}
+.sg-cover-details{font-size:16px;color:#fff;line-height:1.85;font-weight:500}
+.sg-cover-motto{font-size:15px;letter-spacing:5px;color:var(--gold);margin-top:10px;font-weight:700}
+
+/* DAY PAGES */
+.sg-day-page{display:flex;flex-direction:column;min-height:400px}
+.sg-day-header{background:var(--navy);padding:24px 28px;text-align:center}
+.sg-day-num{font-size:12px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:4px}
+.sg-day-header h2{font-family:'Playfair Display',serif;font-size:30px;font-weight:900;color:#fff;margin-bottom:4px}
+.sg-day-theme{font-family:'Playfair Display',serif;font-size:16px;font-style:italic;color:var(--gold)}
+.sg-day-body{flex:1;padding:20px 24px}
+
+/* SESSION CARDS */
+.sg-card{background:#fff;border:1px solid #e8e4dc;border-radius:12px;padding:24px;margin-bottom:16px;border-left:5px solid #d0d5de;transition:all 0.15s}
+.sg-card:hover{box-shadow:0 3px 14px rgba(0,0,0,0.06);border-left-color:var(--gold)}
+.sg-card.sg-keynote{border-left-color:var(--gold);background:linear-gradient(135deg,#fffdf5,#fff)}
+
+.sg-card-header{display:flex;gap:16px;align-items:flex-start;margin-bottom:14px}
+.sg-avatar{width:64px;height:64px;border-radius:50%;overflow:hidden;flex-shrink:0;border:3px solid var(--gold);background:var(--navy);display:flex;align-items:center;justify-content:center}
+.sg-avatar svg{width:28px;height:28px;color:var(--gold)}
+.sg-avatar-img{width:100%;height:100%;object-fit:cover}
+.sg-card-meta{flex:1;min-width:0}
+.sg-card-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;color:var(--navy);line-height:1.3;margin-bottom:4px}
+.sg-card-speaker{font-size:17px;font-weight:700;color:var(--gold)}
+.sg-card-org{font-size:14px;color:#888;font-style:italic;margin-top:2px}
+
+.sg-kn-badge{display:inline-block;background:#b82040;color:#fff;font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;padding:3px 10px;border-radius:4px;vertical-align:middle;margin-right:6px}
+
+.sg-card-body{}
+.sg-desc{font-size:16px;color:#444;line-height:1.7;margin-bottom:16px}
+.sg-obj{background:#f8f6f2;padding:16px 18px;border-radius:8px;margin-bottom:12px}
+.sg-obj-label{font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.sg-obj{font-size:15px;color:#555;line-height:1.7}
+.sg-bio{border-top:1px solid #eee;padding-top:12px;margin-top:8px}
+.sg-bio-label{display:block;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--navy);margin-bottom:6px;font-style:normal}
+.sg-bio{font-size:15px;color:#666;line-height:1.6;font-style:italic}
+
+/* FOOTER */
+.sg-foot{padding:12px 20px;text-align:center;background:rgba(20,33,61,0.03);border-top:1px solid #ece8e0}
+.sg-foot-logo{width:20px;height:20px;border-radius:50%;opacity:0.4;vertical-align:middle;margin-right:6px}
+.sg-foot span{font-size:12px;color:#aaa;letter-spacing:1px}
+
+/* MOBILE */
+@media(max-width:768px){
+  body{padding:8px 0 24px}
+  .page-nav button{padding:8px 14px;font-size:11px;letter-spacing:2px}
+  .sg-cover-logo{width:110px!important;height:110px!important}
+  .sg-cover h1{font-size:30px!important}
+  .sg-cover-40{font-size:46px!important}
+  .sg-cover-theme{font-size:15px!important}
+  .sg-cover-intro{font-size:14px!important;padding:14px 16px!important;line-height:1.65!important}
+  .sg-cover-details{font-size:14px!important}
+  .sg-day-header{padding:18px 16px!important}
+  .sg-day-header h2{font-size:24px!important}
+  .sg-day-body{padding:14px 14px!important}
+  .sg-card{padding:18px 16px!important}
+  .sg-card-header{flex-direction:column;gap:10px}
+  .sg-avatar{width:56px;height:56px}
+  .sg-card-title{font-size:19px!important}
+  .sg-card-speaker{font-size:15px!important}
+  .sg-desc{font-size:15px!important}
+  .sg-obj{font-size:14px!important;padding:12px 14px!important}
+  .sg-bio{font-size:14px!important}
+  .flip-btn{width:42px;height:42px;font-size:18px}
+}
+@media(max-width:380px){
+  .sg-cover h1{font-size:22px!important}
+  .sg-card-title{font-size:17px!important}
+  .sg-day-header h2{font-size:20px!important}
+}
+
+.sg-time{display:inline-flex;align-items:center;gap:10px;margin:-6px 0 14px;padding:8px 14px;background:linear-gradient(90deg,#14213d,#1b2d50);color:#e8be5a;border-radius:8px;font-family:'Inter','Source Sans 3',sans-serif;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;box-shadow:0 2px 8px rgba(20,33,61,0.15)}
+.sg-time-day{color:#fff;border-right:1px solid rgba(232,190,90,0.35);padding-right:10px}
+.sg-time-slot{color:#e8be5a}
+</style>
+</head>
+<body>
+<div class="sd-masthead-wrap">
+  <div class="sd-masthead">
+    <div class="sd-masthead-ribbon"></div>
+    <img src="https://static.wixstatic.com/media/1700c8_b2680286f4244f40a9afec02808f2d36~mv2.png" alt="BCOC" class="sd-mh-logo-left">
+    <div class="sd-mh-center">
+      <div class="sd-mh-title">BCOC <span>2026</span> SYMPOSIUM &amp; CONFERENCE</div>
+      <div class="sd-mh-tag">Forging the Future — Executive Leadership in Times of Challenge</div>
+      
+    </div>
+    <img src="https://static.wixstatic.com/media/a6fc8b_b3b55f4d44cb46c3a8c981c0bcf42ad3~mv2.png" alt="40th Anniversary" class="sd-mh-logo-right">
+  </div>
+</div>
+<style>
+.sd-masthead-wrap{max-width:1200px;margin:0 auto;padding:18px 24px 0}
+.sd-masthead{position:relative;display:flex;align-items:center;justify-content:space-between;gap:22px;padding:22px 32px;background:linear-gradient(100deg,#0a0f1a 0%,#14213d 45%,#1b2d50 75%,#14213d 100%);border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,0.28);overflow:hidden;color:#fff;margin-bottom:16px}
+.sd-masthead-ribbon{position:absolute;bottom:0;left:0;right:0;height:5px;background:repeating-linear-gradient(90deg,#c8962e 0,#c8962e 20%,#b82040 20%,#b82040 40%,#c8962e 40%,#c8962e 60%,#b82040 60%,#b82040 80%,#c8962e 80%,#c8962e 100%)}
+.sd-mh-logo-left{height:86px;width:auto;flex-shrink:0;filter:drop-shadow(0 3px 8px rgba(0,0,0,0.4))}
+.sd-mh-logo-right{height:92px;width:auto;flex-shrink:0;filter:drop-shadow(0 3px 8px rgba(0,0,0,0.4))}
+.sd-mh-center{flex:1;text-align:center;min-width:0}
+.sd-mh-title{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(18px,2.8vw,30px);letter-spacing:2.5px;line-height:1.15}
+.sd-mh-title span{color:#e8be5a}
+.sd-mh-tag{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(12px,1.6vw,16px);color:rgba(232,190,90,0.92);margin-top:6px;letter-spacing:1px}
+.sd-mh-back{display:inline-block;margin-top:10px;color:#e8be5a;text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;border-bottom:1px solid rgba(232,190,90,0.5);padding-bottom:2px}
+.sd-mh-back:hover{color:#fff;border-bottom-color:#fff}
+@media(max-width:720px){.sd-masthead{flex-direction:column;text-align:center;padding:18px 16px;gap:12px}.sd-mh-logo-left,.sd-mh-logo-right{height:60px}}
+@media(max-width:420px){.sd-mh-logo-left,.sd-mh-logo-right{height:50px}.sd-mh-title{letter-spacing:1.5px}}
+</style>
+<div class="binder-toolbar">
+  <div style="display:flex;align-items:center;gap:14px">
+    <a href="BCOC_2026_Agenda_Flipbook.html" class="bt-dl" style="background:transparent;color:#c8962e;border:2px solid #c8962e;padding:7px 16px;font-size:11px">&larr; Back to Agenda</a>
+    <div class="bt-title">BCOC 2026 Conference Binder <span>40TH ANNIVERSARY &middot; ATLANTA</span></div>
+  </div>
+  <a class="bt-dl" href="https://a6fc8b97-3633-4419-9b8c-b82fbb634bfa.usrfiles.com/ugd/a6fc8b_f82fd290a11b4ef9a69dccc1b7cf6ad5.pdf" target="_blank" rel="noopener" download="BCOC_2026_Conference_Binder.pdf">Download PDF</a>
+</div>
+<div class="binder-controls">
+  <button id="bcPrev" title="Previous page">&#8592;</button>
+  <div class="bc-ind"><strong id="bcCur">1</strong> / <span id="bcTot">8</span> &middot; <span id="bcLabel">Overview</span></div>
+  <button id="bcNext" title="Next page">&#8594;</button>
+</div>
+<div class="binder-viewport">
+<div class="book-wrap">
+<div class="page-nav" id="pageNav" style="display:none"></div>
+<div id="book">
+<div class="page show" data-label="Overview">
+<div class="sg-cover">
+  <div class="sg-cover-inner">
+    <img src="data:image/jpeg;base64,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" alt="BCOC" class="sg-cover-logo">
+    <div class="sg-cover-40">40<sup>th</sup></div>
+    <div class="sg-cover-label">ANNIVERSARY</div>
+    <h1>Session Guide<br>&amp; Speaker Profiles</h1>
+    <div class="sg-cover-theme">"Forging the Future: Executive Leadership in Times of Challenge"</div>
+    <div class="sg-cover-intro">
+      <p>Welcome to the definitive guide for the Black Chief Officers Committee 40th Anniversary Conference. This weeklong gathering brings together senior fire service leaders, chief officers, and emerging executives in Atlanta to mark four decades of progress and prepare the next generation of command.</p>
+      <p>Inside, you will find the full session schedule from Sunday through Friday, speaker profiles with departmental affiliations, and session details spanning leadership, labor relations, technology, wellness, finance, and community engagement. Use the day tabs above to navigate, or advance page by page to plan your conference experience.</p>
+    </div>
+    <div class="sg-cover-details">
+      <div>August 2 &ndash; 7, 2026</div>
+      <div>Loews Atlanta Hotel &bull; Atlanta, Georgia</div>
+    </div>
+    <div class="sg-cover-motto">Lifting As We Climb</div>
+    <div class="sg-cover-dress" style="max-width:720px;margin:26px auto 0;background:rgba(200,150,46,0.12);border:1px solid rgba(200,150,46,0.4);border-radius:6px;padding:16px 22px;text-align:left">
+      <div style="font-family:'Playfair Display',serif;font-size:13px;font-weight:900;letter-spacing:3px;text-transform:uppercase;color:#c8962e;margin-bottom:8px;border-bottom:1px solid rgba(200,150,46,0.35);padding-bottom:6px">Conference Dress Code</div>
+      <div style="color:#fdfcfa;font-size:14px;line-height:1.65"><strong style="color:#c8962e">Day 1 &mdash; Opening:</strong> Class A uniforms requested for all fire department personnel, and business attire for non-fire department personnel.<br><strong style="color:#c8962e">Conference Sessions:</strong> Department uniforms or business attire.</div>
+    </div>
+  </div>
+  <div class="sg-foot"><img src="data:image/jpeg;base64,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" alt="" class="sg-foot-logo"><span>BCOC 2026 &bull; 40th Anniversary Conference &bull; Session Guide</span></div>
+</div>
+</div>
+
+<div class="page" data-label="Sponsors">
+<div class="sg-day-page">
+  <div class="sg-day-header"><div class="sg-day-num">Conference Partners</div><h2>2026 Sponsors</h2><div class="sg-day-theme">Thank you to the organizations supporting BCOC's 40th Anniversary</div></div>
+  <div class="sg-day-body">
+
+    <div class="sp-hero" style="background:#fff;border-radius:10px;margin-bottom:22px;overflow:hidden;box-shadow:0 6px 24px rgba(20,33,61,0.25);border:3px solid #c8962e">
+      <div style="background:linear-gradient(135deg,#14213d 0%,#050c1a 100%);color:#fff;padding:12px 20px;text-align:center;letter-spacing:6px;font-size:12px;font-weight:700;text-transform:uppercase;font-family:'Playfair Display',serif;border-bottom:2px solid #c8962e"><span style="color:#c8962e;margin-right:8px">&#11088;</span>Elite Premier Sponsor</div>
+      <div style="padding:46px 24px 30px;text-align:center">
+        <img src="https://static.wixstatic.com/media/a6fc8b_8364ac20fa6f47bcaf9ba80edfa4055b~mv2.png" alt="FirstNet, Built with AT&amp;T" style="max-width:560px;width:88%;height:auto;display:block;margin:0 auto 24px">
+        <div style="font-family:'Playfair Display',serif;font-size:26px;font-weight:900;color:#14213d;line-height:1.2;margin-bottom:10px">FirstNet, Built with AT&amp;T</div>
+        <div style="font-size:15px;color:#5a5544;max-width:540px;margin:0 auto;line-height:1.55;font-style:italic">The Only Network Built With and For America's First Responders</div>
+      </div>
+    </div>
+
+    <div class="sp-tier-label" style="text-align:center;font-family:'Playfair Display',serif;font-size:13px;letter-spacing:6px;text-transform:uppercase;color:#6b7d9a;font-weight:700;margin:18px 0 10px">&#128142; Platinum Sponsors</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px">
+      <div style="background:#fff;border:1px solid #e8e4dc;border-radius:10px;padding:22px 18px;text-align:center;box-shadow:0 2px 10px rgba(0,0,0,0.05)">
+        <img src="https://static.wixstatic.com/media/a6fc8b_f650ca4c388146709c28a329394cc680~mv2.png" alt="REV Fire Group" style="max-width:220px;width:90%;height:120px;object-fit:contain;display:block;margin:0 auto 12px">
+        <div style="font-family:'Playfair Display',serif;font-size:18px;font-weight:900;color:#14213d">REV Fire Group</div>
+        <div style="font-size:12px;color:#666;margin-top:4px">E-One &bull; Ferrara &bull; KME &bull; Spartan &bull; Smeal</div>
+      </div>
+      <div style="background:#fff;border:1px solid #e8e4dc;border-radius:10px;padding:22px 18px;text-align:center;box-shadow:0 2px 10px rgba(0,0,0,0.05)">
+        <img src="https://static.wixstatic.com/media/a6fc8b_05859d0734474e6380d748e8294274e4~mv2.png" alt="Atlantic Emergency Solutions" style="max-width:220px;width:90%;height:120px;object-fit:contain;display:block;margin:0 auto 12px">
+        <div style="font-family:'Playfair Display',serif;font-size:18px;font-weight:900;color:#14213d">Atlantic Emergency Solutions</div>
+        <div style="font-size:12px;color:#666;margin-top:4px">Tuesday Keynote Address Sponsor</div>
+      </div>
+    </div>
+
+    <div class="sp-tier-label" style="text-align:center;font-family:'Playfair Display',serif;font-size:13px;letter-spacing:6px;text-transform:uppercase;color:#c8962e;font-weight:700;margin:18px 0 10px">&#127942; Gold Sponsors</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px">
+      <div style="background:#fff;border:1px solid #e8e4dc;border-radius:10px;padding:20px 16px;text-align:center;box-shadow:0 2px 10px rgba(0,0,0,0.04)">
+        <img src="https://static.wixstatic.com/media/a6fc8b_f9abf493ff34402aab2d5d11da7687de~mv2.jpg" alt="American Wood Council" style="max-width:180px;width:88%;height:100px;object-fit:contain;display:block;margin:0 auto 10px">
+        <div style="font-family:'Playfair Display',serif;font-size:16px;font-weight:900;color:#14213d">American Wood Council</div>
+        <div style="font-size:11px;color:#666;margin-top:3px">Welcome Reception Sponsor</div>
+      </div>
+      <div style="background:#fff;border:1px solid #e8e4dc;border-radius:10px;padding:20px 16px;text-align:center;box-shadow:0 2px 10px rgba(0,0,0,0.04)">
+        <img src="https://static.wixstatic.com/media/a6fc8b_ddbd919c2d804f998e51e89df58ce2e8~mv2.png" alt="Sutphen" style="max-width:180px;width:88%;height:100px;object-fit:contain;display:block;margin:0 auto 10px">
+        <div style="font-family:'Playfair Display',serif;font-size:16px;font-weight:900;color:#14213d">Sutphen</div>
+        <div style="font-size:11px;color:#666;margin-top:3px">Harmony Breakfasts &amp; Evening Buffet</div>
+      </div>
+      <div style="background:#fff;border:1px solid #e8e4dc;border-radius:10px;padding:20px 16px;text-align:center;box-shadow:0 2px 10px rgba(0,0,0,0.04)">
+        <img src="https://static.wixstatic.com/media/7c3afa_bb6b78ceb9f844d989a4b1f3403530de~mv2.png" alt="MSA / Globe" style="max-width:180px;width:88%;height:100px;object-fit:contain;display:block;margin:0 auto 10px">
+        <div style="font-family:'Playfair Display',serif;font-size:16px;font-weight:900;color:#14213d">MSA / Globe</div>
+        <div style="font-size:11px;color:#666;margin-top:3px">The Safety Company</div>
+      </div>
+      <div style="background:#fff;border:1px solid #e8e4dc;border-radius:10px;padding:20px 16px;text-align:center;box-shadow:0 2px 10px rgba(0,0,0,0.04)">
+        <img src="https://static.wixstatic.com/media/a6fc8b_7a3afa7e06d84025a46a0e1b9d3644cc~mv2.jpg" alt="1-800-BoardUp" style="max-width:180px;width:88%;height:100px;object-fit:contain;display:block;margin:0 auto 10px">
+        <div style="font-family:'Playfair Display',serif;font-size:16px;font-weight:900;color:#14213d">1-800-BoardUp</div>
+        <div style="font-size:11px;color:#666;margin-top:3px">A Belfor Company</div>
+      </div>
+    </div>
+
+    <div style="background:#14213d;color:#fff;border-radius:10px;padding:18px 20px;text-align:center;border:2px solid #c8962e">
+      <div style="font-size:14px;line-height:1.55">Interested in sponsoring BCOC 2026? Visit <strong style="color:#c8962e">bcoc.us/conference-sponsorship</strong> or contact <strong style="color:#c8962e">hsmith@bcoc.us</strong>.</div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+
+<div class="page" data-label="Sunday">
+<div class="sg-day-page">
+  <div class="sg-day-header"><div class="sg-day-num">Day 0</div><h2>Sunday, August 2</h2><div class="sg-day-theme">Arrival, Setup &amp; Community</div></div>
+  <div class="sg-day-body">
+  <div class="day-timeline">
+    <div class="day-timeline-head">Daily Schedule &mdash; Sunday</div>
+    <div class="dt-row"><div class="dt-time">All Day</div><div class="dt-dot exhibit"></div><div class="dt-title"><strong>Check-In &amp; Registration</strong><div class="dt-by">BCOC Registration Desk</div></div></div>
+    <div class="dt-row"><div class="dt-time">All Day</div><div class="dt-dot exhibit"></div><div class="dt-title">Vendor / Sponsor Exhibit Hall Setup</div></div>
+    <div class="dt-row"><div class="dt-time">2:00 &ndash; 5:00 PM</div><div class="dt-dot social"></div><div class="dt-title"><strong>Community Give-Back Volunteer Event</strong><div class="dt-by">BCOC Service Committee</div></div></div>
+    <div class="dt-row"><div class="dt-time">7:00 &ndash; 8:00 PM</div><div class="dt-dot social"></div><div class="dt-title"><strong>Host City Welcome / Informal Gathering</strong><div class="dt-by">BCOC Hospitality Committee</div></div></div>
+  </div>
+
+    <div class="sg-card">
+      <div class="sg-card-header">
+        <div class="sg-avatar"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
+        <div class="sg-card-meta">
+          <div class="sg-card-title">Community Give-Back Volunteer Event</div>
+          <div class="sg-card-speaker">BCOC Service Committee</div>
+          <div class="sg-card-org">Atlanta, Georgia</div>
+        </div>
+      </div>
+      <div class="sg-card-body">
+        <div class="sg-time"><span class="sg-time-day">Sunday</span><span class="sg-time-slot">2:00 &ndash; 5:00 PM</span></div>
+        <div class="sg-desc">BCOC attendees partner with local Atlanta organizations for a hands-on service project before the conference formally begins. This is the committee's signature way of arriving in a host city &mdash; lifting the community alongside our own.</div>
+        <div class="sg-obj">
+          <div class="sg-obj-label">What to Expect</div>
+          Meet fellow attendees and BCOC leadership, contribute to a direct community need, and set the tone for a week grounded in service.
+        </div>
+        <div class="sg-bio"><span class="sg-bio-label">About</span>Location and team assignments will be distributed at check-in. Comfortable attire recommended.</div>
+      </div>
+    </div>
+
+    <div class="sg-card">
+      <div class="sg-card-header">
+        <div class="sg-avatar"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
+        <div class="sg-card-meta">
+          <div class="sg-card-title">Host City Welcome / Informal Gathering</div>
+          <div class="sg-card-speaker">BCOC Hospitality Committee</div>
+          <div class="sg-card-org">Loews Atlanta Hotel</div>
+        </div>
+      </div>
+      <div class="sg-card-body">
+        <div class="sg-time"><span class="sg-time-day">Sunday</span><span class="sg-time-slot">7:00 &ndash; 8:00 PM</span></div>
+        <div class="sg-desc">Light welcome reception for early arrivals and conference volunteers. A chance to reconnect with old colleagues and meet first-time attendees before Monday's opening ceremony.</div>
+        <div class="sg-obj">
+          <div class="sg-obj-label">What to Expect</div>
+          Light bites and networking, introductions to board members, and orientation for first-time attendees.
+        </div>
+        <div class="sg-bio"><span class="sg-bio-label">About</span>Open to all registered attendees; business casual.</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="page" data-label="Monday">
+<div class="sg-day-page">
+  <div class="sg-day-header"><div class="sg-day-num">Day 1</div><h2>Monday, August 3</h2><div class="sg-day-theme">Vision and Legacy</div></div>
+  <div class="sg-day-body">
+  <div class="day-timeline">
+    <div class="day-timeline-head">Daily Schedule &mdash; Monday</div>
+    <div class="dt-row"><div class="dt-time">All Day</div><div class="dt-dot exhibit"></div><div class="dt-title">Vendor / Sponsor Exhibit Hall Setup (cont.)</div></div>
+    <div class="dt-row"><div class="dt-time">7:00 &ndash; 8:15 AM</div><div class="dt-dot meal"></div><div class="dt-title"><strong>Registration &amp; Networking Breakfast</strong> <span class="dt-tag">REV Fire Group *Platinum / 1-800-BoardUp *Gold</span></div></div>
+    <div class="dt-row"><div class="dt-time">8:00 &ndash; 8:30 AM</div><div class="dt-dot ceremony"></div><div class="dt-title"><strong>Opening Ceremony</strong><div class="dt-by"><strong>Presiding:</strong> Chief Pierre Brewton &middot; BCOC Education Coordinator</div><div class="dt-by">Safety Briefing &middot; Chief Ronald Skrine, BCOC Corresponding Secretary</div><div class="dt-by">Presentation of Colors &middot; Honor Guard</div><div class="dt-by">National Anthem &middot; Guest Vocalist</div><div class="dt-by">Pledge of Allegiance &middot; BCOC Board Member</div><div class="dt-by">Moment of Silence &middot; In honor of fallen firefighters</div><div class="dt-by">Opening Prayer &middot; Chief Jason Earl Davis, BCOC Chaplain</div></div></div>
+    <div class="dt-row"><div class="dt-time">8:30 AM</div><div class="dt-dot ceremony"></div><div class="dt-title">Introduction of E-Board / Welcome Remarks<div class="dt-by">Dr. Hezedean Smith &middot; BCOC Chair</div></div></div>
+    <div class="dt-row"><div class="dt-time">8:45 AM</div><div class="dt-dot ceremony"></div><div class="dt-title">Welcome Remarks &mdash; City of Atlanta<div class="dt-by">Office of the Mayor, City of Atlanta</div></div></div>
+    <div class="dt-row"><div class="dt-time">8:50 AM</div><div class="dt-dot ceremony"></div><div class="dt-title">Remarks &mdash; Atlanta Fire Rescue<div class="dt-by">Chief Rod Smith &middot; Atlanta Fire Rescue</div></div></div>
+    <div class="dt-row"><div class="dt-time">8:55 AM</div><div class="dt-dot ceremony"></div><div class="dt-title">Reception of Dignitaries<div class="dt-by">Chief T. Pierre Brewton &middot; BCOC Education Coordinator</div></div></div>
+    <div class="dt-row"><div class="dt-time">9:00 &ndash; 9:30 AM</div><div class="dt-dot "></div><div class="dt-title">Leadership, Service &amp; Community &mdash; A Senator's Perspective<div class="dt-by">Sen. Raphael Warnock &middot; U.S. Senate <span class="dt-tbc">[TBC]</span></div></div></div>
+    <div class="dt-row"><div class="dt-time">9:30 &ndash; 11:00 AM</div><div class="dt-dot keynote"></div><div class="dt-title"><strong>"But Still I Lead"</strong> &middot; Dr. I. David Daniels, PhD, CSD, VPS<span class="dt-tag kn">KEYNOTE</span> <span class="dt-tag">FirstNet *Elite Premier</span></div></div>
+    <div class="dt-row"><div class="dt-time">11:00 AM</div><div class="dt-dot brk"></div><div class="dt-title">Group Photo &mdash; All Attendees<div class="dt-by">BCOC Photography Team</div></div></div>
+    <div class="dt-row"><div class="dt-time">12:00 &ndash; 1:00 PM</div><div class="dt-dot meal"></div><div class="dt-title"><strong>Lunch Break</strong> <span class="dt-tag">Atlantic Emergency *Platinum</span></div></div>
+    <div class="dt-row"><div class="dt-time">1:15 &ndash; 2:15 PM</div><div class="dt-dot keynote"></div><div class="dt-title"><strong>Leadership Through Adversity: Navigating the Fire Service as Black Chief Officers</strong> &middot; Chief T. Pierre Brewton, Education Coordinator &middot; City of Spartanburg (SC) Fire Department<span class="dt-tag kn">KEYNOTE</span> <span class="dt-tag">Atlantic Emergency *Platinum</span></div></div>
+    <div class="dt-row"><div class="dt-time">2:20 &ndash; 3:00 PM</div><div class="dt-dot "></div><div class="dt-title">NFA Update<div class="dt-by">Erik Gabliks &middot; National Fire Academy <span class="dt-tbc">[TBC]</span></div></div></div>
+    <div class="dt-row"><div class="dt-time">3:00 &ndash; 4:00 PM</div><div class="dt-dot "></div><div class="dt-title">Executive Insights for Chief Fire Officers &middot; Donna Gayden</div></div>
+    <div class="dt-row"><div class="dt-time">7:00 &ndash; 10:00 PM</div><div class="dt-dot social"></div><div class="dt-title"><strong>Welcome Reception</strong> <span class="dt-tag">American Wood Council *Gold</span></div></div>
+  </div>
+
+    <div class="sg-card sg-keynote" style="border-left-color:#c8962e">
+      <div class="sg-card-header">
+        <div class="sg-avatar"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L9 9H2l5.5 4-2 7L12 16l6.5 4-2-7L22 9h-7z"/></svg></div>
+        <div class="sg-card-meta">
+          <div class="sg-card-title"><span class="sg-kn-badge" style="background:#c8962e;color:#14213d">CEREMONY</span> Conference Opening &amp; Welcome</div>
+          <div class="sg-card-speaker">Dr. Hezedean Smith, BCOC Chair &middot; Honored Guests</div>
+          <div class="sg-card-org">Loews Atlanta Hotel &middot; Grand Ballroom</div>
+        </div>
+      </div>
+      <div class="sg-card-body">
+        <div class="sg-time"><span class="sg-time-day">Monday</span><span class="sg-time-slot">8:00 &ndash; 9:30 AM</span></div>
+        <div class="sg-desc">The BCOC 40th Anniversary Conference formally begins with a ninety-minute opening program combining ceremony, civic welcome, and a Senate-level perspective on leadership and community. Honored guests include senior BCOC leadership, the Honor Guard, representatives of the Office of the Mayor, and invited elected officials. Attendees should be seated by 7:55 AM.</div>
+        <div class="sg-bio"><span class="sg-bio-label">Dress &amp; Protocol</span>Class A uniforms requested for all fire department personnel attending the Presentation of Colors. Attendees please stand for the National Anthem, Pledge, and Moment of Silence. A group photo follows the morning keynote at 11:00 AM.</div>
+      </div>
+    </div>
+
+<div class="sg-card sg-keynote">
+  <div class="sg-card-header">
+    <div class="sg-avatar"><img src="https://static.wixstatic.com/media/a6fc8b_9a50ec1f21ce47a189e71df14a54ee00~mv2.jpg" alt="" class="sg-avatar-img"></div>
+    <div class="sg-card-meta">
+      <div id="sess-daniels-mon" class="sg-card-title"><span class="sg-kn-badge">KEYNOTE</span> "But Still I Lead" <span style="display:block;font-size:12px;font-weight:700;color:#c8962e;letter-spacing:2px;text-transform:uppercase;margin-top:4px">Sponsored by FirstNet *Elite Premier</span></div>
+      <div class="sg-card-speaker">Dr. I. David Daniels, PhD, CSD, VPS</div>
+      <div class="sg-card-org">Founder &amp; CEO, ID2 Solutions</div>
+    </div>
+  </div>
+  <div class="sg-card-body">
+    <div class="sg-time"><span class="sg-time-day">Monday</span><span class="sg-time-slot">9:30 – 11:00 AM</span></div>
+    <div class="sg-desc">Dr. Daniels opens the 40th Anniversary Conference with a powerful keynote on leading with purpose through adversity. Drawing on decades of executive fire service experience, he examines how leaders of color hold the line when systems, politics, or personal trials test their resolve, and how service, integrity, and vision carry them forward.</div>
+    <div class="sg-obj">
+      <div class="sg-obj-label">Learning Objectives</div>
+      Recognize the weight of public visibility and how to steward it. Identify the internal disciplines that sustain leaders in hostile environments. Translate personal conviction into organizational direction. Build leadership that outlasts the tenure of a single officer.
+    </div>
+    <div class="sg-bio"><span class="sg-bio-label">About the Presenter</span>Founder and CEO of ID2 Solutions; author of "Psychosocial Hazards Are Real!" and a national voice on mental health, resilience, and leadership for Black executives in the fire service.</div>
+  </div>
+</div>
+
+<div class="sg-card sg-keynote">
+  <div class="sg-card-header">
+    <div class="sg-avatar"><img src="https://static.wixstatic.com/media/a6fc8b_350085c1fdb14ec08a5d14dd920ce0b2~mv2.jpeg/v1/fill/w_300,h_300,al_faces,q_90/a6fc8b_350085c1fdb14ec08a5d14dd920ce0b2~mv2.jpeg" alt="" class="sg-avatar-img"></div>
+    <div class="sg-card-meta">
+      <div id="sess-brewton" class="sg-card-title"><span class="sg-kn-badge">KEYNOTE</span> Leadership Through Adversity: Navigating The Fire Service as Black Chief Officers <span style="display:block;font-size:12px;font-weight:700;color:#c8962e;letter-spacing:2px;text-transform:uppercase;margin-top:4px">Sponsored by Atlantic Emergency Solutions *Platinum</span></div>
+      <div class="sg-card-speaker">Chief T. Pierre Brewton, Education Coordinator</div>
+      <div class="sg-card-org">City of Spartanburg (SC) Fire Department</div>
+    </div>
+  </div>
+  <div class="sg-card-body">
+    <div class="sg-time"><span class="sg-time-day">Monday</span><span class="sg-time-slot">1:15 – 2:15 PM</span></div>
+    <div class="sg-desc">This curriculum explores the lived experiences, challenges, and leadership realities faced by Black Chief Officers in the fire service. It examines historical and cultural barriers, the impact of adversity on leadership development, and the responsibility of chief officers to shape equitable organizational culture. Through reflection and practical strategies, the program emphasizes mentorship, accountability, and intentional leadership to strengthen the profession.</div>
+    <div class="sg-obj">
+      <div class="sg-obj-label">Learning Objectives</div>
+      Recognize systematic and cultural challenges Black Fire Officers face in leadership, promotion, and organizational culture. Understand how adversity shapes leadership style, decision-making, and resilience. Apply strategies for equitable leadership and mentorship that support inclusion. Develop actionable steps to improve departmental culture and promote fairness at all levels.
+    </div>
+
+      <div class="sg-bio"><span class="sg-bio-label">About the Presenter</span>Fire chief for the City of Spartanburg (SC) Fire Department; recognized nationally for his work on cultural competency, organizational accountability, and equitable leadership in the fire service.</div>
+</div>
+</div>
+
+<div id="sess-gayden" class="sg-card">
+  <div class="sg-card-header">
+    <div class="sg-avatar"><img src="https://static.wixstatic.com/media/a6fc8b_b4fafb64e3c7463f9941f9b120097c1a~mv2.jpeg" alt="" class="sg-avatar-img"></div>
+    <div class="sg-card-meta">
+      <div class="sg-card-title">Executive Insights for Chief Fire Officers: Municipal Finance &amp; Strategic Leadership</div>
+      <div class="sg-card-speaker">Donna Gayden, CFE</div>
+      <div class="sg-card-org">BCOC Executive Coordinator</div>
+    </div>
+  </div>
+  <div class="sg-card-body">
+    <div class="sg-time"><span class="sg-time-day">Monday</span><span class="sg-time-slot">3:00 &ndash; 4:00 PM</span></div>
+    <div class="sg-desc">Drawing on more than 15 years of municipal executive leadership across budgets ranging from $16M to $225M, Donna Gayden shares practical insights chief fire officers need to operate effectively inside city hall. The session focuses on how fire service executives can read and influence municipal budgets, engage finance directors and city managers as partners, and position their departments for sustainable funding even in fiscally challenged environments.</div>
+    <div class="sg-obj">
+      <div class="sg-obj-label">Learning Objectives</div>
+      Understand the municipal budget cycle and the levers that most affect fire department funding. Build credible, data-driven budget requests aligned to city priorities and credit-rating concerns. Recognize the warning signs of municipal financial distress and position the department to withstand restructuring. Cultivate strategic relationships with city managers, CFOs, and elected officials to advance long-term departmental goals.
+    </div>
+    <div class="sg-bio"><span class="sg-bio-label">About the Presenter</span>ICMA Credentialed Manager, Certified Fraud Examiner, and Harvard Kennedy School graduate; currently serving as Interim CFO for the Village of Oak Park, IL.</div>
+  </div>
+</div>
+
+  </div>
+  <div class="sg-foot"><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCACUAJQDASIAAhEBAxEB/8QAHAABAAIDAQEBAAAAAAAAAAAAAAYHBAUIAwIJ/8QAPxAAAQMDAwIEAwUHAgQHAAAAAQIDBAAFEQYSIRMxByJBURRhcQgyQoGRFRYjM1KhsXKCJGKS0XOio7K0wfD/xAAbAQEAAgMBAQAAAAAAAAAAAAAAAwQBBQYCB//EADURAAEDAgQDBgUDBAMAAAAAAAEAAgMEEQUSITFBUWEGE3GBofAikbHB0RQyQiNS4fEWM4L/2gAMAwEAAhEDEQA/AOMqUpREpSlESlKURKUpREpXoww/IVtYZcdV7ISVH+1erECe+264zCkuoZ/mqQ0ohv8A1EDj86wXAblZsVjUpSsrCUpSiJSlKIlKUoiUpSiJSlKIlKUoiVkxYE6VGkSY0R95iMkKfcQglLYJwCo+nNSbRmlY834K56hecg2eW+uKxIwOmp8JylLq8/wkEkebB7HA4JEvTGS9BmaSvVvtf7Vt2+fBhsqWywy5gl2I6oY3EtIK0q3HkYKyMiqctY1hs3W2/vpx5KZkJIuVBottttqsFtvd5hSLgi5LeSwwzI6IQlopSVKVtVkkkjAxjGTnIqds2+wQtFfGwJfwcVa2JaJpt7T8pqK8XWHGlkhJJQ8g+ZPcKTgHgCu4OoXGLEqwzoEO4wUvl5kO7g5HWRhRbWkggKwnIOQdoOAea85OpLq6y7Haf+FiOR0xfh2chCWUqK+mMknaVEqPPJJJzXiSCSU6nj5EX5c7dF6bI1vviresN3lSNfaAW5Lu0lc+LEcXukFcc4adYdVsxkLByoqz+JRPvUQ1Ha9SP/u2/pdie9FYhsstpiBWYkxP85LgH3HC5lWVYyCPQcV8p2VKLTSnHn9g2toJKto9gPSvp+LNip3PxpDAVxlaCnP61hlFkdmBG1rW8evX3dHT5hYj3oreuLs65W3SVlkXFf7SurPxDrCoKHWF/EzXMuFZJ2kAZA24x2PNaPX2n7PIvMGHa48O3z7tdnEwEsO7mFQFrCGHVkFSUkq3cJPZJyAcZh1t1TqK3OsLi3iYPh1BTKHHOohBAIBCFZSCASM44yayY9/hPWJi2XW3LdchtKbhTGHtjjIU6HDlJBCsHeB2xvPfjHhtNLE4Fu2u3W/hoNNNV6MrXCxWHqKztWpaUt3FmUes6ytrYpDrSm1bTvQewPpzng5AIxWpqwYM+FfJ2s9bOwYxmRWESIcJ8B1IU48hsuqBwFlAVuORgqUCRjitfEiSNW2C4TXYcVqbDeaxOSGIccoUFbkOElKCrITtwNx3KzkAYsMnLR8fCwPif9qIxgnRQ6lZVzt8y2yvhprJac2hafMFJWkjIUlQyFJI7EEg1i1aBBFwoiLbpSlKyiUpSiJSlKIlSTSukrxfIb021pjPPsK3MxFrT1ZISQVlCD94J4z9fXBxHE7dw3EhOecd8VYmorVrU6gYatwubliiPde0PxnFCIwwDlLqFjyNnaMqUcHOSrnNVqiQts1pAJ59FJG0HUhb1i92F9ybJckW3HRbY1JASjpxJ6BhPXjY4DyFHjbjcRuTwTmBX/UVw1E5DtLa/wDhm9kdlTqUJeeAJDZecAG4pBAGeAB75J8Nd3lu96ikymksKbStSEyEMBtcoBRw64AAN6hgngc+mc532p/DW52i1Ny2HTLdSgKfaSjBTxzt98frVaKOKAtL9HHa/D3+BwU57yUHILgbqc2b7OsuUtAn6uhxQcbi3EU7j6ZUnNT9XgJ4S6WhIl33VL10fLeSw/ISwCfdLbfnP/UahPgrrxnUNu/c3Uq+pI6e2M84rl9I/CT/AFp7g+oHuOZRam1aVvM2PNkdBh9kGPIysBZStJAJQCRxuBGPX25rTVNXWRvMUjrHppcdCuowHBKPErnMQ4fxtqeeuuo5WWxst6slmkrGidMqc6SP4iokTp5SPVRAKvzIqXWPxnkOWl5F50g/NtP3JDja+ogA+hCk7fUdz61Wb0+1zESYKV3Fhn492S0Y0dCuqlWAApO5IBTjgjgbjxX1Du8eK3BekNXBt2DHcYTHDQ6Lu7dySVApzu5G05xWvA1vuV3/APxnDWx5DFc9Sb+lhr4acVvNWaa8D9aBcqHGZscxSMYQn4Mo/IfwifnyarK++CtvQjq2a/uuNehWhLoV/uSRUuExUmyRYNqndBfR6D1vShZVKdUs5WMJKVEgjuQRt49Kl+otO2rwr8PP3m1O62u4SU7WY6FgqWsjIaR7n+pXYfpm1FVVTXBsbiem/wBVzGPdnMNw+IyucQSbBp1Jtxvpp115Ll7UFmuuirpHcbmp6jiVbFtjGR2UlSTwUkHBByCCQay1T1am0zHtJm2+FOauT8t1DpREYdS42yhBTgBtJR0lDHHCxjPOPqFbNR+JGo5FxLZSyFYde2npR09whPufYdznJ9TWs1bZntJ6hZZjzHC6hKZDToGxSDuOCMeoKc5ro2kOIY4jvBr799V8+c02L2j4FKtU6USnRsaUq5M/B2OAEl7b5pjrzy1JS0g4V0gVHDhwFbVlIIqtasuwXq33vT8lzU8VkxI85c+5SXJR3zJDudiUMN7VFW1KgnzBKcqJIFRjU8F6c27qK26YNksIUlljK1FKic4AW4cuLOCTt9B2AFKZ7mEsk59Lf7O/4XiRoIDmqN0pSrygSlKURKUpRFKbJpaZddKyX4VqnSbkXmno+xslLkcKU25sx95XUU3kYyACe2axL9brxYITdvn3FDaniVOW9qXvLWMcuJSSlJPoDzxyBxmRTdXX3S10asFmkSYkaE0Ikhrql9EokDqK6Tu5sbiVY2pHCuc5JMd1+8h3Vs9tuPFjojumOERo4ZRlHlJ2AnBKgSeTyeOMCqUTpXSfFbKdR79VO8MDdN14aLsy9Raws1gbVtVcZzMUK/p3rCc/lnNdS+KrQsd/YgqQChTZW4jHOCcAj9DVOfZRtrcnxeg3WQlKmLQ2qV5hwXMbUfmCrcP9NW94uS1aj1/IuWA1CD7cLfn7m0YKiPQFQcI/0mtTi7w+Zrb/ALR9V2HYigjqqt3fj4LG/wBB563Hgqf11o0uui/acUW5KVdRSGztKlDncn2UD+v173X4crZveh4lx8SYrUXpJ6jnUc6QUkdnFdthI7p/xnA+fDrTv7w6sKIkTpQYURL8hIGUrUo7kDlR5woepzsNRTxGvBumpJTSFE263PqYYb9HXkEhbhHyUClP0JHeqEkr6hgjeP28ePgpa3DWYdXu7iXKAMxP9o3ubcbbW3uOasDUnilo+JHRD0lpMfCoBSt91QiNK9igbVLVn3UEn61BJOs2rmpQTboi+fN0Ze7A+m3/ALVVXiBvfgNPLUSUO9s8AEH/ALCo3p2U3EnKcdUUtlG1Shngbk88dz/+471diwyOSLvButE3G6J3xRxvd1L7E+WUgevir70/cmLdd0XW3xkOON53NOp2qSPcY4z8xnvWtt+lNWeN/iSq4a1lqtWnbe50kNsubsNcHps57qUMbnCO57cBIi9juz7U5MWSs7wrDbh7g+x9wamL785Nmeet8p2O28nEhDZxnHcfIf5HFVWvdSklgFzxWw7tmMGJwkJa45QXbtI/i7wvcW0I5a2mmvrzo/TqoulNDR44hRFBLzrYy22M+ZIP41nnKjn8z2pn7TViNvutquO0jrtuMq448hCh/wC8/pW2ixn3WnXGmVrbZSFOKSnIQM4yfbk1Yni5p8ay+za3qGOlK5drQl9zHJBaJQ5n2yglf6Uo393VNfz3810HazAIcOw6PudbGzjxvuPDQHRcqWC6P2i4CVHDBUUKQesyl1KcjG4JPG5J8w+YFWbq2E1qe0RJcnUky0WSGz/wy7ywoLlOkDe4CFqW6tR/pSQlIA9MmoqnFuvkKQ3b3EaOXqC8paQypc1151nDY2IShpsgnyhBOVEZJ4FdFUxnMHt38vv9V82icLFp9/JQladqyAcgHg4xke9fNSvxLh3Bm5wJ1zguwZc+Ch1yOuH8MGilSmglKO23a2kjtwR61FKsxPzsDlG5uU2SlKVIvKV9x0IcfbbW6hlClAKcWCUoBPc4BOB8gTXxWVaITlyusS3MrbQ7KfQwhThO1JUoJBOATjn0BrDiACSsjUq6bUWbJpqLeVXJzVXwgZYZkWy2x1PMIUlWE9dYU63tCdvnQlQ3JCflR7y1OurcUSVLUVHJJOT8z3qf6d0jJs94ZlydTaZbSjIcSxe0lwAjHdonB57E49DxVe1Ro2ta52U32125qaYkgXFl0J9k61dWx6iuSBlzrstcdwAlR/vu/tUh0Ey5cpF0gKcbBfiLUlx5RCULHdWcHnYp0f7q0/2GLrEOqr/pSY4EftOGiRHKjwXGVEFI+ZS4T/tqSXKE/ozUlxaEZhxcCWp1DcnGSgEJaUPf+bu477T7VosRYW1TyeNvovo3YaZr6aop2/vIbl8ifyFJfBm+KtsfUl3Y4cdJUlPsEpUUjHt5sflVKMk/suJkkkspUSTkkkZJPzNWJoCdEbvdyhxw4IsklTKXMA7ASACAe+FD9DUEmQXbc7ItLuerAcLXPdTfdtf5p2n659qrQO1cPBUu2dJKX1kbAbua0jq1uUkeQF//ACVBNYTN09uKEJWhpPUWkpJKj6j27evpzUaivFhwq82FDaracHB74NSvXTTSWGJOMPpXsSfdOCcH8/8AJqPWyEbjJShhJCsguAdm05A35PGASMg/L346akLe4B4L5vSEdy2y3VtUr9kx3hkbXFpb8u3yjBGO+eSec/L0q8dDQjcbXcEFslCFIJB/5gc/4qoIMBqRLZhxGtjDYG5QTgkD7yj8ycn1xkAcAV0zo+3Mab8ELtqaa8lqU+FOsJUnnkBDIx65Uc/RVaLEXB+jdyuhwUP/AE7i0f8AZI3L1LQ4Ejzc0eawPCluOnw1nNtuh0yZbglNmOeyWztTu/FwSrAIPPfNZngbPhr0pqfTEzbJtkjqAqUnHVS42UK49MhI4+dV/o/WabBp+RaBa/iESXFKecL+04KCghPlODgnnmstT7+k/CO638KLK3mHCzn0Uv8Aht/Xkg1RAdnAG5Isvo/aClkpqarknGkjm5dRwuTtroNNeC5UqU6Sla9Va3oWknb78Kl4qeRbC5nctIHn6fOCEevHBqLVLNG2qJPsst2dfLjbWvjY8dtEWKp8OuLS7jKQpPI24Hc+Y8V2dQQGXP0v6L5FHcusFkaztl4tmibGxfLTJt8ozpiyqS0tLj4Ulg7iVHntjAAxgnndULqba/s8GyWiPChXwXfZcJDbzioTrC23EBCVJJUopUO33fnk9qhNYpTmjv1PAjjyKzKLOslKUqwo0pSlEVw3DV+jrStUe1zpiEokla2bLb24zUltOAhp5xa1FxIG/PlIXv5zgVUk1TCpjyoyVIYLii0lXcJzwD88V40qvBTNh2NypJJC/dSjwo1CvS3iLY74l4stx5aA+sejSvK5/wCVSq6c8b467pqq2TIjK3pU5gM9NCcqcWg4GPc4UkflXHddi3jxG07pSyQNSzVtyn3Gd1vbawpx3ckE7T+FPbKuw+ZIB1GMxuMkZYLk3C6LsxipwupNRa9gdNr3H5sviTpWL4eWNWpNYyW4jrY8rec7VEcISB99Z54Hz9s1oWHLV4k2Bq/WRxyHOYJZBfbxyOS05junkEEE4z9RUP09F1r9pXxLbdvs8xLLAGFlPDURon+W2D3cXgeY88ZPCQKsXxIl27TKmdFaNShkQsMrLAz0yD9wH8SyeVHk5JzznGuqKUU1gDeTjyA5LZU1XiXaCv7wH4uB2sB9APdyVVmtNG3CQUfHR5VvUyT5w11WFZ9QtPH64PyrC0noh9T7rUX4m4SXMJQmLHUtQTyVDAz3O3n0x86syx6r1U0G0rta5+7O1SGlJUrG7PYEH7quw/CfY1JoHjBqK3NL+E04kKQjcouuKUkJ8vJASOPMn1/EPcUbXThndcPfmr8/Zeqc4g0sbjzuQPMB7R8gPBR/TPh1JgNCVeI3wUdICyy4odRePVZ7JHy/xXqrxN01q+6SNCytzDbLgRHW55UvuJ48n9JBzgHv/atTq7WWrrxckvXolhpWVCG2yWminODweTykjJJwQfnUB8R9Jpu0MX20NlUlKcrQkcuAemP6h/ft7V5gijmeRM619jyKqYpheIYa2OodbTbLsLcBbQW303NzqbqY6h09Ls8tKdpejOKw06B3P9J9j/mpF9smRDtPhdpGxQcAyXf4hH9MdpKSPoS4k/lUI8IfFRqchrTmsHUKc4THmPdnMHhLhP4u2FevrzydX9qy9uXDVtqtYfS41Ag7tgVktuOLO4H2JShs/TFWKOmljrWslG1zfmq+Pdo34tQxNdu29+t7cOehVN1MtD33T1uiRoF4s9umtPTiqa7MirWppjagDpKQsKCuF5HblPfmobSumliEjcpXGtcWm4Up1jd7VcLFZo1utcS3uoU+++3FfecQCsoSkEOKJSodMkgcYUD9ItSlZjjEbcoRzsxuUpSle15SlKURKyxbLkWkui3yy2tIUlfRVgg9iDjtWJXU/wBiu/M32Nc9G3RFwccgsmXDfakvISlokJU2rYoAYUQU575UPQVWq53QRmQC9lLCxr3ZXG3r+FzAIUwnAiPk/wDhmvVNvktrjrnsyYkVxwIL62VYSM8ke+Bk4ruLXdnjNLLcf4orUrakKlOLyT9VGqM8bNA6pct8VTG+cEvKX0Vp6biQRwEAkpWP9KifcCqEOKiV4a4Wv1V51AO7LmEkjhb/ACVZOhZemLZphvT+ktQQI6CjCXWJCFulRxlZ5yVn+3ywK+43hHcpUht60X2G49u35kpU2QruORuzz9K5AuECdbpBjz4ciI8nu282UKH5GtppzWOqtOPtu2TUFygls5SlqQrZ+aD5SPkRVd2DOJLmSXvzH3WzwztPVYaC2AAA7iwN/mL+q6YcsOr9MXNpN4hXGP01+WQwEuFIUohZ3pCs5QtzAJ7qzXmsMvxyxCl3ZSjFksIacYzx1E9JGNuBuSkEnPBA54wYRZPtS65ahsQtQ2yz3xpsYU8ptTEhf1Uk7B/0V4ai+0PKmN5tOk40F7PKpEtT6f0SlH+apvwqqDtGg9brpm9vWvGeSEB3TY78LHnz3VqWHwq1bqtSZNwlRYaEApAdUFL2klR2oRxypRPJHJJrFvmkIGjXXWblqGKgqHLb7iGvzwTmufL/AOLniHeG1sOalmQ4yj/Igq6CQPbKcKUPkomoOtS3XCtalLWs5JJySTVuPBpCP6j7eC0mI9s62sBjNgw/xAAH3Pqpp4qQLONSNHT8lma7LyXW4qw4N+eMbc8nnj5fOok5AnoUQ5CkpI7hTSgf8VK9BaI1Tcr3bpTFsejRg+hfxMkFpvaCMkE8q+iQTXUOntNSbbMZauj8l9TpJSvzsEj6btxHPdQSfl725a5tIGxg5j46rQx0v6gOlfdo8P8AIXGbcCc4cNwpKz7JaUf/AKrzkx34zpaksuMuAZKHElJ/Q1+iGp2rPpnw7u2pZDN2lIt0ZT5ZanyMuYHA4UcDOMqxgDJPAr8+NQXWbfL1Lu9wdU7JlOlxaionGewGSTgDAHyAqahrXVVzlsB1VWohZFbK4k+FvuVg0pStgqyUpSiJSlKIldIfZ58TdB+HGj3Yq50cXWeQ7NdcjPlWQPK2ChB8qQT+alH1rm+lV6mnbUMyOJt0UsUpidmAv4rsrT3idprW+tYNrgz2nHXFlYCWnU52jIGVoA74FZHiRdLtB1JLXcGwYKHW0tIUkuR40VtBW66sjGFqCXcD3Laeea4+09e7pp+5IuNolriyUgpJACkrSe6VJIKVJOOUkEGrg0f46LTcEuaiiFvOApyO31W/b+WpQKRj+lRA9E+laapwx0bs0QzC23FbKGsY4fEcp9F0NZEaWn2xhnVdrl2gSLau4LbktJkxWmmumHlFpxKkp6anUAqLYBzkEjJGzuP2cfDi/Bc+NbrFIVvW2pTLbrA3oUULTiO8htJSpKkkBvIIIPasDSGs/DjW8Z2O7MivuzGWmJDkOWC4ptt3qBroubXyFEnIQ0cgkZOBiSaksFpU5Julj1RGtkuRI+NEK8smPHVM+Ecj9YtuJCjlRYcKcEFTOeCrIoUodGXG5aVmQyvN7Zuuh9dVW91+ydpRxZUy1LY57MXrYn9FxnD/AHrCY+yZpveCty6KGexvqMf/AAquzV0a7XV+ONOagZZt5hSILyI0oBxKXWwESGyBjqtrSnbngAr5ycVp7xYta3DTdpKdSptF5aD6Ji25LgZWFErbXtyrzhxDOU7ikIU8gEgg1gV0+n9RO7ZxjF/P8qLWT7K+hUIAlWmE4ByVSZkt9X/puMj+1bpGi/DHStqnXG3PWktWyD8W8q1RGEuNMHcOoHkgv48i+eqfun2reWm2WmNeL+m96gsimL210lpE0JebSuK008hsEZAUtkLGFd1KOM81jaue0nGtrM3Ul0uE95u3/suS88kWxqczubUd63i2hYy2SQleCHHBjarFSSyOmi+JxKxlla67WW8vufyqf11dpjc5UbT9olQprClJeTIa3vFaSVN+fKkqbcQ0+kL3HCtoODkVJdUahVYfDu0ai1TJYTKYIbeeCT/FG4oSvagHClDYohOQCSOwqB+J3jdpGGFw7AtqbjICISVKTkcDe6sJH5pDnbvVEa38StRaoi/APOIiW/ABYZyS4AcgLWfMoA844SDyAKkpqCWYNuzKOu6kfUsY27n5nctx5n8ei6aa+0PohVpegyLjAeZeQUONOQ5K0rSRgggt4II4wa5H1e3Zm9STf3ekKftanCuMVIUkpSedvm58vbJ74zWppW9pqGOmJLCdVrJqgyixACUpSrirpSlKIlKUoiUpSiJSlKIlSCya21lY2w3ZtV3y3tjjpx57raCPYpCsEfKo/SsFodoUBsp2nxf8RQjYvURfHu/DYdJ+pWgk0Hi7r8HKbxFSfdNrig/2aqCUqH9ND/YPkFMKiYCwefmVMpvip4jy0KbVrW9sNq+83FlKjoPyKW9oNRObLlTZCpE2S9JeV95x1wrUfqTzXjSpWsa3Rosoi4uNyUpSlelhKUpREpSlESlKURKUpREpSlESlKURKUpREpSlESlKURKUpREpSlESlKURKUpRF//Z" alt="" class="sg-foot-logo"><span>BCOC 2026 &bull; 40th Anniversary Conference &bull; Session Guide</span></div>
+</div>
+</div>
+
+<div class="page" data-label="Tuesday">
+<div class="sg-day-page">
+  <div class="sg-day-header"><div class="sg-day-num">Day 2</div><h2>Tuesday, August 4</h2><div class="sg-day-theme">Challenges and Innovation</div></div>
+  <div class="sg-day-body">
+  <div class="day-timeline">
+    <div class="day-timeline-head">Daily Schedule &mdash; Tuesday</div>
+    <div class="dt-row"><div class="dt-time">All Day</div><div class="dt-dot exhibit"></div><div class="dt-title">Vendor / Sponsor Exhibit Hall Open</div></div>
+    <div class="dt-row"><div class="dt-time">8:00 &ndash; 8:30 AM</div><div class="dt-dot meal"></div><div class="dt-title"><strong>Harmony Breakfast</strong><div class="dt-by">Hosted by BCOC</div> <span class="dt-tag">Sutphen *Gold / REV Fire Group *Platinum</span></div></div>
+    <div class="dt-row"><div class="dt-time">8:30 &ndash; 9:30 AM</div><div class="dt-dot keynote"></div><div class="dt-title"><strong>Leading Through What You Don't Know</strong> &middot; Chief John Alston, Fire Chief (Ret.), Vice-Chair BCOC<span class="dt-tag kn">KEYNOTE</span> <span class="dt-tag">FirstNet *Elite Premier</span></div></div>
+    <div class="dt-row"><div class="dt-time">9:30 &ndash; 9:35 AM</div><div class="dt-dot "></div><div class="dt-title">FirstNet Sponsor Presentation<div class="dt-by">FirstNet, Built with AT&amp;T &middot; Elite Premier Sponsor</div></div></div>
+    <div class="dt-row"><div class="dt-time">9:35 &ndash; 10:30 AM</div><div class="dt-dot "></div><div class="dt-title">Top 10 Moves to Use AI to Transform F&amp;ES &middot; Chief Steven Carter</div></div>
+    <div class="dt-row"><div class="dt-time">10:30 AM</div><div class="dt-dot "></div><div class="dt-title">Sponsor Presentation<div class="dt-by">Platinum Sponsor Representative</div></div></div>
+    <div class="dt-row"><div class="dt-time">10:30 &ndash; 10:45 AM</div><div class="dt-dot brk"></div><div class="dt-title">Break &mdash; Visit Vendor &amp; Sponsor Exhibit Hall</div></div>
+    <div class="dt-row"><div class="dt-time">10:50 &ndash; 11:30 AM</div><div class="dt-dot "></div><div class="dt-title">The KMP Mindset &middot; Dr. Kim McNair</div></div>
+    <div class="dt-row"><div class="dt-time">11:30 &ndash; 12:15 PM</div><div class="dt-dot "></div><div class="dt-title">Leadership with Confidence &middot; Captain Moses Jeffries, IV</div></div>
+    <div class="dt-row"><div class="dt-time">12:15 &ndash; 1:15 PM</div><div class="dt-dot meal"></div><div class="dt-title"><strong>Luncheon</strong> <span class="dt-tag">Atlantic Emergency *Platinum / MSA-Globe *Gold</span></div></div>
+    <div class="dt-row"><div class="dt-time">1:15 &ndash; 2:15 PM</div><div class="dt-dot keynote"></div><div class="dt-title"><strong>Mental Health Panel: Trauma, Healing, and Transformation</strong> &middot; Dr. I. David Daniels<span class="dt-tag kn">KEYNOTE</span></div></div>
+    <div class="dt-row"><div class="dt-time">2:15 &ndash; 2:30 PM</div><div class="dt-dot brk"></div><div class="dt-title">Book Signing: Dr. Daniels &mdash; "Psychosocial Hazards Are Real!"</div></div>
+    <div class="dt-row"><div class="dt-time">2:30 &ndash; 3:15 PM</div><div class="dt-dot "></div><div class="dt-title">Care Bias in Emergency Services &middot; Chief Mike Scott &amp; Chief Calvin Brown</div></div>
+    <div class="dt-row"><div class="dt-time">3:15 &ndash; 3:45 PM</div><div class="dt-dot "></div><div class="dt-title">CPSE Credentialing &middot; Chief Mike Higgins <span class="dt-tag">CPSE</span></div></div>
+    <div class="dt-row"><div class="dt-time">3:45 &ndash; 4:15 PM</div><div class="dt-dot "></div><div class="dt-title">Dollar Dollar Bill, Y'all: Strategic Grant Funding &middot; Chief Emanuel Washington Jr.</div></div>
+    <div class="dt-row"><div class="dt-time">4:15 &ndash; 4:30 PM</div><div class="dt-dot brk"></div><div class="dt-title">Daily Wrap-up &mdash; Visit Vendor Exhibit Hall</div></div>
+    <div class="dt-row"><div class="dt-time">7:00 &ndash; 10:00 PM</div><div class="dt-dot social"></div><div class="dt-title"><strong>Opening Reception Hospitality Night</strong> &middot; Dr. Jeff Buchanan <span class="dt-tag">FirstNet *Elite Premier</span><div class="dt-by">BCOC Hospitality Committee</div></div></div>
+  </div>
+
+<div id="sess-alston" class="sg-card sg-keynote">
+  <div class="sg-card-header">
+    <div class="sg-avatar"><img src="https://static.wixstatic.com/media/a6fc8b_0fab5953e0c740a0821e83b56c144c04~mv2.jpg/v1/fill/w_600,h_600,al_c,q_90/a6fc8b_0fab5953e0c740a0821e83b56c144c04~mv2.jpg" alt="" class="sg-avatar-img"></div>
+    <div class="sg-card-meta">
+      <div class="sg-card-title"><span class="sg-kn-badge">KEYNOTE</span> Leading Through What You Don't Know: Executive Blind Spots in Times of Challenge</div>
+      <div class="sg-card-speaker">Chief John Alston, Fire Chief (Ret.)</div>
+      <div class="sg-card-org">Vice-Chair, BCOC</div>
+    </div>
+  </div>
+  <div class="sg-card-body">
+    <div class="sg-time"><span class="sg-time-day">Tuesday</span><span class="sg-time-slot">8:30 &ndash; 9:30 AM</span></div>
+    <div class="sg-desc">Chief Alston opens Day 2 with an executive-level exploration of leadership blind spots — the assumptions, gaps in awareness, and cultural dynamics that can derail even seasoned chief officers. He shares lessons from decades of service and national leadership on how to surface what you don't know before it costs you.</div>
+    <div class="sg-obj">
+      <div class="sg-obj-label">Learning Objectives</div>
+      Identify executive blind spots that erode performance in times of crisis. Evaluate leadership decisions through a blind-spot lens. Apply reflective practices that surface hidden assumptions. Build command-team norms that welcome dissent and early warning.
+    </div>
+    <div class="sg-bio"><span class="sg-bio-label">Sponsored by</span>FirstNet &ndash; Elite Premier</div>
+  </div>
+</div>
+
+<div class="sg-card">
+  <div class="sg-card-header">
+    <div class="sg-avatar"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
+    <div class="sg-card-meta">
+      <div id="sess-carter" class="sg-card-title">The Top 10 Moves to Use AI to Transform Fire &amp; Emergency Services</div>
+      <div class="sg-card-speaker">Chief Steven Carter</div>
+      <div class="sg-card-org">City of Sunrise Fire Rescue</div>
+    </div>
+  </div>
+  <div class="sg-card-body">
+    <div class="sg-time"><span class="sg-time-day">Tuesday</span><span class="sg-time-slot">9:35 – 10:30 AM</span></div>
+    <div class="sg-desc">AI is an active force reshaping the landscape in which every department operates. Private sector AI investment is projected to reach $700 billion in 2026. The federal government has released a national AI Action Plan and rolled out NERIS, a new AI-enabled national fire data platform. This session provides chief officers with a structured, actionable framework for leading AI adoption, grounded in Everett Rogers' Diffusion of Innovation theory and the Technology-Organization-Environment adoption framework.</div>
+    <div class="sg-obj">
+      <div class="sg-obj-label">Learning Objectives</div>
+      Describe the current scale of AI investment and its implications for fire services. Identify three dimensions of AI adoption and assess departmental readiness. Explain the Diffusion of Innovation model and locate the fire service's position. Discuss strategic moves to initiate AI adoption within 30 days.
+    </div>
+    
+      <div class="sg-bio"><span class="sg-bio-label">About the Presenter</span>Fire service executive with deep expertise in emerging technology adoption and its impact on operational and strategic decision-making in municipal fire departments.</div>
+</div>
+</div>
+
+<div class="sg-card">
+  <div class="sg-card-header">
+    <div class="sg-avatar"><img src="https://static.wixstatic.com/media/a6fc8b_eac81d3a918e467c905598424f2e5659~mv2.jpeg" alt="" class="sg-avatar-img"></div>
+    
+    <div class="sg-card-meta">
+      <div id="sess-mcnair" class="sg-card-title">The KMP Mindset: Building Leadership Teams in Uncertain Times</div>
+      <div class="sg-card-speaker">Dr. Kim McNair</div>
+      <div class="sg-card-org">Kim McNair Productions LLC</div>
+    </div>
+  </div>
+  <div class="sg-card-body">
+    <div class="sg-time"><span class="sg-time-day">Tuesday</span><span class="sg-time-slot">10:50 – 11:30 AM</span></div>
+    <div class="sg-desc">Uncertain times demand a different level of leadership. This session explores how to build and sustain high-performing leadership teams using the KMP Mindset: Knowledge, Money, and Power. Participants will gain strategies to strengthen decision-making, maximize resources, and lead with authority and purpose.</div>
+    <div class="sg-obj">
+      <div class="sg-obj-label">Learning Objectives</div>
+      Apply the KMP Mindset to lead effectively in uncertain times. Strengthen decision-making under pressure. Build and align high-performing leadership teams. Lead with confidence, clarity, and influence.
+    </div>
+    
+      <div class="sg-bio"><span class="sg-bio-label">About the Presenter</span>Leadership strategist and founder of Kim McNair Productions LLC, focused on building resilient command teams across the fire and emergency services.</div>
+</div>
+</div>
+
+<div class="sg-card">
+  <div class="sg-card-header">
+    <div class="sg-avatar"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
+    <div class="sg-card-meta">
+      <div id="sess-jeffries" class="sg-card-title">Leadership with Confidence</div>
+      <div class="sg-card-speaker">Captain Moses Jeffries, IV</div>
+      <div class="sg-card-org">Fire Service Leadership</div>
+    </div>
+  </div>
+  <div class="sg-card-body">
+    <div class="sg-time"><span class="sg-time-day">Tuesday</span><span class="sg-time-slot">11:30 AM &ndash; 12:15 PM</span></div>
+    <div class="sg-desc">Captain Jeffries leads a working session on building and sustaining leadership confidence under pressure. The focus is practical: owning your authority, communicating decisions without hedging, and modeling the composure that officers and firefighters need from the person at the top.</div>
+    <div class="sg-obj">
+      <div class="sg-obj-label">Learning Objectives</div>
+      Define what confident leadership looks like at the company officer and chief level. Replace hesitation language with clear direction. Build the daily habits that underwrite confidence in high-stakes decisions. Coach subordinate officers to lead decisively within their scope.
+    </div>
+    <div class="sg-bio"><span class="sg-bio-label">About the Presenter</span>Captain Moses Jeffries, IV brings front-line operational experience and a teaching style rooted in mentorship, drawing on his work developing rising officers in the fire service.</div>
+  </div>
+</div>
+
+<div class="sg-card sg-keynote">
+  <div class="sg-card-header">
+    <div class="sg-avatar"><img src="https://static.wixstatic.com/media/a6fc8b_9a50ec1f21ce47a189e71df14a54ee00~mv2.jpg" alt="" class="sg-avatar-img"></div>
+    <div class="sg-card-meta">
+      <div id="sess-daniels" class="sg-card-title"><span class="sg-kn-badge">KEYNOTE</span> Mental Health Panel: Trauma, Healing, and Transformation</div>
+      <div class="sg-card-speaker">Dr. I. David Daniels, PhD, CSD, VPS</div>
+      <div class="sg-card-org">Founder &amp; CEO, ID2 Solutions</div>
+    </div>
+  </div>
+  <div class="sg-card-body">
+    <div class="sg-time"><span class="sg-time-day">Tuesday</span><span class="sg-time-slot">1:15 – 2:15 PM</span></div>
+    <div class="sg-desc">This keynote explores the lived experience of Black executive leadership in the United States. Dr. Daniels speaks candidly about the challenges and cumulative trauma that often accompany leadership in environments shaped by inequity, the importance of recognizing and naming that trauma, and the healing practices that allow leaders to move forward with clarity, strength, and purpose.</div>
+    <div class="sg-obj">
+      <div class="sg-obj-label">Learning Objectives</div>
+      Recognize and name the cumulative trauma associated with executive leadership. Identify healing practices that restore clarity, strength, and purpose. Understand how personal healing creates healthier organizational environments. Develop frameworks for sustaining leadership resilience.
+    </div>
+    <div class="sg-bio"><span class="sg-bio-label">About the Presenter</span>Author of "Psychosocial Hazards Are Real!" Book signing available during breaks.</div>
+  </div>
+</div>
+
+<div class="sg-card">
+  <div class="sg-card-header">
+    <div class="sg-avatar"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
+    <div class="sg-card-meta">
+      <div id="sess-scott" class="sg-card-title">Workshop: Care Bias in Emergency Services</div>
+      <div class="sg-card-speaker">Chief Mike Scott &amp; Chief Calvin Brown</div>
+      <div class="sg-card-org">Grand Fire Protection District</div>
+    </div>
+  </div>
+  <div class="sg-card-body">
+    <div class="sg-time"><span class="sg-time-day">Tuesday</span><span class="sg-time-slot">2:30 &ndash; 3:30 PM</span></div>
+    <div class="sg-desc">Care bias in EMS refers to the unintentional or intentional influence of factors like race, ethnicity, socioeconomic status, and other social determinants on the quality of care that patients receive. This interactive workshop offers strategies to reduce disparities and highlights best practices for promoting equitable care delivery.</div>
+    <div class="sg-obj">
+      <div class="sg-obj-label">Learning Objectives</div>
+      Define care bias and how it manifests in emergency medical services. Recognize the impact on patient outcomes including disparities in treatment and misdiagnosis. Examine root causes including cultural stereotypes, personal biases, and systemic inequalities. Identify practical strategies to combat care bias using standardized assessment tools and cultural competence training.
+    </div>
+    
+      <div class="sg-bio"><span class="sg-bio-label">About the Presenter</span>Senior officers at Grand Fire Protection District leading research and field work on care bias, equitable pre-hospital care, and departmental culture.</div>
+</div>
+</div>
+
+<div class="sg-card">
+  <div class="sg-card-header">
+    <div class="sg-avatar"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
+    <div class="sg-card-meta">
+      <div id="sess-washington" class="sg-card-title">Strategic Grant Funding for the Modern Fire Service</div>
+      <div class="sg-card-speaker">Chief Emanuel Washington Jr.</div>
+      <div class="sg-card-org">Orlando Fire Department</div>
+    </div>
+  </div>
+  <div class="sg-card-body">
+    <div class="sg-time"><span class="sg-time-day">Tuesday</span><span class="sg-time-slot">3:45 &ndash; 4:15 PM</span></div>
+    <div class="sg-desc">In today's resource-constrained environment, fire service leaders must think beyond traditional funding streams. This session provides a practical, executive-level approach to securing and managing grant funding through AFG, SAFER, SHSGP, and UASI programs. This is not just about writing grants: it is about leveraging funding as a strategic leadership tool.</div>
+    <div class="sg-obj">
+      <div class="sg-obj-label">Learning Objectives</div>
+      Identify key fire service funding programs and their strategic uses. Align departmental needs with grant priorities and scoring criteria. Develop stronger grant narratives that improve funding success rates. Apply strategies for post-award management, compliance, and sustainability.
+    </div>
+    <div class="sg-bio"><span class="sg-bio-label">About the Presenter</span>Chief Washington has presented at IAFC HazMat Conference, FFCA Executive Development Seminar, National Fire Academy EFO Leadership Forum, and City of Orlando Command Symposiums.</div>
+  </div>
+</div>
+
+<div class="sg-card">
+  <div class="sg-card-header">
+    <div class="sg-avatar"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
+    <div class="sg-card-meta">
+      <div id="sess-skrine" class="sg-card-title">"Shaping the Standard" &mdash; Panel: Procurement Strategies (Apparatus) <span style="display:block;font-size:12px;font-weight:700;color:#c8962e;letter-spacing:2px;text-transform:uppercase;margin-top:4px">Sponsored by The Rev Group *Platinum</span></div>
+      <div class="sg-card-speaker">Chief Ron Skrine</div>
+      <div class="sg-card-org">Battalion Chief (Administration), Valdosta Fire Department</div>
+    </div>
+  </div>
+  <div class="sg-card-body">
+    <div class="sg-time"><span class="sg-time-day">Wednesday</span><span class="sg-time-slot">9:30 &ndash; 10:15 AM</span></div>
+    <div class="sg-desc">This panel tackles the strategic side of fire service procurement — developing specifications for apparatus, PPE, SCBA, and uniforms; managing vendor relationships; aligning purchases with long-range city goals; and building replacement cycles that hold up under budget scrutiny. Panelists share lessons learned from multi-million-dollar procurements and the organizational planning that turns a purchase into a standard.</div>
+    <div class="sg-obj">
+      <div class="sg-obj-label">Learning Objectives</div>
+      Translate long-range departmental goals into apparatus, PPE, and equipment specifications. Structure vendor management and procurement processes that withstand scrutiny. Align capital purchases with ISO, accreditation, and operational readiness priorities. Apply lessons from modernization projects such as personnel management systems, inventory control, and keyless entry.
+    </div>
+    <div class="sg-bio"><span class="sg-bio-label">About the Presenter</span>Chief Ronald D. Skrine Sr., MA, is Battalion Chief of Administration with the Valdosta Fire Department, where he has served more than 26 unbroken years, including 12 years on the Executive Command Staff. He is an Adjunct Fire Science &amp; Emergency Management Instructor at Purdue University and has served as BCOC's Educational Liaison since 2019. Certifications include Fire Officer IV, Incident Safety Officer, and Fire Instructor I &amp; II.</div>
+  </div>
+</div>
+
+  </div>
+  <div class="sg-foot"><img src="data:image/jpeg;base64,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" alt="" class="sg-foot-logo"><span>BCOC 2026 &bull; 40th Anniversary Conference &bull; Session Guide</span></div>
+</div>
+</div>
+
+<div class="page" data-label="Wednesday">
+<div class="sg-day-page">
+  <div class="sg-day-header"><div class="sg-day-num">Day 3</div><h2>Wednesday, August 5</h2><div class="sg-day-theme">The Future of Leadership</div></div>
+  <div class="sg-day-body">
+  <div class="day-timeline">
+    <div class="day-timeline-head">Daily Schedule &mdash; Wednesday</div>
+    <div class="dt-row"><div class="dt-time">All Day</div><div class="dt-dot exhibit"></div><div class="dt-title">Vendor / Sponsor Exhibit Hall Open</div></div>
+    <div class="dt-row"><div class="dt-time">8:00 &ndash; 8:30 AM</div><div class="dt-dot meal"></div><div class="dt-title"><strong>Networking Breakfast</strong><div class="dt-by">Hosted by BCOC</div></div></div>
+    <div class="dt-row"><div class="dt-time">8:30 &ndash; 9:30 AM</div><div class="dt-dot keynote"></div><div class="dt-title"><strong>Global Perspectives on Executive Fire Service Leadership</strong> &middot; Dr. Reggie Freeman<span class="dt-tag kn">KEYNOTE</span> <span class="dt-tag">The Rev Group *Platinum</span></div></div>
+    <div class="dt-row"><div class="dt-time">9:30 &ndash; 10:15 AM</div><div class="dt-dot "></div><div class="dt-title">"Shaping the Standard" Panel: Procurement Strategies (Apparatus) &middot; Chief Ron Skrine <span class="dt-tag">The Rev Group *Platinum</span></div></div>
+    <div class="dt-row"><div class="dt-time">10:15 &ndash; 10:30 AM</div><div class="dt-dot brk"></div><div class="dt-title">Coffee Break &mdash; Visit Vendor Exhibit Hall</div></div>
+    <div class="dt-row"><div class="dt-time">10:15 &ndash; 11:00 AM</div><div class="dt-dot "></div><div class="dt-title">From Academy to Degree &middot; Dr. Kellie McElroy-Hooper &bull; Chief Antonio Burden, Fire Chief (Augusta FD)</div></div>
+    <div class="dt-row"><div class="dt-time">11:00 &ndash; 11:45 AM</div><div class="dt-dot "></div><div class="dt-title">From LeaderShip to Leader of ShipS&trade; &middot; Dr. Joseph Danao II</div></div>
+    <div class="dt-row"><div class="dt-time">11:45 &ndash; 12:15 PM</div><div class="dt-dot brk"></div><div class="dt-title">Networking Break &mdash; Visit Vendor Exhibit Hall</div></div>
+    <div class="dt-row"><div class="dt-time">12:00 &ndash; 1:00 PM</div><div class="dt-dot meal"></div><div class="dt-title"><strong>Lunch</strong> <span class="dt-tag">Atlantic Emergency *Platinum</span></div></div>
+    <div class="dt-row"><div class="dt-time">12:00 &ndash; 1:30 PM</div><div class="dt-dot social"></div><div class="dt-title">Spouse / Partners Luncheon<div class="dt-by">BCOC Spouses &amp; Partners Committee</div></div></div>
+    <div class="dt-row"><div class="dt-time">2:30 &ndash; 3:30 PM</div><div class="dt-dot keynote"></div><div class="dt-title"><strong>Financial "Hot Wash" (Protecting Your Legacy)</strong> &middot; Chief Queen Anunay &bull; Chief Wendell Catlet (Las Vegas FD)<span class="dt-tag kn">KEYNOTE</span></div></div>
+    <div class="dt-row"><div class="dt-time">3:45 &ndash; 4:30 PM</div><div class="dt-dot "></div><div class="dt-title">From Strategy to Execution &middot; Chief Demond Simmons</div></div>
+    <div class="dt-row"><div class="dt-time">4:30 &ndash; 5:00 PM</div><div class="dt-dot brk"></div><div class="dt-title">Networking Break &mdash; Visit Vendor Exhibit Hall</div></div>
+    <div class="dt-row"><div class="dt-time">7:00 &ndash; 10:00 PM</div><div class="dt-dot social"></div><div class="dt-title"><strong>Evening Activities / Evening Buffet</strong><div class="dt-by">BCOC Social Committee</div> <span class="dt-tag">Sutphen *Gold</span></div></div>
+  </div>
+
+<div class="sg-card sg-keynote">
+  <div class="sg-card-header">
+    <div class="sg-avatar"><img src="https://static.wixstatic.com/media/a6fc8b_9440fd41aebd45c384ba8b4828dded6a~mv2.png" alt="" class="sg-avatar-img"></div>
+    <div class="sg-card-meta">
+      <div id="sess-freeman" class="sg-card-title"><span class="sg-kn-badge">KEYNOTE</span> Global Perspectives on Executive Fire Service Leadership <span style="display:block;font-size:12px;font-weight:700;color:#c8962e;letter-spacing:2px;text-transform:uppercase;margin-top:4px">Sponsored by The Rev Group *Platinum</span></div>
+      <div class="sg-card-speaker">Dr. Reggie Freeman, Fire Chief (Ret.)</div>
+      <div class="sg-card-org">Executive Director, Fire &amp; EMS &middot; NEOM &middot; Founder, The Freeman Group</div>
+    </div>
+  </div>
+  <div class="sg-card-body">
+    <div class="sg-time"><span class="sg-time-day">Wednesday</span><span class="sg-time-slot">8:30 – 9:30 AM</span></div>
+    <div class="sg-desc">This keynote examines fire service leadership through an international lens, drawing on global best practices and cross-cultural leadership strategies. Dr. Freeman explores how executive fire service leaders can learn from international models, adapt proven approaches from other countries, and position their organizations within a broader global context of public safety innovation.</div>
+    <div class="sg-obj">
+      <div class="sg-obj-label">Learning Objectives</div>
+      Examine international best practices in fire service leadership and operations. Identify cross-cultural leadership strategies applicable to U.S. fire departments. Analyze global trends shaping the future of emergency services. Develop a broader perspective on executive leadership that incorporates international insights.
+    </div>
+    
+      <div class="sg-bio"><span class="sg-bio-label">About the Presenter</span>Fire service executive and scholar offering a global perspective on executive leadership, doctrine development, and institutional reform.</div>
+</div>
+</div>
+
+<div class="sg-card">
+  <div class="sg-card-header">
+    <div class="sg-avatar"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
+    <div class="sg-card-meta">
+      <div id="sess-mcelroy" class="sg-card-title">From Academy to Degree: A Workforce Model for the Modern Fire Service</div>
+      <div class="sg-card-speaker">Dr. Kellie McElroy-Hooper &amp; Chief Antonio Burden</div>
+      <div class="sg-card-org">Augusta Technical College / Augusta Fire Department</div>
+    </div>
+  </div>
+  <div class="sg-card-body">
+    <div class="sg-time"><span class="sg-time-day">Wednesday</span><span class="sg-time-slot">10:15 – 11:00 AM</span></div>
+    <div class="sg-desc">What if every hour of fire academy training also moved firefighters toward a degree and a leadership position without adding cost or time? This presentation highlights a pioneering partnership in Georgia that serves as a national model for aligning fire academy training with higher education through Credit for Prior Learning.</div>
+    <div class="sg-obj">
+      <div class="sg-obj-label">Learning Objectives</div>
+      Examine how career departments can align training with academic pathways. Examine how Credit for Prior Learning accelerates degree attainment. Assess how integrated models strengthen recruitment, improve retention, and expand access. Develop a practical, scalable implementation strategy.
+    </div>
+    <div class="sg-bio"><span class="sg-bio-label">About the Presenter</span>Dr. McElroy-Hooper is Dean at Augusta Technical College with three decades of public safety experience. Chief Burden oversees an ISO Class 1 department with over 300 personnel and is a U.S. Marine Corps veteran.</div>
+  </div>
+</div>
+
+<div class="sg-card">
+  <div class="sg-card-header">
+    <div class="sg-avatar"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
+    <div class="sg-card-meta">
+      <div id="sess-danao" class="sg-card-title">From LeaderShip to Leader of ShipS&trade;</div>
+      <div class="sg-card-speaker">Dr. Joseph Danao II, Ed.D.</div>
+      <div class="sg-card-org">Eastern Connecticut EMS Council</div>
+    </div>
+  </div>
+  <div class="sg-card-body">
+    <div class="sg-time"><span class="sg-time-day">Wednesday</span><span class="sg-time-slot">11:00 – 11:45 AM</span></div>
+    <div class="sg-desc">This course focuses on practical life lessons that develop leadership at every organizational level. Emphasizing deliberate growth, strong values, and learning from challenge and failure, it equips fire and EMS professionals with the mindset and skills needed to lead with confidence, purpose, and effectiveness.</div>
+    <div class="sg-obj">
+      <div class="sg-obj-label">Learning Objectives</div>
+      Evaluate current tactical and operational leadership traits. Analyze three learning theories using Jerome Bruner's constructivist approach. Apply principles of strategic thinking used by senior military and civilian leaders. Create a roadmap for senior leadership incorporating Executive Leadership Theory.
+    </div>
+    <div class="sg-bio"><span class="sg-bio-label">About the Presenter</span>Dr. Danao brings 42 years of Firefighter/EMS service, 33 years of military service including deployment to Afghanistan (Bronze Star Medal), and a Doctor of Education in Healthcare Executive Leadership (2026).</div>
+  </div>
+</div>
+
+<div class="sg-card sg-keynote">
+  <div class="sg-card-header">
+    <div class="sg-avatar"><img src="https://static.wixstatic.com/media/a6fc8b_9a50ec1f21ce47a189e71df14a54ee00~mv2.jpg" alt="" class="sg-avatar-img"></div>
+    <div class="sg-card-meta">
+      <div id="sess-daniels2" class="sg-card-title"><span class="sg-kn-badge">KEYNOTE</span> Healing While Leading: Mental Health and Resilience for Black Executives</div>
+      <div class="sg-card-speaker">Dr. I. David Daniels (Moderator)</div>
+      <div class="sg-card-org">ID2 Solutions with Atlanta-based Mental Health Professionals</div>
+    </div>
+  </div>
+  <div class="sg-card-body">
+    <div class="sg-time"><span class="sg-time-day">Wednesday</span><span class="sg-time-slot">1:30 – 2:30 PM</span></div>
+    <div class="sg-desc">This panel features mental health professionals who specialize in supporting individuals and organizations through trauma, healing, and transformation. Their expertise complements the conference's leadership focus and offers attendees practical, culturally grounded insights into sustaining well-being and leadership effectiveness.</div>
+    <div class="sg-obj">
+      <div class="sg-obj-label">Learning Objectives</div>
+      Understand the intersection of mental health and executive leadership. Identify culturally grounded healing practices for Black leaders. Develop strategies for sustaining personal well-being while leading organizations. Build frameworks for creating psychologically safe organizational cultures.
+    </div>
+    
+      <div class="sg-bio"><span class="sg-bio-label">About the Presenter</span>Founder and CEO of ID2 Solutions; author of "Psychosocial Hazards Are Real!" and a national voice on mental health and resilience for Black executives.</div>
+</div>
+</div>
+
+<div class="sg-card">
+  <div class="sg-card-header">
+    <div class="sg-avatar"><img src="https://static.wixstatic.com/media/a6fc8b_23a9a7e530e34b69a741b91bbc1f7b20~mv2.jpeg" alt="" class="sg-avatar-img"></div>
+    
+    <div class="sg-card-meta">
+      <div id="sess-anunay" class="sg-card-title">Financial "Hot Wash" (Protecting Your Legacy)</div>
+      <div class="sg-card-speaker">Chief Queen Anunay &amp; Chief Wendell Catlet</div>
+      <div class="sg-card-org">Las Vegas Fire &amp; Rescue</div>
+    </div>
+  </div>
+  <div class="sg-card-body">
+    <div class="sg-time"><span class="sg-time-day">Wednesday</span><span class="sg-time-slot">2:30 – 3:30 PM</span></div>
+    <div class="sg-desc">This session helps first responders make informed decisions regarding payroll contributions, real estate investments, life insurance options, and retirement planning. First responders are often the main providers within their family structure, requiring financial strategies beyond the average salary.</div>
+    <div class="sg-obj">
+      <div class="sg-obj-label">Learning Objectives</div>
+      Define your legacy and long-term financial goals. Understand payroll contributions: save now, pay later. Learn to use life insurance as an investment vehicle. Explore real estate investment strategies. Develop your exit strategy with comprehensive retirement planning.
+    </div>
+    
+      <div class="sg-bio"><span class="sg-bio-label">About the Presenter</span>Senior chief officers at Las Vegas Fire &amp; Rescue with combined decades of experience in departmental finance, operations, and legacy-protection strategy.</div>
+</div>
+</div>
+
+<div class="sg-card">
+  <div class="sg-card-header">
+    <div class="sg-avatar"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
+    <div class="sg-card-meta">
+      <div id="sess-simmons" class="sg-card-title">From Strategy to Execution: Turning Vision into Results</div>
+      <div class="sg-card-speaker">Chief Demond Simmons</div>
+      <div class="sg-card-org">Oakland Fire Department</div>
+    </div>
+  </div>
+  <div class="sg-card-body">
+    <div class="sg-time"><span class="sg-time-day">Wednesday</span><span class="sg-time-slot">3:45 – 4:30 PM</span></div>
+    <div class="sg-desc">This course explores how to translate strategic vision into executable plans, concrete initiatives, and measurable outcomes. Participants will examine why well-intended strategies often fail in implementation and develop practical tools to close the gap between plans and results.</div>
+    <div class="sg-obj">
+      <div class="sg-obj-label">Learning Objectives</div>
+      Discuss common strategic goals across fire service organizations. Review processes and technologies that assist with executing strategic plans. Ensure collaboration and accountability in alignment with the strategic plan. Understand the importance of execution and performance-based decision-making.
+    </div>
+    
+      <div class="sg-bio"><span class="sg-bio-label">About the Presenter</span>Fire Chief at Oakland Fire Department; known for translating strategic vision into executable, measurable outcomes across large metropolitan agencies.</div>
+</div>
+</div>
+
+  </div>
+  <div class="sg-foot"><img src="data:image/jpeg;base64,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" alt="" class="sg-foot-logo"><span>BCOC 2026 &bull; 40th Anniversary Conference &bull; Session Guide</span></div>
+</div>
+</div>
+
+<div class="page" data-label="Thursday">
+<div class="sg-day-page">
+  <div class="sg-day-header"><div class="sg-day-num">Day 4</div><h2>Thursday, August 6</h2><div class="sg-day-theme">Membership and Development</div></div>
+  <div class="sg-day-body">
+  <div class="day-timeline">
+    <div class="day-timeline-head">Daily Schedule &mdash; Thursday</div>
+    <div class="dt-row"><div class="dt-time">All Day</div><div class="dt-dot exhibit"></div><div class="dt-title">Vendor / Sponsor Exhibit Hall Open</div></div>
+    <div class="dt-row"><div class="dt-time">8:30 &ndash; 9:30 AM</div><div class="dt-dot keynote"></div><div class="dt-title"><strong>The Fire Service in 2026: Forging the Future</strong> &middot; Chief John Butler<span class="dt-tag kn">KEYNOTE</span></div></div>
+    <div class="dt-row"><div class="dt-time">9:30 &ndash; 10:00 AM</div><div class="dt-dot "></div><div class="dt-title">Revenue Generation &middot; William Bryant</div></div>
+    <div class="dt-row"><div class="dt-time">10:00 &ndash; 10:45 AM</div><div class="dt-dot "></div><div class="dt-title">Financial Access and Acumen &middot; Jere Hawkins</div></div>
+    <div class="dt-row"><div class="dt-time">10:45 &ndash; 11:00 AM</div><div class="dt-dot brk"></div><div class="dt-title">Coffee &amp; Networking Break</div></div>
+    <div class="dt-row"><div class="dt-time">11:00 &ndash; 11:30 AM</div><div class="dt-dot "></div><div class="dt-title">Developing an Explorer Program &middot; Carlos Coronado</div></div>
+    <div class="dt-row"><div class="dt-time">11:30 &ndash; 12:00 PM</div><div class="dt-dot "></div><div class="dt-title">Marketing Your Vision &middot; Maisha Land</div></div>
+    <div class="dt-row"><div class="dt-time">12:00 &ndash; 1:30 PM</div><div class="dt-dot meal"></div><div class="dt-title"><strong>Sponsor Appreciation Luncheon</strong> <span class="dt-tag">Atlantic Emergency *Platinum</span></div></div>
+    <div class="dt-row"><div class="dt-time">1:30 &ndash; 2:30 PM</div><div class="dt-dot keynote"></div><div class="dt-title"><strong>The Seven Pillars of Modern Leadership</strong> &middot; Dr. Hezedean Smith<span class="dt-tag kn">KEYNOTE</span> <span class="dt-tag">The Rev Group *Platinum</span></div></div>
+    <div class="dt-row"><div class="dt-time">2:30 &ndash; 4:30 PM</div><div class="dt-dot ceremony"></div><div class="dt-title"><strong>BCOC Board Meeting</strong><div class="dt-by">BCOC Board of Directors</div><div class="dt-by">Bylaws Update &bull; Strategic Plan Draft &bull; Elections Open</div><div class="dt-by">Extended Q&amp;A, Member Networking &amp; Closing Remarks &middot; Dr. Hezedean Smith, BCOC Chair</div></div></div>
+    <div class="dt-row"><div class="dt-time">7:00 &ndash; 10:00 PM</div><div class="dt-dot social"></div><div class="dt-title"><strong>Comedy Showcase + Karaoke Night</strong> &middot; Michael "Tight Mike" Randolph &amp; Friends <span class="dt-tag">Divine 9 &middot; FirstNet *Elite Premier</span><div class="dt-by">BCOC Social Committee</div></div></div>
+  </div>
+
+<div class="sg-card sg-keynote">
+  <div class="sg-card-header">
+    <div class="sg-avatar"><img src="https://static.wixstatic.com/media/a6fc8b_a926eb075afd4f1399a73e31ff074b1f~mv2.jpg" alt="" class="sg-avatar-img"></div>
+    <div class="sg-card-meta">
+      <div id="sess-butler" class="sg-card-title"><span class="sg-kn-badge">KEYNOTE</span> The Fire Service in 2026: Forging the Future</div>
+      <div class="sg-card-speaker">Chief John Butler</div>
+      <div class="sg-card-org">Metro Chiefs Chair</div>
+    </div>
+  </div>
+  <div class="sg-card-body">
+    <div class="sg-time"><span class="sg-time-day">Thursday</span><span class="sg-time-slot">8:30 – 9:30 AM</span></div>
+    <div class="sg-desc">This keynote directly addresses the conference theme, examining the evolving landscape of fire and emergency services and the strategic leadership required to navigate current and future challenges. Chief Butler draws on extensive executive leadership experience to outline a vision for where the fire service must go and how today's leaders can prepare their organizations for what lies ahead.</div>
+    <div class="sg-obj">
+      <div class="sg-obj-label">Learning Objectives</div>
+      Assess the current state of the fire service and identify emerging challenges. Develop strategic approaches to organizational transformation. Build frameworks for sustainable leadership in evolving environments. Align departmental priorities with national trends and community expectations.
+    </div>
+    
+      <div class="sg-bio"><span class="sg-bio-label">About the Presenter</span>Chair of the IAFC Metro Chiefs and nationally recognized metro fire service leader setting the agenda for the 2026 fire service.</div>
+</div>
+</div>
+<div class="sg-card">
+  <div class="sg-card-header">
+    <div class="sg-avatar"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
+    <div class="sg-card-meta">
+      <div id="sess-bryant" class="sg-card-title">Revenue Generation</div>
+      <div class="sg-card-speaker">William Bryant</div>
+      <div class="sg-card-org">Mobile Area Council, Scouting America</div>
+    </div>
+  </div>
+  <div class="sg-card-body">
+    <div class="sg-time"><span class="sg-time-day">Thursday</span><span class="sg-time-slot">9:30 – 10:00 AM</span></div>
+    <div class="sg-desc">This session focuses on building a diverse, sustainable funding model through a combination of philanthropic gifts, unit sales, and fee-for-service activities. The approach emphasizes a planned system where revenue is strategically aligned with program goals to ensure long-term organizational sustainability.</div>
+    <div class="sg-obj">
+      <div class="sg-obj-label">Learning Objectives</div>
+      Recognize the importance of volunteer and professional relationships in fundraising. Conduct and review a SWOT Analysis for your organization. Understand how to cultivate major gifts and the four types of asking styles. Participate in a donor meeting simulation. Create a strategy memo and prepare to close the deal.
+    </div>
+    <div class="sg-bio"><span class="sg-bio-label">About the Presenter</span>William Bryant has presented at the Association of Fundraising Professionals International Conference, Cary School of Philanthropy at Auburn University, and the Community Foundation of South Alabama.</div>
+  </div>
+</div>
+<div class="sg-card">
+  <div class="sg-card-header">
+    <div class="sg-avatar"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
+    <div class="sg-card-meta">
+      <div id="sess-hawkins" class="sg-card-title">Financial Access and Acumen</div>
+      <div class="sg-card-speaker">Jere Hawkins</div>
+      <div class="sg-card-org"></div>
+    </div>
+  </div>
+  <div class="sg-card-body">
+    <div class="sg-time"><span class="sg-time-day">Thursday</span><span class="sg-time-slot">10:00 – 10:45 AM</span></div>
+    <div class="sg-desc">This session equips fire service leaders with practical financial literacy tools and strategies for improving their personal and organizational financial health. Topics include understanding financial instruments, building credit, accessing capital, and developing the financial acumen needed for effective departmental budget management and personal wealth building.</div>
+    <div class="sg-obj">
+      <div class="sg-obj-label">Learning Objectives</div>
+      Understand key financial instruments and their applications. Develop strategies for improving personal and organizational financial health. Build financial literacy skills relevant to fire service leadership. Apply financial planning principles to departmental budget management.
+    </div>
+    
+      <div class="sg-bio"><span class="sg-bio-label">About the Presenter</span>Financial services professional specializing in access, literacy, and acumen for fire service leaders navigating municipal and personal finance.</div>
+</div>
+</div>
+<div class="sg-card">
+  <div class="sg-card-header">
+    <div class="sg-avatar"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
+    <div class="sg-card-meta">
+      <div id="sess-coronado" class="sg-card-title">Developing an Explorer Program</div>
+      <div class="sg-card-speaker">Carlos Coronado</div>
+      <div class="sg-card-org">Scouting America</div>
+    </div>
+  </div>
+  <div class="sg-card-body">
+    <div class="sg-time"><span class="sg-time-day">Thursday</span><span class="sg-time-slot">11:00 – 11:30 AM</span></div>
+    <div class="sg-desc">This session provides a practical roadmap for establishing and growing a Fire Explorer program within your department. Explorer programs serve as a pipeline for recruiting diverse, community-connected future firefighters while providing young people with mentorship, career exposure, and leadership development opportunities.</div>
+    <div class="sg-obj">
+      <div class="sg-obj-label">Learning Objectives</div>
+      Understand the structure and benefits of a Fire Explorer program. Identify steps to launch or expand an Explorer post within your department. Develop recruitment strategies that reach diverse youth populations. Build partnerships between fire departments and community organizations.
+    </div>
+    
+      <div class="sg-bio"><span class="sg-bio-label">About the Presenter</span>Scouting America leader with extensive experience developing Explorer programs that create career pathways for inner-city youth into the fire service.</div>
+</div>
+</div>
+<div class="sg-card">
+  <div class="sg-card-header">
+    <div class="sg-avatar"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
+    <div class="sg-card-meta">
+      <div id="sess-land" class="sg-card-title">Marketing Your Vision</div>
+      <div class="sg-card-speaker">Maisha Land</div>
+      <div class="sg-card-org"></div>
+    </div>
+  </div>
+  <div class="sg-card-body">
+    <div class="sg-time"><span class="sg-time-day">Thursday</span><span class="sg-time-slot">11:30 – 12:00 PM</span></div>
+    <div class="sg-desc">Effective leadership requires the ability to communicate and market your strategic vision to stakeholders, elected officials, community members, and your own personnel. This session covers branding, messaging, social media strategy, and public relations techniques that help fire service leaders build support for their initiatives and elevate their department's profile.</div>
+    <div class="sg-obj">
+      <div class="sg-obj-label">Learning Objectives</div>
+      Develop a clear and compelling vision statement for your department. Create effective messaging strategies for diverse audiences. Leverage social media and digital platforms to build community engagement. Apply marketing principles to build support for departmental initiatives.
+    </div>
+    
+      <div class="sg-bio"><span class="sg-bio-label">About the Presenter</span>Marketing and communications strategist helping public-service leaders articulate and advance organizational vision.</div>
+</div>
+</div>
+
+<div class="sg-card sg-keynote">
+  <div class="sg-card-header">
+    <div class="sg-avatar"><img src="https://static.wixstatic.com/media/a6fc8b_a17ae2e4f9cb4a5ba7d54416cec82ffd~mv2.png" alt="" class="sg-avatar-img"></div>
+    <div class="sg-card-meta">
+      <div id="sess-smith" class="sg-card-title"><span class="sg-kn-badge">KEYNOTE</span> The Seven Pillars of Modern Leadership</div>
+      <div class="sg-card-speaker">Dr. Hezedean Smith, Fire Chief (Ret.)</div>
+      <div class="sg-card-org">BCOC Chair / GESCG CEO</div>
+    </div>
+  </div>
+  <div class="sg-card-body">
+    <div class="sg-time"><span class="sg-time-day">Thursday</span><span class="sg-time-slot">1:30 – 2:30 PM</span></div>
+    <div class="sg-desc">The Seven Pillars of Leadership are adaptable to any leadership ecosystem. This presentation connects leadership principles to everyday fire service functions including budgeting, personnel management, and interdepartmental coordination, demonstrating how disciplined, ethical leadership strengthens operations and community confidence.</div>
+    <div class="sg-obj">
+      <div class="sg-obj-label">Learning Objectives</div>
+      Translate the NEMSMA Seven Pillars into fire department leadership across task management, leading others, innovation, and social responsibility. Implement components to enhance teamwork and resilience. Foster continuous learning and data-driven performance improvement. Demonstrate adaptive decision-making and psychological safety within teams.
+    </div>
+    
+      <div class="sg-bio"><span class="sg-bio-label">About the Presenter</span>BCOC Chair and CEO of GESCG; retired fire chief, educator, and Purdue doctoral researcher focused on executive fire-service leadership.</div>
+</div>
+</div>
+  </div>
+  <div class="sg-foot"><img src="data:image/jpeg;base64,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" alt="" class="sg-foot-logo"><span>BCOC 2026 &bull; 40th Anniversary Conference &bull; Session Guide</span></div>
+</div>
+</div>
+</div>
+
+<div class="page" data-label="Friday">
+<div class="sg-day-page">
+  <div class="sg-day-header"><div class="sg-day-num">Day 5</div><h2>Friday, August 7</h2><div class="sg-day-theme">Closing &amp; Mentorship</div></div>
+  <div class="sg-day-body">
+  <div class="day-timeline">
+    <div class="day-timeline-head">Daily Schedule &mdash; Friday</div>
+    <div class="dt-row"><div class="dt-time">8:00 &ndash; 9:30 AM</div><div class="dt-dot meal"></div><div class="dt-title"><strong>Harmony Breakfast</strong> <span class="dt-tag">Sponsor TBD</span></div></div>
+    <div class="dt-row"><div class="dt-time">9:30 &ndash; 11:00 AM</div><div class="dt-dot keynote"></div><div class="dt-title"><strong>Special Presentation (Closing Keynote)</strong><div class="dt-by">Closing Keynote &middot; BCOC Closing Speaker</div><span class="dt-tag kn">KEYNOTE</span></div></div>
+    <div class="dt-row"><div class="dt-time">10:00 AM &ndash; 12:00 PM</div><div class="dt-dot "></div><div class="dt-title">Open Assessment Center Mentoring &middot; BCOC Board</div></div>
+    <div class="dt-row"><div class="dt-time">12:00 &ndash; 1:30 PM</div><div class="dt-dot meal"></div><div class="dt-title"><strong>Lunch</strong></div></div>
+    <div class="dt-row"><div class="dt-time">1:30 &ndash; 4:00 PM</div><div class="dt-dot ceremony"></div><div class="dt-title">Business Meeting<div class="dt-by">BCOC Board of Directors</div><div class="dt-by">Election Results &bull; Bylaws Vote</div></div></div>
+    <div class="dt-row"><div class="dt-time">6:30 &ndash; 8:00 PM</div><div class="dt-dot social"></div><div class="dt-title"><strong>Oratorical Contest &mdash; $10,000 Scholarship</strong><div class="dt-by">BCOC Scholarship Committee</div><div class="dt-by">Atlanta Civic &amp; School Partners &bull; Swearing In</div></div></div>
+    <div class="dt-row"><div class="dt-time">8:00 PM</div><div class="dt-dot social"></div><div class="dt-title">Post-Contest Social<div class="dt-by">BCOC Social Committee</div></div></div>
+  </div>
+
+<div id="sess-mentoring" class="sg-card">
+  <div class="sg-card-header">
+    <div class="sg-avatar"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
+    <div class="sg-card-meta">
+      <div class="sg-card-title"><span class="sg-kn-badge" style="background:#c8962e;color:#14213d">MENTORSHIP</span> Open Assessment Center Mentoring</div>
+      <div class="sg-card-speaker">BCOC Board</div>
+      <div class="sg-card-org">Black Chief Officers Committee</div>
+    </div>
+  </div>
+  <div class="sg-card-body">
+    <div class="sg-time"><span class="sg-time-day">Friday</span><span class="sg-time-slot">10:00 AM &ndash; 12:00 PM</span></div>
+    <div class="sg-desc">An open mentoring session led by members of the BCOC Board focused on preparing candidates for promotional assessment centers. Participants receive practical guidance on in-basket exercises, oral presentations, tactical problem solving, leaderless group discussions, and structured interviews, with direct feedback from chief officers who have served as assessors and candidates at the highest levels of the fire service.</div>
+    <div class="sg-obj">
+      <div class="sg-obj-label">What to Expect</div>
+      One-on-one and small-group coaching with BCOC Board members. Strategies for navigating assessment center exercises. Real-world feedback on presentation, communication, and executive presence. Networking with peers preparing for chief officer promotions.
+    </div>
+    <div class="sg-bio"><span class="sg-bio-label">Who Should Attend</span>Company officers, chief officer candidates, and any member of the fire service preparing for a promotional assessment center.</div>
+  </div>
+</div>
+  </div>
+</div>
+</div>
+
+<div class="page" data-label="Speakers">
+<div class="sg-day-page">
+  <div class="sg-day-header"><div class="sg-day-num">Roster</div><h2>Speaker Directory</h2><div class="sg-day-theme">All presenters across the 40th Anniversary Conference</div></div>
+  <div class="sg-day-body">
+
+    <style>
+      .sp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px 12px;margin-bottom:18px}
+      .sp-person{background:#fff;border:1px solid #ece8e0;border-radius:10px;padding:14px 12px 14px;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,0.04);display:flex;flex-direction:column}
+      .sp-ava{width:80px;height:80px;border-radius:50%;overflow:hidden;border:3px solid #c8962e;background:#14213d;margin:0 auto 8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+      .sp-ava img{width:100%;height:100%;object-fit:cover}
+      .sp-ava svg{width:36px;height:36px;color:#c8962e}
+      .sp-name{font-family:'Playfair Display',serif;font-size:14px;font-weight:900;color:#14213d;line-height:1.2;margin-bottom:3px}
+      .sp-topic{font-size:11.5px;color:#2b3244;line-height:1.35;margin:4px 0 6px;font-weight:600;min-height:30px}
+      .sp-org{font-size:10.5px;color:#8a7a5a;font-style:italic;line-height:1.3;margin-top:auto;padding-top:6px;border-top:1px dashed #ece0c2}
+      .sp-day-label{font-family:'Playfair Display',serif;font-size:15px;font-weight:900;color:#14213d;letter-spacing:1px;text-transform:uppercase;padding:8px 14px;background:linear-gradient(90deg,rgba(200,150,46,0.15),transparent);border-left:4px solid #c8962e;margin:14px 0 10px}
+    </style>
+
+    <div class="sp-day-label">Monday &bull; Vision and Legacy</div>
+    <div class="sp-grid">
+      <div class="sp-person"><div class="sp-ava"><img src="https://static.wixstatic.com/media/a6fc8b_9a50ec1f21ce47a189e71df14a54ee00~mv2.jpg" alt=""></div><div class="sp-name">Dr. I. David Daniels</div><div class="sp-topic"><em>Keynote:</em> Mental Health Panel: Trauma, Healing, and Transformation</div><div class="sp-org">Founder &amp; CEO, ID2 Solutions</div></div>
+      <div class="sp-person"><div class="sp-ava"><img src="https://static.wixstatic.com/media/a6fc8b_350085c1fdb14ec08a5d14dd920ce0b2~mv2.jpeg/v1/fill/w_300,h_300,al_faces,q_90/a6fc8b_350085c1fdb14ec08a5d14dd920ce0b2~mv2.jpeg" alt=""></div><div class="sp-name">Chief T. Pierre Brewton, Education Coordinator</div><div class="sp-topic"><em>Keynote:</em> Leadership Through Adversity: Navigating the Fire Service as Black Chief Officers</div><div class="sp-org">City of Spartanburg (SC) Fire Department</div></div>
+      <div class="sp-person"><div class="sp-ava"><img src="https://static.wixstatic.com/media/a6fc8b_b4fafb64e3c7463f9941f9b120097c1a~mv2.jpeg" alt=""></div><div class="sp-name">Donna Gayden, CFE</div><div class="sp-topic">Executive Insights: Municipal Finance &amp; Strategic Leadership</div><div class="sp-org">BCOC Executive Coordinator</div></div>
+    </div>
+
+    <div class="sp-day-label">Tuesday &bull; Challenges and Innovation</div>
+    <div class="sp-grid">
+      <div class="sp-person"><div class="sp-ava"><img src="https://static.wixstatic.com/media/a6fc8b_0fab5953e0c740a0821e83b56c144c04~mv2.jpg" alt=""></div><div class="sp-name">Chief John Alston (Ret.)</div><div class="sp-topic"><em>Keynote:</em> Leading Through What You Don't Know &mdash; Executive Blind Spots in Times of Challenge</div><div class="sp-org">Vice-Chair, BCOC</div></div>
+      <div class="sp-person"><div class="sp-ava"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div><div class="sp-name">Chief Steven Carter</div><div class="sp-topic">The Top 10 Moves to Use AI to Transform Fire &amp; Emergency Services</div><div class="sp-org">City of Sunrise Fire Rescue</div></div>
+      <div class="sp-person"><div class="sp-ava"><img src="https://static.wixstatic.com/media/a6fc8b_eac81d3a918e467c905598424f2e5659~mv2.jpeg" alt=""></div><div class="sp-name">Dr. Kim McNair</div><div class="sp-topic">The KMP Mindset: Building Leadership Teams in Uncertain Times</div><div class="sp-org">Kim McNair Productions LLC</div></div>
+      <div class="sp-person"><div class="sp-ava"><img src="https://static.wixstatic.com/media/a6fc8b_9a50ec1f21ce47a189e71df14a54ee00~mv2.jpg" alt=""></div><div class="sp-name">Dr. I. David Daniels</div><div class="sp-topic"><em>Keynote:</em> Mental Health Panel: Trauma, Healing, and Transformation</div><div class="sp-org">Founder &amp; CEO, ID2 Solutions</div></div>
+      <div class="sp-person"><div class="sp-ava"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div><div class="sp-name">Chief Mike Scott</div><div class="sp-topic">Workshop: Care Bias in Emergency Services</div><div class="sp-org">Grand Fire Protection District</div></div>
+      <div class="sp-person"><div class="sp-ava"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div><div class="sp-name">Chief Calvin Brown</div><div class="sp-topic">Workshop: Care Bias in Emergency Services</div><div class="sp-org">Grand Fire Protection District</div></div>
+      <div class="sp-person"><div class="sp-ava"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div><div class="sp-name">Chief Emanuel Washington Jr.</div><div class="sp-topic">Strategic Grant Funding for the Modern Fire Service</div><div class="sp-org">Orlando Fire Department</div></div>
+      <div class="sp-person"><div class="sp-ava"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div><div class="sp-name">Chief Ron Skrine</div><div class="sp-topic">"Shaping the Standard" Panel: Procurement Strategies (Apparatus)</div><div class="sp-org">Battalion Chief, Valdosta Fire Department</div></div>
+    </div>
+
+    <div class="sp-day-label">Wednesday &bull; Leadership and Strategy</div>
+    <div class="sp-grid">
+      <div class="sp-person"><div class="sp-ava"><img src="https://static.wixstatic.com/media/a6fc8b_9440fd41aebd45c384ba8b4828dded6a~mv2.png" alt=""></div><div class="sp-name">Dr. Reggie Freeman, Fire Chief (Ret.)</div><div class="sp-topic"><em>Keynote:</em> Global Perspectives on Executive Fire Service Leadership</div><div class="sp-org">Executive Director, Fire &amp; EMS &middot; NEOM &middot; Founder, The Freeman Group</div></div>
+      <div class="sp-person"><div class="sp-ava"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div><div class="sp-name">Dr. Kellie McElroy-Hooper</div><div class="sp-topic">From Academy to Degree: A Workforce Model for the Modern Fire Service</div><div class="sp-org">Augusta Technical College</div></div>
+      <div class="sp-person"><div class="sp-ava"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div><div class="sp-name">Chief Antonio Burden</div><div class="sp-topic">From Academy to Degree: A Workforce Model for the Modern Fire Service</div><div class="sp-org">Augusta Fire Department</div></div>
+      <div class="sp-person"><div class="sp-ava"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div><div class="sp-name">Dr. Joseph Danao II, Ed.D.</div><div class="sp-topic">From LeaderShip to Leader of ShipS&trade;</div><div class="sp-org">Eastern Connecticut EMS Council</div></div>
+      <div class="sp-person"><div class="sp-ava"><img src="https://static.wixstatic.com/media/a6fc8b_23a9a7e530e34b69a741b91bbc1f7b20~mv2.jpeg" alt=""></div><div class="sp-name">Chief Queen Anunay</div><div class="sp-topic">Financial "Hot Wash" (Protecting Your Legacy)</div><div class="sp-org">Las Vegas Fire &amp; Rescue</div></div>
+      <div class="sp-person"><div class="sp-ava"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div><div class="sp-name">Chief Wendell Catlet</div><div class="sp-topic">Financial "Hot Wash" (Protecting Your Legacy)</div><div class="sp-org">Las Vegas Fire &amp; Rescue</div></div>
+      <div class="sp-person"><div class="sp-ava"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div><div class="sp-name">Chief Demond Simmons</div><div class="sp-topic">From Strategy to Execution: Turning Vision into Results</div><div class="sp-org">Oakland Fire Department</div></div>
+      <div class="sp-person"><div class="sp-ava"><img src="https://static.wixstatic.com/media/a6fc8b_9a50ec1f21ce47a189e71df14a54ee00~mv2.jpg" alt=""></div><div class="sp-name">Dr. I. David Daniels</div><div class="sp-topic"><em>Keynote (Moderator):</em> Healing While Leading &mdash; Mental Health and Resilience for Black Executives</div><div class="sp-org">ID2 Solutions</div></div>
+    </div>
+
+    <div class="sp-day-label">Thursday &bull; Executive Roundtable</div>
+    <div class="sp-grid">
+      <div class="sp-person"><div class="sp-ava"><img src="https://static.wixstatic.com/media/a6fc8b_a926eb075afd4f1399a73e31ff074b1f~mv2.jpg" alt=""></div><div class="sp-name">Chief John Butler</div><div class="sp-topic"><em>Keynote:</em> The Fire Service in 2026 &mdash; Forging the Future</div><div class="sp-org">Metro Chiefs Chair</div></div>
+      <div class="sp-person"><div class="sp-ava"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div><div class="sp-name">William Bryant</div><div class="sp-topic">Revenue Generation</div><div class="sp-org">Mobile Area Council, Scouting America</div></div>
+      <div class="sp-person"><div class="sp-ava"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div><div class="sp-name">Jere Hawkins</div><div class="sp-topic">Financial Access and Acumen</div><div class="sp-org">Financial Services</div></div>
+      <div class="sp-person"><div class="sp-ava"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div><div class="sp-name">Carlos Coronado</div><div class="sp-topic">Developing an Explorer Program</div><div class="sp-org">Scouting America</div></div>
+      <div class="sp-person"><div class="sp-ava"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div><div class="sp-name">Maisha Land</div><div class="sp-topic">Marketing Your Vision</div><div class="sp-org">Marketing &amp; Communications</div></div>
+      <div class="sp-person"><div class="sp-ava"><img src="https://static.wixstatic.com/media/a6fc8b_a17ae2e4f9cb4a5ba7d54416cec82ffd~mv2.png" alt=""></div><div class="sp-name">Dr. Hezedean Smith</div><div class="sp-topic"><em>Keynote:</em> The Seven Pillars of Modern Leadership</div><div class="sp-org">BCOC Chair / GESCG CEO</div></div>
+    </div>
+
+    <div class="sp-day-label">Friday &bull; Promotional Preparation</div>
+    <div class="sp-grid">
+      <div class="sp-person"><div class="sp-ava"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></div><div class="sp-name">BCOC Board</div><div class="sp-topic">Open Assessment Center Mentoring</div><div class="sp-org">Black Chief Officers Committee</div></div>
+    </div>
+
+    <div class="sg-card" style="background:#14213d;color:#fff;border-left-color:#c8962e;text-align:center">
+      <div class="sg-card-body" style="padding:14px 4px">
+        <div class="sg-desc" style="color:#fff;margin:0">Full speaker bios and session abstracts are available in each day's section of this binder and online at <strong style="color:#c8962e">bcoc.us</strong>.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<div class="flip-row">
+  <button class="flip-btn" id="prevBtn" onclick="flip(-1)">&#8592;</button>
+  <span id="pgInd">1 / 6</span>
+  <button class="flip-btn" id="nextBtn" onclick="flip(1)">&#8594;</button>
+</div>
+</div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  var pages = document.querySelectorAll('.page');
+  var labels = Array.prototype.map.call(pages, function(p){ return p.dataset.label; });
+  var cur = 0;
+
+  pages.forEach(function(p, idx){
+    var strip = document.createElement('div');
+    strip.className = 'binder-tabs';
+    labels.forEach(function(lab, i){
+      var tab = document.createElement('div');
+      tab.className = 'binder-tab';
+      tab.dataset.idx = i;
+      tab.textContent = lab;
+      tab.setAttribute('title', 'Go to ' + lab);
+      tab.addEventListener('click', function(){ goTo(i); });
+      strip.appendChild(tab);
+    });
+    p.appendChild(strip);
+  });
+
+  var bcPrev = document.getElementById('bcPrev');
+  var bcNext = document.getElementById('bcNext');
+  var bcCur = document.getElementById('bcCur');
+  var bcTot = document.getElementById('bcTot');
+  var bcLabel = document.getElementById('bcLabel');
+  if(bcTot) bcTot.textContent = pages.length;
+
+  function goTo(n){
+    if(n<0 || n>=pages.length) return;
+    pages[cur].classList.remove('show');
+    cur = n;
+    pages[cur].classList.add('show');
+    pages.forEach(function(p){
+      p.querySelectorAll('.binder-tab').forEach(function(t){
+        t.classList.toggle('active', parseInt(t.dataset.idx) === cur);
+      });
+    });
+    if(bcCur) bcCur.textContent = (cur+1);
+    if(bcLabel) bcLabel.textContent = labels[cur];
+    if(bcPrev) bcPrev.disabled = cur === 0;
+    if(bcNext) bcNext.disabled = cur === pages.length - 1;
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
+
+  if(bcPrev) bcPrev.addEventListener('click', function(){ goTo(cur - 1); });
+  if(bcNext) bcNext.addEventListener('click', function(){ goTo(cur + 1); });
+  document.addEventListener('keydown', function(e){
+    if(e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    if(e.key === 'ArrowRight' || e.key === 'PageDown') goTo(cur + 1);
+    if(e.key === 'ArrowLeft' || e.key === 'PageUp') goTo(cur - 1);
+  });
+
+  goTo(0);
+});
+</script>
+</body>
+</html>

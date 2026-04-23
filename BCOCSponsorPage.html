@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BCOC Sponsorship Opportunities</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Lato:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black:    #111111;
+    --red:      #8B1C1C;
+    --red-btn:  #A52020;
+    --red-hover:#C0392B;
+    --gold:     #C9A84C;
+    --gold-dark:#7A5F10;
+    --green:    #2E7D52;
+    --white:    #FFFFFF;
+    --offwhite: #F7F5F2;
+    --light:    #EFEFEF;
+    --border:   #DDDDDD;
+    --text:     #1A1A1A;
+    --muted:    #555555;
+    --silver:   #888888;
+    --qb-green: #0A7A3E;
+    --qb-hover: #085E30;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    background: var(--white);
+    color: var(--text);
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    padding-bottom: 80px;
+  }
+
+  /* ── TOP NAV BAR ── */
+  .topbar {
+    background: var(--black);
+    padding: 0 32px;
+    display: flex; align-items: center; gap: 16px;
+    height: 76px;
+  }
+  .topbar img { width: 54px; height: 54px; object-fit: contain; }
+  .topbar-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(14px, 2vw, 20px);
+    font-weight: 700; color: var(--white); letter-spacing: .5px;
+  }
+
+  .redline      { height: 4px; background: var(--red); }
+  .redline-thin { height: 1px; background: var(--red); opacity: .3; }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--offwhite);
+    padding: 56px 24px 48px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero-logo { margin-bottom: 22px; }
+  .hero-logo img {
+    width: 110px; height: 110px; object-fit: contain;
+    filter: drop-shadow(0 3px 10px rgba(0,0,0,0.2));
+  }
+  .hero-eyebrow {
+    font-family: 'Cinzel', serif; font-size: 11px;
+    letter-spacing: 6px; text-transform: uppercase;
+    color: var(--red); margin-bottom: 12px;
+  }
+  .hero h1 {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(28px, 5vw, 52px);
+    font-weight: 900; line-height: 1.12;
+    color: var(--black); margin-bottom: 10px;
+  }
+  .hero h1 em { font-style: normal; color: var(--red); }
+  .tribar {
+    display: flex; height: 4px; width: 160px;
+    margin: 18px auto 16px; border-radius: 2px; overflow: hidden;
+  }
+  .tribar span { flex: 1; }
+  .hero-sub {
+    font-size: 16px; font-weight: 300; color: var(--muted);
+    line-height: 1.8; max-width: 520px; margin: 0 auto 28px;
+  }
+  /* Tier contact button */
+  .btn-tier-contact {
+    display: inline-block; margin-top: 14px;
+    padding: 9px 18px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.45);
+    color: inherit;
+    font-family: 'Lato', sans-serif; font-size: 13px; font-weight: 700;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    text-decoration: none; border-radius: 3px;
+    transition: background .2s, border-color .2s;
+    width: 100%;
+  }
+  .btn-tier-contact:hover {
+    background: rgba(255,255,255,0.15);
+    border-color: rgba(255,255,255,0.8);
+  }
+  .t-gold .btn-tier-contact, .t-lift .btn-tier-contact { color: inherit; }
+  .t-elite .btn-tier-contact {
+    border-color: rgba(201,168,76,0.5); color: var(--gold);
+  }
+  .t-elite .btn-tier-contact:hover { background: rgba(201,168,76,0.1); border-color: var(--gold); }
+  .btn-tier-info {
+    margin-top: 14px; width: 100%;
+    padding: 9px 18px;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 3px;
+    font-family: 'Lato', sans-serif; font-size: 10px; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: #fff; text-align: center;
+  }
+
+  /* ── LAYOUT ── */
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 28px; }
+
+  .sh {
+    display: flex; align-items: center; gap: 20px;
+    padding: 52px 0 30px;
+  }
+  .sh-line { flex: 1; height: 1px; background: var(--border); }
+  .sh-text { text-align: center; white-space: nowrap; }
+  .sh-lbl {
+    font-family: 'Cinzel', serif; font-size: 12px;
+    letter-spacing: 5px; text-transform: uppercase;
+    color: var(--red); margin-bottom: 6px;
+  }
+  .sh-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(22px, 3vw, 30px); font-weight: 700; color: var(--black);
+  }
+
+  /* ── TIER CARDS ── */
+  .tiers {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 14px; margin-bottom: 16px;
+  }
+  .tc {
+    border-radius: 6px; padding: 30px 18px 26px;
+    text-align: center; position: relative;
+    overflow: hidden; transition: transform .3s, box-shadow .3s;
+    cursor: default;
+  }
+  .tc:hover { transform: translateY(-8px); box-shadow: 0 16px 40px rgba(0,0,0,0.18); }
+  .ti     { font-size: 36px; display: block; margin-bottom: 14px; }
+  .tbadge { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; font-weight: 700; margin-bottom: 8px; opacity: .75; }
+  .tname  { font-family: 'Cinzel', serif; font-size: 19px; font-weight: 700; line-height: 1.3; margin-bottom: 12px; }
+  .tprice { font-size: 17px; font-weight: 600; margin-bottom: 10px; }
+  .tavail { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; opacity: .6; }
+
+  .t-lift  { background: var(--red); color: #fff; box-shadow: 0 4px 18px rgba(139,28,28,0.35); }
+  .t-lift .tprice { color: #ffcccc; } .t-lift .tavail { color: #ffaaaa; }
+
+  .t-gold  { background: var(--gold); color: #3a2c00; box-shadow: 0 4px 18px rgba(201,168,76,0.45); }
+  .t-gold .tbadge { color: #5a4200; } .t-gold .tprice { color: #5a4200; } .t-gold .tavail { color: #7a5f10; }
+
+  .t-plat  { background: #2C2C2C; color: #e8e8e8; box-shadow: 0 4px 18px rgba(0,0,0,0.3); }
+  .t-plat .tprice { color: #ccc; } .t-plat .tavail { color: #aaa; }
+
+  .t-platp { background: var(--green); color: #fff; box-shadow: 0 4px 18px rgba(46,125,82,0.4); }
+  .t-platp .tprice { color: #c8ffd8; } .t-platp .tavail { color: #9dddb4; }
+
+  .t-elite {
+    background: var(--black); color: var(--gold);
+    border: 2px solid var(--gold);
+    box-shadow: 0 0 0 4px rgba(201,168,76,0.15), 0 8px 30px rgba(0,0,0,0.4);
+  }
+  .t-elite .tname { color: var(--gold); font-size: 14px; }
+  .t-elite .tbadge { color: #bbb; } .t-elite .tprice { color: var(--gold); } .t-elite .tavail { color: #666; }
+  .ecrown { position: absolute; top: 10px; right: 12px; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); opacity: .8; }
+
+  .tier-legend {
+    display: flex; gap: 10px; justify-content: center;
+    flex-wrap: wrap; margin-top: 18px;
+  }
+  .tl-item { display: flex; align-items: center; gap: 7px; font-size: 13px; color: var(--muted); }
+  .tl-dot  { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+
+  /* ── COLLAPSIBLE GROUPS ── */
+  .group { margin-bottom: 10px; border-radius: 4px; overflow: hidden; }
+
+  .group-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 24px; cursor: pointer;
+    background: var(--black); border-radius: 4px;
+    transition: background .2s; user-select: none;
+  }
+  .group-header.open { border-radius: 4px 4px 0 0; }
+  .group-header:hover { background: #1e1e1e; }
+
+  .gh-left  { display: flex; align-items: center; gap: 16px; }
+  .gh-color { width: 5px; height: 42px; border-radius: 3px; flex-shrink: 0; }
+  .gh-title { font-family: 'Cinzel', serif; font-size: 20px; font-weight: 700; color: var(--white); }
+  .gh-sub   { font-size: 14px; color: #999; margin-top: 3px; }
+
+  .gh-right  { display: flex; align-items: center; gap: 16px; }
+  .gh-range  { font-family: 'Cinzel', serif; font-size: 16px; color: var(--gold); white-space: nowrap; }
+  .gh-arrow  { width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; color: #aaa; font-size: 18px; transition: transform .3s; }
+  .group-header.open .gh-arrow { transform: rotate(180deg); }
+
+  .group-body {
+    display: none; background: var(--white);
+    border: 1px solid var(--border); border-top: none;
+    border-radius: 0 0 4px 4px;
+  }
+  .group-body.open { display: block; }
+
+  /* ── ITEM ROW ── */
+  .gitem {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 15px 20px 15px 36px;
+    border-bottom: 1px solid var(--light);
+    gap: 16px;
+    transition: background .15s;
+  }
+  .gitem:last-child { border-bottom: none; }
+  .gitem:hover { background: var(--offwhite); }
+
+  .gi-left { flex: 1; min-width: 0; }
+  .gi-name { font-size: 19px; font-weight: 600; color: var(--text); }
+  .gi-meta { font-size: 14px; color: var(--silver); margin-top: 3px; }
+
+  .gi-right {
+    display: flex; align-items: center;
+    gap: 14px; flex-shrink: 0;
+  }
+
+  .gi-price {
+    font-family: 'Cinzel', serif; font-size: 22px;
+    font-weight: 700; color: var(--red); white-space: nowrap;
+  }
+
+  .gi-badge {
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    padding: 4px 10px; border-radius: 3px; white-space: nowrap; font-weight: 700;
+  }
+  .badge-excl  { background: rgba(139,28,28,.08); color: var(--red); border: 1px solid rgba(139,28,28,.25); }
+  .badge-multi { background: rgba(201,168,76,.12); color: var(--gold-dark); border: 1px solid rgba(201,168,76,.35); }
+
+  /* QuickBooks Pay Now button */
+  .btn-pay {
+    display: inline-flex; align-items: center; gap: 7px;
+    padding: 10px 18px;
+    background: var(--qb-green); color: var(--white);
+    font-family: 'Lato', sans-serif; font-size: 14px; font-weight: 700;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    text-decoration: none; border-radius: 4px;
+    white-space: nowrap;
+    transition: background .2s, transform .2s;
+    border: none;
+  }
+  .btn-pay:hover { background: var(--qb-hover); transform: translateY(-1px); }
+  .btn-pay svg { flex-shrink: 0; }
+
+  /* ── CTA ── */
+  .cta {
+    margin-top: 54px; text-align: center;
+    padding: 48px 0; border-top: 1px solid var(--border);
+  }
+  .cta-logo img { width: 64px; height: 64px; object-fit: contain; opacity: .8; margin-bottom: 18px; }
+  .cta h2 { font-family: 'Cinzel', serif; font-size: clamp(26px, 4vw, 42px); color: var(--black); margin-bottom: 12px; }
+  .cta p  { font-size: 18px; color: var(--muted); line-height: 1.8; margin-bottom: 28px; }
+  .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+  .btn-red {
+    display: inline-block; padding: 16px 40px;
+    background: var(--red-btn); color: var(--white);
+    border: 2px solid var(--red);
+    font-family: 'Lato', sans-serif; font-size: 14px; font-weight: 700;
+    letter-spacing: 2.5px; text-transform: uppercase;
+    text-decoration: none; border-radius: 3px;
+    transition: background .2s, transform .2s;
+  }
+  .btn-red:hover { background: var(--red-hover); transform: translateY(-2px); }
+
+  .btn-outline {
+    display: inline-block; padding: 16px 40px;
+    background: transparent; color: var(--black);
+    border: 2px solid var(--black);
+    font-family: 'Lato', sans-serif; font-size: 14px; font-weight: 700;
+    letter-spacing: 2.5px; text-transform: uppercase;
+    text-decoration: none; border-radius: 3px;
+    transition: all .2s;
+  }
+  .btn-outline:hover { background: var(--black); color: var(--white); transform: translateY(-2px); }
+
+  /* ── FOOTER ── */
+  .footer-tribar { display: flex; height: 4px; }
+  .footer-tribar span { flex: 1; }
+  .footer-bar {
+    background: var(--black); padding: 22px 32px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .footer-bar img { width: 38px; height: 38px; object-fit: contain; opacity: .75; }
+  .footer-bar span { font-family: 'Cinzel', serif; font-size: 12px; color: #888; letter-spacing: 1px; }
+
+  @media(max-width:700px){
+    .tiers { grid-template-columns: 1fr 1fr; }
+    .gitem { flex-wrap: wrap; padding-left: 16px; }
+    .gi-right { width: 100%; justify-content: flex-end; margin-top: 8px; }
+    .gi-name { font-size: 16px; }
+    .gi-price { font-size: 18px; }
+    .gi-meta { font-size: 12px; }
+    .gh-sub { display: none; }
+    .btn-pay { font-size: 11px; padding: 9px 14px; }
+    .cta-btns { flex-direction: column; align-items: center; }
+    .btn-red, .btn-outline { width: 100%; max-width: 300px; text-align: center; }
+    .eb-details { flex-direction: column; align-items: center; }
+    .hero h1 { font-size: 28px; }
+    .hero { padding: 36px 16px 32px; }
+    .eb-body { padding: 20px 16px; }
+    .eb-pill { padding: 8px 14px; }
+    .sh-title { font-size: 20px !important; }
+  }
+
+  @media(max-width:400px){
+    .tiers { grid-template-columns: 1fr; }
+    .topbar { padding: 0 16px; }
+    .wrap { padding: 0 16px; }
+    .gh-range { display: none; }
+    .gh-title { font-size: 16px; }
+    .gi-badge { font-size: 9px; padding: 3px 6px; }
+  }
+
+  /* Event Banner */
+  .event-banner {
+    margin: 24px auto 0;
+    max-width: 820px;
+    background: var(--black);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.28);
+    position: relative;
+  }
+  .event-banner::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(139,28,28,0.18) 0%, transparent 50%, rgba(201,168,76,0.10) 100%);
+    pointer-events: none;
+  }
+  .eb-top { display: flex; height: 5px; }
+  .eb-top span { flex: 1; }
+  .eb-body { padding: 36px 40px 32px; position: relative; text-align: center; }
+  .eb-join {
+    font-family: "Lato", sans-serif; font-size: 11px; font-weight: 700;
+    letter-spacing: 6px; text-transform: uppercase;
+    color: #aaa; margin-bottom: 18px;
+  }
+  .eb-anniversary {
+    display: flex; align-items: center; gap: 16px;
+    margin-bottom: 10px; flex-wrap: wrap; justify-content: center;
+  }
+  .eb-40 {
+    font-family: "Cinzel", serif; font-size: clamp(64px, 10vw, 100px);
+    font-weight: 900; color: var(--gold);
+    line-height: 1; letter-spacing: -2px;
+    text-shadow: 0 2px 24px rgba(201,168,76,0.45);
+  }
+  .eb-40-right {
+    display: flex; flex-direction: column; align-items: flex-start;
+    gap: 3px; padding-top: 12px;
+  }
+  .eb-40-right .th { font-family: "Cinzel", serif; font-size: clamp(20px,3vw,30px); color: var(--gold); font-weight: 700; }
+  .eb-40-right .yr { font-family: "Lato", sans-serif; font-size: 11px; letter-spacing: 5px; text-transform: uppercase; color: #bbb; }
+  .eb-40-right .ann { font-family: "Lato", sans-serif; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: #bbb; }
+  .eb-divider { width: 60%; height: 1px; background: rgba(201,168,76,0.3); margin: 14px auto 20px; }
+  .eb-theme {
+    font-family: "Cinzel", serif;
+    font-size: clamp(20px, 4vw, 38px);
+    font-weight: 900; color: var(--white);
+    line-height: 1.1; letter-spacing: 3px;
+    text-transform: uppercase; margin-bottom: 10px;
+  }
+  .eb-theme em { font-style: normal; color: var(--gold); }
+  .eb-tagline {
+    font-family: "Lato", sans-serif; font-size: 12px;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: #888; margin-bottom: 30px; font-style: italic;
+  }
+  .eb-details {
+    display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+  }
+  .eb-pill {
+    display: flex; align-items: center; gap: 10px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(201,168,76,0.35);
+    border-radius: 40px; padding: 11px 24px;
+  }
+  .eb-pill-icon { font-size: 15px; }
+  .eb-pill-main { font-family: "Cinzel", serif; font-size: 13px; color: var(--gold); font-weight: 700; letter-spacing: 1px; }
+  .eb-pill-sub  { font-size: 10px; color: #888; letter-spacing: 1px; text-transform: uppercase; margin-top: 2px; }
+  .eb-bottom { display: flex; height: 4px; }
+  .eb-bottom span { flex: 1; }
+
+  .gh-note {
+    font-size: 11px; color: #f0c040;
+    margin-top: 6px; font-style: italic; letter-spacing: 0.3px;
+  }
+  .gh-note strong { font-style: normal; font-weight: 700; }
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<div class="topbar">
+  <img src="https://static.wixstatic.com/media/1700c8_b909148ce5194ad28a728ce16eecffbb~mv2.png" alt="BCOC Logo">
+  <div class="topbar-title">Black Chief Officers Committee</div>
+</div>
+<div class="redline"></div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-logo">
+    <img src="https://static.wixstatic.com/media/1700c8_b909148ce5194ad28a728ce16eecffbb~mv2.png" alt="BCOC Logo">
+  </div>
+  <div class="hero-eyebrow">Black Chief Officers Committee</div>
+  <h1>Conference <em>Sponsorship</em><br>Opportunities</h1>
+  <div class="tribar">
+    <span style="background:var(--red)"></span>
+    <span style="background:var(--gold)"></span>
+    <span style="background:var(--green)"></span>
+  </div>
+  <div class="event-banner">
+    <div class="eb-top">
+      <span style="background:var(--red)"></span>
+      <span style="background:var(--gold)"></span>
+      <span style="background:var(--green)"></span>
+    </div>
+    <div class="eb-body">
+      <div class="eb-join">Join Us For The</div>
+      <div class="eb-anniversary">
+        <div class="eb-40">40</div>
+        <div class="eb-40-right">
+          <span class="th">th</span>
+          <span class="yr">Year</span>
+          <span class="ann">Anniversary</span>
+        </div>
+      </div>
+      <div class="eb-divider"></div>
+      <div class="eb-theme"><em>Forging</em> the Future</div>
+      <div class="eb-tagline">Executive Leadership in Times of Challenge</div>
+      <div class="eb-details">
+        <div class="eb-pill">
+          <span class="eb-pill-icon">📅</span>
+          <div>
+            <div class="eb-pill-main">August 2 – 8, 2026</div>
+            <div class="eb-pill-sub">Conference Dates</div>
+          </div>
+        </div>
+        <div class="eb-pill">
+          <span class="eb-pill-icon">📍</span>
+          <div>
+            <div class="eb-pill-main">Atlanta, Georgia</div>
+            <div class="eb-pill-sub">2026 Symposium &amp; Conference</div>
+          </div>
+        </div>
+        <div class="eb-pill">
+          <span class="eb-pill-icon">🏅</span>
+          <div>
+            <div class="eb-pill-main">BCOC — Est. 1986</div>
+            <div class="eb-pill-sub">Lifting As We Climb</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="eb-bottom">
+      <span style="background:var(--red)"></span>
+      <span style="background:var(--gold)"></span>
+      <span style="background:var(--green)"></span>
+    </div>
+  </div>
+</div>
+<div class="redline-thin"></div>
+
+<div class="wrap">
+
+  <!-- TIERS -->
+  <div class="sh">
+    <div class="sh-line"></div>
+    <div class="sh-text">
+      <div class="sh-lbl">Corporate Partnership</div>
+      <div class="sh-title">Sponsorship Tiers</div>
+    </div>
+    <div class="sh-line"></div>
+  </div>
+
+  <div class="tiers">
+    <div class="tc t-lift">
+      <span class="ti">🤝</span>
+      <div class="tbadge">Entry Level</div>
+      <div class="tname">Lift As We Climb</div>
+      <div class="tprice">$3,000 – $4,999</div>
+      <div class="tavail">Open</div>
+      <div class="btn-tier-info">👇 Purchase Options Below</div>
+    </div>
+    <div class="tc t-gold">
+      <span class="ti">🥇</span>
+      <div class="tbadge">Tier II</div>
+      <div class="tname">Gold Sponsor</div>
+      <div class="tprice">$5,000 – $9,999</div>
+      <div class="tavail">5 Available</div>
+      <a class="btn-tier-contact" target="_top" href="mailto:chair@bcoc.us?cc=srichards@bcoc.us&subject=Gold%20Sponsor%20Inquiry">✉ Request Invoice</a>
+      <a class="btn-tier-contact" href="#" onclick="openProspectus();return false;" style="margin-top:8px;">📄 View Prospectus</a>
+    </div>
+    <div class="tc t-plat">
+      <span class="ti">💎</span>
+      <div class="tbadge">Tier III</div>
+      <div class="tname">Platinum</div>
+      <div class="tprice">$10,000 – $14,999</div>
+      <div class="tavail">5 Available</div>
+      <a class="btn-tier-contact" target="_top" href="mailto:chair@bcoc.us?cc=srichards@bcoc.us&subject=Platinum%20Sponsor%20Inquiry">✉ Request Invoice</a>
+      <a class="btn-tier-contact" href="#" onclick="openProspectus();return false;" style="margin-top:8px;">📄 View Prospectus</a>
+    </div>
+    <div class="tc t-platp">
+      <span class="ti">⭐</span>
+      <div class="tbadge">Tier IV</div>
+      <div class="tname">Platinum Plus</div>
+      <div class="tprice">$15,000 – $19,999</div>
+      <div class="tavail">5 Available</div>
+      <a class="btn-tier-contact" target="_top" href="mailto:chair@bcoc.us?cc=srichards@bcoc.us&subject=Platinum%20Plus%20Sponsor%20Inquiry">✉ Request Invoice</a>
+      <a class="btn-tier-contact" href="#" onclick="openProspectus();return false;" style="margin-top:8px;">📄 View Prospectus</a>
+    </div>
+    <div class="tc t-elite">
+      <span class="ecrown">★ Premier</span>
+      <span class="ti">👑</span>
+      <div class="tbadge">Top Tier</div>
+      <div class="tname">ELITE Premier Presenting</div>
+      <div class="tprice">$20,000+</div>
+      <div class="tavail">4 Available</div>
+      <div style="font-size:10px;color:var(--gold);margin-top:8px;letter-spacing:1px;">FirstNet/AT&amp;T — Elite Premier Presenting Sponsor</div>
+      <a class="btn-tier-contact" target="_top" href="mailto:chair@bcoc.us?cc=srichards@bcoc.us&subject=Elite%20Premier%20Sponsor%20Inquiry">✉ Request Invoice</a>
+      <a class="btn-tier-contact" href="#" onclick="openProspectus();return false;" style="margin-top:8px;">📄 View Prospectus</a>
+    </div>
+  </div>
+
+  <div class="tier-legend">
+    <div class="tl-item"><div class="tl-dot" style="background:var(--red)"></div> Entry</div>
+    <div class="tl-item"><div class="tl-dot" style="background:var(--gold)"></div> Gold</div>
+    <div class="tl-item"><div class="tl-dot" style="background:#2C2C2C"></div> Platinum</div>
+    <div class="tl-item"><div class="tl-dot" style="background:var(--green)"></div> Platinum Plus</div>
+    <div class="tl-item"><div class="tl-dot" style="background:var(--black);border:1px solid var(--gold)"></div> ELITE Premier</div>
+  </div>
+
+  <!-- CURRENT SPONSORS -->
+  <div class="sh">
+    <div class="sh-line"></div>
+    <div class="sh-text">
+      <div class="sh-lbl" style="font-size:14px;">Thank You</div>
+      <div class="sh-title" style="font-size:clamp(26px,4vw,36px);">2026 Conference Sponsors</div>
+    </div>
+    <div class="sh-line"></div>
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:28px;align-items:center;margin-bottom:20px;">
+    <!-- Elite Premier Sponsor -->
+    <div style="width:100%;max-width:960px;background:var(--white);border:2px solid var(--gold);border-radius:8px;padding:24px 16px;box-shadow:0 0 0 4px rgba(201,168,76,0.15),0 8px 30px rgba(0,0,0,0.3);">
+      <div style="text-align:center;font-family:'Cinzel',serif;font-size:clamp(16px,4vw,28px);letter-spacing:3px;text-transform:uppercase;color:var(--gold-dark);margin-bottom:16px;font-weight:900;">★ Elite Premier Presenting Sponsor</div>
+      <div style="display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;">
+        <img src="https://static.wixstatic.com/media/a6fc8b_8364ac20fa6f47bcaf9ba80edfa4055b~mv2.png" alt="FirstNet" style="max-width:420px;width:100%;height:auto;">
+        <video src="https://video.wixstatic.com/video/a6fc8b_cf32a8df5bd345a894bb05121e41fdf3/1080p/mp4/file.mp4" controls playsinline style="max-width:420px;width:100%;height:auto;border-radius:6px;"></video>
+      </div>
+    </div>
+
+    <!-- Platinum Sponsors -->
+    <div style="width:100%;max-width:960px;background:linear-gradient(135deg,#1a1a1a 0%,#2C2C2C 50%,#1a1a1a 100%);border-radius:10px;padding:24px 16px;box-shadow:0 0 0 3px rgba(255,255,255,0.08),0 12px 40px rgba(0,0,0,0.35);">
+      <div style="text-align:center;font-family:'Cinzel',serif;font-size:clamp(16px,4vw,26px);letter-spacing:4px;text-transform:uppercase;color:var(--white);margin-bottom:20px;font-weight:900;">💎 Platinum Sponsors</div>
+      <div style="display:flex;gap:20px;justify-content:center;flex-wrap:wrap;align-items:center;">
+        <div style="text-align:center;width:100%;max-width:400px;background:var(--white);border-radius:8px;padding:20px 16px;box-shadow:0 4px 20px rgba(0,0,0,0.3);">
+          <img src="https://static.wixstatic.com/media/a6fc8b_f650ca4c388146709c28a329394cc680~mv2.png" alt="FG" style="max-width:280px;width:100%;height:auto;margin:0 auto;display:block;">
+        </div>
+        <a href="https://www.atlanticemergency.com" target="_blank" style="text-decoration:none;text-align:center;width:100%;max-width:400px;background:var(--white);border-radius:8px;padding:20px 16px;box-shadow:0 4px 20px rgba(0,0,0,0.3);">
+          <img src="https://static.wixstatic.com/media/a6fc8b_05859d0734474e6380d748e8294274e4~mv2.png" alt="Atlantic Emergency Solutions" style="max-width:280px;width:100%;height:auto;margin:0 auto;display:block;">
+        </a>
+      </div>
+    </div>
+
+    <!-- Gold Sponsors -->
+    <div style="width:100%;max-width:800px;">
+      <div style="text-align:center;font-family:'Cinzel',serif;font-size:14px;letter-spacing:4px;text-transform:uppercase;color:var(--gold-dark);margin-bottom:14px;font-weight:700;">🥇 Gold Sponsors</div>
+      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;align-items:center;">
+        <a href="https://awc.org" target="_blank" style="text-decoration:none;text-align:center;width:100%;max-width:200px;background:var(--white);border:1px solid var(--gold);border-radius:6px;padding:16px 14px;box-shadow:0 2px 12px rgba(201,168,76,0.15);">
+          <img src="https://static.wixstatic.com/media/a6fc8b_f9abf493ff34402aab2d5d11da7687de~mv2.jpg" alt="American Wood Council" style="max-width:140px;height:auto;margin:0 auto;display:block;">
+        </a>
+        <a href="https://www.sutphen.com" target="_blank" style="text-decoration:none;text-align:center;width:100%;max-width:200px;background:var(--white);border:1px solid var(--gold);border-radius:6px;padding:16px 14px;box-shadow:0 2px 12px rgba(201,168,76,0.15);">
+          <img src="https://static.wixstatic.com/media/a6fc8b_ddbd919c2d804f998e51e89df58ce2e8~mv2.png" alt="Sutphen" style="max-width:140px;height:auto;margin:0 auto;display:block;">
+        </a>
+        <a href="https://www.globeturnoutgear.com" target="_blank" style="text-decoration:none;text-align:center;width:100%;max-width:200px;background:var(--white);border:1px solid var(--gold);border-radius:6px;padding:16px 14px;box-shadow:0 2px 12px rgba(201,168,76,0.15);">
+          <img src="https://static.wixstatic.com/media/7c3afa_bb6b78ceb9f844d989a4b1f3403530de~mv2.png" alt="Globe" style="max-width:140px;height:auto;margin:0 auto;display:block;">
+        </a>
+        <div style="text-align:center;width:100%;max-width:200px;background:var(--white);border:1px solid var(--gold);border-radius:6px;padding:16px 14px;box-shadow:0 2px 12px rgba(201,168,76,0.15);">
+          <img src="https://static.wixstatic.com/media/a6fc8b_7a3afa7e06d84025a46a0e1b9d3644cc~mv2.jpg" alt="Gold Sponsor" style="max-width:140px;height:auto;margin:0 auto;display:block;">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- À LA CARTE -->
+  <div class="sh">
+    <div class="sh-line"></div>
+    <div class="sh-text">
+      <div class="sh-lbl">À La Carte</div>
+      <div class="sh-title">Individual Sponsorships</div>
+    </div>
+    <div class="sh-line"></div>
+  </div>
+
+  <!-- Helper macro for pay button -->
+  <!-- GROUP 1: BRANDING & PRINT -->
+  <div class="group">
+    <div class="group-header" onclick="toggle(this)">
+      <div class="gh-left">
+        <div class="gh-color" style="background:#BBBBBB"></div>
+        <div>
+          <div class="gh-title">Branding &amp; Print</div>
+          <div class="gh-sub">Logos, ads, apparel &amp; session naming</div><div class="gh-note">📧 After purchase, email your hi-res logo to <strong><a href="mailto:chair@bcoc.us">chair@bcoc.us</a></strong></div>
+        </div>
+      </div>
+      <div class="gh-right">
+        <div class="gh-range">$100 – $5,000</div>
+        <div class="gh-arrow">▾</div>
+      </div>
+    </div>
+    <div class="group-body">
+
+      <div class="gitem">
+        <div class="gi-left"><div class="gi-name">Logo on Retractable Banner</div><div class="gi-meta">20 available</div></div>
+        <div class="gi-right"><div class="gi-price">$100</div><span class="gi-badge badge-multi">Multi</span><a class="btn-pay" href="https://connect.intuit.com/pay/BlackChiefOfficersCommitte/scs-v1-dedee2f31a9f460783723b80c364b3441df1a304ad73418492248494bc89991a79053808a7024cd6812bd5aac9e42db4?locale=EN_US&cta=saveandcopylink" target="_blank">&#x1f4b3; Pay Now</a></div>
+      </div>
+
+      <div class="gitem">
+        <div class="gi-left"><div class="gi-name">Business Card Ad</div><div class="gi-meta">20 available</div></div>
+        <div class="gi-right"><div class="gi-price">$150</div><span class="gi-badge badge-multi">Multi</span><a class="btn-pay" href="https://connect.intuit.com/pay/BlackChiefOfficersCommitte/scs-v1-27c93a983a5549eab69594868693ad52b85c905dc1804baf943cb0a1584683f6368d8356a3414e8ab3d0016233c394fd?locale=EN_US&cta=saveandcopylink" target="_blank">&#x1f4b3; Pay Now</a></div>
+      </div>
+
+      <div class="gitem">
+        <div class="gi-left"><div class="gi-name">Logo on T-Shirt</div><div class="gi-meta">Hi-res image required · 15 available</div></div>
+        <div class="gi-right"><div class="gi-price">$150</div><span class="gi-badge badge-multi">Multi</span><a class="btn-pay" href="https://connect.intuit.com/pay/BlackChiefOfficersCommitte/scs-v1-9b468bb36e0e4e56881ed6767a6cced94ff0625d0c3e4816aad6fdd4d8d9fb167a64eaa47ebd412581e6110bae0ecd11?locale=EN_US&cta=saveandcopylink" target="_blank">&#x1f4b3; Pay Now</a></div>
+      </div>
+
+      <div class="gitem">
+        <div class="gi-left"><div class="gi-name">½ Page Ad</div><div class="gi-meta">20 available</div></div>
+        <div class="gi-right"><div class="gi-price">$200</div><span class="gi-badge badge-multi">Multi</span><a class="btn-pay" href="https://connect.intuit.com/pay/BlackChiefOfficersCommitte/scs-v1-8310dde82299451091ec5be9a05163c97266faf465564560a9fc983fe15b22f96055ddb4c9ee44ba98240f6535b7c859?locale=EN_US&cta=saveandcopylink" target="_blank">&#x1f4b3; Pay Now</a></div>
+      </div>
+
+      <div class="gitem">
+        <div class="gi-left"><div class="gi-name">Swag Bag Insert</div><div class="gi-meta">25 available</div></div>
+        <div class="gi-right"><div class="gi-price">$250</div><span class="gi-badge badge-multi">Multi</span><a class="btn-pay" href="https://connect.intuit.com/pay/BlackChiefOfficersCommitte/scs-v1-886c272c3b6d4470a7f053c85d77699e5bfa9b2589214851a751656ef5dfc47fafae3ffc58c2496cb5877bb7f630d945?locale=EN_US&cta=saveandcopylink" target="_blank">&#x1f4b3; Pay Now</a></div>
+      </div>
+
+      <div class="gitem">
+        <div class="gi-left"><div class="gi-name">Full Page Ad + 40th Anniversary Book</div><div class="gi-meta">Includes complimentary book · 40 available</div></div>
+        <div class="gi-right"><div class="gi-price">$350</div><span class="gi-badge badge-multi">Multi</span><a class="btn-pay" href="https://connect.intuit.com/pay/BlackChiefOfficersCommitte/scs-v1-24299b1d5f7c48b6a6aa3caf4050a4d11e5054868b3545b791c1e446310dbfea0da9cd52bd174a4dab8196b2f9fbba3a?locale=EN_US&cta=saveandcopylink" target="_blank">&#x1f4b3; Pay Now</a></div>
+      </div>
+
+      <div class="gitem">
+        <div class="gi-left"><div class="gi-name">Session Sponsorship</div><div class="gi-meta">12 available</div></div>
+        <div class="gi-right"><div class="gi-price">$500</div><span class="gi-badge badge-multi">Multi</span><a class="btn-pay" href="https://connect.intuit.com/pay/BlackChiefOfficersCommitte/scs-v1-77c2b10052d94d0a9b2441e903ff7b9e5e027716f97e4e959bbf80ab91d20fbc879b2526184a46cd94a343a65eae5880?locale=EN_US&cta=saveandcopylink" target="_blank">&#x1f4b3; Pay Now</a></div>
+      </div>
+
+      <div class="gitem">
+        <div class="gi-left"><div class="gi-name">Swag Bag (in-bag item)</div><div class="gi-meta">15 available</div></div>
+        <div class="gi-right"><div class="gi-price">$500</div><span class="gi-badge badge-multi">Multi</span><a class="btn-pay" href="https://connect.intuit.com/pay/BlackChiefOfficersCommitte/scs-v1-e70e1d78a5f34d52b0392562b57274a3ce5cafa516264486a6ff4055a0a389883106057fadc341648e663a9412faddcd?locale=EN_US&cta=saveandcopylink" target="_blank">&#x1f4b3; Pay Now</a></div>
+      </div>
+
+      <div class="gitem">
+        <div class="gi-left"><div class="gi-name">Swag Bag — Name/Logo on Bag</div><div class="gi-meta">14 spots available<br><span style="color:var(--red);font-weight:700;">✓ 1-800-BoardUp — Gold Sponsor</span></div></div>
+        <div class="gi-right"><div class="gi-price">$1,000</div><span class="gi-badge badge-multi">Multi</span><a class="btn-pay" href="https://connect.intuit.com/pay/BlackChiefOfficersCommitte/scs-v1-bcf9db6670794200a5bc5b3725e850e088a952893a39454693e70e88e29efa63a523c7449abb4858bb658581fa9b2d45?locale=EN_US&cta=saveandcopylink" target="_blank">&#x1f4b3; Pay Now</a></div>
+      </div>
+
+      <div class="gitem">
+        <div class="gi-left"><div class="gi-name">Lanyard Sponsor</div><div class="gi-meta">High-visibility branding throughout conference</div></div>
+        <div class="gi-right"><div class="gi-price">$2,000</div><span class="gi-badge badge-excl">Exclusive</span><a class="btn-pay" href="https://connect.intuit.com/pay/BlackChiefOfficersCommitte/scs-v1-19b92c6234fa4d928d8832f50502bff5be5ec463d8ea462f9461f63cf8d382fb1874c82f86034873b29b6d7d2832ea0d?locale=EN_US&cta=saveandcopylink" target="_blank">&#x1f4b3; Pay Now</a></div>
+      </div>
+
+      <div class="gitem">
+        <div class="gi-left"><div class="gi-name" style="text-decoration:line-through;opacity:0.5;">Keynote Sponsor</div><div class="gi-meta" style="color:var(--red);font-weight:700;">Sponsored by FirstNet/AT&amp;T — Elite Premier Presenting Sponsor</div></div>
+        <div class="gi-right"><div class="gi-price" style="opacity:0.4;text-decoration:line-through;">$3,000</div><span class="gi-badge" style="background:rgba(139,28,28,0.1);color:var(--red);border:1px solid var(--red);font-weight:700;">NOT AVAILABLE</span></div>
+      </div>
+
+      <div class="gitem">
+        <div class="gi-left"><div class="gi-name" style="text-decoration:line-through;opacity:0.5;">Keynote Sponsor</div><div class="gi-meta" style="color:var(--red);font-weight:700;">Sponsored by FG — Platinum Sponsor</div></div>
+        <div class="gi-right"><div class="gi-price" style="opacity:0.4;text-decoration:line-through;">$3,000</div><span class="gi-badge" style="background:rgba(139,28,28,0.1);color:var(--red);border:1px solid var(--red);font-weight:700;">NOT AVAILABLE</span></div>
+      </div>
+
+      <div class="gitem">
+        <div class="gi-left"><div class="gi-name" style="text-decoration:line-through;opacity:0.5;">Panel Discussion Sponsor</div><div class="gi-meta" style="color:var(--red);font-weight:700;">Sponsored by FG — Platinum Sponsor</div></div>
+        <div class="gi-right"><div class="gi-price" style="opacity:0.4;text-decoration:line-through;">$2,000</div><span class="gi-badge" style="background:rgba(139,28,28,0.1);color:var(--red);border:1px solid var(--red);font-weight:700;">NOT AVAILABLE</span></div>
+      </div>
+
+      <div class="gitem">
+        <div class="gi-left"><div class="gi-name">40th Anniversary Coin Sponsor</div><div class="gi-meta">Commemorative keepsake for all attendees</div></div>
+        <div class="gi-right"><div class="gi-price">$5,000</div><span class="gi-badge badge-excl">Exclusive</span><a class="btn-pay" href="https://connect.intuit.com/pay/BlackChiefOfficersCommitte/scs-v1-9213d76614584abb91f180268c43930fe1eaed743e4544b79a90cbd66fc15434a5b71fa7935e48ea822949cda73218df?locale=EN_US&cta=saveandcopylink" target="_blank">&#x1f4b3; Pay Now</a></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- GROUP 2: MEALS & BREAKFASTS -->
+  <div class="group" style="margin-top:10px">
+    <div class="group-header" onclick="toggle(this)">
+      <div class="gh-left">
+        <div class="gh-color" style="background:var(--gold)"></div>
+        <div>
+          <div class="gh-title">Meals &amp; Breakfasts</div>
+          <div class="gh-sub">Daily breakfasts, luncheons &amp; beverage stations</div><div class="gh-note">📧 After purchase, email your hi-res logo &amp; company name to <strong><a href="mailto:chair@bcoc.us">chair@bcoc.us</a></strong></div>
+        </div>
+      </div>
+      <div class="gh-right">
+        <div class="gh-range">$1,000 – $3,000</div>
+        <div class="gh-arrow">▾</div>
+      </div>
+    </div>
+    <div class="group-body">
+
+      <div class="gitem">
+        <div class="gi-left"><div class="gi-name">Coffee / Beverage Station</div><div class="gi-meta">4 spots available<br><span style="color:var(--red);font-weight:700;">✓ Station #1 — FirstNet/AT&amp;T — Elite Premier Presenting Sponsor</span></div></div>
+        <div class="gi-right"><div class="gi-price">$1,000</div><span class="gi-badge badge-multi">Multi</span><a class="btn-pay" href="https://connect.intuit.com/pay/BlackChiefOfficersCommitte/scs-v1-8704e989b76f466f908250f41d6044e14d96300b8bdc46f5988d1e5fe16adf0f36080a0f7f8d4b04af09ed755e4633e2?locale=EN_US&cta=saveandcopylink" target="_blank">&#x1f4b3; Pay Now</a></div>
+      </div>
+
+      <div class="gitem">
+        <div class="gi-left"><div class="gi-name" style="text-decoration:line-through;opacity:0.5;">Light Breakfast — Day 1</div><div class="gi-meta" style="color:var(--red);font-weight:700;">Sponsored by 1-800-BoardUp — Gold Sponsor</div></div>
+        <div class="gi-right"><div class="gi-price" style="opacity:0.4;text-decoration:line-through;">$1,500</div><span class="gi-badge" style="background:rgba(139,28,28,0.1);color:var(--red);border:1px solid var(--red);font-weight:700;">NOT AVAILABLE</span></div>
+      </div>
+
+      <div class="gitem">
+        <div class="gi-left"><div class="gi-name">Light Breakfast — Day 4</div></div>
+        <div class="gi-right"><div class="gi-price">$1,500</div><span class="gi-badge badge-excl">Exclusive</span><a class="btn-pay" href="https://connect.intuit.com/pay/BlackChiefOfficersCommitte/scs-v1-8a4f447fb3024fd9954765814d3c7d8e99b18525c9794f5abe25ec5ca5d8573d3e58509c306c4c66816fbe6b145e7a0a?locale=EN_US&cta=saveandcopylink" target="_blank">&#x1f4b3; Pay Now</a></div>
+      </div>
+
+      <div class="gitem">
+        <div class="gi-left"><div class="gi-name">Breakfast — Day 5</div></div>
+        <div class="gi-right"><div class="gi-price">$1,500</div><span class="gi-badge badge-excl">Exclusive</span><a class="btn-pay" href="https://connect.intuit.com/pay/BlackChiefOfficersCommitte/scs-v1-57126bef093740eca61ebac4619a1fa99ef9f920c645429194fff7aeb908023e1eae75c2410942b185f0f22d7316a41f?locale=EN_US&cta=saveandcopylink" target="_blank">&#x1f4b3; Pay Now</a></div>
+      </div>
+
+      <div class="gitem">
+        <div class="gi-left"><div class="gi-name">Farewell Breakfast</div><div class="gi-meta">Final morning send-off</div></div>
+        <div class="gi-right"><div class="gi-price">$1,500</div><span class="gi-badge badge-excl">Exclusive</span><a class="btn-pay" href="https://connect.intuit.com/pay/BlackChiefOfficersCommitte/scs-v1-d50bbac08a2d49c58c931e85f3bdd42ab1b2ce5b868449349de581775b86a9c5eb4a28fb6e474608b2b9c759898ad8bc?locale=EN_US&cta=saveandcopylink" target="_blank">&#x1f4b3; Pay Now</a></div>
+      </div>
+
+      <div class="gitem">
+        <div class="gi-left"><div class="gi-name" style="text-decoration:line-through;opacity:0.5;">Continental Breakfast — Day 2</div><div class="gi-meta" style="color:var(--red);font-weight:700;">Sponsored by FG — Platinum Sponsor</div></div>
+        <div class="gi-right"><div class="gi-price" style="opacity:0.4;text-decoration:line-through;">$2,500</div><span class="gi-badge" style="background:rgba(139,28,28,0.1);color:var(--red);border:1px solid var(--red);font-weight:700;">NOT AVAILABLE</span></div>
+      </div>
+
+      <div class="gitem">
+        <div class="gi-left"><div class="gi-name" style="text-decoration:line-through;opacity:0.5;">Continental Breakfast — Day 3</div><div class="gi-meta" style="color:var(--red);font-weight:700;">Sponsored by FG — Platinum Sponsor</div></div>
+        <div class="gi-right"><div class="gi-price" style="opacity:0.4;text-decoration:line-through;">$2,500</div><span class="gi-badge" style="background:rgba(139,28,28,0.1);color:var(--red);border:1px solid var(--red);font-weight:700;">NOT AVAILABLE</span></div>
+      </div>
+
+      <div class="gitem">
+        <div class="gi-left"><div class="gi-name">Luncheon — Day 1</div><div class="gi-meta">2 spots available<br><span style="color:var(--red);font-weight:700;">✓ Atlantic Emergency Solutions — Platinum Sponsor<br>✓ MSA/Global — Platinum Sponsor</span></div></div>
+        <div class="gi-right"><div class="gi-price">$2,500</div><span class="gi-badge badge-excl">Exclusive</span><a class="btn-pay" href="https://connect.intuit.com/pay/BlackChiefOfficersCommitte/scs-v1-5c92a6ead46749bb94f328c3e64c5720c78c0b16be4f464eb39e3771a45dd08a3afca600495d42d58ae21d9c66931ffd?locale=EN_US&cta=saveandcopylink" target="_blank">&#x1f4b3; Pay Now</a></div>
+      </div>
+
+      <div class="gitem">
+        <div class="gi-left"><div class="gi-name">Luncheon — Day 2</div><div class="gi-meta">1 spot available<br><span style="color:var(--red);font-weight:700;">✓ Atlantic Emergency Solutions — Platinum Sponsor<br>✓ MSA/Global — Platinum Sponsor<br>✓ 1-800-BoardUp — Gold Sponsor</span></div></div>
+        <div class="gi-right"><div class="gi-price">$2,500</div><span class="gi-badge badge-excl">Exclusive</span><a class="btn-pay" href="https://connect.intuit.com/pay/BlackChiefOfficersCommitte/scs-v1-1264d8fb8b114bbeaf552a5ac1da58ab8300ed2af91949b39673610e73c64ddc9c61228df133486f86c3dba429e01bd3?locale=EN_US&cta=saveandcopylink" target="_blank">&#x1f4b3; Pay Now</a></div>
+      </div>
+
+      <div class="gitem">
+        <div class="gi-left"><div class="gi-name">Luncheon — Day 3</div><div class="gi-meta">2 spots available<br><span style="color:var(--red);font-weight:700;">✓ Atlantic Emergency Solutions — Platinum Sponsor<br>✓ MSA/Global — Platinum Sponsor</span></div></div>
+        <div class="gi-right"><div class="gi-price">$2,500</div><span class="gi-badge badge-excl">Exclusive</span><a class="btn-pay" href="https://connect.intuit.com/pay/BlackChiefOfficersCommitte/scs-v1-f9f0efd8ae6e4c22a21d279563477085bba095afaf6746f49e57f5dabaf1507b3d23a0278d14435eab498665178ec276?locale=EN_US&cta=saveandcopylink" target="_blank">&#x1f4b3; Pay Now</a></div>
+      </div>
+
+      <div class="gitem">
+        <div class="gi-left"><div class="gi-name">Luncheon — Day 4</div><div class="gi-meta">2 spots available<br><span style="color:var(--red);font-weight:700;">✓ Atlantic Emergency Solutions — Platinum Sponsor<br>✓ MSA/Global — Platinum Sponsor</span></div></div>
+        <div class="gi-right"><div class="gi-price">$2,500</div><span class="gi-badge badge-excl">Exclusive</span><a class="btn-pay" href="https://connect.intuit.com/pay/BlackChiefOfficersCommitte/scs-v1-c27d2322a11d4d5d882adc7fb2027226cfec47935785412f8767128740ea0480bf72225562d84cf7a0a114b7d8ddac47?locale=EN_US&cta=saveandcopylink" target="_blank">&#x1f4b3; Pay Now</a></div>
+      </div>
+
+      <div class="gitem">
+        <div class="gi-left"><div class="gi-name">Spouses Luncheon</div></div>
+        <div class="gi-right"><div class="gi-price">$3,000</div><span class="gi-badge badge-excl">Exclusive</span><a class="btn-pay" href="https://connect.intuit.com/pay/BlackChiefOfficersCommitte/scs-v1-75f365c261c3475a87ccdcf1a7a1a26928256c44e2fb4370935ac979d49e09850cf17f7d096a4c90bc1c94db8f18a007?locale=EN_US&cta=saveandcopylink" target="_blank">&#x1f4b3; Pay Now</a></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- GROUP 3: EVENING & SOCIAL -->
+  <div class="group" style="margin-top:10px">
+    <div class="group-header" onclick="toggle(this)">
+      <div class="gh-left">
+        <div class="gh-color" style="background:var(--red)"></div>
+        <div>
+          <div class="gh-title">Evening &amp; Social Events</div>
+          <div class="gh-sub">Dinners, receptions, game night &amp; comedy show</div><div class="gh-note">📧 After purchase, email your hi-res logo &amp; company name to <strong><a href="mailto:chair@bcoc.us">chair@bcoc.us</a></strong></div>
+        </div>
+      </div>
+      <div class="gh-right">
+        <div class="gh-range">$1,000 – $5,000</div>
+        <div class="gh-arrow">▾</div>
+      </div>
+    </div>
+    <div class="group-body">
+
+      <div class="gitem">
+        <div class="gi-left"><div class="gi-name">Game Night</div></div>
+        <div class="gi-right"><div class="gi-price">$1,000</div><span class="gi-badge badge-excl">Exclusive</span><a class="btn-pay" href="https://connect.intuit.com/pay/BlackChiefOfficersCommitte/scs-v1-6c8ced5d4b3b4fc0b1b2db6532217f4bc7b519690f204a50a7fe121747808f76f46af2f0a06c451690530fd663304810?locale=EN_US&cta=saveandcopylink" target="_blank">&#x1f4b3; Pay Now</a></div>
+      </div>
+
+      <div class="gitem">
+        <div class="gi-left"><div class="gi-name">Executive Board Dinner — Day 1</div><div class="gi-meta">Monday evening</div></div>
+        <div class="gi-right"><div class="gi-price">$2,000</div><span class="gi-badge badge-excl">Exclusive</span><a class="btn-pay" href="https://connect.intuit.com/pay/BlackChiefOfficersCommitte/scs-v1-da0f548f5099487e85494bf828f19e814d6cc2f4725d428ea73a7984683e097f6c6dcd7ee4434f328f55103464a2d1e3?locale=EN_US&cta=saveandcopylink" target="_blank">&#x1f4b3; Pay Now</a></div>
+      </div>
+
+      <div class="gitem">
+        <div class="gi-left"><div class="gi-name">Executive STK Dinner — Day 3</div><div class="gi-meta">Wednesday evening</div></div>
+        <div class="gi-right"><div class="gi-price">$2,000</div><span class="gi-badge badge-excl">Exclusive</span><a class="btn-pay" href="https://connect.intuit.com/pay/BlackChiefOfficersCommitte/scs-v1-a4f4030f4d754c61bba357fa280ad4a9eb894cd472184e8ca07139fa2433036a1ffabccd869f44ba8e130a767948604a?locale=EN_US&cta=saveandcopylink" target="_blank">&#x1f4b3; Pay Now</a></div>
+      </div>
+
+      <div class="gitem">
+        <div class="gi-left"><div class="gi-name">Dinner / Reception</div><div class="gi-meta">4 spots available</div></div>
+        <div class="gi-right"><div class="gi-price">$2,500</div><span class="gi-badge badge-excl">Exclusive</span><a class="btn-pay" href="https://connect.intuit.com/pay/BlackChiefOfficersCommitte/scs-v1-63285249101746a994df8a4f5da091d5f2f18871f7234aa78a9b3a4064c969e0b4a2583b60714833b1d79f699f661c0d?locale=EN_US&cta=saveandcopylink" target="_blank">&#x1f4b3; Pay Now</a></div>
+      </div>
+
+      <div class="gitem">
+        <div class="gi-left"><div class="gi-name">Comedy Show</div></div>
+        <div class="gi-right"><div class="gi-price">$3,000</div><span class="gi-badge badge-excl">Exclusive</span><a class="btn-pay" href="https://connect.intuit.com/pay/BlackChiefOfficersCommitte/scs-v1-ccf4602adc0c403b86e445a5aada5dbadf9bdf8bb43f4fab8a38aec292780b20c2996040197e43fb8cef80eface8f34c?locale=EN_US&cta=saveandcopylink" target="_blank">&#x1f4b3; Pay Now</a></div>
+      </div>
+
+      <div class="gitem">
+        <div class="gi-left"><div class="gi-name" style="text-decoration:line-through;opacity:0.5;">Opening Reception</div><div class="gi-meta" style="color:var(--red);font-weight:700;">Sponsored by FirstNet/AT&amp;T — Elite Premier Presenting Sponsor</div></div>
+        <div class="gi-right"><div class="gi-price" style="opacity:0.4;text-decoration:line-through;">$3,000</div><span class="gi-badge" style="background:rgba(139,28,28,0.1);color:var(--red);border:1px solid var(--red);font-weight:700;">NOT AVAILABLE</span></div>
+      </div>
+
+      <div class="gitem">
+        <div class="gi-left"><div class="gi-name">Evening Buffet — Day 3</div></div>
+        <div class="gi-right"><div class="gi-price">$5,000</div><span class="gi-badge badge-excl">Exclusive</span><a class="btn-pay" href="https://connect.intuit.com/pay/BlackChiefOfficersCommitte/scs-v1-6a0aac2934974cae85135172e63de8be3fe9b0c3070c4b29b2fdaa561a2b1267d1d948037bda45b5b1be5fdabf4c6552?locale=EN_US&cta=saveandcopylink" target="_blank">&#x1f4b3; Pay Now</a></div>
+      </div>
+
+      <div class="gitem">
+        <div class="gi-left"><div class="gi-name">Evening Social — Day 4</div></div>
+        <div class="gi-right"><div class="gi-price">$5,000</div><span class="gi-badge badge-excl">Exclusive</span><a class="btn-pay" href="https://connect.intuit.com/pay/BlackChiefOfficersCommitte/scs-v1-37b39045381947569444f98aff7513c15f11ee199046405cba0ad59f03ce0334bd1782578460414eb164514638947e5d?locale=EN_US&cta=saveandcopylink" target="_blank">&#x1f4b3; Pay Now</a></div>
+      </div>
+
+      <div class="gitem">
+        <div class="gi-left"><div class="gi-name" style="text-decoration:line-through;opacity:0.5;">Welcome Reception</div><div class="gi-meta" style="color:var(--red);font-weight:700;">Sponsored by American Wood Council — Gold Sponsor</div></div>
+        <div class="gi-right"><div class="gi-price" style="opacity:0.4;text-decoration:line-through;">$5,000</div><span class="gi-badge" style="background:rgba(139,28,28,0.1);color:var(--red);border:1px solid var(--red);font-weight:700;">NOT AVAILABLE</span></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- GROUP 4: CEREMONIES & SPECIAL -->
+  <div class="group" style="margin-top:10px">
+    <div class="group-header" onclick="toggle(this)">
+      <div class="gh-left">
+        <div class="gh-color" style="background:var(--green)"></div>
+        <div>
+          <div class="gh-title">Ceremonies &amp; Special Programs</div>
+          <div class="gh-sub">Awards, oratorical contest, spouses activities &amp; scholarships</div><div class="gh-note">📧 After purchase, email your hi-res logo &amp; company name to <strong><a href="mailto:chair@bcoc.us">chair@bcoc.us</a></strong></div>
+        </div>
+      </div>
+      <div class="gh-right">
+        <div class="gh-range">$3,000 – $5,000</div>
+        <div class="gh-arrow">▾</div>
+      </div>
+    </div>
+    <div class="group-body">
+
+      <div class="gitem">
+        <div class="gi-left"><div class="gi-name">Print Sponsorship</div></div>
+        <div class="gi-right"><div class="gi-price">$3,000</div><span class="gi-badge badge-excl">Exclusive</span><a class="btn-pay" href="https://connect.intuit.com/pay/BlackChiefOfficersCommitte/scs-v1-126f7d5264e149f78a6294c44ea83fa4662a38bc1fc544dd802824f5af7c6a07ef4fd0c31105424e8a8f3e3e23b5258d?locale=EN_US&cta=saveandcopylink" target="_blank">&#x1f4b3; Pay Now</a></div>
+      </div>
+
+      <div class="gitem">
+        <div class="gi-left"><div class="gi-name">Awards Ceremony</div><div class="gi-meta">2 spots available</div></div>
+        <div class="gi-right"><div class="gi-price">$3,000</div><span class="gi-badge badge-excl">Exclusive</span><a class="btn-pay" href="https://connect.intuit.com/pay/BlackChiefOfficersCommitte/scs-v1-5c6632f8147d42038c2496252306906c6c2d773644ff4f138f9aaf5352bc7410b6cf8d2515564e73a8e7c1a9ec5a3a96?locale=EN_US&cta=saveandcopylink" target="_blank">&#x1f4b3; Pay Now</a></div>
+      </div>
+
+      <div class="gitem">
+        <div class="gi-left"><div class="gi-name" style="text-decoration:line-through;opacity:0.5;">Closing Ceremony</div><div class="gi-meta" style="color:var(--red);font-weight:700;">Sponsored by FirstNet/AT&amp;T — Elite Premier Presenting Sponsor</div></div>
+        <div class="gi-right"><div class="gi-price" style="opacity:0.4;text-decoration:line-through;">$5,000</div><span class="gi-badge" style="background:rgba(139,28,28,0.1);color:var(--red);border:1px solid var(--red);font-weight:700;">NOT AVAILABLE</span></div>
+      </div>
+
+      <div class="gitem">
+        <div class="gi-left"><div class="gi-name">Oratorical Contest</div><div class="gi-meta">2 spots available</div></div>
+        <div class="gi-right"><div class="gi-price">$5,000</div><span class="gi-badge badge-excl">Exclusive</span><a class="btn-pay" href="https://connect.intuit.com/pay/BlackChiefOfficersCommitte/scs-v1-2056cdfc280343c0a79f631beb7ca682c77794c1c80e4d6f8236159d4750e0de0ab248cc69ab432bbd649b25cac2b7c5?locale=EN_US&cta=saveandcopylink" target="_blank">&#x1f4b3; Pay Now</a></div>
+      </div>
+
+      <div class="gitem">
+        <div class="gi-left"><div class="gi-name">Spouses Activities</div></div>
+        <div class="gi-right"><div class="gi-price">$5,000</div><span class="gi-badge badge-excl">Exclusive</span><a class="btn-pay" href="https://connect.intuit.com/pay/BlackChiefOfficersCommitte/scs-v1-6c5b213edeb2481189c78df2fe280c20c589139cd47945f3b4c5f0fa93bb7a863d9a93e94a3442c79185d25b7a100e77?locale=EN_US&cta=saveandcopylink" target="_blank">&#x1f4b3; Pay Now</a></div>
+      </div>
+
+      <div class="gitem">
+        <div class="gi-left"><div class="gi-name">Scholarship</div><div class="gi-meta">10 available · name a scholarship in your honor</div></div>
+        <div class="gi-right"><div class="gi-price">$5,000</div><span class="gi-badge badge-multi">Multi</span><a class="btn-pay" href="https://connect.intuit.com/pay/BlackChiefOfficersCommitte/scs-v1-d92a0f8f3e494b9cb0b3b5358d5c26bb92d9eceab2b24aa6bf7b46a47877748363b4e0933ae2407181e5fae6207a6817?locale=EN_US&cta=saveandcopylink" target="_blank">&#x1f4b3; Pay Now</a></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta">
+    <div class="cta-logo">
+      <img src="https://static.wixstatic.com/media/1700c8_b909148ce5194ad28a728ce16eecffbb~mv2.png" alt="BCOC">
+    </div>
+    <h2 style="font-size:clamp(24px,4vw,38px);">Questions?</h2>
+    <p style="font-size:17px;">We're here to help you find the right sponsorship.</p>
+    <div class="cta-btns">
+      <a class="btn-red" href="https://www.bcoc.us" target="_blank">Visit BCOC.us</a>
+      <a class="btn-outline" href="mailto:chair@bcoc.us">Contact Us</a>
+      <a class="btn-outline" href="#" onclick="openProspectus();return false;" style="background:var(--black);color:var(--white);border-color:var(--black);font-size:14px;">📄 View Prospectus</a>
+    </div>
+  </div>
+
+</div><!-- /wrap -->
+
+<div style="height:60px"></div>
+<div class="footer-tribar">
+  <span style="background:var(--red)"></span>
+  <span style="background:var(--gold)"></span>
+  <span style="background:var(--green)"></span>
+</div>
+<div class="footer-bar">
+  <img src="https://static.wixstatic.com/media/1700c8_b909148ce5194ad28a728ce16eecffbb~mv2.png" alt="BCOC">
+  <span>© Black Chief Officers Committee · bcoc.us</span>
+</div>
+
+<!-- No modal needed - prospectus opens in new tab -->
+
+<script>
+function toggle(header) {
+  var body = header.nextElementSibling;
+  var isOpen = header.classList.contains('open');
+  header.classList.toggle('open', !isOpen);
+  body.classList.toggle('open', !isOpen);
+}
+
+function openProspectus() {
+  window.open('https://online.fliphtml5.com/hpuui/2026-PROSPECTUS/', '_blank');
+}
+</script>
+
+<!-- Jotform AI Chatbot - Rose-Annette -->
+<div id="jf-chat-btn" onclick="toggleJfChat()" style="position:fixed;bottom:32px;right:32px;z-index:998;width:52px;height:52px;border-radius:50%;background:var(--red,#c0272d);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 20px rgba(0,0,0,0.3);transition:transform 0.2s;" title="Chat with Rose-Annette">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+</div>
+<div id="jf-chat-box" style="display:none;position:fixed;bottom:96px;right:32px;z-index:999;width:360px;height:440px;border-radius:16px;overflow:hidden;box-shadow:0 12px 48px rgba(0,0,0,0.25);background:#fff;">
+  <div style="background:var(--red,#c0272d);padding:10px 16px;display:flex;align-items:center;justify-content:space-between;">
+    <span style="color:#fff;font-family:'Cinzel',serif;font-size:0.75rem;font-weight:700;letter-spacing:0.08em;">Rose-Annette | CAFC</span>
+    <button onclick="toggleJfChat()" style="background:none;border:none;color:#fff;font-size:1.3rem;cursor:pointer;padding:0 4px;line-height:1;">&times;</button>
+  </div>
+  <iframe
+    title="Rose-Annette: CAFC Secretariat" allowtransparency="true"
+    allow="geolocation; microphone; camera; fullscreen"
+    src="https://agent.jotform.com/01954aa6c95375a1b93b25f7a4284cf4f57f/voice?embedMode=iframe&autofocus=0&background=1&shadow=1"
+    frameborder="0" style="width:100%;height:calc(100% - 40px);border:none;">
+  </iframe>
+</div>
+<script>
+function toggleJfChat(){
+  var box=document.getElementById('jf-chat-box');
+  var btn=document.getElementById('jf-chat-btn');
+  if(box.style.display==='none'){box.style.display='block';btn.style.display='none';}
+  else{box.style.display='none';btn.style.display='flex';}
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BCOC 2026 · Speaker Bios — Meet the Leaders</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;background:#e8e4de;font-family:'Source Sans 3',sans-serif;color:#1a1a1a;min-height:100vh}
+.wrap{max-width:1100px;margin:0 auto;padding:18px 24px 60px}
+.masthead{position:relative;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:12px 24px;background:linear-gradient(100deg,#0a0f1a 0%,#14213d 45%,#1b2d50 75%,#14213d 100%);border-radius:12px 12px 0 0;box-shadow:0 8px 24px rgba(0,0,0,0.28);overflow:hidden;color:#fff}
+.masthead::after{content:'';position:absolute;bottom:0;left:0;right:0;height:5px;background:repeating-linear-gradient(90deg,#c8962e 0,#c8962e 20%,#b82040 20%,#b82040 40%,#c8962e 40%,#c8962e 60%,#b82040 60%,#b82040 80%,#c8962e 80%,#c8962e 100%)}
+.mh-logo-left,.mh-logo-right{flex-shrink:0;filter:drop-shadow(0 3px 8px rgba(0,0,0,0.4))}
+.mh-logo-left{height:52px}
+.mh-logo-right{height:56px}
+.mh-center{flex:1;text-align:center;min-width:0}
+.mh-title{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(14px,1.9vw,20px);letter-spacing:2px;line-height:1.15;white-space:nowrap}
+.mh-title span{color:#e8be5a}
+.mh-tag{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(10px,1.2vw,13px);color:rgba(232,190,90,0.92);margin-top:3px;letter-spacing:0.8px}
+.bios-hero{position:relative;background:linear-gradient(170deg,#14213d 0%,#1b2d50 55%,#14213d 100%);color:#fff;padding:32px 32px 40px;text-align:center;border-radius:0 0 14px 14px;box-shadow:0 10px 30px rgba(0,0,0,0.2);margin-top:-4px;overflow:hidden}
+.bios-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:6px;background:repeating-linear-gradient(90deg,#c8962e 0,#c8962e 20%,#b82040 20%,#b82040 40%,#c8962e 40%,#c8962e 60%,#b82040 60%,#b82040 80%,#c8962e 80%,#c8962e 100%)}
+.bios-hero-eyebrow{font-size:11px;font-weight:800;letter-spacing:6px;color:#e8be5a;text-transform:uppercase;margin-bottom:10px}
+.bios-hero h1{font-family:'Playfair Display',serif;font-size:clamp(34px,5.5vw,54px);font-weight:900;margin:0 0 10px;letter-spacing:2px}
+.bios-hero h1 em{font-style:italic;background:linear-gradient(135deg,#e8be5a,#c8962e);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.bios-hero-sub{font-family:'Playfair Display',serif;font-style:italic;font-size:16px;color:rgba(255,255,255,0.78);max-width:660px;margin:0 auto;line-height:1.55}
+.bios-back-link{display:inline-flex;align-items:center;gap:8px;margin-top:22px;padding:11px 22px;color:#e8be5a;border:1px solid rgba(232,190,90,0.6);border-radius:999px;text-decoration:none;font-weight:700;font-size:12px;letter-spacing:2px;text-transform:uppercase;transition:all 0.2s}
+.bios-back-link:hover{background:#c8962e;color:#14213d}
+.bios-section-title{text-align:center;margin:34px 0 22px}
+.bios-section-title h2{font-family:'Playfair Display',serif;font-size:30px;color:#14213d;letter-spacing:1px}
+.bios-section-title .rule{width:80px;height:3px;background:linear-gradient(90deg,transparent,#c8962e,transparent);margin:12px auto 0}
+.bios-section-title p{font-size:13px;color:#777;font-style:italic;margin-top:10px}
+.bios-grid{display:grid;grid-template-columns:repeat(3,300px);gap:18px;align-items:start;justify-content:center;width:100%}
+.bio-card-link{text-decoration:none;color:inherit;display:block}
+.bio-card-link:hover .bio-card{transform:translateY(-3px);box-shadow:0 12px 28px rgba(20,33,61,0.14);border-color:#c8962e}
+.bio-card{background:#fff;border:1px solid #eae4d6;border-radius:14px;padding:24px 20px 20px;box-shadow:0 4px 18px rgba(20,33,61,0.07);transition:all 0.2s;position:relative;overflow:hidden;min-width:0;}
+.bio-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#c8962e,#b82040,#c8962e)}
+.bio-photo{width:90px;height:90px;border-radius:50%;margin:0 auto 14px;overflow:hidden;border:3px solid #c8962e;box-shadow:0 4px 20px rgba(200,150,46,0.2);background:#14213d;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.bio-photo svg{width:40px;height:40px;color:#c8962e}
+.bio-info{}
+.bio-presenter-label{display:block;width:fit-content;font-size:10px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:#14213d;background:#e8be5a;padding:4px 12px;border-radius:999px;margin:0 auto 10px;box-shadow:0 2px 6px rgba(200,150,46,0.3)}
+.bio-keynote-label{display:block;width:fit-content;font-size:10px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:#fff;background:#b82040;padding:4px 12px;border-radius:999px;margin:0 auto 10px;box-shadow:0 2px 6px rgba(184,32,64,0.3)}
+.bio-name{font-family:'Playfair Display',serif;text-align:center;font-size:18px;font-weight:900;color:#14213d;line-height:1.2;margin-bottom:4px}
+.bio-title{text-align:center;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#c8962e;font-weight:800;margin-bottom:14px}
+.bio-text{font-size:13px;color:#3a3a3a;line-height:1.6;text-align:left;overflow:hidden;display:-webkit-box;-webkit-line-clamp:10;-webkit-box-orient:vertical;line-clamp:10;margin-bottom:12px}
+.bio-actions{margin-top:14px;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}
+.bio-readmore{font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#c8962e;text-decoration:none;border-bottom:1px solid rgba(200,150,46,0.4);padding-bottom:2px}
+.bio-readmore:hover{color:#b82040;border-bottom-color:#b82040}
+.bio-li-pill{display:inline-flex;align-items:center;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#14213d;background:#fff;border:1.5px solid #14213d;padding:4px 12px;border-radius:999px;text-decoration:none;transition:all 0.2s}
+.bio-li-pill:hover{background:#0a66c2;border-color:#0a66c2;color:#fff}
+.bios-footer{margin-top:60px;padding:42px 20px 32px;text-align:center;background:linear-gradient(170deg,#14213d 0%,#1b2d50 100%);color:rgba(255,255,255,0.78);border-radius:14px;position:relative;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,0.12)}
+.bios-footer::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:repeating-linear-gradient(90deg,#c8962e 0,#c8962e 20%,#b82040 20%,#b82040 40%,#c8962e 40%,#c8962e 60%,#b82040 60%,#b82040 80%,#c8962e 80%,#c8962e 100%)}
+.footer-logos{display:flex;align-items:center;justify-content:center;gap:24px;margin:4px auto 14px;flex-wrap:wrap}
+.footer-logos img{height:56px}
+.footer-motto{font-family:'Playfair Display',serif;letter-spacing:5px;font-size:13px;color:#e8be5a;margin:10px 0 4px;text-transform:uppercase;font-weight:700}
+.footer-small{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-top:8px}
+.footer-small a{color:#e8be5a;text-decoration:none;border-bottom:1px solid rgba(232,190,90,0.4);padding-bottom:2px}
+.bios-grid{grid-template-columns:repeat(3,300px)!important;align-items:start!important;justify-content:center}
+.bio-slots{display:flex;flex-direction:column;gap:4px;margin:12px 0 14px}
+.bio-slot{display:flex;align-items:center;gap:10px;padding:7px 10px;background:#f8f5ee;border:1px solid #e8dfc7;border-left:3px solid #c8962e;border-radius:4px;font-family:'Source Sans 3',sans-serif;flex-wrap:wrap}
+.bio-slot.kn{background:#fdf0e5;border-left-color:#b82040}
+.bio-slot-day{font-weight:900;letter-spacing:1.5px;color:#14213d;font-size:10.5px;min-width:34px;text-align:center}
+.bio-slot-time{font-weight:700;color:#14213d;letter-spacing:0.2px;font-size:11.5px;flex:1}
+.bio-slot-tag{font-size:9px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;padding:2px 7px;border-radius:3px;background:#fff;border:1px solid rgba(20,33,61,0.2);color:#14213d;white-space:nowrap}
+.bio-slot.kn .bio-slot-tag{color:#b82040;border-color:rgba(184,32,64,0.35)}
+.bio-book{display:flex;gap:12px;align-items:flex-start;margin:0 0 14px;padding:12px;background:linear-gradient(135deg,#fdf0e5,#fffaf2);border:1px solid #e8dfc7;border-left:4px solid #b82040;border-radius:6px;position:relative}
+.bio-book-cover{width:58px;height:80px;object-fit:cover;border-radius:3px;box-shadow:0 4px 12px rgba(20,33,61,0.25);flex-shrink:0}
+.bio-book-meta{flex:1;min-width:0;padding-right:30px}
+.bio-book-label{font-size:9.5px;font-weight:800;letter-spacing:1.8px;text-transform:uppercase;color:#b82040;margin-bottom:4px}
+.bio-book-title{font-family:'Playfair Display',serif;font-size:15px;font-weight:900;color:#14213d;line-height:1.2;margin-bottom:4px;font-style:italic}
+.bio-book-sub{font-size:11.5px;color:#6b5a3a;line-height:1.45}
+.bio-book-brand{position:absolute;top:8px;right:8px;width:38px;height:auto;opacity:0.85}
+@media(max-width:960px){.bios-grid{grid-template-columns:repeat(2,minmax(260px,300px))!important}}@media(max-width:620px){.bios-grid{grid-template-columns:minmax(260px,340px)!important}.masthead{flex-direction:column;text-align:center;padding:18px 16px;gap:12px}.mh-logo-left,.mh-logo-right{height:60px}}@media(max-width:380px){.bios-grid{grid-template-columns:1fr!important}.bio-card{padding:18px 16px 16px}.bio-name{font-size:17px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="masthead">
+    <img class="mh-logo-left" src="https://static.wixstatic.com/media/1700c8_b2680286f4244f40a9afec02808f2d36~mv2.png" alt="BCOC">
+    <div class="mh-center">
+      <div class="mh-title">BCOC <span>2026</span> SYMPOSIUM &amp; CONFERENCE</div>
+      <div class="mh-tag">Forging the Future — Executive Leadership in Times of Challenge</div>
+    </div>
+    <img class="mh-logo-right" src="https://static.wixstatic.com/media/a6fc8b_b3b55f4d44cb46c3a8c981c0bcf42ad3~mv2.png" alt="40th Anniversary">
+  </div>
+  <header class="bios-hero">
+    <div class="bios-hero-eyebrow">Speaker Biographies</div>
+    <h1>Meet the <em>Leaders</em></h1>
+    <div class="bios-hero-sub">Honoring forty years of executive leadership, mentorship, and service — the chief officers, scholars, and practitioners forging the future of the fire service.</div>
+    <a href="BCOC_2026_Agenda_Flipbook.html" class="bios-back-link">&larr; Back to Conference Agenda</a>
+  </header>
+  <div class="bios-grid">
+<div class="bio-card" onclick="window.location.href='BCOC_2026_Speaker_Daniels.html'" style="cursor:pointer" id="bio-daniels">
+  <div class="bio-photo"><img src="https://static.wixstatic.com/media/a6fc8b_9a50ec1f21ce47a189e71df14a54ee00~mv2.jpg" alt="" style="width:100%;height:100%;object-fit:cover"></div>
+  <div class="bio-info">
+    <div class="bio-keynote-label">Keynote Speaker</div>
+    <div class="bio-name">Dr. I. David Daniels, PhD, CSD, VPS</div>
+    <div class="bio-title">Founder &amp; CEO, ID2 Solutions</div>
+    <div class="bio-slots"><div class="bio-slot kn"><span class="bio-slot-day">MON</span><span class="bio-slot-time">9:30 &ndash; 11:00 AM</span><span class="bio-slot-tag">Keynote</span></div><div class="bio-slot kn"><span class="bio-slot-day">TUE</span><span class="bio-slot-time">1:15 &ndash; 2:15 PM</span><span class="bio-slot-tag">Keynote</span></div><div class="bio-slot"><span class="bio-slot-day">WED</span><span class="bio-slot-time">1:30 &ndash; 2:30 PM</span><span class="bio-slot-tag">Moderator</span></div><div class="bio-slot"><span class="bio-slot-day">M&ndash;W</span><span class="bio-slot-time">Book Signing</span><span class="bio-slot-tag">Signing</span></div></div>
+    <div class="bio-book">
+      <img class="bio-book-cover" src="https://static.wixstatic.com/media/a6fc8b_be560644ceed418789fb32bbd0a17a17~mv2.jpg" alt="Psychosocial Hazards Are Real! by Dr. I. David Daniels">
+      <div class="bio-book-meta">
+        <div class="bio-book-label">Book Signing &middot; Mon&ndash;Wed</div>
+        <div class="bio-book-title">Psychosocial Hazards Are Real!</div>
+        <div class="bio-book-sub">Meet Dr. Daniels and pick up a signed copy during the conference.</div>
+      </div>
+      <img class="bio-book-brand" src="https://static.wixstatic.com/media/a6fc8b_fa388653b8ad4670a263bb838a909d25~mv2.png" alt="ID2 Solutions">
+    </div>
+    <div class="bio-text">Dr. I. David Daniels is a global thought leader in occupational health and psychosocial safety. As Founder and CEO of ID2 Solutions, LLC, he brings over four decades of frontline and executive leadership—including four Fire Chief appointments—to the challenge of protecting workers from psychosocial hazards. His doctoral research (Capitol Technology University, 2022) and his book <em>Psychosocial Hazards Are Real!</em> provide frameworks for understanding the hidden risks that undermine worker health and organizational culture. He serves as Chief Safety Officer and board member for multiple advocacy organizations, focusing on psychosocial hazard regulation, trauma-informed accountability, equity in occupational health and safety, and strategic coalition leadership.</div>
+    <div class="bio-actions"><a href="BCOC_2026_Speaker_Daniels.html" class="bio-readmore" onclick="event.stopPropagation()">Read profile &rarr;</a><a href="BCOC_2026_Session_Details.html#sess-daniels" class="bio-readmore" onclick="event.stopPropagation()">Keynote &rarr;</a><a href="BCOC_2026_Session_Details.html#sess-daniels2" class="bio-readmore" onclick="event.stopPropagation()">Panel &rarr;</a><a href="https://www.linkedin.com/in/idaviddaniels" target="_blank" rel="noopener" class="bio-li-pill" onclick="event.stopPropagation()">LinkedIn</a></div>
+  </div>
+</div>
+<div class="bio-card" onclick="window.location.href='BCOC_2026_Speaker_Alston.html'" style="cursor:pointer" id="bio-alston">
+  <div class="bio-photo"><img src="https://static.wixstatic.com/media/a6fc8b_0fab5953e0c740a0821e83b56c144c04~mv2.jpg" alt="" style="width:100%;height:100%;object-fit:cover"></div>
+  <div class="bio-info">
+    <div class="bio-keynote-label">Keynote Speaker</div>
+    <div class="bio-name">Chief John Alston</div>
+    <div class="bio-title">Fire Chief (Ret.), Vice-Chair BCOC</div>
+    <div class="bio-slots"><div class="bio-slot kn"><span class="bio-slot-day">TUE</span><span class="bio-slot-time">8:30 &ndash; 9:30 AM</span><span class="bio-slot-tag">Keynote</span></div></div>
+    <div class="bio-text">Chief John Alston Jr. brings more than 41 years of fire service experience and a people-centered leadership philosophy. He serves as Executive Coach and Trainer for the Fire Officer Trust (since October 2018) and is a certified John Maxwell Coach and Trainer, supporting business leaders, first responders, law enforcement, and emergency management leaders. Chief Alston served as Fire Chief of the New Haven (CT) Fire Department from October 2016 through his recent retirement, becoming the first fire chief in 155 years hired from outside the department. Before New Haven, he spent nearly 16 years with the Jersey City (NJ) Fire Department — rising to 1st Battalion Chief, and previously serving as Deputy Chief of Special Operations and Chief of Training, where he led all training for a "Metro" fire department and directed fire suppression and disaster planning across high-traffic assets including the Holland Tunnel, Ellis Island, and Liberty State Park. From 2012 to 2018 he also served as a Master Instructor with the International Association of Fire Fighters (IAFF). Chief Alston is Vice-Chair of the Black Chief Officers Committee (BCOC).</div>
+    <div class="bio-actions"><a href="BCOC_2026_Speaker_Alston.html" class="bio-readmore" onclick="event.stopPropagation()">Read profile &rarr;</a><a href="BCOC_2026_Session_Details.html#sess-alston" class="bio-readmore" onclick="event.stopPropagation()">View session &rarr;</a><a href="https://www.linkedin.com/in/john-alston13/" target="_blank" rel="noopener" class="bio-li-pill" onclick="event.stopPropagation()">LinkedIn</a></div>
+  </div>
+</div>
+<div class="bio-card" onclick="window.location.href='BCOC_2026_Speaker_Freeman.html'" style="cursor:pointer" id="bio-freeman">
+  <div class="bio-photo"><img src="https://static.wixstatic.com/media/a6fc8b_9440fd41aebd45c384ba8b4828dded6a~mv2.png" alt="" style="width:100%;height:100%;object-fit:cover"></div>
+  <div class="bio-info">
+    <div class="bio-keynote-label">Keynote Speaker</div>
+    <div class="bio-name">Dr. Reggie Freeman</div>
+    <div class="bio-title">Executive Director, Fire &amp; EMS · NEOM · Founder, The Freeman Group</div>
+    <div class="bio-slots"><div class="bio-slot kn"><span class="bio-slot-day">WED</span><span class="bio-slot-time">8:30 &ndash; 9:30 AM</span><span class="bio-slot-tag">Keynote</span></div></div>
+    <div class="bio-text">Dr. Reginald Freeman serves as Executive Director of Fire &amp; EMS at NEOM, where his focus is on developing cutting-edge protocols and organizational strategies that enhance operational efficiency and effectiveness. His team's recent initiatives have been pivotal in improving emergency response capabilities, ensuring the safety and well-being of NEOM's residents and visitors. With over 17 years at the helm of The Freeman Group, a renowned public safety consulting firm, Dr. Freeman brings a wealth of experience to the forefront of emergency management. He previously served as Fire Chief of the Oakland (CA) Fire Department; Fire Chief and Emergency Management Director for Hartford (CT); Fire Chief for Lockheed Martin; and as a civilian Fire Chief in Iraq for the U.S. Department of Defense (2004–2008). He holds a Master's in Executive Fire Service Leadership from Grand Canyon University and a PhD in Emergency &amp; Protective Services from Capitol Technology University. Dr. Freeman also serves as a Board Member at The Leadership Crucible Foundation, where he is deeply invested in the growth and development of leaders.</div>
+    <div class="bio-actions"><a href="BCOC_2026_Speaker_Freeman.html" class="bio-readmore" onclick="event.stopPropagation()">Read profile &rarr;</a><a href="BCOC_2026_Session_Details.html#sess-freeman" class="bio-readmore" onclick="event.stopPropagation()">View session &rarr;</a><a href="https://www.linkedin.com/in/reginald-freeman-ms-cfo-fifiree-67656a4/" target="_blank" rel="noopener" class="bio-li-pill" onclick="event.stopPropagation()">LinkedIn</a></div>
+  </div>
+</div>
+<div class="bio-card" onclick="window.location.href='BCOC_2026_Speaker_Smith.html'" style="cursor:pointer" id="bio-smith">
+  <div class="bio-photo"><img src="https://static.wixstatic.com/media/a6fc8b_a17ae2e4f9cb4a5ba7d54416cec82ffd~mv2.png" alt="" style="width:100%;height:100%;object-fit:cover"></div>
+  <div class="bio-info">
+    <div class="bio-keynote-label">Keynote Speaker</div>
+    <div class="bio-name">Dr. Hezedean Smith, Fire Chief (Ret.)</div>
+    <div class="bio-title">BCOC Chair; President, NEMSMA; CEO, Global Emergency Services Consulting Group</div>
+    <div class="bio-slots"><div class="bio-slot"><span class="bio-slot-day">MON</span><span class="bio-slot-time">8:30 AM</span><span class="bio-slot-tag">Welcome</span></div><div class="bio-slot kn"><span class="bio-slot-day">THU</span><span class="bio-slot-time">1:30 &ndash; 2:30 PM</span><span class="bio-slot-tag">Keynote</span></div></div>
+    <div class="bio-text">Dr. Hezedean A. Smith, DM, is an accomplished and visionary consultant and fire service executive who has served in the emergency services profession for over 37 years. His credentials include CFO, CEMSO, NRP, CPM, COSS, CHSE, and EFO-EMSO. He has served as the first Black Fire Chief in Charlottesville, Virginia and Polk County, Florida, following a distinguished career of nearly 25 years with a metropolitan fire department in Florida (Orlando Fire Department), where he rose to Assistant Chief. He holds a Doctor of Management in Organizational Leadership as well as degrees in Fire Science and EMS, and is positioned to conduct strategic planning, assessments, and research aimed at improving organizations across the Caribbean and the United States. Dr. Smith has a solid track record in organizational transformation, challenging the status quo, and facilitating cutting-edge 21st-century leadership and strategic management.</div>
+    <div class="bio-actions"><a href="BCOC_2026_Speaker_Smith.html" class="bio-readmore" onclick="event.stopPropagation()">Read profile &rarr;</a><a href="BCOC_2026_Session_Details.html#sess-smith" class="bio-readmore" onclick="event.stopPropagation()">View session &rarr;</a><a href="https://www.linkedin.com/in/dr-hezedean-smith-cfo-cemso-cpm-chse-facpe-nrp-mifiree-5a375717a/" target="_blank" rel="noopener" class="bio-li-pill" onclick="event.stopPropagation()">LinkedIn</a></div>
+  </div>
+</div>
+<div class="bio-card" onclick="window.location.href='BCOC_2026_Speaker_Butler.html'" style="cursor:pointer" id="bio-butler">
+  <div class="bio-photo"><img src="https://static.wixstatic.com/media/a6fc8b_a926eb075afd4f1399a73e31ff074b1f~mv2.jpg" alt="" style="width:100%;height:100%;object-fit:cover"></div>
+  <div class="bio-info">
+    <div class="bio-keynote-label">Keynote Speaker</div>
+    <div class="bio-name">Chief John Butler</div>
+    <div class="bio-title">Fire Chief, Fairfax County Virginia · President, Metro Chiefs</div>
+    <div class="bio-slots"><div class="bio-slot kn"><span class="bio-slot-day">THU</span><span class="bio-slot-time">8:30 &ndash; 9:30 AM</span><span class="bio-slot-tag">Keynote</span></div></div>
+    <div class="bio-text">Chief John S. Butler brings a 33+ year career dedicated to the fire service, driven by a commitment to advancing life safety standards and protecting those who serve. He is Fire Chief, Paramedic, and Fire Marshal for the Fairfax County (Virginia) Fire and Rescue Department, a role he has held since September 2018. As the 147th President of the International Association of Fire Chiefs (IAFC) and President of the Metropolitan Fire Chiefs Association, he champions community risk reduction and occupational health, safety, and wellness on a global scale. A retired United States Marine — Semper Fidelis — and a graduate of FSEDI, he is also a voice actor who contributed to an Emmy-nominated documentary.</div>
+    <div class="bio-actions"><a href="BCOC_2026_Speaker_Butler.html" class="bio-readmore" onclick="event.stopPropagation()">Read profile &rarr;</a><a href="BCOC_2026_Session_Details.html#sess-butler" class="bio-readmore" onclick="event.stopPropagation()">View session &rarr;</a><a href="https://www.linkedin.com/in/john-butler-fire-chief-a9006754/" target="_blank" rel="noopener" class="bio-li-pill" onclick="event.stopPropagation()">LinkedIn</a></div>
+  </div>
+</div>
+<div class="bio-card" onclick="window.location.href='BCOC_2026_Speaker_Brewton.html'" style="cursor:pointer" id="bio-brewton">
+  <div class="bio-photo"><img src="https://static.wixstatic.com/media/a6fc8b_350085c1fdb14ec08a5d14dd920ce0b2~mv2.jpeg" alt="" style="width:100%;height:100%;object-fit:cover"></div>
+  <div class="bio-info">
+    <div class="bio-keynote-label">Keynote Speaker</div>
+    <div class="bio-name">Chief T. Pierre Brewton</div>
+    <div class="bio-title">Fire Chief, City of Spartanburg (SC) Fire Department · BCOC Education Coordinator</div>
+    <div class="bio-slots"><div class="bio-slot"><span class="bio-slot-day">MON</span><span class="bio-slot-time">8:00 AM</span><span class="bio-slot-tag">Presiding</span></div><div class="bio-slot kn"><span class="bio-slot-day">MON</span><span class="bio-slot-time">1:15 &ndash; 2:15 PM</span><span class="bio-slot-tag">Keynote</span></div></div>
+    <div class="bio-text">Chief T. Pierre Brewton is the Fire Chief of the City of Spartanburg (SC) Fire Department and serves as the BCOC Education Coordinator. His curriculum, "Leadership Through Adversity: Navigating the Fire Service as Black Chief Officers," examines historical and cultural barriers, the impact of adversity on leadership development, and the responsibility of chief officers to shape equitable organizational culture.</div>
+    <div class="bio-actions"><a href="BCOC_2026_Speaker_Brewton.html" class="bio-readmore" onclick="event.stopPropagation()">Read profile &rarr;</a><a href="BCOC_2026_Session_Details.html#sess-brewton" class="bio-readmore" onclick="event.stopPropagation()">View session &rarr;</a><a href="https://www.linkedin.com/in/t-pierre-brewton-700b66b/" target="_blank" rel="noopener" class="bio-li-pill" onclick="event.stopPropagation()">LinkedIn</a></div>
+  </div>
+</div>
+<div class="bio-card" id="bio-anunay">
+  <div class="bio-photo"><img src="https://static.wixstatic.com/media/a6fc8b_23a9a7e530e34b69a741b91bbc1f7b20~mv2.jpeg" alt="" style="width:100%;height:100%;object-fit:cover"></div>
+  <div class="bio-info">
+    
+    <div class="bio-keynote-label">Keynote Speaker</div>
+    <div class="bio-name">Chief Queen Anunay</div>
+    <div class="bio-title">Las Vegas Fire &amp; Rescue</div>
+    <div class="bio-slots"><div class="bio-slot kn"><span class="bio-slot-day">WED</span><span class="bio-slot-time">2:30 &ndash; 3:30 PM</span><span class="bio-slot-tag">Keynote</span></div></div>
+    <div class="bio-text">Chief Queen Anunay serves with Las Vegas Fire &amp; Rescue and co-presents "Financial Hot Wash: Protecting Your Legacy" with Wendell Catlet. The session helps first responders make informed financial decisions.</div>
+    <div class="bio-actions"><a href="BCOC_2026_Session_Details.html#sess-anunay" class="bio-readmore" onclick="event.stopPropagation()">View session &rarr;</a></div>
+  </div>
+</div>
+<div class="bio-card" id="bio-bryant">
+  <div class="bio-photo"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg></div>
+  <div class="bio-info">
+    
+    <div class="bio-presenter-label">Presenter</div>
+    <div class="bio-name">William Bryant</div>
+    <div class="bio-title">Executive Director, Scouting America</div>
+    <div class="bio-slots"><div class="bio-slot"><span class="bio-slot-day">THU</span><span class="bio-slot-time">9:30 &ndash; 10:00 AM</span><span class="bio-slot-tag">Session</span></div></div>
+    <div class="bio-text">William Bryant serves with the Mobile Area Council, Scouting America, and presents a nonprofit revenue generation framework for executive leaders. The session covers volunteer and professional relationship building, SWOT analysis, major-gift cultivation, and a hands-on recruitment/ASK meeting.</div>
+    <div class="bio-actions"><a href="BCOC_2026_Session_Details.html#sess-bryant" class="bio-readmore" onclick="event.stopPropagation()">View session &rarr;</a></div>
+  </div>
+</div>
+<div class="bio-card" id="bio-buchanan">
+  <div class="bio-photo"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg></div>
+  <div class="bio-info">
+    
+    <div class="bio-presenter-label">Presenter</div>
+    <div class="bio-name">Dr. Jeff Buchanan</div>
+    <div class="bio-title">FirstNet</div>
+    <div class="bio-slots"><div class="bio-slot"><span class="bio-slot-day">TUE</span><span class="bio-slot-time">7:00 &ndash; 10:00 PM</span><span class="bio-slot-tag">Hospitality</span></div></div>
+    <div class="bio-text">Dr. Jeff Buchanan presents on behalf of FirstNet, the BCOC 2026 Elite Premier sponsor. His sessions highlight FirstNet's dedicated public safety broadband network and its role supporting fire service operations.</div>
+    <div class="bio-actions"><a href="BCOC_2026_Session_Details.html" class="bio-readmore" onclick="event.stopPropagation()">View session &rarr;</a></div>
+  </div>
+</div>
+<div class="bio-card" id="bio-burden">
+  <div class="bio-photo"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg></div>
+  <div class="bio-info">
+    
+    <div class="bio-presenter-label">Presenter</div>
+    <div class="bio-name">Chief Antonio Burden</div>
+    <div class="bio-title">Fire Chief &amp; EMA Director, Augusta Fire Department</div>
+    <div class="bio-slots"><div class="bio-slot"><span class="bio-slot-day">WED</span><span class="bio-slot-time">10:15 &ndash; 11:00 AM</span><span class="bio-slot-tag">Co-Present</span></div></div>
+    <div class="bio-text">Chief Antonio Burden is Fire Chief and EMA Director for the City of Augusta, Georgia, overseeing a premier ISO Class 1 department with more than 300 uniformed personnel across 19 stations. A U.S. Marine Corps veteran of Operation Desert Storm, he serves on the IAFC Terrorism and Homeland Security Committee.</div>
+    <div class="bio-actions"><a href="BCOC_2026_Session_Details.html#sess-mcelroy" class="bio-readmore" onclick="event.stopPropagation()">View session &rarr;</a></div>
+  </div>
+</div>
+<div class="bio-card" id="bio-calvinbrown">
+  <div class="bio-photo"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg></div>
+  <div class="bio-info">
+    
+    <div class="bio-presenter-label">Presenter</div>
+    <div class="bio-name">Chief Calvin Brown</div>
+    <div class="bio-title">Fire Service Educator</div>
+    <div class="bio-slots"><div class="bio-slot"><span class="bio-slot-day">TUE</span><span class="bio-slot-time">2:30 &ndash; 3:30 PM</span><span class="bio-slot-tag">Workshop</span></div></div>
+    <div class="bio-text">Chief Calvin Brown co-presents <em>Care Bias in Emergency Services</em> with Chief Mike Scott, examining how bias influences pre-hospital assessment and treatment.</div>
+    <div class="bio-actions"><a href="BCOC_2026_Session_Details.html#sess-scott" class="bio-readmore" onclick="event.stopPropagation()">View session &rarr;</a></div>
+  </div>
+</div>
+<div class="bio-card" id="bio-carter">
+  <div class="bio-photo"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg></div>
+  <div class="bio-info">
+    
+    <div class="bio-presenter-label">Presenter</div>
+    <div class="bio-name">Chief Steven Carter</div>
+    <div class="bio-title">Division Chief, Sunrise Fire Department</div>
+    <div class="bio-slots"><div class="bio-slot"><span class="bio-slot-day">TUE</span><span class="bio-slot-time">9:35 &ndash; 10:30 AM</span><span class="bio-slot-tag">Session</span></div></div>
+    <div class="bio-text">Chief Carter serves with the City of Sunrise Fire Rescue in Florida. His session, "The Top 10 Moves to Use AI to Transform Fire &amp; Emergency Services," provides chief officers with a structured framework for leading AI adoption, grounded in Rogers' Diffusion of Innovation theory and the Technology-Organization-Environment framework.</div>
+    <div class="bio-actions"><a href="BCOC_2026_Session_Details.html#sess-carter" class="bio-readmore" onclick="event.stopPropagation()">View session &rarr;</a></div>
+  </div>
+</div>
+<div class="bio-card" id="bio-catlet">
+  <div class="bio-photo"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg></div>
+  <div class="bio-info">
+    
+    <div class="bio-keynote-label">Keynote Speaker</div>
+    <div class="bio-name">Chief Wendell Catlet</div>
+    <div class="bio-title">Las Vegas Fire &amp; Rescue</div>
+    <div class="bio-slots"><div class="bio-slot kn"><span class="bio-slot-day">WED</span><span class="bio-slot-time">2:30 &ndash; 3:30 PM</span><span class="bio-slot-tag">Keynote</span></div></div>
+    <div class="bio-text">Chief Wendell Catlet serves with Las Vegas Fire &amp; Rescue and co-presents <em>Financial "Hot Wash" (Protecting Your Legacy)</em> with Chief Queen Anunay, helping first responders make informed financial decisions.</div>
+    <div class="bio-actions"><a href="BCOC_2026_Session_Details.html#sess-anunay" class="bio-readmore" onclick="event.stopPropagation()">View session &rarr;</a></div>
+  </div>
+</div>
+<div class="bio-card" id="bio-coronado">
+  <div class="bio-photo"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg></div>
+  <div class="bio-info">
+    
+    <div class="bio-presenter-label">Presenter</div>
+    <div class="bio-name">Carlos Coronado</div>
+    <div class="bio-title">Scouting America</div>
+    <div class="bio-slots"><div class="bio-slot"><span class="bio-slot-day">THU</span><span class="bio-slot-time">11:00 &ndash; 11:30 AM</span><span class="bio-slot-tag">Session</span></div></div>
+    <div class="bio-text">Carlos Coronado represents Scouting America and leads the session on <em>Developing an Explorer Program</em>, outlining a practical roadmap for establishing and growing a Fire Explorer program as a pipeline for diverse, community-connected future firefighters.</div>
+    <div class="bio-actions"><a href="BCOC_2026_Session_Details.html#sess-coronado" class="bio-readmore" onclick="event.stopPropagation()">View session &rarr;</a></div>
+  </div>
+</div>
+<div class="bio-card" id="bio-danao">
+  <div class="bio-photo"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg></div>
+  <div class="bio-info">
+    
+    <div class="bio-presenter-label">Presenter</div>
+    <div class="bio-name">Dr. Joseph Danao II, Ed.D.</div>
+    <div class="bio-title">Eastern Connecticut EMS Council</div>
+    <div class="bio-slots"><div class="bio-slot"><span class="bio-slot-day">WED</span><span class="bio-slot-time">11:00 &ndash; 11:45 AM</span><span class="bio-slot-tag">Session</span></div></div>
+    <div class="bio-text">Dr. Joseph Danao II, Ed.D., retired in 2025 as Deputy Commissioner of the Connecticut Department of Veterans Affairs and as an instructor with the Connecticut Fire Academy. He brings 42 years of Firefighter/EMS service and 33 years as a military officer, deploying to Afghanistan in 2010 and earning the Bronze Star Medal.</div>
+    <div class="bio-actions"><a href="BCOC_2026_Session_Details.html#sess-danao" class="bio-readmore" onclick="event.stopPropagation()">View session &rarr;</a></div>
+  </div>
+</div>
+<div class="bio-card" id="bio-davis">
+  <div class="bio-photo"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg></div>
+  <div class="bio-info">
+    
+    <div class="bio-presenter-label">Presenter</div>
+    <div class="bio-name">Chief Jason Earl Davis</div>
+    <div class="bio-title">BCOC Chaplain</div>
+    <div class="bio-slots"><div class="bio-slot"><span class="bio-slot-day">MON</span><span class="bio-slot-time">8:00 AM</span><span class="bio-slot-tag">Invocation</span></div></div>
+    <div class="bio-text">Chief Jason Earl Davis serves as the BCOC Chaplain. He delivers the invocation during the BCOC 2026 Opening Ceremony and supports the spiritual well-being of the committee and attendees throughout the conference.</div>
+    <div class="bio-actions"><a href="BCOC_2026_Session_Details.html" class="bio-readmore" onclick="event.stopPropagation()">View session &rarr;</a></div>
+  </div>
+</div>
+<div class="bio-card" id="bio-gabliks">
+  <div class="bio-photo"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg></div>
+  <div class="bio-info">
+    
+    <div class="bio-presenter-label">Presenter</div>
+    <div class="bio-name">Erik Gabliks</div>
+    <div class="bio-title">Superintendent, National Fire Academy</div>
+    <div class="bio-slots"><div class="bio-slot"><span class="bio-slot-day">MON</span><span class="bio-slot-time">2:20 &ndash; 3:00 PM</span><span class="bio-slot-tag">NFA Update</span></div></div>
+    <div class="bio-text">Erik Gabliks serves as Superintendent of the U.S. Fire Administration's National Fire Academy (NFA). His <em>NFA Update</em> briefs chief officers on NFA programs, curriculum, EFO, and executive-level training opportunities for the fire service.</div>
+    <div class="bio-actions"><a href="BCOC_2026_Session_Details.html" class="bio-readmore" onclick="event.stopPropagation()">View session &rarr;</a></div>
+  </div>
+</div>
+<div class="bio-card" id="bio-gayden">
+  <div class="bio-photo"><img src="https://static.wixstatic.com/media/a6fc8b_b4fafb64e3c7463f9941f9b120097c1a~mv2.jpeg" alt="" style="width:100%;height:100%;object-fit:cover"></div>
+  <div class="bio-info">
+    
+    <div class="bio-presenter-label">Presenter</div>
+    <div class="bio-name">Donna Gayden, CFE</div>
+    <div class="bio-title">BCOC Executive Coordinator</div>
+    <div class="bio-slots"><div class="bio-slot"><span class="bio-slot-day">MON</span><span class="bio-slot-time">3:00 &ndash; 4:00 PM</span><span class="bio-slot-tag">Session</span></div></div>
+    <div class="bio-text">Donna Gayden is a municipal executive specializing in transforming financially challenged cities through strategic leadership. With over 15 years of experience managing budgets from $16M to $225M, she brings expertise in municipal turnarounds, debt restructuring, and sustainable financial practices. An ICMA Credentialed Manager, Certified Fraud Examiner, and Harvard Kennedy School graduate, she has led multiple cities to improved credit ratings and fiscal health. She currently serves as Interim CFO for the Village of Oak Park, IL ($130M budget), following the successful turnaround of the City of Long Beach, NY ($107.8M operational and $160.6M capital budgets).</div>
+    <div class="bio-actions"><a href="BCOC_2026_Session_Details.html#sess-gayden" class="bio-readmore" onclick="event.stopPropagation()">View session &rarr;</a><a href="https://www.linkedin.com/in/donna-m-gayden-cfe-40b63238/" target="_blank" rel="noopener" class="bio-li-pill" onclick="event.stopPropagation()">LinkedIn</a></div>
+  </div>
+</div>
+<div class="bio-card" id="bio-hawkins">
+  <div class="bio-photo"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg></div>
+  <div class="bio-info">
+    
+    <div class="bio-presenter-label">Presenter</div>
+    <div class="bio-name">Jere Hawkins</div>
+    <div class="bio-title">Financial Educator</div>
+    <div class="bio-slots"><div class="bio-slot"><span class="bio-slot-day">THU</span><span class="bio-slot-time">10:00 &ndash; 10:45 AM</span><span class="bio-slot-tag">Session</span></div></div>
+    <div class="bio-text">Jere Hawkins presents <em>Financial Access and Acumen</em>, equipping fire service leaders with practical financial literacy tools and strategies for improving personal and organizational financial health.</div>
+    <div class="bio-actions"><a href="BCOC_2026_Session_Details.html#sess-hawkins" class="bio-readmore" onclick="event.stopPropagation()">View session &rarr;</a></div>
+  </div>
+</div>
+<div class="bio-card" id="bio-higgins">
+  <div class="bio-photo"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg></div>
+  <div class="bio-info">
+    
+    <div class="bio-presenter-label">Presenter</div>
+    <div class="bio-name">Chief Mike Higgins</div>
+    <div class="bio-title">CPSE</div>
+    <div class="bio-slots"><div class="bio-slot"><span class="bio-slot-day">TUE</span><span class="bio-slot-time">3:15 &ndash; 3:45 PM</span><span class="bio-slot-tag">CPSE</span></div></div>
+    <div class="bio-text">Chief Mike Higgins presents on behalf of the Center for Public Safety Excellence (CPSE). His session, <em>CPSE Credentialing</em>, covers professional credentialing pathways and accreditation standards for fire service organizations and chief officers.</div>
+    <div class="bio-actions"><a href="BCOC_2026_Session_Details.html" class="bio-readmore" onclick="event.stopPropagation()">View session &rarr;</a></div>
+  </div>
+</div>
+<div class="bio-card" id="bio-jeffries">
+  <div class="bio-photo"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg></div>
+  <div class="bio-info">
+
+    <div class="bio-presenter-label">Presenter</div>
+    <div class="bio-name">Captain Moses Jeffries, IV</div>
+    <div class="bio-title">Fire Service Leadership</div>
+    <div class="bio-slots"><div class="bio-slot"><span class="bio-slot-day">TUE</span><span class="bio-slot-time">11:30 AM &ndash; 12:15 PM</span><span class="bio-slot-tag">Session</span></div></div>
+    <div class="bio-text">Captain Moses Jeffries, IV, leads the session <em>Leadership with Confidence</em>, offering practical tools for building leadership presence, decision-making under pressure, and confidence-based communication for fire service officers at every level.</div>
+    <div class="bio-actions"><a href="BCOC_2026_Session_Details.html#sess-jeffries" class="bio-readmore" onclick="event.stopPropagation()">View session &rarr;</a></div>
+  </div>
+</div>
+<div class="bio-card" id="bio-land">
+  <div class="bio-photo"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg></div>
+  <div class="bio-info">
+    
+    <div class="bio-presenter-label">Presenter</div>
+    <div class="bio-name">Maisha Land</div>
+    <div class="bio-title">Brand &amp; Communications Strategist</div>
+    <div class="bio-slots"><div class="bio-slot"><span class="bio-slot-day">THU</span><span class="bio-slot-time">11:30 AM &ndash; 12:00 PM</span><span class="bio-slot-tag">Session</span></div></div>
+    <div class="bio-text">Maisha Land leads the <em>Marketing Your Vision</em> session, covering branding, messaging, social media strategy, and public relations techniques that help fire service leaders build support for their initiatives and elevate their department's profile.</div>
+    <div class="bio-actions"><a href="BCOC_2026_Session_Details.html#sess-land" class="bio-readmore" onclick="event.stopPropagation()">View session &rarr;</a></div>
+  </div>
+</div>
+<div class="bio-card" id="bio-mcelroy">
+  <div class="bio-photo"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg></div>
+  <div class="bio-info">
+    
+    <div class="bio-presenter-label">Presenter</div>
+    <div class="bio-name">Dr. Kellie McElroy-Hooper</div>
+    <div class="bio-title">Dean, Augusta Technical College</div>
+    <div class="bio-slots"><div class="bio-slot"><span class="bio-slot-day">WED</span><span class="bio-slot-time">10:15 &ndash; 11:00 AM</span><span class="bio-slot-tag">Co-Present</span></div></div>
+    <div class="bio-text">Dr. Kellie McElroy-Hooper is Dean of Public and Professional Services at Augusta Technical College, where she leads high-impact programs in fire and EMS, law enforcement, and workforce-aligned education. With more than three decades of experience, she focuses on budget-neutral models that embed employer-based training into academic credential pathways.</div>
+    <div class="bio-actions"><a href="BCOC_2026_Session_Details.html#sess-mcelroy" class="bio-readmore" onclick="event.stopPropagation()">View session &rarr;</a></div>
+  </div>
+</div>
+<div class="bio-card" id="bio-mcnair">
+  <div class="bio-photo"><img src="https://static.wixstatic.com/media/a6fc8b_eac81d3a918e467c905598424f2e5659~mv2.jpeg" alt="" style="width:100%;height:100%;object-fit:cover"></div>
+  <div class="bio-info">
+    
+    <div class="bio-presenter-label">Presenter</div>
+    <div class="bio-name">Dr. Kim McNair</div>
+    <div class="bio-title">Kim McNair Productions LLC</div>
+    <div class="bio-slots"><div class="bio-slot"><span class="bio-slot-day">TUE</span><span class="bio-slot-time">10:50 &ndash; 11:30 AM</span><span class="bio-slot-tag">Session</span></div></div>
+    <div class="bio-text">Dr. Kim McNair leads Kim McNair Productions LLC and specializes in leadership development for public safety, fire, EMS, and municipal leaders. Her KMP Mindset framework — Knowledge, Money, and Power — guides leaders through decision-making under pressure, resource management, and leadership presence.</div>
+    <div class="bio-actions"><a href="BCOC_2026_Session_Details.html#sess-mcnair" class="bio-readmore" onclick="event.stopPropagation()">View session &rarr;</a></div>
+  </div>
+</div>
+<div class="bio-card" id="bio-rodsmith">
+  <div class="bio-photo"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg></div>
+  <div class="bio-info">
+    
+    <div class="bio-presenter-label">Presenter</div>
+    <div class="bio-name">Chief Rod Smith</div>
+    <div class="bio-title">Atlanta Fire Rescue</div>
+    <div class="bio-slots"><div class="bio-slot"><span class="bio-slot-day">MON</span><span class="bio-slot-time">8:50 AM</span><span class="bio-slot-tag">AFR Welcome</span></div></div>
+    <div class="bio-text">Chief Rod Smith delivers welcome remarks on behalf of Atlanta Fire Rescue during the BCOC 2026 Opening Ceremony, representing the host city fire service.</div>
+    <div class="bio-actions"><a href="BCOC_2026_Session_Details.html" class="bio-readmore" onclick="event.stopPropagation()">View session &rarr;</a></div>
+  </div>
+</div>
+<div class="bio-card" id="bio-scott">
+  <div class="bio-photo"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg></div>
+  <div class="bio-info">
+    
+    <div class="bio-presenter-label">Presenter</div>
+    <div class="bio-name">Chief Mike Scott</div>
+    <div class="bio-title">Grand Fire Protection District</div>
+    <div class="bio-slots"><div class="bio-slot"><span class="bio-slot-day">TUE</span><span class="bio-slot-time">2:30 &ndash; 3:30 PM</span><span class="bio-slot-tag">Workshop</span></div></div>
+    <div class="bio-text">Chief Mike Scott serves with the Grand Fire Protection District in Colorado and co-presents "Care Bias in Emergency Services" with Calvin Brown. The session examines how bias influences pre-hospital assessment and treatment.</div>
+    <div class="bio-actions"><a href="BCOC_2026_Session_Details.html#sess-scott" class="bio-readmore" onclick="event.stopPropagation()">View session &rarr;</a></div>
+  </div>
+</div>
+<div class="bio-card" id="bio-simmons">
+  <div class="bio-photo"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg></div>
+  <div class="bio-info">
+    
+    <div class="bio-presenter-label">Presenter</div>
+    <div class="bio-name">Chief Demond Simmons</div>
+    <div class="bio-title">Oakland Fire Department</div>
+    <div class="bio-slots"><div class="bio-slot"><span class="bio-slot-day">WED</span><span class="bio-slot-time">3:45 &ndash; 4:30 PM</span><span class="bio-slot-tag">Session</span></div></div>
+    <div class="bio-text">Chief Demond Simmons serves with the Oakland Fire Department. His session, "From Strategy to Execution: Turning Vision into Results," examines why well-intended fire service strategies often fail in implementation and equips chief officers with practical tools to close the gap.</div>
+    <div class="bio-actions"><a href="BCOC_2026_Session_Details.html#sess-simmons" class="bio-readmore" onclick="event.stopPropagation()">View session &rarr;</a></div>
+  </div>
+</div>
+<div class="bio-card" id="bio-skrine">
+  <div class="bio-photo"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg></div>
+  <div class="bio-info">
+    
+    <div class="bio-presenter-label">Presenter</div>
+    <div class="bio-name">Chief Ronald D. Skrine Sr.</div>
+    <div class="bio-title">Battalion Chief (Admin), Valdosta Fire Department • BCOC Educational Liaison</div>
+    <div class="bio-slots"><div class="bio-slot"><span class="bio-slot-day">MON</span><span class="bio-slot-time">8:00 AM</span><span class="bio-slot-tag">Safety Brief</span></div><div class="bio-slot"><span class="bio-slot-day">WED</span><span class="bio-slot-time">9:30 &ndash; 10:15 AM</span><span class="bio-slot-tag">Panel</span></div></div>
+    <div class="bio-text">Chief Skrine is an executive fire service professional with more than 26 unbroken years at the Valdosta Fire Department, including 18 years in progressive officer leadership and 12 years as a Chief Officer on the Executive Command Staff. He serves as an Adjunct Fire Science and Emergency Management Instructor at Purdue University and has been the BCOC Educational Liaison since 2019.</div>
+    <div class="bio-actions"><a href="BCOC_2026_Session_Details.html#sess-skrine" class="bio-readmore" onclick="event.stopPropagation()">View session &rarr;</a></div>
+  </div>
+</div>
+<div class="bio-card" id="bio-washington">
+  <div class="bio-photo"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg></div>
+  <div class="bio-info">
+    
+    <div class="bio-presenter-label">Presenter</div>
+    <div class="bio-name">Chief Emanuel Washington Jr.</div>
+    <div class="bio-title">Assistant Chief, Orlando Fire Department</div>
+    <div class="bio-slots"><div class="bio-slot"><span class="bio-slot-day">TUE</span><span class="bio-slot-time">3:45 &ndash; 4:15 PM</span><span class="bio-slot-tag">Session</span></div></div>
+    <div class="bio-text">Chief Emanuel "Manny" Washington Jr. serves with the Orlando Fire Department. His BCOC 2026 session, "Dollar Dollar Bill, Y'all: Strategic Grant Funding for the Modern Fire Service," provides executive-level guidance on AFG, SAFER, SHSGP, and UASI programs.</div>
+    <div class="bio-actions"><a href="BCOC_2026_Session_Details.html#sess-washington" class="bio-readmore" onclick="event.stopPropagation()">View session &rarr;</a></div>
+  </div>
+</div>
+
+  </div>
+  <footer class="bios-footer">
+    <div class="footer-logos">
+      <img src="https://static.wixstatic.com/media/1700c8_b2680286f4244f40a9afec02808f2d36~mv2.png" alt="BCOC">
+      <img src="https://static.wixstatic.com/media/a6fc8b_b3b55f4d44cb46c3a8c981c0bcf42ad3~mv2.png" alt="40th Anniversary">
+    </div>
+    <div class="footer-motto">Lifting As We Climb</div>
+    <div class="footer-small">BCOC USA &middot; A Registered 501(c)(3) Nonprofit Organization</div>
+    <div class="footer-small" style="margin-top:14px"><a href="BCOC_2026_Agenda_Flipbook.html">Return to Conference Agenda &rarr;</a></div>
+  </footer>
+</div>
+</body>
+</html>

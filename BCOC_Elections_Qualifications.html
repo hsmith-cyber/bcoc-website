@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BCOC 2026 Elections — Qualifications & Instructions</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{font-family:'Source Sans 3',system-ui,sans-serif;background:#e8e4de;color:#14213d;padding:40px 20px}
+
+.wrap{max-width:1040px;margin:0 auto;background:#fff;border-radius:16px;box-shadow:0 18px 50px rgba(20,33,61,.18);overflow:hidden}
+
+.head{position:relative;background:linear-gradient(135deg,#14213d 0%,#0b1a33 100%);color:#fff;padding:22px 34px 20px;overflow:hidden;display:flex;align-items:center;gap:26px}
+.head::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 0%,rgba(200,150,46,.25),transparent 55%),radial-gradient(circle at 100% 100%,rgba(139,26,26,.2),transparent 55%);pointer-events:none}
+.head::after{content:"";position:absolute;left:0;right:0;bottom:0;height:5px;background:linear-gradient(90deg,#c8962e,#8b1a1a,#c8962e)}
+.head > *{position:relative;z-index:1}
+.logo{flex-shrink:0;max-width:130px;width:130px;height:auto;filter:drop-shadow(0 6px 18px rgba(0,0,0,.35))}
+.head-text{flex:1;min-width:0;text-align:left}
+.eyebrow{display:inline-block;font-size:11px;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:#c8962e;border:1px solid rgba(200,150,46,.55);padding:5px 12px;border-radius:999px;margin-bottom:10px}
+.head h1{font-family:'Playfair Display',serif;font-size:clamp(30px,5vw,50px);font-weight:900;line-height:1.08;margin:0 0 6px}
+.head h1 em{color:#c8962e;font-style:normal}
+.head .sub{font-size:15px;letter-spacing:1.8px;text-transform:uppercase;color:rgba(253,245,230,.9);font-weight:700}
+@media (max-width:640px){
+  .head{flex-direction:column;text-align:center;gap:14px;padding:22px 22px 20px}
+  .logo{max-width:100px;width:100px}
+  .head-text{text-align:center}
+}
+
+.body{padding:40px 40px 44px}
+
+.callout{background:#fdf5e6;border-left:5px solid #c8962e;border-radius:6px;padding:18px 22px;margin:0 0 28px;font-size:15.5px;line-height:1.55}
+.callout strong{color:#14213d}
+
+h2{font-family:'Playfair Display',serif;color:#14213d;font-size:24px;font-weight:900;margin:36px 0 10px;padding-bottom:8px;border-bottom:3px solid #c8962e;letter-spacing:.2px}
+h2 .roman{color:#c8962e;margin-right:8px}
+h3{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:#14213d;margin:22px 0 8px}
+
+p,li{font-size:15.5px;line-height:1.6;color:#2b3244}
+ul,ol{padding-left:22px;margin:10px 0 14px}
+li{margin-bottom:6px}
+.section p{margin:8px 0 12px}
+
+.subitems{list-style:none;padding-left:0;margin:10px 0 14px}
+.subitems li{display:flex;gap:12px;padding:10px 14px;background:#fbf8f1;border:1px solid #ece2c8;border-radius:8px;margin-bottom:8px}
+.subitems li .letter{flex:0 0 28px;font-weight:800;color:#c8962e;font-family:'Playfair Display',serif;font-size:18px;line-height:1.2}
+.subitems li .text{flex:1}
+
+.note{background:#f3eeda;border:1px dashed #c8962e;border-radius:8px;padding:14px 18px;font-size:14px;color:#5a4a1f;margin:14px 0 8px}
+
+.positions{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0 24px}
+.pos{background:#14213d;color:#fff;border-radius:10px;padding:16px 14px;text-align:center;border:1px solid rgba(200,150,46,.4)}
+.pos .role{font-family:'Playfair Display',serif;font-weight:900;color:#c8962e;font-size:16px;letter-spacing:.3px}
+.pos .sub{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(253,245,230,.7);font-weight:600;margin-top:4px}
+
+.signoff{margin:30px 0 10px;padding:18px 22px;background:#fbf8f1;border-radius:8px;font-style:italic;color:#4d4a42}
+.signoff b{color:#14213d;font-style:normal}
+
+.login-sample{display:inline-block;background:#14213d;color:#fdf5e6;padding:8px 14px;border-radius:6px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:14px;letter-spacing:.5px;border:1px solid #c8962e}
+
+.btns{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-top:32px}
+.btn{display:inline-block;text-decoration:none;color:#14213d;background:linear-gradient(180deg,#c8962e 0%,#b58425 100%);padding:14px 34px;border-radius:8px;border:2px solid #b58425;box-shadow:0 6px 18px rgba(200,150,46,.3);transition:transform .15s,box-shadow .15s,background .2s;font-size:14px;font-weight:700;letter-spacing:1.3px;text-transform:uppercase}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(200,150,46,.4);background:linear-gradient(180deg,#d6a23c 0%,#c8962e 100%)}
+.btn.secondary{background:transparent;color:#14213d;border-color:#14213d;box-shadow:none}
+.btn.secondary:hover{background:#14213d;color:#c8962e}
+
+@media (max-width:680px){
+  .body{padding:28px 22px 34px}
+  .positions{grid-template-columns:1fr}
+  h2{font-size:20px}
+  .head{padding:32px 22px 26px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="head">
+    <img class="logo" src="https://static.wixstatic.com/media/1700c8_c3249910647e4ed5be5d657b963528d1~mv2.png" alt="BCOC Logo">
+    <div class="head-text">
+      <span class="eyebrow">BCOC Elections — Qualifications</span>
+      <h1>Prepare to <em>Serve</em> in 2026</h1>
+      <div class="sub">40th Anniversary Conference · Atlanta, GA · August 2026</div>
+    </div>
+  </header>
+
+  <div class="body">
+
+    <div class="callout">
+      <strong>BCOC Membership —</strong> We are preparing for our annual elections to be held at the BCOC Annual Meeting in Atlanta, GA, on <strong>August 6, 2026, at 11:59 PM</strong>. Elections will be held during the week of <strong>August 2–6, 2026</strong>, by electronic voting. Results will be presented during the business session meeting on <strong>August 7, 2026</strong>. All members are encouraged to participate. Please familiarize yourself with the election process as stated in the By-Laws and the approved Executive Board recommendations for exceptions to the election process to help ensure a smooth process.
+    </div>
+
+    <div class="callout" style="background:#eaf1f8;border-left-color:#14213d">
+      <strong>Confirm your membership status:</strong> Contact <strong>Chief Greg Lawrence</strong> at <a href="mailto:glawrence@bcoc.us" style="color:#14213d;font-weight:700">glawrence@bcoc.us</a> to confirm your membership status based on the eligibility requirements below.
+    </div>
+
+    <h2><span class="roman">Article V</span>Election <span style="font-size:12px;color:#8b6a14;font-family:'Source Sans 3';font-weight:700;letter-spacing:1.5px;vertical-align:middle;text-transform:uppercase">(Last Bylaws Revision 2017)</span></h2>
+
+    <div class="section">
+      <h3>Section 1: Time and Place</h3>
+      <ul class="subitems">
+        <li><span class="letter">a)</span><span class="text">Election of officers shall take place in odd and even (or staggered) years at the annual BCOC conference.</span></li>
+        <li><span class="letter">b)</span><span class="text">Elections of the <strong>Chairperson, Recording Secretary, Financial Secretary,</strong> and <strong>Parliamentarian</strong> shall take place in odd years. <em>(See Constitution &amp; By-Laws for position duties, Article IV.)</em></span></li>
+        <li><span class="letter">c)</span><span class="text">Elections of the <strong>Vice Chairperson, Treasurer,</strong> and <strong>Correspondence Secretary</strong> shall take place in even years. <em>(See Constitution &amp; By-Laws for position duties, Article IV.)</em></span></li>
+        <li><span class="letter">d)</span><span class="text"><strong>Executive Board Recommendation for Exception to the Election Process:</strong> The elections of the Chairperson, Recording Secretary, Financial Secretary, and Parliamentarian shall take place this year to ensure the continuity of organization operations.</span></li>
+      </ul>
+
+      <div class="positions">
+        <div class="pos"><div class="role">Vice-Chair</div><div class="sub">Executive Leadership</div></div>
+        <div class="pos"><div class="role">Corresponding Secretary</div><div class="sub">Communications</div></div>
+        <div class="pos"><div class="role">Treasurer</div><div class="sub">Financial Stewardship</div></div>
+      </div>
+    </div>
+
+    <h2>Eligibility for Office</h2>
+    <p>To be eligible for office, a candidate must have been an individual or retired member in <strong>good standing for at least three (3) consecutive years</strong> <span style="color:#c10000;font-weight:700">(2024, 2025, 2026)</span>. Service must have been immediately prior to the announcement of intention to run for office.</p>
+    <p>Those desiring to run for office must be financial and in good standing at least <strong>thirty (30) days prior</strong> to the start of the annual conference to be eligible to vote in the election.</p>
+    <p>Members in good standing wishing to be elected to office shall submit their name and the office being sought. They will submit a profile of their qualifications, <span style="color:#c10000;font-weight:700">high-resolution headshot,</span> and a position statement (<strong>not to exceed 250 words</strong>) to the Elections Committee in writing by <s style="color:#666">April 15</s> <span style="color:#c10000;font-weight:700">July 1, 2026</span> of the year they are seeking election. <span style="color:#c10000;font-weight:700">Nominations will be accepted starting no later than May 1, 2026 due to the delays.</span></p>
+    <p>The Corresponding/Recording Secretaries shall ensure that candidate profiles, <span style="color:#c10000;font-weight:700">headshot,</span> and position statements are disseminated to all members of the organization no later than <s style="color:#666">May 15</s> <span style="color:#c10000;font-weight:700">July 6, 2026</span>, <span style="color:#c10000;font-weight:700">and also placed on the website within 5 days after submission in coordination with the Elections Chair</span>.</p>
+
+    <h2>Voting Eligibility</h2>
+    <ul>
+      <li>Member in good standing with BCOC.</li>
+      <li>Member must be duly registered for the meeting (payment of registration fee). His/her name must appear on the roll of the treasurer.</li>
+      <li>Each member of the meeting is entitled to <strong>one vote and only one vote</strong>. (Voting instructions below.)</li>
+    </ul>
+    <p>The election committee will certify the "official results" of the vote and present them to the membership. Thank you for your participation, and we look forward to seeing you in Atlanta, GA.</p>
+
+    <div class="signoff">
+      Sincerely,<br>
+      <b>Election Chair (TBD)</b>
+    </div>
+
+    <h2>BCOC Election System Instructions <span style="font-size:13px;color:#8b1a1a;font-family:'Source Sans 3';font-weight:700;letter-spacing:2px;vertical-align:middle">(TENTATIVE)</span></h2>
+    <p>Password logins will be case-sensitive and include symbols. Please be sure to use the login and passwords when provided. Each login and password is only usable by the member prescribed.</p>
+    <p><strong>Example:</strong> <span class="login-sample">Login: jdoe &nbsp; Password: !Bcoc1</span></p>
+
+    <ol>
+      <li>Use this direct link to access the voting process page: <a href="https://webvertise.us/?page_id=605" target="_blank" rel="noopener">https://webvertise.us/?page_id=605</a> — or access the page as follows:</li>
+      <li>Go to <a href="https://www.webvertise.us" target="_blank" rel="noopener">www.webvertise.us</a>.</li>
+      <li>Click on <strong>Client Services</strong> from the top menu.</li>
+      <li>Click on <strong>BCOC Elections</strong>.</li>
+      <li>After you select your vote for the first candidate, you will be asked to enter your login and password.</li>
+      <li>Cast your vote for the remaining candidates.</li>
+      <li>Results are live, instant, and refresh the page automatically.</li>
+      <li>The system will not allow votes unless signed in.</li>
+      <li>The system will not allow multiple votes.</li>
+      <li>The election will automatically close at the specified time on Friday.</li>
+      <li>Contact the Elections Chair at <strong>TBD</strong> with any questions.</li>
+    </ol>
+
+    <div class="note">This is a tentative procedure. Final election instructions, schedule, and the Elections Chair contact will be confirmed prior to the election window.</div>
+
+    <div class="btns">
+      <a class="btn" href="BCOC_Elections_CTA.html">&larr; Back to Elections</a>
+      <a class="btn secondary" href="https://webvertise.us/?page_id=605" target="_blank" rel="noopener">Voting Portal</a>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

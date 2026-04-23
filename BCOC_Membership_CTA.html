@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Join BCOC — Membership</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#14213d;
+    --navy2:#0b1a33;
+    --gold:#c8962e;
+    --gold2:#b58425;
+    --red:#8b1a1a;
+    --cream:#fdf5e6;
+    --ink:#14213d;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:'Source Sans 3',system-ui,sans-serif;background:#e8e4de;padding:40px 20px;display:flex;justify-content:center;align-items:center;min-height:100vh}
+
+  .cta{
+    position:relative;
+    max-width:720px;
+    width:100%;
+    background:linear-gradient(135deg,var(--navy) 0%, var(--navy2) 100%);
+    color:#fff;
+    border-radius:16px;
+    padding:48px 40px 44px;
+    text-align:center;
+    box-shadow:0 18px 50px rgba(20,33,61,0.35);
+    overflow:hidden;
+    isolation:isolate;
+  }
+  .cta::before{
+    content:'';position:absolute;inset:0;
+    background:radial-gradient(circle at 20% 0%, rgba(200,150,46,0.25), transparent 55%),
+               radial-gradient(circle at 100% 100%, rgba(139,26,26,0.25), transparent 55%);
+    z-index:-1;
+  }
+  .cta::after{
+    content:'';position:absolute;left:0;right:0;bottom:0;height:5px;
+    background:linear-gradient(90deg,var(--gold),var(--red),var(--gold));
+  }
+
+  .cta-eyebrow{
+    display:inline-block;
+    font-size:12px;letter-spacing:3px;text-transform:uppercase;font-weight:700;
+    color:var(--gold);
+    border:1px solid rgba(200,150,46,0.55);
+    padding:6px 14px;border-radius:999px;
+    margin-bottom:20px;
+  }
+  .cta h1{
+    font-family:'Playfair Display',serif;
+    font-size:clamp(28px,4.5vw,44px);
+    font-weight:900;line-height:1.15;margin:0 0 12px;
+  }
+  .cta h1 em{color:var(--gold);font-style:normal}
+  .cta p{
+    font-size:17px;line-height:1.55;
+    max-width:520px;margin:0 auto 28px;
+    color:rgba(255,255,255,0.88);
+  }
+  .cta-benefits{
+    display:flex;flex-wrap:wrap;justify-content:center;gap:10px;
+    margin:0 0 32px;padding:0;list-style:none;
+  }
+  .cta-benefits li{
+    font-size:13px;font-weight:600;letter-spacing:0.3px;
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(200,150,46,0.35);
+    color:#fdf5e6;
+    padding:7px 14px;border-radius:999px;
+  }
+
+  .cta-arrow{
+    display:block;font-size:13px;letter-spacing:4px;text-transform:uppercase;
+    color:var(--gold);margin-bottom:10px;font-weight:700;
+    animation:bounce 1.6s ease-in-out infinite;
+  }
+  @keyframes bounce{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(6px)}
+  }
+
+  .cta-btns{
+    display:flex;flex-wrap:wrap;justify-content:center;gap:14px;
+    margin:0 auto;max-width:640px;
+  }
+  .cta-btn{
+    flex:1 1 180px;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    font-family:'Source Sans 3',sans-serif;
+    text-decoration:none;
+    color:var(--navy);
+    background:linear-gradient(180deg,var(--gold) 0%, var(--gold2) 100%);
+    padding:16px 22px;border-radius:8px;
+    border:2px solid var(--gold2);
+    box-shadow:0 6px 18px rgba(200,150,46,0.35), inset 0 1px 0 rgba(255,255,255,0.3);
+    transition:transform 0.15s ease, box-shadow 0.15s ease, background 0.2s ease;
+    line-height:1.2;
+  }
+  .cta-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 10px 26px rgba(200,150,46,0.45), inset 0 1px 0 rgba(255,255,255,0.4);
+    background:linear-gradient(180deg,#d6a23c 0%, var(--gold) 100%);
+  }
+  .cta-btn:active{transform:translateY(0)}
+  .cta-btn-label{font-size:16px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase}
+  .cta-btn-desc{font-size:11px;font-weight:600;letter-spacing:0.5px;color:rgba(20,33,61,0.78);margin-top:4px;text-transform:none}
+
+  .cta-sub{
+    display:block;margin-top:18px;
+    font-size:12px;letter-spacing:2px;text-transform:uppercase;
+    color:rgba(253,245,230,0.6);
+  }
+
+  @media (max-width:520px){
+    .cta{padding:36px 22px 32px}
+    .cta p{font-size:15px}
+    .cta-btn{padding:14px 32px;font-size:15px;letter-spacing:1px}
+  }
+</style>
+</head>
+<body>
+
+<div class="cta" role="region" aria-label="Join BCOC membership">
+  <span class="cta-eyebrow">BCOC Membership</span>
+  <h1>Lead. Connect. <em>Belong.</em></h1>
+  <p>Join a nationwide network of Black chief officers shaping the future of the fire service through mentorship, professional development, and advocacy.</p>
+
+  <ul class="cta-benefits">
+    <li>Executive Network</li>
+    <li>Educational Symposium</li>
+    <li>Mentorship</li>
+    <li>Advocacy</li>
+    <li>Scholarships</li>
+  </ul>
+
+  <span class="cta-arrow">Click below to join ▼</span>
+  <div class="cta-btns">
+    <a class="cta-btn" href="https://www.bcoc.us/plans-pricing/payment/eyJpbnRlZ3JhdGlvbkRhdGEiOnt9LCJwbGFuSWQiOiJhMWI2NzFjOS02ZWRjLTQwMzYtOGU1NC01NWQwN2U5ZWY5OWUiLCJjaGVja291dEZsb3dJZCI6IjNlYzU5ZGUxLTI4YjAtNDI0OS1iM2JkLWQzYjcyN2Y1ODY5YyIsImlzVjMiOmZhbHNlfQ" aria-label="Join as General Member">
+      <span class="cta-btn-label">General</span>
+      <span class="cta-btn-desc">Chief Officers</span>
+    </a>
+    <a class="cta-btn" href="https://www.bcoc.us/plans-pricing/payment/eyJpbnRlZ3JhdGlvbkRhdGEiOnt9LCJwbGFuSWQiOiIxMTFlYzM5MC05YmVhLTRkZjYtOWY4Mi1kMDI4MWVlMDg1MjUiLCJjaGVja291dEZsb3dJZCI6IjEyMTk3NjFhLTJlYTAtNGU5ZS05ZjNiLTdjMzcxMTIzY2UwMSIsImlzVjMiOmZhbHNlfQ" aria-label="Join as Associate Member">
+      <span class="cta-btn-label">Associate</span>
+      <span class="cta-btn-desc">Non-Chief Officers</span>
+    </a>
+    <a class="cta-btn" href="https://www.bcoc.us/plans-pricing/payment/eyJpbnRlZ3JhdGlvbkRhdGEiOnt9LCJwbGFuSWQiOiI1MTZhZmQ1Ni0wZWU4LTRiYzUtYjQ5Mi1mZmYzMzE1ZjU2YTIiLCJjaGVja291dEZsb3dJZCI6ImNiOTI5OGE1LTBjYmMtNGM2YS04YmMwLTE3NzdlOTliMTE3NCIsImlzVjMiOmZhbHNlfQ" aria-label="Join as Retired Member">
+      <span class="cta-btn-label">Retired</span>
+      <span class="cta-btn-desc">Chief or Non-Chief Officer</span>
+    </a>
+  </div>
+  <span class="cta-sub">Forging the Future Together</span>
+</div>
+
+</body>
+</html>

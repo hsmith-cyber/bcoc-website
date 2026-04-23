@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BCOC — Membership + Elections Preview</title>
+</head>
+<body style="margin:0;padding:40px 20px;background:#e8e4de">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+.bcoc-wrap,.bcoc-wrap *{box-sizing:border-box}
+.bcoc-wrap{font-family:'Source Sans 3',system-ui,sans-serif;max-width:1100px;margin:0 auto;display:flex;flex-direction:column;gap:28px}
+.bcoc-card{position:relative;background:linear-gradient(135deg,#14213d 0%,#0b1a33 100%);color:#fff;border-radius:16px;padding:48px 40px 44px;text-align:center;box-shadow:0 18px 50px rgba(20,33,61,.35);overflow:hidden}
+.bcoc-card::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 0%,rgba(200,150,46,.25),transparent 55%),radial-gradient(circle at 100% 100%,rgba(139,26,26,.25),transparent 55%);pointer-events:none}
+.bcoc-card::after{content:"";position:absolute;left:0;right:0;bottom:0;height:5px;background:linear-gradient(90deg,#c8962e,#8b1a1a,#c8962e)}
+.bcoc-card > *{position:relative;z-index:1}
+.bcoc-wrap .logo{display:block;margin:0 auto 22px;max-width:220px;width:70%;height:auto;filter:drop-shadow(0 6px 18px rgba(0,0,0,.35))}
+.bcoc-wrap .eyebrow{display:inline-block;font-size:12px;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:#c8962e;border:1px solid rgba(200,150,46,.55);padding:6px 14px;border-radius:999px;margin-bottom:18px}
+.bcoc-wrap h1{font-family:'Playfair Display',serif;font-size:clamp(28px,4.8vw,46px);font-weight:900;line-height:1.12;margin:0 0 10px;color:#fff}
+.bcoc-wrap h1 em{color:#c8962e;font-style:normal}
+.bcoc-wrap .lede{font-size:17px;line-height:1.55;max-width:600px;margin:0 auto 26px;color:rgba(255,255,255,.9)}
+.bcoc-wrap .event{display:inline-block;margin:0 0 28px;padding:10px 18px;border-radius:8px;background:rgba(255,255,255,.07);border:1px solid rgba(200,150,46,.45);font-size:13px;letter-spacing:1.2px;text-transform:uppercase;font-weight:700;color:#fdf5e6}
+.bcoc-wrap .event b{color:#c8962e;font-weight:800}
+.bcoc-wrap .chips{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:0 0 30px;padding:0;list-style:none}
+.bcoc-wrap .chips li{font-size:13px;font-weight:600;letter-spacing:.3px;background:rgba(255,255,255,.08);border:1px solid rgba(200,150,46,.35);color:#fdf5e6;padding:7px 14px;border-radius:999px}
+.bcoc-wrap .positions{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:960px;margin:0 auto 32px}
+.bcoc-wrap .position{background:rgba(255,255,255,.07);border:1px solid rgba(200,150,46,.35);border-radius:12px;padding:22px 16px 18px;text-align:center;transition:transform .15s,border-color .15s,background .2s}
+.bcoc-wrap .position:hover{transform:translateY(-3px);border-color:#c8962e;background:rgba(200,150,46,.12)}
+.bcoc-wrap .position svg{width:54px;height:54px;margin:0 auto 10px;display:block;color:#c8962e}
+.bcoc-wrap .position .role{font-family:'Playfair Display',serif;font-size:18px;font-weight:900;color:#fff;margin:0 0 4px;letter-spacing:.3px}
+.bcoc-wrap .position .sub{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(253,245,230,.7);font-weight:600}
+.bcoc-wrap .arrow{display:block;font-size:13px;letter-spacing:4px;text-transform:uppercase;color:#c8962e;margin-bottom:14px;font-weight:700;animation:bcocBounce 1.6s ease-in-out infinite}
+@keyframes bcocBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+.bcoc-wrap .btns{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;max-width:820px;margin:0 auto}
+.bcoc-wrap .btn{flex:1 1 200px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-decoration:none;color:#14213d;background:linear-gradient(180deg,#c8962e 0%,#b58425 100%);padding:16px 22px;border-radius:8px;border:2px solid #b58425;box-shadow:0 6px 18px rgba(200,150,46,.35),inset 0 1px 0 rgba(255,255,255,.3);transition:transform .15s,box-shadow .15s,background .2s;line-height:1.2;cursor:pointer;font-size:15px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase}
+.bcoc-wrap .btn:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(200,150,46,.45),inset 0 1px 0 rgba(255,255,255,.4);background:linear-gradient(180deg,#d6a23c 0%,#c8962e 100%)}
+.bcoc-wrap .btn-label{font-size:16px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase}
+.bcoc-wrap .btn-desc{font-size:11px;font-weight:600;letter-spacing:.5px;color:rgba(20,33,61,.78);margin-top:4px;text-transform:none}
+.bcoc-wrap .btn.secondary{background:transparent;color:#c8962e;border-color:#c8962e;box-shadow:none}
+.bcoc-wrap .btn.secondary:hover{background:rgba(200,150,46,.12);color:#fdf5e6;border-color:#fdf5e6}
+.bcoc-wrap .sub-note{display:block;margin-top:18px;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:rgba(253,245,230,.6)}
+@media (max-width:640px){.bcoc-wrap .positions{grid-template-columns:1fr;gap:12px;max-width:420px}.bcoc-card{padding:36px 22px 32px}.bcoc-wrap .lede{font-size:15px}}
+</style>
+
+<div class="bcoc-wrap">
+  <section class="bcoc-card">
+    <img class="logo" src="https://static.wixstatic.com/media/1700c8_c3249910647e4ed5be5d657b963528d1~mv2.png" alt="BCOC Logo">
+    <span class="eyebrow">BCOC Membership</span>
+    <h1>Lead. Connect. <em>Belong.</em></h1>
+    <p class="lede">Join a nationwide network of Black chief officers shaping the future of the fire service through mentorship, professional development, and advocacy.</p>
+    <ul class="chips">
+      <li>Executive Network</li><li>Educational Symposium</li><li>Mentorship</li><li>Advocacy</li><li>Scholarships</li>
+    </ul>
+    <span class="arrow">Click below to join &#9660;</span>
+    <div class="btns">
+      <a class="btn" href="https://www.bcoc.us/plans-pricing/payment/eyJpbnRlZ3JhdGlvbkRhdGEiOnt9LCJwbGFuSWQiOiJhMWI2NzFjOS02ZWRjLTQwMzYtOGU1NC01NWQwN2U5ZWY5OWUiLCJjaGVja291dEZsb3dJZCI6IjNlYzU5ZGUxLTI4YjAtNDI0OS1iM2JkLWQzYjcyN2Y1ODY5YyIsImlzVjMiOmZhbHNlfQ">
+        <span class="btn-label">General</span><span class="btn-desc">Chief Officers</span>
+      </a>
+      <a class="btn" href="https://www.bcoc.us/plans-pricing/payment/eyJpbnRlZ3JhdGlvbkRhdGEiOnt9LCJwbGFuSWQiOiIxMTFlYzM5MC05YmVhLTRkZjYtOWY4Mi1kMDI4MWVlMDg1MjUiLCJjaGVja291dEZsb3dJZCI6IjEyMTk3NjFhLTJlYTAtNGU5ZS05ZjNiLTdjMzcxMTIzY2UwMSIsImlzVjMiOmZhbHNlfQ">
+        <span class="btn-label">Associate</span><span class="btn-desc">Non-Chief Officers</span>
+      </a>
+      <a class="btn" href="https://www.bcoc.us/plans-pricing/payment/eyJpbnRlZ3JhdGlvbkRhdGEiOnt9LCJwbGFuSWQiOiI1MTZhZmQ1Ni0wZWU4LTRiYzUtYjQ5Mi1mZmYzMzE1ZjU2YTIiLCJjaGVja291dEZsb3dJZCI6ImNiOTI5OGE1LTBjYmMtNGM2YS04YmMwLTE3NzdlOTliMTE3NCIsImlzVjMiOmZhbHNlfQ">
+        <span class="btn-label">Retired</span><span class="btn-desc">Chief or Non-Chief Officer</span>
+      </a>
+    </div>
+    <span class="sub-note">Forging the Future Together</span>
+  </section>
+
+  <section class="bcoc-card">
+    <span class="eyebrow">BCOC Leadership Elections</span>
+    <h1>Prepare to <em>Serve</em> in 2026</h1>
+    <p class="lede">BCOC will elect new officers during the 40th Anniversary Educational Symposium &amp; Conference. Step forward, lead our association, and help shape the future of Black chief officers in the fire service.</p>
+    <div class="event">Elections Held During the <b>40th Anniversary Conference</b> &middot; August 2026</div>
+    <div class="positions">
+      <div class="position">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.39 4.84L20 7.6l-4 3.9.94 5.5L12 14.77 7.06 17l.94-5.5-4-3.9 5.61-.76L12 2z"/></svg>
+        <div class="role">Vice-Chair</div><div class="sub">Executive Leadership</div>
+      </div>
+      <div class="position">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        <div class="role">Corresponding Secretary</div><div class="sub">Communications</div>
+      </div>
+      <div class="position">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93V18h-2v1.93A7.99 7.99 0 0 1 4.07 13H6v-2H4.07A7.99 7.99 0 0 1 11 4.07V6h2V4.07A7.99 7.99 0 0 1 19.93 11H18v2h1.93A7.99 7.99 0 0 1 13 19.93zM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg>
+        <div class="role">Treasurer</div><div class="sub">Financial Stewardship</div>
+      </div>
+    </div>
+    <span class="arrow">Submit your candidacy &#9660;</span>
+    <div class="btns">
+      <a class="btn" href="mailto:glawrence@bcoc.us?bcc=chair@bcoc.us&amp;subject=BCOC%202026%20Candidacy">Declare Candidacy</a>
+      <a class="btn secondary" href="https://www.bcoc.us/bcoc-elections" target="_blank" rel="noopener">Review the Qualifications</a>
+    </div>
+    <span class="sub-note">Forging the Future Together</span>
+  </section>
+</div>
+
+</body>
+</html>

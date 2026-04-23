@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BCOC 2026 Conference Program</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Playfair+Display:wght@700;900&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body style="margin:0;padding:0;background:#e8e4de">
+
+<!--
+  =====================================================================
+  BCOC 2026 CONFERENCE PROGRAM EMBED
+  Drop this into a Wix Embed > Custom Code (HTML iframe) block on the
+  Conference / Agenda page. Replace the four URLs marked TODO with your
+  hosted flipbook, binder, and PDF locations.
+  =====================================================================
+-->
+
+<style>
+.bcoc-conf-program,.bcoc-conf-program *{box-sizing:border-box}
+.bcoc-conf-program{font-family:'Lato',system-ui,sans-serif;max-width:1100px;margin:0 auto;padding:0 16px}
+
+/* Hero header — navy background, BCOC logo on left, big 40th treatment */
+.bcoc-conf-program .hero{background:linear-gradient(135deg,#14213d 0%,#0b1730 100%);border-radius:10px;padding:36px 36px 32px;margin:24px 0 22px;color:#fff;position:relative;overflow:hidden;box-shadow:0 12px 36px rgba(20,33,61,0.25);border:1px solid rgba(201,168,76,0.35);display:flex;align-items:center;gap:36px;text-align:left}
+.bcoc-conf-program .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 0%,rgba(201,168,76,0.18),transparent 55%),radial-gradient(circle at 100% 100%,rgba(139,26,26,0.12),transparent 55%);pointer-events:none}
+.bcoc-conf-program .hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:5px;background:linear-gradient(90deg,#c9a84c,#8b1a1a,#c9a84c)}
+.bcoc-conf-program .hero > *{position:relative;z-index:1}
+.bcoc-conf-program .hero .logo-col{flex:0 0 auto}
+.bcoc-conf-program .hero img.logo{width:200px;height:200px;border-radius:50%;border:4px solid rgba(201,168,76,0.6);box-shadow:0 8px 28px rgba(0,0,0,0.4);display:block}
+.bcoc-conf-program .hero .text-col{flex:1;min-width:0}
+.bcoc-conf-program .hero .eyebrow{display:inline-block;font-family:'Cinzel',serif;font-size:15px;letter-spacing:4px;text-transform:uppercase;color:#c9a84c;font-weight:700;border:1px solid rgba(201,168,76,0.5);padding:7px 16px;border-radius:999px;margin-bottom:14px}
+.bcoc-conf-program .hero .forty-line{display:flex;align-items:baseline;gap:18px;flex-wrap:wrap;margin:4px 0 10px}
+.bcoc-conf-program .hero .forty{font-family:'Playfair Display',serif;font-size:88px;font-weight:900;color:#c9a84c;line-height:1}
+.bcoc-conf-program .hero .forty sup{font-size:36px;color:#c9a84c}
+.bcoc-conf-program .hero .anniv{font-family:'Cinzel',serif;font-size:24px;letter-spacing:6px;text-transform:uppercase;color:#fff;font-weight:700;line-height:1}
+.bcoc-conf-program .hero h2{font-family:'Playfair Display',serif;font-size:30px;font-weight:900;color:#fff;margin:8px 0 8px;line-height:1.15}
+.bcoc-conf-program .hero p{font-size:15px;color:#fdfcfa;line-height:1.6;margin:6px 0 0;opacity:0.92;max-width:640px}
+.bcoc-conf-program .hero .meta{margin-top:12px;font-family:'Cinzel',serif;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:#c9a84c;font-weight:700}
+
+/* CTA row */
+.bcoc-conf-program .cta-row{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin:0 0 22px}
+.bcoc-conf-program .cta-btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-family:'Cinzel',serif;font-size:12px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;padding:14px 26px;border-radius:999px;border:2px solid #14213d;transition:all 0.2s;cursor:pointer}
+.bcoc-conf-program .cta-btn .ico{font-size:16px}
+.bcoc-conf-program .cta-flip{background:#14213d;color:#c9a84c}
+.bcoc-conf-program .cta-flip:hover{background:#0b1730;transform:translateY(-2px);box-shadow:0 6px 18px rgba(20,33,61,0.3)}
+.bcoc-conf-program .cta-binder{background:linear-gradient(135deg,#c9a84c 0%,#e0be6a 100%);color:#14213d}
+.bcoc-conf-program .cta-binder:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(201,168,76,0.45)}
+.bcoc-conf-program .cta-pdf{background:#fff;color:#14213d}
+.bcoc-conf-program .cta-pdf:hover{background:#f5f0e3;transform:translateY(-2px);box-shadow:0 6px 18px rgba(20,33,61,0.18)}
+
+/* Format helper */
+.bcoc-conf-program .format-note{text-align:center;font-size:13px;color:#8a7a5a;font-style:italic;margin:0 0 22px;letter-spacing:0.3px}
+
+/* Flipbook iframe wrapper */
+.bcoc-conf-program .flip-frame{position:relative;width:100%;background:#14213d;border-radius:8px;overflow:hidden;box-shadow:0 12px 36px rgba(20,33,61,0.25);border:1px solid rgba(201,168,76,0.25)}
+.bcoc-conf-program .flip-frame iframe{display:block;width:100%;border:0;background:#e8e4de}
+
+/* Footer strip */
+.bcoc-conf-program .foot{text-align:center;padding:22px 16px 36px;font-family:'Cinzel',serif;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:#c9a84c;font-weight:700}
+
+@media (max-width:760px){
+  .bcoc-conf-program .hero{flex-direction:column;text-align:center;gap:18px;padding:30px 20px 26px}
+  .bcoc-conf-program .hero img.logo{width:130px;height:130px}
+  .bcoc-conf-program .hero .forty-line{justify-content:center}
+  .bcoc-conf-program .hero .forty{font-size:60px}
+  .bcoc-conf-program .hero .forty sup{font-size:24px}
+  .bcoc-conf-program .hero .anniv{font-size:18px;letter-spacing:4px}
+  .bcoc-conf-program .hero .eyebrow{font-size:12px}
+  .bcoc-conf-program .hero h2{font-size:22px}
+  .bcoc-conf-program .hero p{margin-left:auto;margin-right:auto}
+  .bcoc-conf-program .cta-btn{font-size:10px;padding:11px 18px;letter-spacing:2px}
+  .bcoc-conf-program .flip-frame iframe{height:720px!important}
+}
+</style>
+
+<div class="bcoc-conf-program">
+
+  <div class="hero">
+    <div class="logo-col">
+      <img class="logo" src="https://static.wixstatic.com/media/1700c8_c3249910647e4ed5be5d657b963528d1~mv2.png" alt="Black Chief Officers Committee">
+    </div>
+    <div class="text-col">
+      <span class="eyebrow">Black Chief Officers Committee</span>
+      <div class="forty-line">
+        <span class="forty">40<sup>th</sup></span>
+        <span class="anniv">Anniversary</span>
+      </div>
+      <h2>2026 Conference Program &amp; Agenda</h2>
+      <p>Explore the full educational symposium &mdash; keynote speakers, daily sessions, sponsors, and dress code &mdash; in two formats designed for how you plan your conference experience.</p>
+      <div class="meta">August 2 &ndash; 7, 2026 &middot; Loews Atlanta Hotel &middot; Atlanta, Georgia</div>
+    </div>
+  </div>
+
+  <div class="cta-row">
+    <a class="cta-btn cta-flip" href="https://caribbeanfirechiefs.com/BCOC/BCOC_2026_Agenda_Flipbook.html" target="_blank" rel="noopener">
+      <span class="ico">&#128214;</span> View Flipbook
+    </a>
+    <a class="cta-btn cta-binder" href="https://caribbeanfirechiefs.com/BCOC/BCOC_2026_Conference_Binder.html" target="_blank" rel="noopener">
+      <span class="ico">&#128196;</span> View Conference Binder
+    </a>
+    <a class="cta-btn cta-pdf" href="https://a6fc8b97-3633-4419-9b8c-b82fbb634bfa.usrfiles.com/ugd/a6fc8b_f82fd290a11b4ef9a69dccc1b7cf6ad5.pdf" target="_blank" rel="noopener" download="BCOC_2026_Conference_Binder.pdf">
+      <span class="ico">&#11015;&#65039;</span> Download PDF Brochure
+    </a>
+  </div>
+
+  <div class="format-note">
+    Flipbook = visual page-turner with daily tabs &middot; Binder = printable program with right-edge tabs
+  </div>
+
+  <div class="flip-frame">
+    <iframe
+      src="https://caribbeanfirechiefs.com/BCOC/BCOC_2026_Agenda_Flipbook.html"
+      title="BCOC 2026 Conference Agenda Flipbook"
+      height="1200"
+      loading="lazy"
+      allow="fullscreen"></iframe>
+  </div>
+
+  <div class="foot">Black Chief Officers Committee &middot; Forging the Future Together</div>
+
+</div>
+
+</body>
+</html>
