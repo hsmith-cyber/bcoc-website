@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BCOC · Ad Hoc Ethics Review Committee</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;background:#e8e4de;font-family:'Source Sans 3',sans-serif;color:#1a1a1a;min-height:100vh}
+.wrap{max-width:1100px;margin:0 auto;padding:18px 24px 60px}
+
+/* === Masthead (BCOC standard) === */
+.masthead{position:relative;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:12px 24px;background:linear-gradient(100deg,#0a0f1a 0%,#14213d 45%,#1b2d50 75%,#14213d 100%);border-radius:12px 12px 0 0;box-shadow:0 8px 24px rgba(0,0,0,0.28);overflow:hidden;color:#fff}
+.masthead::after{content:'';position:absolute;bottom:0;left:0;right:0;height:5px;background:repeating-linear-gradient(90deg,#c8962e 0,#c8962e 20%,#b82040 20%,#b82040 40%,#c8962e 40%,#c8962e 60%,#b82040 60%,#b82040 80%,#c8962e 80%,#c8962e 100%)}
+.mh-logo-left,.mh-logo-right{flex-shrink:0;filter:drop-shadow(0 3px 8px rgba(0,0,0,0.4))}
+.mh-logo-left{height:52px}
+.mh-logo-right{height:56px}
+.mh-center{flex:1;text-align:center;min-width:0}
+.mh-title{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(14px,1.9vw,20px);letter-spacing:2px;line-height:1.15;white-space:nowrap}
+.mh-title span{color:#e8be5a}
+.mh-tag{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(10px,1.2vw,13px);color:rgba(232,190,90,0.92);margin-top:3px;letter-spacing:0.8px}
+
+/* === Hero === */
+.eth-hero{position:relative;background:linear-gradient(170deg,#14213d 0%,#1b2d50 55%,#14213d 100%);color:#fff;padding:38px 32px 44px;text-align:center;border-radius:0 0 14px 14px;box-shadow:0 10px 30px rgba(0,0,0,0.2);margin-top:-4px;overflow:hidden}
+.eth-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:6px;background:repeating-linear-gradient(90deg,#c8962e 0,#c8962e 20%,#b82040 20%,#b82040 40%,#c8962e 40%,#c8962e 60%,#b82040 60%,#b82040 80%,#c8962e 80%,#c8962e 100%)}
+.eth-hero-eyebrow{font-size:11px;font-weight:800;letter-spacing:6px;color:#e8be5a;text-transform:uppercase;margin-bottom:12px}
+.eth-hero h1{font-family:'Playfair Display',serif;font-size:clamp(40px,6.5vw,64px);font-weight:900;margin:0 0 12px;letter-spacing:1.5px;line-height:1.05}
+.eth-hero h1 em{font-style:italic;background:linear-gradient(135deg,#e8be5a,#c8962e);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.eth-hero-role{font-family:'Playfair Display',serif;font-style:italic;font-size:21px;color:#e8be5a;margin-top:8px;letter-spacing:1.2px}
+.eth-hero-sub{font-family:'Playfair Display',serif;font-style:italic;font-size:16px;color:rgba(255,255,255,0.82);max-width:760px;margin:14px auto 0;line-height:1.6}
+.eth-meta-pills{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:22px;flex-wrap:wrap}
+.eth-meta-pill{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#e8be5a;border:1px solid rgba(232,190,90,0.55);padding:6px 14px;border-radius:999px}
+.eth-back-link{display:inline-flex;align-items:center;gap:8px;margin-top:24px;padding:11px 22px;color:#e8be5a;border:1px solid rgba(232,190,90,0.6);border-radius:999px;text-decoration:none;font-weight:700;font-size:12px;letter-spacing:2px;text-transform:uppercase;transition:all 0.2s}
+.eth-back-link:hover{background:#c8962e;color:#14213d}
+
+/* === Section titles === */
+.sec-title{text-align:center;margin:48px 0 26px}
+.sec-title h2{font-family:'Playfair Display',serif;font-size:40px;font-weight:900;color:#14213d;letter-spacing:1.2px;line-height:1.1}
+.sec-title .rule{width:96px;height:3px;background:linear-gradient(90deg,transparent,#c8962e,transparent);margin:14px auto 0}
+.sec-title p{font-size:14.5px;color:#777;font-style:italic;margin-top:12px;max-width:720px;margin-left:auto;margin-right:auto;line-height:1.55}
+
+/* === Purpose card === */
+.eth-purpose{background:#fff;border:1px solid #eae4d6;border-radius:14px;padding:30px 34px;box-shadow:0 4px 18px rgba(20,33,61,0.07);position:relative;overflow:hidden}
+.eth-purpose::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#c8962e,#b82040,#c8962e)}
+.eth-purpose p{font-size:15.5px;color:#3a3a3a;line-height:1.75;margin-bottom:14px}
+.eth-purpose p:last-child{margin-bottom:0}
+.eth-purpose strong{color:#14213d;font-weight:700}
+.eth-purpose blockquote{margin:18px 0;padding:14px 18px;background:#fdf6e8;border-left:4px solid #c8962e;border-radius:4px;font-style:italic;color:#5d4a1f;font-size:14.5px;line-height:1.65}
+
+/* === Members grid (circle photos) — voting on top, non-voting on bottom === */
+.members-section{display:flex;flex-direction:column;gap:26px;width:100%}
+.member-row-label{text-align:center;font-size:11px;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:#c8962e;margin:0 0 -8px;padding:6px 0}
+.member-row-label.nonvoting{color:#777}
+.member-row-label .row-rule{display:inline-block;width:34px;height:2px;background:#c8962e;vertical-align:middle;margin:0 12px;opacity:0.6}
+.member-row-label.nonvoting .row-rule{background:#777}
+.member-row{display:grid;gap:20px;width:100%}
+.member-row-voting{grid-template-columns:repeat(3,1fr)}
+.member-row-nonvoting{grid-template-columns:repeat(2,1fr);max-width:66%;margin:0 auto}
+.member-card{background:#fff;border:1px solid #eae4d6;border-radius:14px;padding:30px 22px 24px;box-shadow:0 4px 18px rgba(20,33,61,0.07);position:relative;overflow:hidden;text-align:center;transition:all 0.2s}
+.member-card:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(20,33,61,0.14);border-color:#c8962e}
+.member-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#c8962e,#b82040,#c8962e)}
+.member-card.chair::before{background:linear-gradient(90deg,#b82040,#c8962e,#b82040)}
+.member-photo{width:120px;height:120px;border-radius:50%;margin:0 auto 18px;overflow:hidden;border:4px solid #c8962e;box-shadow:0 4px 20px rgba(200,150,46,0.25);background:#14213d;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.member-photo svg{width:60px;height:60px;color:#e8be5a}
+.member-photo.pending{background:linear-gradient(135deg,#14213d 0%,#1b2d50 100%);position:relative}
+.member-photo.pending::after{content:'PHOTO PENDING';position:absolute;bottom:8px;left:50%;transform:translateX(-50%);font-size:7.5px;font-weight:800;letter-spacing:1.2px;color:#e8be5a;background:rgba(20,33,61,0.85);padding:2px 6px;border-radius:3px}
+.member-card.chair .member-photo{border-color:#b82040;box-shadow:0 4px 20px rgba(184,32,64,0.28)}
+.member-photo img{width:100%;height:100%;object-fit:cover;object-position:center 22%}
+.member-role-pill{display:inline-block;font-size:10px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:#fff;background:#14213d;padding:4px 12px;border-radius:999px;margin-bottom:10px}
+.member-role-pill.chair{background:#b82040}
+.member-role-pill.nonvoting{background:#777}
+.member-name{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;color:#14213d;line-height:1.2;margin-bottom:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.member-rank{font-size:12px;letter-spacing:1.2px;text-transform:uppercase;color:#c8962e;font-weight:800;margin-bottom:8px}
+.member-position{font-size:13px;color:#3a3a3a;line-height:1.5;font-style:italic}
+
+@media(max-width:900px){
+  .member-row-voting,.member-row-nonvoting{grid-template-columns:repeat(2,1fr);max-width:none}
+}
+@media(max-width:540px){
+  .member-row-voting,.member-row-nonvoting{grid-template-columns:1fr}
+}
+
+/* === Two-column governance grid === */
+.gov-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;width:100%}
+@media(max-width:760px){.gov-grid{grid-template-columns:1fr}}
+.gov-card{background:#fff;border:1px solid #eae4d6;border-radius:14px;padding:26px 28px;box-shadow:0 4px 18px rgba(20,33,61,0.07);position:relative;overflow:hidden}
+.gov-card::before{content:'';position:absolute;top:0;left:0;width:6px;bottom:0;background:linear-gradient(180deg,#c8962e,#b82040)}
+.gov-card h3{font-family:'Playfair Display',serif;color:#14213d;font-size:25px;margin-bottom:16px;font-weight:900;letter-spacing:0.5px;line-height:1.2}
+.gov-card ul{list-style:none;padding:0;margin:0}
+.gov-card li{font-size:14.5px;color:#3a3a3a;line-height:1.65;margin-bottom:12px;padding-left:24px;position:relative}
+.gov-card li::before{content:'';position:absolute;left:0;top:9px;width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,#c8962e,#b82040)}
+.gov-card li:last-child{margin-bottom:0}
+.gov-card p{font-size:14.5px;color:#3a3a3a;line-height:1.7;margin-bottom:10px}
+.gov-card p:last-child{margin-bottom:0}
+.gov-card strong{color:#14213d}
+
+/* === Procedures strip === */
+.proc-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:14px}
+@media(max-width:780px){.proc-strip{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:420px){.proc-strip{grid-template-columns:1fr}}
+.proc-card{background:#fff;border:1px solid #eae4d6;border-radius:10px;padding:18px 16px;text-align:center;box-shadow:0 4px 14px rgba(20,33,61,0.06);position:relative;overflow:hidden}
+.proc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#c8962e,#b82040)}
+.proc-num{font-family:'Playfair Display',serif;font-size:32px;font-weight:900;color:#14213d;line-height:1}
+.proc-num em{font-style:normal;background:linear-gradient(135deg,#e8be5a,#c8962e);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.proc-unit{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#c8962e;margin-top:4px}
+.proc-label{font-size:12px;color:#5a5a5a;margin-top:8px;line-height:1.45}
+
+/* === Resolution / signature footer === */
+.resolution-mark{margin:42px auto 0;max-width:760px;padding:22px 28px;background:linear-gradient(135deg,#fdf6e8,#fffaf2);border:1px solid #e8dfc7;border-left:5px solid #b82040;border-radius:8px;box-shadow:0 4px 14px rgba(20,33,61,0.06)}
+.resolution-mark .rm-label{font-size:10px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:#b82040;margin-bottom:6px}
+.resolution-mark .rm-title{font-family:'Playfair Display',serif;font-size:18px;color:#14213d;font-weight:900;margin-bottom:6px}
+.resolution-mark .rm-body{font-size:13.5px;color:#5d4a1f;line-height:1.6;font-style:italic}
+.resolution-mark .rm-sig{margin-top:14px;padding-top:14px;border-top:1px solid #e8dfc7;display:flex;justify-content:space-between;align-items:flex-start;gap:18px;flex-wrap:wrap}
+.resolution-mark .rm-sig-block{flex:1;min-width:240px}
+.resolution-mark .rm-sig-name{font-family:'Playfair Display',serif;font-weight:900;color:#14213d;font-size:14.5px;line-height:1.3}
+.resolution-mark .rm-sig-role{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:#c8962e;font-weight:700;margin-top:3px}
+
+/* === Footer === */
+.eth-footer{margin-top:60px;padding:42px 20px 32px;text-align:center;background:linear-gradient(170deg,#14213d 0%,#1b2d50 100%);color:rgba(255,255,255,0.78);border-radius:14px;position:relative;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,0.12)}
+.eth-footer::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:repeating-linear-gradient(90deg,#c8962e 0,#c8962e 20%,#b82040 20%,#b82040 40%,#c8962e 40%,#c8962e 60%,#b82040 60%,#b82040 80%,#c8962e 80%,#c8962e 100%)}
+.footer-logos{display:flex;align-items:center;justify-content:center;gap:24px;margin:4px auto 14px;flex-wrap:wrap}
+.footer-logos img{height:56px}
+.footer-motto{font-family:'Playfair Display',serif;letter-spacing:5px;font-size:13px;color:#e8be5a;margin:10px 0 4px;text-transform:uppercase;font-weight:700}
+.footer-text{font-size:12.5px;line-height:1.6;color:rgba(255,255,255,0.6);max-width:640px;margin:6px auto 0}
+.footer-small{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-top:14px}
+.footer-small a{color:#e8be5a;text-decoration:none;border-bottom:1px solid rgba(232,190,90,0.4);padding-bottom:2px}
+
+/* === Mobile tightening === */
+@media(max-width:620px){
+  .wrap{padding:12px 14px 40px}
+  .masthead{flex-direction:column;padding:14px 16px;gap:10px}
+  .mh-logo-left,.mh-logo-right{height:50px}
+  .mh-title{white-space:normal;line-height:1.25;font-size:16px}
+  .mh-tag{font-size:11px}
+  .eth-hero{padding:30px 20px 36px;border-radius:0 0 10px 10px}
+  .eth-hero-eyebrow{letter-spacing:4px;font-size:10px}
+  .eth-hero h1{font-size:38px;letter-spacing:1px}
+  .eth-hero-role{font-size:16px}
+  .eth-hero-sub{font-size:14.5px;line-height:1.5}
+  .eth-meta-pills{gap:6px;margin-top:18px}
+  .eth-meta-pill{font-size:10px;padding:5px 10px;letter-spacing:1.5px}
+  .eth-back-link{margin-top:18px;font-size:11px;padding:9px 18px}
+  .sec-title{margin:36px 0 20px}
+  .sec-title h2{font-size:28px;letter-spacing:0.8px}
+  .sec-title .rule{width:70px;margin-top:10px}
+  .sec-title p{font-size:13.5px;margin-top:10px;padding:0 4px}
+  .eth-purpose{padding:22px 20px;border-radius:10px}
+  .eth-purpose p{font-size:14.5px;line-height:1.7}
+  .eth-purpose blockquote{font-size:13.5px;padding:12px 14px;margin:14px 0}
+  .member-card{padding:24px 16px 20px;border-radius:10px}
+  .member-photo{width:100px;height:100px}
+  .member-name{white-space:normal;line-height:1.2;font-size:19px}
+  .member-rank{font-size:11px;letter-spacing:1px}
+  .member-position{font-size:12.5px}
+  .gov-card{padding:22px 20px;border-radius:10px}
+  .gov-card h3{font-size:21px;margin-bottom:12px}
+  .gov-card li,.gov-card p{font-size:13.5px;line-height:1.6}
+  .proc-card{padding:14px 12px}
+  .proc-num{font-size:26px}
+  .proc-unit{font-size:9px;letter-spacing:1.5px}
+  .proc-label{font-size:11px}
+  .resolution-mark{padding:18px 20px;margin-top:32px;border-radius:6px}
+  .resolution-mark .rm-title{font-size:16px;line-height:1.25}
+  .resolution-mark .rm-body{font-size:12.5px}
+  .resolution-mark .rm-sig-name{font-size:13px}
+  .eth-footer{padding:32px 16px 24px;border-radius:10px}
+  .footer-logos img{height:46px}
+  .footer-text{font-size:12px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- Masthead -->
+  <div class="masthead">
+    <img class="mh-logo-left" src="https://static.wixstatic.com/media/1700c8_b2680286f4244f40a9afec02808f2d36~mv2.png" alt="BCOC">
+    <div class="mh-center">
+      <div class="mh-title">BLACK CHIEF OFFICERS <span>COMMITTEE</span></div>
+      <div class="mh-tag">Office of the Chair · Governance &amp; Standards</div>
+    </div>
+    <img class="mh-logo-right" src="https://static.wixstatic.com/media/a6fc8b_b3b55f4d44cb46c3a8c981c0bcf42ad3~mv2.png" alt="40th Anniversary">
+  </div>
+
+  <!-- Hero -->
+  <header class="eth-hero">
+    <div class="eth-hero-eyebrow">Resolution 2026 · 02 — April 28, 2026</div>
+    <h1>Ad Hoc <em>Ethics Review</em> Committee</h1>
+    <div class="eth-hero-role">Independent review · Procedural fairness · Confidential proceedings</div>
+    <div class="eth-hero-sub">Empaneled by the Office of the Chair to receive, evaluate, and recommend on ethics-related complaints arising under the BCOC Code of Ethics — separate and distinct from the body that ultimately decides any disciplinary action.</div>
+    <div class="eth-meta-pills">
+      <span class="eth-meta-pill">Five Members</span>
+      <span class="eth-meta-pill">14-Day Convening</span>
+      <span class="eth-meta-pill">60-Day Report</span>
+      <span class="eth-meta-pill">Advisory Authority</span>
+    </div>
+    <a href="BCOC_Landing.html" class="eth-back-link">&larr; Back to BCOC</a>
+  </header>
+
+  <!-- Purpose -->
+  <div class="sec-title">
+    <h2>Purpose</h2>
+    <div class="rule"></div>
+    <p>Why this Committee exists, and what it is charged with doing.</p>
+  </div>
+  <div class="eth-purpose">
+    <p>The Black Chief Officers Committee (BCOC) is governed by its <strong>Bylaws (v 2017)</strong> and its <strong>Code of Ethics (approved in 2025)</strong>, which together establish the standards of conduct for officers and board members and the procedures for addressing alleged violations of those standards.</p>
+    <blockquote>The BCOC Code of Ethics provides that "infractions of this Statement of Personal and Professional Standards of Conduct are to be reported directly to any member of the audit committee who shall, in their determination, bring the infraction to the full executive committee."</blockquote>
+    <p>Because no permanent audit committee is presently constituted, the Chair has established this <strong>Ad Hoc Ethics Review Committee</strong> to stand in for the audit-committee function described in the Code of Ethics until a permanent committee is duly constituted. The Chair is authorized under the Bylaws to appoint standing and ad hoc committees to carry out the functions of the organization and to address matters requiring independent review.</p>
+    <p>The receipt, evaluation, and disposition of ethics-related complaints is a function essential to the integrity of the BCOC and cannot be suspended pending the formation of a permanent audit committee. <strong>Sound governance practice</strong> requires that the body receiving, investigating, and evaluating an ethics complaint be separate and distinct from the body ultimately deciding any disciplinary action — preserving the impartiality of the deciding body and the procedural fairness owed to any officer or board member who is the subject of a complaint.</p>
+  </div>
+
+  <!-- Members -->
+  <div class="sec-title">
+    <h2>Committee Members</h2>
+    <div class="rule"></div>
+    <p>Five sitting members of the BCOC Executive Board, appointed by the Chair pursuant to Section 2 of the Resolution. Three voting members and two non-voting members.</p>
+  </div>
+  <div class="members-section">
+
+    <!-- VOTING MEMBERS ROW -->
+    <div class="member-row-label">
+      <span class="row-rule"></span>Voting Members<span class="row-rule"></span>
+    </div>
+    <div class="member-row member-row-voting">
+
+      <!-- Randolph (Chair, left) -->
+      <div class="member-card chair">
+        <div class="member-photo">
+          <img src="https://static.wixstatic.com/media/a6fc8b_6f6629e85245494daab44de2b7c17ad7~mv2.png" alt="Chief Quinten Randolph">
+        </div>
+        <div class="member-role-pill chair">Chair</div>
+        <div class="member-name">Quinten Randolph</div>
+        <div class="member-rank">Fire Chief</div>
+        <div class="member-position">Chair of the Committee</div>
+      </div>
+
+      <!-- Green (center) -->
+      <div class="member-card">
+        <div class="member-photo">
+          <img src="https://static.wixstatic.com/media/a6fc8b_45a5b5cfee5f4cc5aea755b3a6fba3ef~mv2.png" alt="Chief Tiffany Green (Ret.)">
+        </div>
+        <div class="member-role-pill">Member</div>
+        <div class="member-name">Tiffany Green</div>
+        <div class="member-rank">Fire Chief (Ret.)</div>
+        <div class="member-position">Voting Member</div>
+      </div>
+
+      <!-- Davis (right) -->
+      <div class="member-card">
+        <div class="member-photo">
+          <img src="https://static.wixstatic.com/media/a6fc8b_0efec92dbd7c45029f5856fef6194918~mv2.png" alt="Chief Jason Earl Davis (Ret.)">
+        </div>
+        <div class="member-role-pill">Member</div>
+        <div class="member-name">Jason Earl Davis</div>
+        <div class="member-rank">Fire Chief (Ret.)</div>
+        <div class="member-position">Voting Member</div>
+      </div>
+
+    </div>
+
+    <!-- NON-VOTING MEMBERS ROW -->
+    <div class="member-row-label nonvoting">
+      <span class="row-rule"></span>Non-voting Members<span class="row-rule"></span>
+    </div>
+    <div class="member-row member-row-nonvoting">
+
+      <!-- Lindqvist -->
+      <div class="member-card">
+        <div class="member-photo">
+          <img src="https://static.wixstatic.com/media/a6fc8b_9a577023ffa54d47a499259c39c7e0dc~mv2.png" alt="Asst. Fire Chief Dr. Ernest Lindqvist (Ret.)">
+        </div>
+        <div class="member-role-pill nonvoting">Non-voting Member</div>
+        <div class="member-name">Dr. Ernest Lindqvist</div>
+        <div class="member-rank">Assistant Fire Chief (Ret.)</div>
+        <div class="member-position">Non-voting Member</div>
+      </div>
+
+      <!-- Gray -->
+      <div class="member-card">
+        <div class="member-photo">
+          <img src="https://static.wixstatic.com/media/a6fc8b_ca2161d7fc074390af053227e544e54e~mv2.jpg" alt="Asst. Fire Chief Ashanti Gray">
+        </div>
+        <div class="member-role-pill nonvoting">Non-voting Member</div>
+        <div class="member-name">Ashanti Gray</div>
+        <div class="member-rank">Assistant Fire Chief</div>
+        <div class="member-position">Non-voting Member</div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Charge & Limitations -->
+  <div class="sec-title">
+    <h2>Charge &amp; Authority</h2>
+    <div class="rule"></div>
+    <p>What the Committee is empowered to do — and the boundaries of that authority.</p>
+  </div>
+  <div class="gov-grid">
+
+    <div class="gov-card">
+      <h3>The Committee is charged to:</h3>
+      <ul>
+        <li>Receive written complaints alleging violations of the BCOC Code of Ethics by officers, board members, or members of the BCOC.</li>
+        <li>Review the evidence submitted, request additional documentary evidence as necessary, and receive written or oral statements from the complainant, the subject of the complaint, and any material witnesses.</li>
+        <li>Provide the subject of the complaint with written notice of the allegations, copies of the supporting evidence, and a reasonable opportunity to respond in writing and, if requested, to appear before the Committee.</li>
+        <li>Make written findings of fact based on the evidence considered.</li>
+        <li>Prepare a written report and recommendation to the Executive Committee — which may include dismissing the complaint, issuing a written warning, requiring remedial action, or referring the matter for consideration of suspension, removal, or other authorized disciplinary action.</li>
+      </ul>
+    </div>
+
+    <div class="gov-card">
+      <h3>Limitations on Authority</h3>
+      <p>The authority of the Committee is <strong>advisory and recommendatory</strong>. The Committee shall have <strong>no authority to impose discipline</strong>, to remove any officer or board member from office, or to alter the membership status of any individual.</p>
+      <p>Final authority on all disciplinary matters rests with the <strong>Executive Committee or the full Board</strong> of the BCOC, as provided in the Bylaws.</p>
+      <p>Non-voting Executive Board members serving on the Committee shall not, by reason of such service, acquire any voting authority on the Committee's recommendation when it is considered by the Executive Committee or the Board.</p>
+    </div>
+
+  </div>
+
+  <!-- Procedures key facts -->
+  <div class="sec-title">
+    <h2>Procedures &amp; Standards</h2>
+    <div class="rule"></div>
+    <p>Convening, deliberating, deciding, and recording — at a glance.</p>
+  </div>
+  <div class="proc-strip">
+    <div class="proc-card">
+      <div class="proc-num"><em>14</em></div>
+      <div class="proc-unit">Calendar Days</div>
+      <div class="proc-label">Committee convenes within 14 days of any complaint filing</div>
+    </div>
+    <div class="proc-card">
+      <div class="proc-num"><em>60</em></div>
+      <div class="proc-unit">Calendar Days</div>
+      <div class="proc-label">Written report &amp; recommendation issued to the Executive Committee</div>
+    </div>
+    <div class="proc-card">
+      <div class="proc-num"><em>3</em></div>
+      <div class="proc-unit">Voting Members</div>
+      <div class="proc-label">Decisions made by majority vote; record kept and delivered to the Secretary</div>
+    </div>
+    <div class="proc-card">
+      <div class="proc-num"><em>100%</em></div>
+      <div class="proc-unit">Confidential</div>
+      <div class="proc-label">All proceedings confidential — obligation survives dissolution</div>
+    </div>
+  </div>
+
+  <!-- Conflicts -->
+  <div class="sec-title">
+    <h2>Conflicts of Interest &amp; Counsel</h2>
+    <div class="rule"></div>
+  </div>
+  <div class="gov-grid">
+    <div class="gov-card">
+      <h3>Conflict-of-Interest Disclosure</h3>
+      <p>No person shall serve on the Committee who has a personal, professional, familial, or business relationship with any individual whose conduct is the subject of a complaint pending before the Committee.</p>
+      <p>Upon the filing of any complaint, each appointed member shall <strong>disclose in writing</strong> any actual or potential conflict of interest. Any member with such a conflict shall be <strong>recused</strong> and, if necessary, temporarily replaced by a qualified alternate appointed by the Chair.</p>
+    </div>
+    <div class="gov-card">
+      <h3>Engagement of Counsel</h3>
+      <p>The Committee is authorized to request, through the Chair, the assistance of <strong>legal counsel retained by the BCOC</strong> on any matter of procedural or substantive law arising in the course of its work.</p>
+      <p>Any communication between the Committee and such counsel shall be treated as <strong>privileged</strong>.</p>
+      <h3 style="margin-top:18px">Term &amp; Dissolution</h3>
+      <p>The Committee remains in existence until (i) a permanent audit committee is constituted, (ii) all referred matters are completed and the Chair determines no further ad hoc review is required, or (iii) this Resolution is rescinded by the Chair or the Board.</p>
+    </div>
+  </div>
+
+  <!-- Resolution attestation block -->
+  <div class="resolution-mark">
+    <div class="rm-label">Resolution 2026 · 02 — In Witness Whereof</div>
+    <div class="rm-title">Executed under the authority of the Chair of the Black Chief Officers Committee</div>
+    <div class="rm-body">"Pursuant to the authority vested in the Chair by the BCOC Bylaws, this Resolution shall take effect immediately upon execution and shall be reported to the Executive Committee at its next regular or special meeting and entered into the minutes of the BCOC."</div>
+    <div class="rm-sig">
+      <div class="rm-sig-block">
+        <div class="rm-sig-name">Dr. Hezedean A. Smith, DM, CFO, CEMSO, NRP, CPM, COSS, EFO-EMSO</div>
+        <div class="rm-sig-role">Chair, Black Chief Officers Committee</div>
+      </div>
+      <div class="rm-sig-block">
+        <div class="rm-sig-name">Donna Gayden, CFE</div>
+        <div class="rm-sig-role">Executive Coordinator, Attest</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="eth-footer">
+    <div class="footer-logos">
+      <img src="https://static.wixstatic.com/media/1700c8_b2680286f4244f40a9afec02808f2d36~mv2.png" alt="BCOC">
+      <img src="https://static.wixstatic.com/media/a6fc8b_b3b55f4d44cb46c3a8c981c0bcf42ad3~mv2.png" alt="40th Anniversary">
+    </div>
+    <div class="footer-motto">Black Chief Officers Committee</div>
+    <div class="footer-text">For ethics complaints under the BCOC Code of Ethics, contact the Chair of the Ad Hoc Ethics Review Committee or the Executive Coordinator. All proceedings are confidential.</div>
+    <div class="footer-small">Resolution 2026 · 02 &middot; Dated April 23, 2026 &middot; Updated April 28, 2026</div>
+  </footer>
+
+</div>
+</body>
+</html>
