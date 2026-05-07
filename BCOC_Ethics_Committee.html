@@ -213,6 +213,9 @@ html,body{width:100%;background:#e8e4de;font-family:'Source Sans 3',sans-serif;c
 .report-cta-email a{color:#14213d;font-weight:700;text-decoration:none;border-bottom:1px solid rgba(20,33,61,0.25);padding-bottom:1px}
 .report-cta-email a:hover{color:#b82040;border-bottom-color:#b82040}
 .report-cta-note{margin-top:18px;font-family:'Source Sans 3',sans-serif;font-size:12px;color:#7a6f5a;letter-spacing:0.5px;font-style:italic}
+.cta-toast{display:inline-block;margin-top:14px;padding:9px 18px;background:#0a7a3e;color:#fff;font-family:'Source Sans 3',sans-serif;font-weight:700;font-size:12.5px;letter-spacing:1px;border-radius:6px;opacity:0;transform:translateY(-4px);transition:all 0.3s ease;pointer-events:none;max-width:560px;line-height:1.4}
+.cta-toast.show{opacity:1;transform:translateY(0)}
+.cta-toast .check{display:inline-block;margin-right:8px;font-weight:900}
 @media(max-width:560px){
   .report-cta{padding:28px 16px 24px;margin-top:20px}
   .report-cta-eyebrow{font-size:10px;letter-spacing:3.5px}
@@ -270,13 +273,85 @@ html,body{width:100%;background:#e8e4de;font-family:'Source Sans 3',sans-serif;c
     <div class="report-cta-eyebrow">Confidential Reporting</div>
     <h2 class="report-cta-title" id="report-cta-title">Report an Ethics Complaint</h2>
     <p class="report-cta-text">If you wish to file a complaint alleging a violation of the BCOC Code of Ethics by an officer, board member, or member, you may submit your report directly to the Ad Hoc Ethics Review Committee. All submissions are reviewed in confidence and handled in accordance with Resolution 2026&middot;02.</p>
-    <a class="report-cta-btn" href="mailto:ethicscommittee@bcoc.us?subject=BCOC%20Ethics%20Complaint%20-%20Confidential">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-      Report a Complaint
-    </a>
-    <span class="report-cta-email">Or email directly: <a href="mailto:ethicscommittee@bcoc.us">ethicscommittee@bcoc.us</a></span>
-    <div class="report-cta-note">All proceedings before the Committee are confidential. Members with conflicts of interest are recused.</div>
+    <button class="report-cta-btn" type="button" onclick="bcocCopyComplaint(event,this)">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+      Copy Complaint Template
+    </button>
+    <div class="cta-toast" id="ctaToast" role="status" aria-live="polite"></div>
+    <span class="report-cta-email">Send to: <strong>ethicscommittee@bcoc.us</strong></span>
+    <div class="report-cta-note">Click the button above to copy a pre-formatted complaint template. Paste it into a new email. All proceedings before the Committee are confidential.</div>
   </section>
+
+  <script>
+  (function(){
+    var TEMPLATE = "To: ethicscommittee@bcoc.us\n" +
+      "Subject: BCOC Ethics Complaint – Confidential\n\n" +
+      "To the BCOC Ad Hoc Ethics Review Committee:\n\n" +
+      "I wish to report a possible violation of the BCOC Code of Ethics.\n\n" +
+      "1. Your Name (Optional):\n" +
+      "2. Your Role / Affiliation:\n" +
+      "3. Subject of the Complaint (Name & Role):\n" +
+      "4. Date(s) of Alleged Conduct:\n" +
+      "5. Brief Summary of the Concern:\n" +
+      "6. Specific Code of Ethics Provision(s) Implicated (if known):\n" +
+      "7. Witnesses (if any):\n" +
+      "8. Supporting Documentation Attached: [Yes / No]\n" +
+      "9. Preferred Method of Contact:\n\n" +
+      "I understand that this communication is confidential and will be reviewed by the Ad Hoc Ethics Review Committee pursuant to Resolution 2026·02.\n\n" +
+      "Respectfully,\n";
+
+    function showToast(msg, isError){
+      var t = document.getElementById('ctaToast');
+      if(!t) return;
+      t.innerHTML = '<span class="check">'+(isError?'!':'✓')+'</span>'+msg;
+      if(isError){ t.style.background = '#b82040'; } else { t.style.background = '#0a7a3e'; }
+      t.classList.add('show');
+      clearTimeout(t._h);
+      t._h = setTimeout(function(){ t.classList.remove('show'); }, 5000);
+    }
+
+    function fallbackCopy(text){
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.setAttribute('readonly','');
+      ta.style.position = 'fixed';
+      ta.style.top = '0'; ta.style.left = '0';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.focus(); ta.select();
+      try {
+        var ok = document.execCommand('copy');
+        document.body.removeChild(ta);
+        return !!ok;
+      } catch(e){
+        try{document.body.removeChild(ta);}catch(e2){}
+        return false;
+      }
+    }
+
+    window.bcocCopyComplaint = function(e, btn){
+      if(e){ e.preventDefault(); e.stopPropagation(); }
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(TEMPLATE).then(function(){
+          showToast('Template copied to clipboard. Paste into a new email.', false);
+        }).catch(function(){
+          if(fallbackCopy(TEMPLATE)){
+            showToast('Template copied to clipboard. Paste into a new email.', false);
+          } else {
+            showToast('Could not copy automatically. Email: ethicscommittee@bcoc.us', true);
+          }
+        });
+      } else {
+        if(fallbackCopy(TEMPLATE)){
+          showToast('Template copied to clipboard. Paste into a new email.', false);
+        } else {
+          showToast('Could not copy automatically. Email: ethicscommittee@bcoc.us', true);
+        }
+      }
+      return false;
+    };
+  })();
+  </script>
 
   <!-- Purpose -->
   <div class="sec-title">
