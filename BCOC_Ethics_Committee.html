@@ -168,6 +168,27 @@ html,body{width:100%;background:#e8e4de;font-family:'Source Sans 3',sans-serif;c
   .footer-logos img{height:46px}
   .footer-text{font-size:12px}
 }
+
+/* === Report a Complaint CTA === */
+.report-cta{margin-top:24px;padding:36px 32px 32px;background:linear-gradient(160deg,#f3ede2 0%,#efe7d6 100%);border:1px solid #c8962e;border-radius:14px;text-align:center;position:relative;overflow:hidden;box-shadow:0 6px 20px rgba(20,33,61,0.08)}
+.report-cta::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:repeating-linear-gradient(90deg,#c8962e 0,#c8962e 20%,#b82040 20%,#b82040 40%,#c8962e 40%,#c8962e 60%,#b82040 60%,#b82040 80%,#c8962e 80%,#c8962e 100%)}
+.report-cta-eyebrow{font-family:'Source Sans 3',sans-serif;font-weight:800;font-size:11px;letter-spacing:5px;color:#b82040;text-transform:uppercase;margin-bottom:12px}
+.report-cta-title{font-family:'Playfair Display',serif;font-weight:900;font-size:30px;color:#14213d;margin-bottom:10px;line-height:1.15}
+.report-cta-text{font-family:'Source Sans 3',sans-serif;font-size:15px;color:#3a3a3a;line-height:1.55;max-width:640px;margin:0 auto 22px}
+.report-cta-btn{display:inline-flex;align-items:center;gap:10px;background:#b82040;color:#ffffff;font-family:'Source Sans 3',sans-serif;font-weight:800;font-size:15px;letter-spacing:2.5px;padding:16px 36px;border:none;border-radius:8px;text-decoration:none;text-transform:uppercase;box-shadow:0 4px 14px rgba(184,32,64,0.32);transition:all 0.18s ease;cursor:pointer}
+.report-cta-btn:hover{background:#9a1a36;transform:translateY(-2px);box-shadow:0 6px 20px rgba(184,32,64,0.42)}
+.report-cta-btn:active{transform:translateY(0)}
+.report-cta-btn svg{width:18px;height:18px;fill:currentColor;flex-shrink:0}
+.report-cta-email{display:block;margin-top:14px;font-family:'Source Sans 3',sans-serif;font-size:13px;color:#5a5a5a;letter-spacing:0.5px}
+.report-cta-email a{color:#14213d;font-weight:700;text-decoration:none;border-bottom:1px solid rgba(20,33,61,0.25);padding-bottom:1px}
+.report-cta-email a:hover{color:#b82040;border-bottom-color:#b82040}
+.report-cta-note{margin-top:18px;font-family:'Source Sans 3',sans-serif;font-size:12px;color:#7a6f5a;letter-spacing:0.5px;font-style:italic}
+@media(max-width:560px){
+  .report-cta{padding:32px 18px 28px;margin-top:36px}
+  .report-cta-title{font-size:22px}
+  .report-cta-text{font-size:13.5px}
+  .report-cta-btn{font-size:13px;padding:13px 24px;letter-spacing:2px}
+}
 </style>
 </head>
 <body>
@@ -197,6 +218,19 @@ html,body{width:100%;background:#e8e4de;font-family:'Source Sans 3',sans-serif;c
     </div>
     <a href="BCOC_Landing.html" class="eth-back-link">&larr; Back to BCOC</a>
   </header>
+
+  <!-- Report a Complaint CTA -->
+  <section class="report-cta" aria-labelledby="report-cta-title">
+    <div class="report-cta-eyebrow">Confidential Reporting</div>
+    <h2 class="report-cta-title" id="report-cta-title">Report an Ethics Complaint</h2>
+    <p class="report-cta-text">If you wish to file a complaint alleging a violation of the BCOC Code of Ethics by an officer, board member, or member, you may submit your report directly to the Ad Hoc Ethics Review Committee. All submissions are reviewed in confidence and handled in accordance with Resolution 2026&middot;02.</p>
+    <a class="report-cta-btn" href="mailto:ethicscommittee@bcoc.us?subject=BCOC%20Ethics%20Complaint%20%E2%80%93%20Confidential&amp;body=To%20the%20BCOC%20Ad%20Hoc%20Ethics%20Review%20Committee%3A%0A%0AI%20wish%20to%20report%20a%20possible%20violation%20of%20the%20BCOC%20Code%20of%20Ethics.%0A%0A1.%20Your%20Name%20(Optional)%3A%0A2.%20Your%20Role%2FAffiliation%3A%0A3.%20Subject%20of%20the%20Complaint%20(Name%20%26%20Role)%3A%0A4.%20Date(s)%20of%20Alleged%20Conduct%3A%0A5.%20Brief%20Summary%20of%20the%20Concern%3A%0A6.%20Specific%20Code%20of%20Ethics%20Provision(s)%20Implicated%20(if%20known)%3A%0A7.%20Witnesses%20(if%20any)%3A%0A8.%20Supporting%20Documentation%20Attached%3A%20%5BYes%2FNo%5D%0A9.%20Preferred%20Method%20of%20Contact%3A%0A%0AI%20understand%20that%20this%20communication%20is%20confidential%20and%20will%20be%20reviewed%20by%20the%20Ad%20Hoc%20Ethics%20Review%20Committee%20pursuant%20to%20Resolution%202026%C2%B702.%0A%0ARespectfully%2C%0A">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      Report a Complaint
+    </a>
+    <span class="report-cta-email">Or email directly: <a href="mailto:ethicscommittee@bcoc.us">ethicscommittee@bcoc.us</a></span>
+    <div class="report-cta-note">All proceedings before the Committee are confidential. Members with conflicts of interest are recused.</div>
+  </section>
 
   <!-- Purpose -->
   <div class="sec-title">
