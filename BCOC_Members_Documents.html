@@ -84,6 +84,40 @@ html,body{width:100%;background:#e8e4de;font-family:'Source Sans 3',sans-serif;c
 .footer-small{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-top:14px}
 .footer-small a{color:#e8be5a;text-decoration:none;border-bottom:1px solid rgba(232,190,90,0.4);padding-bottom:2px}
 
+/* === Access gate (origin-locked viewing) === */
+.wrap{display:none}
+html.gate-allow .wrap{display:block}
+.access-denied{display:none;min-height:100vh;flex-direction:column;align-items:center;justify-content:center;padding:40px 24px;background:linear-gradient(170deg,#0a0f1a 0%,#14213d 50%,#1b2d50 100%);color:#fff;text-align:center}
+html.gate-deny .access-denied{display:flex}
+.ad-stripe{position:absolute;top:0;left:0;right:0;height:5px;background:repeating-linear-gradient(90deg,#c8962e 0,#c8962e 20%,#b82040 20%,#b82040 40%,#c8962e 40%,#c8962e 60%,#b82040 60%,#b82040 80%,#c8962e 80%,#c8962e 100%)}
+.ad-shield{width:120px;height:120px;border-radius:50%;background:rgba(184,32,64,0.15);border:2px solid #b82040;display:flex;align-items:center;justify-content:center;margin-bottom:30px;box-shadow:0 4px 30px rgba(184,32,64,0.4)}
+.ad-shield svg{width:54px;height:54px;fill:#e8be5a}
+.ad-eyebrow{font-family:'Source Sans 3',sans-serif;font-weight:800;font-size:12px;letter-spacing:6px;color:#b82040;text-transform:uppercase;margin-bottom:14px}
+.ad-title{font-family:'Playfair Display',serif;font-weight:900;font-size:48px;color:#ffffff;line-height:1.1;margin-bottom:18px;max-width:680px}
+.ad-title em{font-style:italic;background:linear-gradient(135deg,#e8be5a,#c8962e);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.ad-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:20px;color:rgba(255,255,255,0.82);max-width:580px;line-height:1.55;margin-bottom:32px}
+.ad-cta{display:inline-flex;align-items:center;gap:10px;background:#b82040;color:#fff;font-family:'Source Sans 3',sans-serif;font-weight:800;font-size:15px;letter-spacing:2.5px;padding:16px 36px;border-radius:8px;text-decoration:none;text-transform:uppercase;box-shadow:0 4px 14px rgba(184,32,64,0.4);transition:all 0.18s ease}
+.ad-cta:hover{background:#9a1a36;transform:translateY(-2px);box-shadow:0 6px 20px rgba(184,32,64,0.5)}
+.ad-cta svg{width:18px;height:18px;fill:currentColor}
+.ad-divider{width:60px;height:2px;background:rgba(232,190,90,0.4);margin:38px 0 24px}
+.ad-note{font-family:'Source Sans 3',sans-serif;font-size:13px;color:rgba(255,255,255,0.62);max-width:520px;line-height:1.6}
+.ad-note strong{color:#e8be5a}
+.ad-logo{margin-top:48px;display:flex;align-items:center;gap:18px;justify-content:center;flex-wrap:wrap}
+.ad-logo img{height:48px;opacity:0.85}
+.ad-motto{font-family:'Playfair Display',serif;letter-spacing:5px;font-size:11px;color:#e8be5a;text-transform:uppercase;font-weight:700;margin-top:12px}
+@media(max-width:620px){
+  .ad-shield{width:96px;height:96px;margin-bottom:24px}
+  .ad-shield svg{width:42px;height:42px}
+  .ad-title{font-size:32px}
+  .ad-sub{font-size:16px}
+  .ad-cta{font-size:13px;letter-spacing:1.8px;padding:14px 26px}
+  .ad-logo img{height:40px}
+}
+@media(max-width:520px){
+  .ad-title{font-size:26px}
+  .ad-sub{font-size:14.5px}
+}
+
 /* Mobile */
 @media(max-width:620px){
   .wrap{padding:12px 14px 40px}
@@ -122,6 +156,43 @@ html,body{width:100%;background:#e8e4de;font-family:'Source Sans 3',sans-serif;c
 </style>
 </head>
 <body>
+
+<!-- Origin-locked access gate: must be loaded inside Wix iframe (bcoc.us) -->
+<script>
+(function(){
+  try {
+    var allow = (window.top !== window.self)
+             || location.protocol === 'file:'
+             || location.search.indexOf('preview=1') !== -1
+             || /^https?:\/\/(www\.)?bcoc\.us/i.test(document.referrer || '');
+    document.documentElement.className = allow ? 'gate-allow' : 'gate-deny';
+  } catch(e) {
+    document.documentElement.className = 'gate-deny';
+  }
+})();
+</script>
+
+<!-- Access denied page (shown if loaded outside the Wix members iframe) -->
+<div class="access-denied" role="alert" aria-live="polite">
+  <div class="ad-stripe"></div>
+  <div class="ad-shield">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/></svg>
+  </div>
+  <div class="ad-eyebrow">Members-Only Resource</div>
+  <h1 class="ad-title"><em>Access Restricted</em></h1>
+  <p class="ad-sub">This governance library is reserved for BCOC members in good standing. Please sign in through bcoc.us to view Bylaws, the Code of Ethics, and other member documents.</p>
+  <a class="ad-cta" href="https://www.bcoc.us" target="_top">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 7 9.6 8.4l2.6 2.6H2v2h10.2l-2.6 2.6L11 17l5-5-5-5zm9 12h-8v2h8c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-8v2h8v14z"/></svg>
+    Sign In at bcoc.us
+  </a>
+  <div class="ad-divider"></div>
+  <p class="ad-note">If you are a current BCOC member, sign in via the Members area on <strong>bcoc.us</strong> and access the Governance Documents from the Member Resources menu. Not a member yet? Contact the Executive Coordinator about membership.</p>
+  <div class="ad-logo">
+    <img src="https://static.wixstatic.com/media/1700c8_b2680286f4244f40a9afec02808f2d36~mv2.png" alt="BCOC">
+    <img src="https://static.wixstatic.com/media/a6fc8b_b3b55f4d44cb46c3a8c981c0bcf42ad3~mv2.png" alt="40th Anniversary">
+  </div>
+  <div class="ad-motto">Black Chief Officers Committee</div>
+</div>
 
 <div class="wrap">
 
