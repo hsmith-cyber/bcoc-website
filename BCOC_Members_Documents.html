@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BCOC · Member Resources — Governance Documents</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,800;0,900;1,400&family=Source+Sans+3:wght@400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,700;1,500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;background:#e8e4de;font-family:'Source Sans 3',sans-serif;color:#1a1a1a;min-height:100vh}
+.wrap{max-width:1100px;margin:0 auto;padding:18px 24px 60px}
+
+/* Masthead (BCOC standard) */
+.masthead{position:relative;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:12px 24px;background:linear-gradient(100deg,#0a0f1a 0%,#14213d 45%,#1b2d50 75%,#14213d 100%);border-radius:12px 12px 0 0;box-shadow:0 8px 24px rgba(0,0,0,0.28);overflow:hidden;color:#fff}
+.masthead::after{content:'';position:absolute;bottom:0;left:0;right:0;height:5px;background:repeating-linear-gradient(90deg,#c8962e 0,#c8962e 20%,#b82040 20%,#b82040 40%,#c8962e 40%,#c8962e 60%,#b82040 60%,#b82040 80%,#c8962e 80%,#c8962e 100%)}
+.mh-logo-left,.mh-logo-right{flex-shrink:0;filter:drop-shadow(0 3px 8px rgba(0,0,0,0.4))}
+.mh-logo-left{height:52px}
+.mh-logo-right{height:56px}
+.mh-center{flex:1;text-align:center;min-width:0}
+.mh-title{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(14px,1.9vw,20px);letter-spacing:2px;line-height:1.15;white-space:nowrap}
+.mh-title span{color:#e8be5a}
+.mh-tag{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(10px,1.2vw,13px);color:rgba(232,190,90,0.92);margin-top:3px;letter-spacing:0.8px}
+
+/* Members banner */
+.member-banner{background:linear-gradient(180deg,#c8962e 0%,#b58326 100%);color:#14213d;padding:11px 28px;display:flex;align-items:center;justify-content:center;gap:12px;font-family:'Source Sans 3',sans-serif;font-weight:800;font-size:12px;letter-spacing:3px;text-transform:uppercase;border-bottom:1px solid #a4731a}
+.member-banner svg{width:18px;height:18px;fill:#14213d}
+.member-banner .pulse{width:8px;height:8px;border-radius:50%;background:#14213d;display:inline-block;box-shadow:0 0 0 0 rgba(20,33,61,0.5);animation:pulse-dot 2s infinite}
+@keyframes pulse-dot{0%{box-shadow:0 0 0 0 rgba(20,33,61,0.5)}70%{box-shadow:0 0 0 10px rgba(20,33,61,0)}100%{box-shadow:0 0 0 0 rgba(20,33,61,0)}}
+
+/* Hero */
+.mr-hero{background:linear-gradient(170deg,#14213d 0%,#1b2d50 60%,#14213d 100%);color:#ffffff;padding:48px 28px 40px;text-align:center;position:relative;border-radius:0 0 14px 14px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,0.18)}
+.mr-hero::before{content:'';position:absolute;top:-80px;right:-80px;width:240px;height:240px;background:radial-gradient(circle,rgba(200,150,46,0.18) 0%,transparent 70%)}
+.mr-hero-eyebrow{font-family:'Source Sans 3',sans-serif;font-weight:800;font-size:11px;letter-spacing:6px;color:#c8962e;text-transform:uppercase;margin-bottom:14px}
+.mr-hero h1{font-family:'Playfair Display',serif;font-size:clamp(36px,5.5vw,54px);font-weight:900;margin:0 0 14px;letter-spacing:1px;line-height:1.05}
+.mr-hero h1 em{font-style:italic;background:linear-gradient(135deg,#e8be5a,#c8962e);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.mr-hero-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:18px;color:rgba(255,255,255,0.82);max-width:680px;margin:0 auto;line-height:1.5}
+
+/* Section heading */
+.mr-section-title{margin:48px 0 22px;text-align:center}
+.mr-section-title h2{font-family:'Playfair Display',serif;font-size:32px;font-weight:900;color:#14213d;letter-spacing:0.8px}
+.mr-section-title .rule{display:block;width:80px;height:3px;background:linear-gradient(90deg,#c8962e,#b82040);margin:14px auto 0;border-radius:2px}
+.mr-section-title p{font-size:14.5px;color:#777;font-style:italic;margin-top:12px;max-width:680px;margin-left:auto;margin-right:auto}
+
+/* Document grid */
+.doc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+@media(max-width:760px){.doc-grid{grid-template-columns:1fr}}
+
+.doc-card{background:#fff;border:1px solid #e0d8c8;border-radius:14px;padding:28px 26px 24px;position:relative;overflow:hidden;box-shadow:0 4px 18px rgba(20,33,61,0.07);display:flex;flex-direction:column;gap:14px;transition:all 0.2s ease}
+.doc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#c8962e,#b82040,#c8962e)}
+.doc-card.available:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(20,33,61,0.12);border-color:#c8962e}
+
+.doc-card-head{display:flex;align-items:flex-start;gap:16px}
+.doc-card-icon{width:54px;height:54px;background:linear-gradient(135deg,#14213d,#1b2d50);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.doc-card-icon svg{width:28px;height:28px;fill:#c8962e}
+.doc-card-meta{flex:1;min-width:0}
+.doc-card-eyebrow{font-family:'Source Sans 3',sans-serif;font-weight:700;font-size:10px;letter-spacing:3px;color:#b82040;text-transform:uppercase;margin-bottom:4px}
+.doc-card-title{font-family:'Playfair Display',serif;font-weight:900;font-size:22px;color:#14213d;line-height:1.2;margin-bottom:6px}
+.doc-card-status{display:inline-block;font-family:'Source Sans 3',sans-serif;font-weight:700;font-size:10px;letter-spacing:2px;color:#0a7a3e;background:rgba(10,122,62,0.08);padding:3px 10px;border-radius:4px;text-transform:uppercase}
+.doc-card.coming .doc-card-status{color:#7a6f5a;background:rgba(122,111,90,0.08)}
+
+.doc-card-desc{font-family:'Source Sans 3',sans-serif;font-size:14px;color:#4a4a4a;line-height:1.55;flex:1}
+.doc-card-actions{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:6px;padding-top:14px;border-top:1px solid #ede5d4}
+.doc-card-version{font-family:'Source Sans 3',sans-serif;font-size:12px;color:#888;letter-spacing:0.5px}
+.doc-card-btn{display:inline-flex;align-items:center;gap:8px;background:#14213d;color:#fff;font-family:'Source Sans 3',sans-serif;font-weight:800;font-size:12px;letter-spacing:1.5px;padding:11px 20px;border-radius:6px;text-decoration:none;text-transform:uppercase;transition:all 0.18s ease}
+.doc-card-btn:hover{background:#c8962e;color:#14213d}
+.doc-card-btn svg{width:14px;height:14px;fill:currentColor}
+
+.doc-card.coming{opacity:0.6;background:#faf8f3}
+.doc-card.coming .doc-card-btn{background:#bbb;cursor:not-allowed;pointer-events:none}
+
+/* Confidentiality note */
+.conf-note{margin-top:36px;padding:20px 26px;background:#f3ede2;border:1px solid #d8cfb8;border-radius:10px;display:flex;align-items:flex-start;gap:14px}
+.conf-note svg{width:22px;height:22px;fill:#c8962e;flex-shrink:0;margin-top:2px}
+.conf-note p{font-family:'Source Sans 3',sans-serif;font-size:13.5px;color:#3a3a3a;line-height:1.55}
+.conf-note strong{color:#14213d}
+
+/* Footer */
+.mr-footer{margin-top:60px;padding:42px 20px 32px;text-align:center;background:linear-gradient(170deg,#14213d 0%,#1b2d50 100%);color:rgba(255,255,255,0.78);border-radius:14px;position:relative;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,0.12)}
+.mr-footer::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:repeating-linear-gradient(90deg,#c8962e 0,#c8962e 20%,#b82040 20%,#b82040 40%,#c8962e 40%,#c8962e 60%,#b82040 60%,#b82040 80%,#c8962e 80%,#c8962e 100%)}
+.footer-logos{display:flex;align-items:center;justify-content:center;gap:24px;margin:4px auto 14px;flex-wrap:wrap}
+.footer-logos img{height:56px}
+.footer-motto{font-family:'Playfair Display',serif;letter-spacing:5px;font-size:13px;color:#e8be5a;margin:10px 0 4px;text-transform:uppercase;font-weight:700}
+.footer-text{font-size:12.5px;line-height:1.6;color:rgba(255,255,255,0.6);max-width:640px;margin:6px auto 0}
+.footer-small{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-top:14px}
+.footer-small a{color:#e8be5a;text-decoration:none;border-bottom:1px solid rgba(232,190,90,0.4);padding-bottom:2px}
+
+/* Mobile */
+@media(max-width:620px){
+  .wrap{padding:12px 14px 40px}
+  .masthead{flex-direction:column;padding:14px 16px;gap:10px}
+  .mh-logo-left,.mh-logo-right{height:50px}
+  .mh-title{white-space:normal;line-height:1.25;font-size:16px}
+  .mh-tag{font-size:11px}
+  .member-banner{font-size:10.5px;letter-spacing:2px;padding:10px 16px;flex-wrap:wrap}
+  .mr-hero{padding:30px 20px 32px;border-radius:0 0 10px 10px}
+  .mr-hero-eyebrow{letter-spacing:4px;font-size:10px}
+  .mr-hero h1{font-size:32px;letter-spacing:0.5px}
+  .mr-hero-sub{font-size:15px;line-height:1.5}
+  .mr-section-title h2{font-size:26px}
+  .mr-section-title p{font-size:13px}
+  .doc-card{padding:22px 20px 20px}
+  .doc-card-head{gap:12px}
+  .doc-card-icon{width:46px;height:46px}
+  .doc-card-icon svg{width:24px;height:24px}
+  .doc-card-title{font-size:19px}
+  .doc-card-desc{font-size:13px}
+  .doc-card-actions{flex-wrap:wrap;gap:8px}
+  .conf-note{padding:16px 18px}
+  .conf-note p{font-size:12.5px}
+  .mr-footer{padding:32px 16px 24px;border-radius:10px}
+  .footer-logos img{height:46px}
+}
+@media(max-width:520px){
+  .mh-title{font-size:13.5px;letter-spacing:1.2px}
+  .mh-tag{font-size:10px;letter-spacing:0.4px}
+  .mh-logo-left,.mh-logo-right{height:42px}
+  .mr-hero h1{font-size:26px}
+  .mr-hero-sub{font-size:13.5px}
+  .doc-card-title{font-size:17px}
+  .doc-card-btn{font-size:11px;padding:10px 14px;letter-spacing:1.2px}
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <!-- Masthead -->
+  <div class="masthead">
+    <img class="mh-logo-left" src="https://static.wixstatic.com/media/1700c8_b2680286f4244f40a9afec02808f2d36~mv2.png" alt="BCOC">
+    <div class="mh-center">
+      <div class="mh-title">BLACK CHIEF OFFICERS <span>COMMITTEE</span></div>
+      <div class="mh-tag">Member Resources · Governance Library</div>
+    </div>
+    <img class="mh-logo-right" src="https://static.wixstatic.com/media/a6fc8b_b3b55f4d44cb46c3a8c981c0bcf42ad3~mv2.png" alt="40th Anniversary">
+  </div>
+
+  <!-- Members access banner -->
+  <div class="member-banner">
+    <span class="pulse"></span>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+    Members-Only Access
+  </div>
+
+  <!-- Hero -->
+  <header class="mr-hero">
+    <div class="mr-hero-eyebrow">BCOC Member Resources</div>
+    <h1>Governance <em>Documents</em></h1>
+    <div class="mr-hero-sub">The official records that govern the Black Chief Officers Committee — Bylaws, Code of Ethics, Resolutions, and supporting policy documents — available to active members in good standing.</div>
+  </header>
+
+  <!-- Section title -->
+  <div class="mr-section-title">
+    <h2>Foundational Documents</h2>
+    <span class="rule"></span>
+    <p>Current and authoritative versions. Refer to the date stamp on each PDF for the most recent amendment.</p>
+  </div>
+
+  <!-- Document grid -->
+  <div class="doc-grid">
+
+    <!-- Bylaws -->
+    <div class="doc-card available">
+      <div class="doc-card-head">
+        <div class="doc-card-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+        </div>
+        <div class="doc-card-meta">
+          <div class="doc-card-eyebrow">Foundational Document</div>
+          <div class="doc-card-title">BCOC Bylaws</div>
+          <span class="doc-card-status">Current</span>
+        </div>
+      </div>
+      <div class="doc-card-desc">The constitutional framework of the Black Chief Officers Committee — defines the structure, powers, duties, and procedures of the Executive Committee, the Board of Directors, member rights, voting standards, elections, and amendments.</div>
+      <div class="doc-card-actions">
+        <span class="doc-card-version">Version 2017 · Amended</span>
+        <a class="doc-card-btn" href="https://a6fc8b97-3633-4419-9b8c-b82fbb634bfa.usrfiles.com/ugd/7c3afa_50455f1d383d40f589fd37e50413a483.pdf" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+          Download PDF
+        </a>
+      </div>
+    </div>
+
+    <!-- Code of Ethics -->
+    <div class="doc-card available">
+      <div class="doc-card-head">
+        <div class="doc-card-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+        </div>
+        <div class="doc-card-meta">
+          <div class="doc-card-eyebrow">Foundational Document</div>
+          <div class="doc-card-title">BCOC Code of Ethics</div>
+          <span class="doc-card-status">Current</span>
+        </div>
+      </div>
+      <div class="doc-card-desc">The Statement of Personal and Professional Standards of Conduct binding all officers, board members, and members of the BCOC. Violations are reviewed by the Ad Hoc Ethics Review Committee under Resolution 2026·02.</div>
+      <div class="doc-card-actions">
+        <span class="doc-card-version">Approved 2025</span>
+        <a class="doc-card-btn" href="https://a6fc8b97-3633-4419-9b8c-b82fbb634bfa.usrfiles.com/ugd/a6fc8b_2187431c093e47a88e21c5610f30eb64.pdf" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+          Download PDF
+        </a>
+      </div>
+    </div>
+
+    <!-- Resolutions Archive -->
+    <div class="doc-card coming">
+      <div class="doc-card-head">
+        <div class="doc-card-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+        </div>
+        <div class="doc-card-meta">
+          <div class="doc-card-eyebrow">Governance Archive</div>
+          <div class="doc-card-title">Resolutions Archive</div>
+          <span class="doc-card-status">Coming Soon</span>
+        </div>
+      </div>
+      <div class="doc-card-desc">Indexed library of BCOC Resolutions adopted by the Board of Directors — including Resolution 2026·02 establishing the Ad Hoc Ethics Review Committee, plus historical resolutions on bylaw amendments, committee charters, and policy.</div>
+      <div class="doc-card-actions">
+        <span class="doc-card-version">Compiling</span>
+        <span class="doc-card-btn" aria-disabled="true">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 6.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/><path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l1.46 1.46C19.54 15.03 20 13.57 20 12c0-4.42-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8L5.24 7.74C4.46 8.97 4 10.43 4 12c0 4.42 3.58 8 8 8v3l4-4-4-4v3z"/></svg>
+          Coming Soon
+        </span>
+      </div>
+    </div>
+
+    <!-- Strategic Plan -->
+    <div class="doc-card coming">
+      <div class="doc-card-head">
+        <div class="doc-card-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17h18v2H3v-2zm0-7h18v2H3v-2zm0-7v2h18V3H3z"/></svg>
+        </div>
+        <div class="doc-card-meta">
+          <div class="doc-card-eyebrow">Strategic Plan</div>
+          <div class="doc-card-title">2026 – 2029 Strategic Plan</div>
+          <span class="doc-card-status">Coming Soon</span>
+        </div>
+      </div>
+      <div class="doc-card-desc">The strategic vision, goals, and operational priorities of the BCOC for the 2026–2029 cycle — including membership growth, education programming, advocacy, and financial sustainability.</div>
+      <div class="doc-card-actions">
+        <span class="doc-card-version">In drafting</span>
+        <span class="doc-card-btn" aria-disabled="true">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 6.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Coming Soon
+        </span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Confidentiality note -->
+  <div class="conf-note">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zM12 11.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
+    <p><strong>For BCOC members in good standing only.</strong> These documents are provided for member reference and committee work. Please do not distribute outside the membership without authorization from the Office of the Chair. Questions about access, version history, or supplemental policy: contact the Executive Coordinator.</p>
+  </div>
+
+  <!-- Footer -->
+  <footer class="mr-footer">
+    <div class="footer-logos">
+      <img src="https://static.wixstatic.com/media/1700c8_b2680286f4244f40a9afec02808f2d36~mv2.png" alt="BCOC">
+      <img src="https://static.wixstatic.com/media/a6fc8b_b3b55f4d44cb46c3a8c981c0bcf42ad3~mv2.png" alt="40th Anniversary">
+    </div>
+    <div class="footer-motto">Black Chief Officers Committee</div>
+    <div class="footer-text">A Registered 501(c)(3) Nonprofit Organization · Lifting As We Climb</div>
+    <div class="footer-small">Member Resources Library &middot; <a href="BCOC_Ethics_Committee.html">Ethics Committee</a> &middot; <a href="BCOC_Landing.html">Return to BCOC</a></div>
+  </footer>
+
+</div>
+</body>
+</html>
