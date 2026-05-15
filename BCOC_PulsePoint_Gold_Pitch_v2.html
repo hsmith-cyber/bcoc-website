@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PulsePoint × BCOC | Gold Partnership — NEAR Awareness Without Attendance</title>
+<meta name="description" content="A tailored Gold sponsorship for the PulsePoint Foundation built around the National Emergency AED & Resource (NEAR) Registry — designed for impact without requiring on-site attendance at the BCOC 40th Anniversary Conference.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Source+Sans+3:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0d1a36;
+  --navy-2:#14213d;
+  --navy-3:#1a2950;
+  --gold:#c8962e;
+  --gold-light:#e8be5a;
+  --gold-deep:#7a5a14;
+  --gold-glow:#f0d489;
+  --cream:#fdfaf2;
+  --cream-2:#f7eddb;
+  --bone:#e8dcc1;
+  --paper:#ffffff;
+  --rule:rgba(20,33,61,0.18);
+  --rule-strong:rgba(20,33,61,0.45);
+  --ink:#0d1024;            /* near-black for high-contrast body */
+  --ink-soft:#2a3050;
+  --pp-red:#E2231A;
+  --pp-red-deep:#a91713;
+  --serif-display:"Cinzel",Georgia,serif;
+  --serif-body:"Playfair Display","Cinzel",Georgia,serif;
+  --sans:"Source Sans 3","Inter",system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--sans);background:var(--cream);color:var(--ink);line-height:1.7;font-weight:500;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+
+/* ─── TOP BANNERS ─── */
+.demo-banner{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--navy);color:var(--gold-light);text-align:center;font-family:var(--sans);font-size:0.72rem;font-weight:700;letter-spacing:0.32em;text-transform:uppercase;padding:0.65rem 1rem;border-bottom:2px solid var(--gold);box-shadow:0 4px 14px rgba(0,0,0,0.18);}
+.demo-banner span{opacity:0.72;font-weight:400;letter-spacing:0.12em;margin-left:0.5rem;color:var(--cream);}
+
+.nav{position:fixed;top:38px;left:0;right:0;z-index:90;display:flex;justify-content:space-between;align-items:center;padding:1.05rem 3rem;background:rgba(13,26,54,0.96);backdrop-filter:blur(14px);border-bottom:2px solid var(--gold);}
+.nav-brand{display:flex;align-items:center;gap:0.9rem;font-family:var(--serif-display);font-size:0.95rem;font-weight:800;letter-spacing:0.22em;color:var(--cream);text-transform:uppercase;}
+.nav-brand .x{color:var(--gold-light);font-style:italic;font-weight:500;margin:0 0.4rem;font-family:var(--serif-body);}
+.nav-cta{padding:0.65rem 1.5rem;font-size:0.7rem;font-weight:800;letter-spacing:0.28em;text-transform:uppercase;background:var(--gold);color:var(--navy);text-decoration:none;border-radius:3px;transition:all .25s;font-family:var(--sans);border:2px solid var(--gold);box-shadow:0 4px 12px rgba(200,150,46,0.3);}
+.nav-cta:hover{background:var(--gold-light);transform:translateY(-1px);box-shadow:0 8px 22px rgba(200,150,46,0.45);}
+
+.container{max-width:1200px;margin:0 auto;padding:0 2.5rem;}
+
+/* ─── HERO — Bold Navy ─── */
+.hero{padding:11rem 0 6rem;background:linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 50%,var(--navy-3) 100%);position:relative;overflow:hidden;color:var(--cream);}
+.hero::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,transparent,var(--gold),var(--gold-light),var(--gold),transparent);}
+.hero::after{content:'';position:absolute;top:-200px;right:-200px;width:700px;height:700px;background:radial-gradient(circle,rgba(200,150,46,0.18) 0%,transparent 65%);pointer-events:none;}
+.hero-inner{position:relative;z-index:2;}
+.hero-eyebrow{font-family:var(--serif-display);font-size:0.78rem;font-weight:800;letter-spacing:0.46em;text-transform:uppercase;color:var(--gold-light);margin-bottom:1.5rem;display:inline-flex;align-items:center;gap:1.1rem;}
+.hero-eyebrow::before,.hero-eyebrow::after{content:'';flex:0 0 44px;height:2px;background:var(--gold);}
+.hero h1{font-family:var(--serif-display);font-size:clamp(2.4rem,5vw,4.4rem);font-weight:800;line-height:1.05;letter-spacing:0.005em;margin-bottom:1.8rem;color:#fff;text-shadow:0 4px 24px rgba(0,0,0,0.45);}
+.hero h1 em{font-family:var(--serif-body);font-style:italic;color:var(--gold-glow);font-weight:500;}
+.hero-sub{font-family:var(--serif-body);font-size:1.28rem;color:var(--bone);max-width:800px;line-height:1.65;margin-bottom:3rem;font-weight:400;}
+.hero-logos{display:flex;align-items:center;gap:2rem;margin-top:3rem;padding:1.8rem 0 0;border-top:1px solid rgba(232,220,193,0.22);flex-wrap:wrap;}
+.hero-logos-label{font-family:var(--serif-display);font-size:0.68rem;letter-spacing:0.4em;text-transform:uppercase;color:var(--gold-light);font-weight:700;}
+.hero-logo-bcoc{font-family:var(--serif-display);font-size:1.5rem;font-weight:800;letter-spacing:0.22em;color:#fff;text-transform:uppercase;}
+.hero-logo-bcoc span{color:var(--gold-light);font-weight:500;font-family:var(--serif-body);font-style:italic;}
+.hero-cross{font-family:var(--serif-body);font-style:italic;font-size:1.8rem;color:var(--gold-light);}
+.hero-logo-pp{background:#fff;padding:14px 22px;border-radius:6px;box-shadow:0 10px 32px rgba(0,0,0,0.4),0 0 0 1px rgba(255,255,255,0.18);}
+.hero-logo-pp img{height:46px;display:block;}
+
+/* ─── SECTIONS ─── */
+section{padding:5.8rem 0;position:relative;}
+.section-eyebrow{font-family:var(--serif-display);font-size:0.76rem;font-weight:800;letter-spacing:0.46em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:1.2rem;display:inline-block;padding-bottom:0.6rem;border-bottom:2px solid var(--gold);}
+.section-h{font-family:var(--serif-display);font-size:clamp(1.9rem,3.4vw,3rem);font-weight:800;line-height:1.15;letter-spacing:0.005em;margin-bottom:1.2rem;max-width:920px;color:var(--navy);}
+.section-h em{font-family:var(--serif-body);font-style:italic;color:var(--gold-deep);font-weight:500;}
+.section-lead{font-family:var(--serif-body);font-size:1.18rem;color:var(--ink);max-width:820px;line-height:1.7;font-weight:400;margin-bottom:2.6rem;}
+
+/* ─── CONTEXT — White cards on cream ─── */
+.context{background:var(--cream);border-top:1px solid var(--rule);}
+.context-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem;margin-top:1.5rem;}
+.context-card{padding:2.2rem 2rem;background:var(--paper);border:1px solid var(--rule);border-radius:8px;position:relative;box-shadow:0 8px 28px rgba(20,33,61,0.10),0 2px 6px rgba(20,33,61,0.06);transition:transform .25s,box-shadow .25s;}
+.context-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(20,33,61,0.16);}
+.context-card::before{content:'';position:absolute;top:0;left:0;width:72px;height:4px;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:0 0 4px 0;}
+.context-card h3{font-family:var(--serif-display);font-size:1.1rem;font-weight:800;color:var(--navy);margin-bottom:0.8rem;letter-spacing:0.015em;line-height:1.32;}
+.context-card p{font-size:1rem;color:var(--ink-soft);font-weight:500;line-height:1.65;font-family:var(--sans);}
+
+/* ─── IMPACT — Navy band with gold stats ─── */
+.impact{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-3) 100%);color:var(--cream);padding:6.5rem 0;}
+.impact .section-eyebrow{color:var(--gold-light);border-color:var(--gold-light);}
+.impact .section-h{color:#fff;}
+.impact .section-h em{color:var(--gold-glow);}
+.impact .section-lead{color:var(--bone);}
+.impact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem;margin-top:2rem;}
+.impact-card{padding:2.6rem 1.9rem;background:rgba(255,255,255,0.04);border:1px solid rgba(200,150,46,0.32);border-radius:8px;text-align:center;backdrop-filter:blur(8px);transition:transform .25s,border-color .25s;}
+.impact-card:hover{transform:translateY(-4px);border-color:var(--gold-light);}
+.impact-stat{font-family:var(--serif-display);font-size:3.6rem;font-weight:900;color:var(--gold-light);line-height:1;margin-bottom:0.6rem;letter-spacing:-0.015em;text-shadow:0 2px 18px rgba(200,150,46,0.35);}
+.impact-label{font-family:var(--serif-display);font-size:0.78rem;font-weight:800;letter-spacing:0.34em;text-transform:uppercase;color:#fff;margin-bottom:0.9rem;}
+.impact-desc{font-size:0.97rem;color:var(--bone);font-weight:500;line-height:1.62;font-family:var(--sans);}
+
+/* ─── NEAR — White feature with phone ─── */
+.near{background:var(--paper);}
+.near-wrap{display:grid;grid-template-columns:1.1fr 0.9fr;gap:4.5rem;align-items:center;}
+.near-points{margin-top:1.6rem;list-style:none;}
+.near-points li{padding:1.2rem 0 1.2rem 2.4rem;border-bottom:1px solid var(--rule);position:relative;font-size:1rem;color:var(--ink);line-height:1.62;font-family:var(--sans);font-weight:500;}
+.near-points li:last-child{border-bottom:none;}
+.near-points li::before{content:'';position:absolute;left:0;top:1.55rem;width:14px;height:14px;background:linear-gradient(135deg,var(--gold),var(--gold-light));border-radius:50%;box-shadow:0 2px 6px rgba(200,150,46,0.4);}
+.near-points li strong{display:block;color:var(--navy);font-family:var(--serif-display);font-weight:800;font-size:0.92rem;letter-spacing:0.18em;text-transform:uppercase;margin-bottom:0.35rem;}
+.near-visual{position:relative;}
+.near-visual::before{content:'';position:absolute;top:-20px;left:-20px;right:30px;bottom:30px;background:linear-gradient(135deg,var(--gold) 0%,var(--gold-light) 100%);border-radius:14px;z-index:0;opacity:0.18;}
+.near-visual img{position:relative;z-index:1;width:100%;display:block;border-radius:12px;box-shadow:0 30px 80px rgba(20,33,61,0.25),0 0 0 1px var(--rule-strong);}
+
+/* ─── PLAN — Cream-2 with numbered cards ─── */
+.plan{background:var(--cream-2);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);}
+.plan-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.8rem;margin-top:2rem;}
+.plan-card{padding:2.6rem 2.1rem;background:var(--paper);border:1px solid var(--rule);border-radius:8px;transition:transform .25s,border-color .25s,box-shadow .25s;position:relative;overflow:hidden;}
+.plan-card::after{content:'';position:absolute;top:0;right:0;width:90px;height:90px;background:radial-gradient(circle at top right,rgba(200,150,46,0.15) 0%,transparent 70%);}
+.plan-card:hover{transform:translateY(-5px);border-color:var(--gold);box-shadow:0 18px 40px rgba(200,150,46,0.2);}
+.plan-num{font-family:var(--serif-display);font-size:0.78rem;font-weight:800;letter-spacing:0.4em;color:var(--gold-deep);margin-bottom:1.1rem;padding-bottom:0.6rem;border-bottom:2px solid var(--gold);display:inline-block;}
+.plan-card h3{font-family:var(--serif-display);font-size:1.32rem;font-weight:800;color:var(--navy);margin-bottom:0.95rem;line-height:1.3;letter-spacing:0.012em;}
+.plan-card p{font-size:1rem;color:var(--ink-soft);font-weight:500;line-height:1.65;font-family:var(--sans);}
+
+/* ─── DELIVERABLES — White, two-column checklist ─── */
+.deliver{background:var(--paper);}
+.deliver-list{margin-top:2rem;display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:3px solid var(--gold);border-bottom:3px solid var(--gold);background:var(--cream);}
+.deliver-item{padding:1.6rem 1.8rem;border-bottom:1px solid var(--rule);display:flex;align-items:flex-start;gap:1.2rem;background:var(--paper);}
+.deliver-item:nth-child(2n){border-left:1px solid var(--rule);}
+.deliver-item:nth-last-child(-n+2){border-bottom:none;}
+.deliver-check{flex:0 0 28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--gold) 0%,var(--gold-light) 100%);color:var(--navy);display:flex;align-items:center;justify-content:center;font-size:0.78rem;font-weight:900;margin-top:0.1rem;box-shadow:0 4px 10px rgba(200,150,46,0.4);}
+.deliver-text strong{display:block;font-family:var(--serif-display);font-size:0.92rem;font-weight:800;letter-spacing:0.1em;color:var(--navy);margin-bottom:0.3rem;text-transform:uppercase;}
+.deliver-text span{color:var(--ink-soft);font-size:0.95rem;font-weight:500;line-height:1.55;font-family:var(--sans);}
+
+/* ─── INVESTMENT — Bold gold-framed card ─── */
+.invest{background:linear-gradient(180deg,var(--cream-2) 0%,var(--bone) 100%);}
+.invest-card{max-width:820px;margin:2.4rem auto 0;padding:3.8rem 3rem;background:var(--paper);border:3px solid var(--gold);border-radius:12px;text-align:center;position:relative;box-shadow:0 0 0 1px var(--gold-light),0 24px 60px rgba(200,150,46,0.28),0 0 100px rgba(200,150,46,0.12);}
+.invest-card::before,.invest-card::after{content:'';position:absolute;left:50%;transform:translateX(-50%);width:90px;height:2px;background:var(--gold);}
+.invest-card::before{top:14px;}
+.invest-card::after{bottom:14px;}
+.invest-tier{font-family:var(--serif-display);font-size:0.78rem;font-weight:800;letter-spacing:0.46em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:1rem;}
+.invest-amount{font-family:var(--serif-display);font-size:clamp(3rem,6vw,4.8rem);font-weight:900;color:var(--navy);line-height:1;margin-bottom:0.5rem;letter-spacing:-0.015em;}
+.invest-range{font-family:var(--serif-body);font-style:italic;font-size:1rem;color:var(--ink-soft);margin-bottom:1.8rem;font-weight:500;}
+.invest-rule{width:80px;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light));margin:0 auto 1.6rem;border-radius:3px;}
+.invest-detail{font-size:1rem;color:var(--ink);font-weight:500;line-height:1.72;max-width:580px;margin:0 auto;font-family:var(--sans);}
+.invest-detail strong{color:var(--navy);font-weight:800;}
+
+/* ─── CLOSE — Strong navy CTA ─── */
+.close{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 50%,var(--navy-3) 100%);color:var(--cream);text-align:center;padding:6rem 0 5rem;position:relative;}
+.close::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,transparent,var(--gold),var(--gold-light),var(--gold),transparent);}
+.close::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:rgba(232,220,193,0.18);}
+.close h2{font-family:var(--serif-display);font-size:clamp(2rem,4vw,3.2rem);font-weight:800;line-height:1.15;letter-spacing:0.01em;margin-bottom:1.4rem;color:#fff;max-width:860px;margin-left:auto;margin-right:auto;text-shadow:0 2px 18px rgba(0,0,0,0.4);}
+.close h2 em{font-family:var(--serif-body);font-style:italic;color:var(--gold-glow);font-weight:500;}
+.close p{font-family:var(--serif-body);font-size:1.15rem;color:var(--bone);max-width:680px;margin:0 auto 2.6rem;font-weight:400;}
+.close-cta{display:inline-flex;gap:1.2rem;flex-wrap:wrap;justify-content:center;}
+.btn{display:inline-block;padding:1.15rem 2.6rem;font-family:var(--sans);font-size:0.78rem;font-weight:800;letter-spacing:0.28em;text-transform:uppercase;text-decoration:none;border-radius:3px;transition:all .25s;border:2px solid;}
+.btn-primary{background:linear-gradient(135deg,var(--gold) 0%,var(--gold-light) 100%);color:var(--navy);border-color:var(--gold);box-shadow:0 8px 22px rgba(200,150,46,0.45);}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 14px 36px rgba(200,150,46,0.6);}
+.btn-secondary{background:transparent;color:var(--cream);border-color:var(--cream);}
+.btn-secondary:hover{border-color:var(--gold-light);color:var(--gold-light);background:rgba(232,190,90,0.08);}
+
+/* ─── FOOTER ─── */
+footer{background:#080d20;color:var(--bone);padding:2.8rem 0;text-align:center;border-top:2px solid var(--gold);}
+footer p{font-family:var(--sans);font-size:0.86rem;opacity:0.9;font-weight:500;letter-spacing:0.04em;}
+footer .small{font-family:var(--serif-display);font-size:0.72rem;letter-spacing:0.4em;text-transform:uppercase;margin-top:0.9rem;opacity:0.65;color:var(--gold-light);font-weight:700;}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width:900px){
+  .nav{padding:1rem 1.5rem;}
+  .hero{padding:9rem 0 4rem;}
+  .container{padding:0 1.5rem;}
+  .context-grid,.impact-grid,.plan-grid,.near-wrap,.deliver-list{grid-template-columns:1fr;gap:1.4rem;}
+  .deliver-item:nth-child(2n){border-left:none;}
+  .invest-card{padding:2.5rem 1.5rem;}
+}
+</style>
+</head>
+<body>
+
+<div class="demo-banner">Sponsorship Proposal — Confidential <span>For PulsePoint Foundation review</span></div>
+
+<nav class="nav">
+  <div class="nav-brand">PulsePoint <span class="x">×</span> BCOC</div>
+  <a href="#close" class="nav-cta">Reply</a>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="hero-eyebrow">Gold Partnership · 40th Anniversary Conference</div>
+    <h1>Bring NEAR to 200+ chief officers <em>without leaving Pleasanton.</em></h1>
+    <p class="hero-sub">
+      A purpose-built Gold sponsorship for the PulsePoint Foundation —
+      designed around your constraints, anchored by the National Emergency
+      AED &amp; Resource Registry, and structured to deliver awareness, education,
+      and stakeholder reach across BCOC&rsquo;s 40th Anniversary Conference
+      without requiring a single PulsePoint staff member on the ground in Atlanta.
+    </p>
+    <div class="hero-logos">
+      <span class="hero-logos-label">A partnership between</span>
+      <span class="hero-logo-bcoc">BCOC <span>2026</span></span>
+      <span class="hero-cross">&times;</span>
+      <span class="hero-logo-pp"><img src="./images/sponsors/pulsepoint/logo.png" alt="PulsePoint Foundation"></span>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CONTEXT ─── -->
+<section class="context">
+  <div class="container">
+    <div class="section-eyebrow">We Heard You</div>
+    <h2 class="section-h">You don&rsquo;t need to be there. <em>Your message can be.</em></h2>
+    <p class="section-lead">
+      You raised four real constraints. Each one is solvable inside a Gold
+      sponsorship that doesn&rsquo;t depend on attendance.
+    </p>
+    <div class="context-grid">
+      <div class="context-card">
+        <h3>You&rsquo;ll be on vacation. Your team is spread thin.</h3>
+        <p>No problem &mdash; this package is built for asynchronous delivery. BCOC handles every touchpoint on PulsePoint&rsquo;s behalf, on the schedule we already control.</p>
+      </div>
+      <div class="context-card">
+        <h3>Budget is locked through June 30.</h3>
+        <p>The Gold tier sits inside the $3,000&ndash;$5,000 range you proposed, with optional invoice timing aligned to your FY26 start (July 1, 2026).</p>
+      </div>
+      <div class="context-card">
+        <h3>You want NEAR education, not just a logo.</h3>
+        <p>The package is anchored around NEAR awareness. Speaking time, printed material, app push notifications, and a dedicated breakout email are built in.</p>
+      </div>
+      <div class="context-card">
+        <h3>BCOC chiefs are <em>exactly</em> the audience for AED &amp; resource registries.</h3>
+        <p>Decision-makers responsible for cardiac response programs, opioid response, and tactical medical resources across the country &mdash; the people who decide whether a registry is adopted regionally.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── IMPACT (navy band) ─── -->
+<section class="impact">
+  <div class="container">
+    <div class="section-eyebrow">The Reach</div>
+    <h2 class="section-h">Three audiences. <em>One sponsorship.</em></h2>
+    <p class="section-lead">
+      What the Gold tier touches across the conference week, the website,
+      and the year-round member network &mdash; quantified.
+    </p>
+    <div class="impact-grid">
+      <div class="impact-card">
+        <div class="impact-stat">200+</div>
+        <div class="impact-label">Chief Officers</div>
+        <div class="impact-desc">Fire chiefs, deputy chiefs, EMS executives, and senior staff on the ground August 2&ndash;7, 2026.</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-stat">19</div>
+        <div class="impact-label">States &amp; Territories</div>
+        <div class="impact-desc">Procurement and policy reach across the BCOC member departments and partner Caribbean fire services.</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-stat">5,500+</div>
+        <div class="impact-label">Annual Digital Touches</div>
+        <div class="impact-desc">Logo placement across bcoc.us, the Conference App (Whova), email blasts, and the printed Conference Binder.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── NEAR ─── -->
+<section class="near">
+  <div class="container">
+    <div class="near-wrap">
+      <div>
+        <div class="section-eyebrow">The Anchor</div>
+        <h2 class="section-h">NEAR Registry, <em>front-and-center.</em></h2>
+        <p class="section-lead">
+          The largest universally accessible AED registry in North America &mdash;
+          and soon, the home of stand-alone resources like naloxone and
+          bleeding-control kits. The Gold sponsorship is built to surface NEAR
+          where it matters most: in the room with the chiefs who decide whether
+          their cities adopt it.
+        </p>
+        <ul class="near-points">
+          <li>
+            <strong>Featured Education Slot</strong>
+            A 3&ndash;5 minute opening-session intro to NEAR, delivered by BCOC leadership on behalf of PulsePoint &mdash; from your script.
+          </li>
+          <li>
+            <strong>Whova Conference App Push Notification</strong>
+            A dedicated PulsePoint announcement deployed mid-conference to every registered attendee&rsquo;s phone.
+          </li>
+          <li>
+            <strong>Printed NEAR One-Sheet in Every Conference Binder</strong>
+            Your design, your call-to-action &mdash; in the hands of every chief.
+          </li>
+          <li>
+            <strong>Recorded NEAR Demo Video (1&ndash;3 min)</strong>
+            Looped in the vendor exhibit hall for the duration of the conference. You provide the file; we handle playback.
+          </li>
+        </ul>
+      </div>
+      <div class="near-visual">
+        <img src="./images/sponsors/pulsepoint/respond-app.webp" alt="PulsePoint Respond — Professional Responder incident view">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PLAN ─── -->
+<section class="plan">
+  <div class="container">
+    <div class="section-eyebrow">The Mechanics</div>
+    <h2 class="section-h">How BCOC delivers visibility <em>on PulsePoint&rsquo;s behalf.</em></h2>
+    <p class="section-lead">
+      Four channels, none of which require a PulsePoint team member to fly to Atlanta.
+    </p>
+    <div class="plan-grid">
+      <div class="plan-card">
+        <div class="plan-num">Channel 01</div>
+        <h3>Stage Time, by Proxy</h3>
+        <p>BCOC&rsquo;s Education Coordinator delivers a 3&ndash;5 minute NEAR overview during the Wednesday morning plenary &mdash; the highest-attendance window of the week. PulsePoint provides the script and any visuals. We rehearse it in advance.</p>
+      </div>
+      <div class="plan-card">
+        <div class="plan-num">Channel 02</div>
+        <h3>Conference App Push</h3>
+        <p>The BCOC 2026 Conference App (Whova) is installed on every attendee&rsquo;s phone. A scheduled PulsePoint push notification deploys mid-conference with a deep link to NEAR registration and a short message you write.</p>
+      </div>
+      <div class="plan-card">
+        <div class="plan-num">Channel 03</div>
+        <h3>Printed Reach, Year-Long</h3>
+        <p>PulsePoint receives a full-page placement in the Conference Binder &mdash; the reference document chiefs take home and circulate within their departments through the rest of the year.</p>
+      </div>
+      <div class="plan-card">
+        <div class="plan-num">Channel 04</div>
+        <h3>Member-List Email Feature</h3>
+        <p>Two BCOC emails go out to the full member list in the 90 days surrounding the conference &mdash; pre-event registration and post-event recap. Both will dedicate a Gold-sponsor block to PulsePoint and NEAR.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── DELIVERABLES ─── -->
+<section class="deliver">
+  <div class="container">
+    <div class="section-eyebrow">Gold &mdash; What&rsquo;s Included</div>
+    <h2 class="section-h">A line-by-line picture of the package.</h2>
+    <p class="section-lead">
+      Every item below is committed in writing inside the sponsorship agreement.
+    </p>
+    <div class="deliver-list">
+      <div class="deliver-item">
+        <div class="deliver-check">✓</div>
+        <div class="deliver-text">
+          <strong>Gold Logo Placement &mdash; bcoc.us</strong>
+          <span>Permanent inclusion in the live Gold tier on the BCOC website with logo, name, and link to pulsepoint.org.</span>
+        </div>
+      </div>
+      <div class="deliver-item">
+        <div class="deliver-check">✓</div>
+        <div class="deliver-text">
+          <strong>Conference Binder Full-Page Ad</strong>
+          <span>Full-color, full-bleed printed page in the binder distributed to every registered attendee.</span>
+        </div>
+      </div>
+      <div class="deliver-item">
+        <div class="deliver-check">✓</div>
+        <div class="deliver-text">
+          <strong>NEAR Featured Talk &mdash; 3&ndash;5 min</strong>
+          <span>Wednesday opening session. BCOC Education Coordinator delivers from PulsePoint-supplied script.</span>
+        </div>
+      </div>
+      <div class="deliver-item">
+        <div class="deliver-check">✓</div>
+        <div class="deliver-text">
+          <strong>Whova Push Notification</strong>
+          <span>One dedicated, scheduled push to all registered attendees, including a deep link and a 1-sentence CTA.</span>
+        </div>
+      </div>
+      <div class="deliver-item">
+        <div class="deliver-check">✓</div>
+        <div class="deliver-text">
+          <strong>Looped Vendor-Hall NEAR Demo Video</strong>
+          <span>1&ndash;3 minute video supplied by PulsePoint, played on rotation in the vendor exhibit area.</span>
+        </div>
+      </div>
+      <div class="deliver-item">
+        <div class="deliver-check">✓</div>
+        <div class="deliver-text">
+          <strong>Two BCOC Member-List Emails</strong>
+          <span>Pre-conference and post-conference recap, each featuring a dedicated Gold-sponsor block for PulsePoint.</span>
+        </div>
+      </div>
+      <div class="deliver-item">
+        <div class="deliver-check">✓</div>
+        <div class="deliver-text">
+          <strong>Social Media Recognition</strong>
+          <span>BCOC LinkedIn, Facebook, and Instagram posts during the lead-up week.</span>
+        </div>
+      </div>
+      <div class="deliver-item">
+        <div class="deliver-check">✓</div>
+        <div class="deliver-text">
+          <strong>Post-Conference Engagement Report</strong>
+          <span>Aggregated metrics: app push open rate, email engagement, registration uplift if PulsePoint provides a tracked CTA link.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── INVESTMENT ─── -->
+<section class="invest">
+  <div class="container">
+    <div class="section-eyebrow">The Investment</div>
+    <h2 class="section-h">Anchored at <em>$5,000.</em> Flexible to your fiscal calendar.</h2>
+    <p class="section-lead">
+      Sized to land at the top of the range you proposed &mdash; with optional
+      invoice timing that respects your July 1, 2026 fiscal-year start.
+    </p>
+    <div class="invest-card">
+      <div class="invest-tier">Gold Tier &mdash; PulsePoint Foundation</div>
+      <div class="invest-amount">$5,000</div>
+      <div class="invest-range">Range proposed: $3,000 &ndash; $5,000 &nbsp;·&nbsp; Anchor: full Gold benefits set</div>
+      <div class="invest-rule"></div>
+      <p class="invest-detail">
+        Invoice can be dated <strong>July 1, 2026</strong> to align with FY26.
+        A <strong>$3,000 Gold-Lite</strong> alternative is available
+        (binder ad + bcoc.us logo + 1 email feature, without the NEAR talk or push notification)
+        &mdash; happy to break either out on a call.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CLOSE ─── -->
+<section class="close" id="close">
+  <div class="container">
+    <h2>Twenty minutes. <em>One yes.</em></h2>
+    <p>
+      A short brainstorm call between BCOC leadership and PulsePoint &mdash;
+      to confirm the deliverables that matter most for NEAR awareness, fix
+      the invoice timing, and lock the Gold slot before the next-tier window
+      opens.
+    </p>
+    <div class="close-cta">
+      <a href="mailto:chair@bcoc.us?subject=PulsePoint%20Gold%20Sponsorship%20-%20Brainstorm" class="btn btn-primary">Reply to Schedule</a>
+      <a href="https://www.bcoc.us" target="_blank" rel="noopener" class="btn btn-secondary">Learn About BCOC</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>Black Chief Officers Committee &middot; 2026 Educational Symposium &amp; Conference &middot; Loews Atlanta Hotel</p>
+    <p class="small">Prepared for the PulsePoint Foundation by Dr. Hezedean Smith, BCOC Chair</p>
+  </div>
+</footer>
+
+</body>
+</html>

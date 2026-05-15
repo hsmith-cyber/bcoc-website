@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PulsePoint × BCOC | The Gold Partnership That Doesn't Need a Plane Ticket</title>
+<meta name="description" content="A tailored Gold sponsorship for the PulsePoint Foundation built around the NEAR Registry.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,700;0,800;1,400;1,600&family=Source+Sans+3:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0a1428;
+  --navy-2:#14213d;
+  --navy-3:#1c2f5a;
+  --gold:#c8962e;
+  --gold-light:#e8c97a;
+  --gold-deep:#8a6814;
+  --gold-glow:#f5dd9a;
+  --cream:#fdfaf2;
+  --cream-2:#f6ead5;
+  --bone:#e8dcc1;
+  --paper:#ffffff;
+  --rule:rgba(20,33,61,0.15);
+  --ink:#0a0f24;
+  --ink-soft:#3a4060;
+  --pp-red:#E2231A;
+  --pp-red-light:#ff4d44;
+  --pp-red-deep:#9b1812;
+  --serif-display:"Cinzel",Georgia,serif;
+  --serif-body:"Playfair Display","Cinzel",Georgia,serif;
+  --sans:"Source Sans 3","Inter",system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--sans);background:var(--cream);color:var(--ink);line-height:1.7;font-weight:500;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+
+/* ── Animations ── */
+@keyframes shimmer{
+  0%{background-position:-200% 0;}
+  100%{background-position:200% 0;}
+}
+@keyframes float{
+  0%,100%{transform:translateY(0) rotate(0);}
+  50%{transform:translateY(-12px) rotate(2deg);}
+}
+@keyframes pulse-gold{
+  0%,100%{box-shadow:0 0 0 0 rgba(200,150,46,0.6),0 12px 32px rgba(200,150,46,0.35);}
+  50%{box-shadow:0 0 0 14px rgba(200,150,46,0),0 12px 32px rgba(200,150,46,0.5);}
+}
+@keyframes pulse-red{
+  0%,100%{transform:scale(1);opacity:0.9;}
+  50%{transform:scale(1.08);opacity:1;}
+}
+@keyframes fade-up{
+  0%{opacity:0;transform:translateY(28px);}
+  100%{opacity:1;transform:translateY(0);}
+}
+@keyframes drift{
+  0%,100%{transform:translate(0,0);}
+  33%{transform:translate(14px,-10px);}
+  66%{transform:translate(-10px,8px);}
+}
+.fade-up{animation:fade-up 0.9s cubic-bezier(.21,.92,.36,1) both;}
+.fade-up.delay-1{animation-delay:0.15s;}
+.fade-up.delay-2{animation-delay:0.3s;}
+.fade-up.delay-3{animation-delay:0.45s;}
+
+/* ── Top bars ── */
+.demo-banner{position:fixed;top:0;left:0;right:0;z-index:100;background:linear-gradient(90deg,var(--pp-red-deep) 0%,var(--pp-red) 50%,var(--pp-red-deep) 100%);background-size:200% 100%;animation:shimmer 12s linear infinite;color:#fff;text-align:center;font-family:var(--sans);font-size:0.72rem;font-weight:800;letter-spacing:0.34em;text-transform:uppercase;padding:0.7rem 1rem;border-bottom:2px solid var(--gold);box-shadow:0 4px 16px rgba(226,35,26,0.3);}
+.demo-banner .pulse{display:inline-block;width:8px;height:8px;background:#fff;border-radius:50%;margin-right:0.6rem;vertical-align:middle;animation:pulse-red 1.5s ease-in-out infinite;}
+.demo-banner span{opacity:0.85;font-weight:400;letter-spacing:0.14em;margin-left:0.6rem;}
+
+.nav{position:fixed;top:42px;left:0;right:0;z-index:90;display:flex;justify-content:space-between;align-items:center;padding:1.05rem 3rem;background:rgba(10,20,40,0.94);backdrop-filter:blur(18px);border-bottom:2px solid var(--gold);}
+.nav-brand{display:flex;align-items:center;gap:0.9rem;font-family:var(--serif-display);font-size:0.95rem;font-weight:800;letter-spacing:0.24em;color:#fff;text-transform:uppercase;}
+.nav-brand .x{color:var(--gold-light);font-style:italic;font-weight:500;margin:0 0.4rem;font-family:var(--serif-body);font-size:1.15rem;}
+.nav-cta{padding:0.7rem 1.6rem;font-size:0.7rem;font-weight:800;letter-spacing:0.3em;text-transform:uppercase;background:linear-gradient(135deg,var(--gold) 0%,var(--gold-light) 100%);color:var(--navy);text-decoration:none;border-radius:3px;transition:all .3s;font-family:var(--sans);border:2px solid var(--gold);box-shadow:0 6px 18px rgba(200,150,46,0.4);}
+.nav-cta:hover{transform:translateY(-2px) scale(1.03);box-shadow:0 12px 32px rgba(200,150,46,0.6);}
+
+.container{max-width:1200px;margin:0 auto;padding:0 2.5rem;position:relative;}
+
+/* ── HERO — cinematic ── */
+.hero{padding:12rem 0 8rem;background:radial-gradient(ellipse at 80% -10%,rgba(226,35,26,0.18) 0%,transparent 55%),linear-gradient(150deg,var(--navy) 0%,var(--navy-2) 40%,var(--navy-3) 100%);position:relative;overflow:hidden;color:var(--cream);}
+.hero::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,transparent,var(--gold),var(--gold-light),var(--gold-glow),var(--gold-light),var(--gold),transparent);background-size:300% 100%;animation:shimmer 6s linear infinite;}
+.hero-glow-1{position:absolute;top:-200px;right:-180px;width:740px;height:740px;background:radial-gradient(circle,rgba(200,150,46,0.22) 0%,transparent 65%);pointer-events:none;animation:drift 18s ease-in-out infinite;}
+.hero-glow-2{position:absolute;bottom:-160px;left:-140px;width:520px;height:520px;background:radial-gradient(circle,rgba(226,35,26,0.18) 0%,transparent 65%);pointer-events:none;animation:drift 22s ease-in-out infinite reverse;}
+.hero-particle{position:absolute;width:6px;height:6px;background:var(--gold-light);border-radius:50%;opacity:0.45;animation:float 6s ease-in-out infinite;pointer-events:none;}
+.hero-particle:nth-child(3){top:25%;left:9%;animation-delay:0s;}
+.hero-particle:nth-child(4){top:60%;left:14%;animation-delay:1.2s;width:4px;height:4px;}
+.hero-particle:nth-child(5){top:33%;right:22%;animation-delay:2.4s;width:8px;height:8px;}
+.hero-particle:nth-child(6){top:72%;right:11%;animation-delay:3.5s;width:5px;height:5px;background:var(--pp-red-light);}
+.hero-particle:nth-child(7){top:18%;left:48%;animation-delay:4.5s;width:3px;height:3px;}
+
+.hero-inner{position:relative;z-index:5;}
+.hero-eyebrow{font-family:var(--serif-display);font-size:0.78rem;font-weight:800;letter-spacing:0.48em;text-transform:uppercase;color:var(--gold-light);margin-bottom:1.8rem;display:inline-flex;align-items:center;gap:1.1rem;padding:0.55rem 1.2rem;background:rgba(200,150,46,0.10);border:1px solid rgba(200,150,46,0.45);border-radius:99px;backdrop-filter:blur(6px);}
+.hero-eyebrow .dot{width:7px;height:7px;background:var(--pp-red-light);border-radius:50%;animation:pulse-red 1.4s ease-in-out infinite;}
+.hero h1{font-family:var(--serif-display);font-size:clamp(2.6rem,6vw,5.4rem);font-weight:900;line-height:1.0;letter-spacing:-0.005em;margin-bottom:2rem;color:#fff;text-shadow:0 6px 36px rgba(0,0,0,0.5);}
+.hero h1 .accent{display:block;font-family:var(--serif-body);font-style:italic;color:var(--gold-glow);font-weight:500;font-size:0.78em;margin-top:0.4rem;background:linear-gradient(135deg,var(--gold-light) 0%,var(--gold-glow) 50%,var(--gold-light) 100%);background-size:200% 100%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 6s linear infinite;}
+.hero-sub{font-family:var(--serif-body);font-size:1.32rem;color:var(--bone);max-width:820px;line-height:1.65;margin-bottom:3rem;font-weight:400;}
+.hero-stats-strip{display:flex;gap:2.4rem;margin-top:2.4rem;padding:1.6rem 0 0;border-top:1px solid rgba(232,220,193,0.22);flex-wrap:wrap;}
+.hero-stat{display:flex;flex-direction:column;}
+.hero-stat-num{font-family:var(--serif-display);font-size:2rem;font-weight:900;color:var(--gold-glow);line-height:1;}
+.hero-stat-label{font-family:var(--serif-display);font-size:0.62rem;font-weight:700;letter-spacing:0.32em;text-transform:uppercase;color:var(--bone);margin-top:0.5rem;}
+.hero-logos{display:flex;align-items:center;gap:1.8rem;margin-top:2.2rem;flex-wrap:wrap;}
+.hero-logos-label{font-family:var(--serif-display);font-size:0.68rem;letter-spacing:0.42em;text-transform:uppercase;color:var(--gold-light);font-weight:800;}
+.hero-logo-bcoc{font-family:var(--serif-display);font-size:1.5rem;font-weight:900;letter-spacing:0.24em;color:#fff;text-transform:uppercase;}
+.hero-logo-bcoc span{color:var(--gold-light);font-weight:500;font-family:var(--serif-body);font-style:italic;}
+.hero-cross{font-family:var(--serif-body);font-style:italic;font-size:2rem;color:var(--gold-light);font-weight:300;}
+.hero-logo-pp{background:#fff;padding:14px 24px;border-radius:6px;box-shadow:0 12px 36px rgba(0,0,0,0.45),0 0 0 1px rgba(255,255,255,0.18);transform:rotate(-1deg);transition:transform .3s;}
+.hero-logo-pp:hover{transform:rotate(0);}
+.hero-logo-pp img{height:48px;display:block;}
+
+/* ── Angled section dividers ── */
+.angled-top{position:absolute;top:0;left:0;right:0;height:60px;overflow:hidden;line-height:0;}
+.angled-top svg{width:100%;height:100%;display:block;}
+.angled-bottom{position:absolute;bottom:0;left:0;right:0;height:60px;overflow:hidden;line-height:0;transform:scaleY(-1);}
+.angled-bottom svg{width:100%;height:100%;display:block;}
+
+section{padding:6rem 0;position:relative;}
+.section-eyebrow{font-family:var(--serif-display);font-size:0.76rem;font-weight:900;letter-spacing:0.46em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:1.3rem;display:inline-flex;align-items:center;gap:0.8rem;padding:0.5rem 1.1rem 0.5rem 0;}
+.section-eyebrow::before{content:'';width:36px;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:3px;}
+.section-h{font-family:var(--serif-display);font-size:clamp(2rem,3.8vw,3.4rem);font-weight:900;line-height:1.1;letter-spacing:0.005em;margin-bottom:1.3rem;max-width:920px;color:var(--navy);}
+.section-h em{font-family:var(--serif-body);font-style:italic;color:var(--gold-deep);font-weight:500;background:linear-gradient(120deg,var(--gold-deep) 0%,var(--gold) 50%,var(--gold-deep) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.section-lead{font-family:var(--serif-body);font-size:1.2rem;color:var(--ink);max-width:820px;line-height:1.7;font-weight:400;margin-bottom:2.6rem;}
+
+/* ── CONTEXT — Slanted cards on cream ── */
+.context{background:var(--cream);}
+.context-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.8rem;margin-top:1.5rem;}
+.context-card{padding:2.3rem 2rem;background:var(--paper);border:1px solid var(--rule);border-radius:10px;position:relative;box-shadow:0 10px 30px rgba(20,33,61,0.10),0 2px 8px rgba(20,33,61,0.06);transition:transform .35s cubic-bezier(.21,.92,.36,1),box-shadow .35s;overflow:hidden;}
+.context-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:5px;background:linear-gradient(90deg,var(--gold) 0%,var(--gold-light) 50%,var(--gold) 100%);background-size:200% 100%;animation:shimmer 4s linear infinite;}
+.context-card::after{content:'';position:absolute;top:-30px;right:-30px;width:120px;height:120px;background:radial-gradient(circle,rgba(200,150,46,0.18) 0%,transparent 65%);transition:opacity .35s;opacity:0.6;}
+.context-card:hover{transform:translateY(-6px) rotate(-0.3deg);box-shadow:0 24px 50px rgba(20,33,61,0.18);}
+.context-card:hover::after{opacity:1;}
+.context-card h3{font-family:var(--serif-display);font-size:1.12rem;font-weight:800;color:var(--navy);margin-bottom:0.85rem;letter-spacing:0.012em;line-height:1.32;position:relative;z-index:2;}
+.context-card p{font-size:1.02rem;color:var(--ink-soft);font-weight:500;line-height:1.65;font-family:var(--sans);position:relative;z-index:2;}
+
+/* ── PULL QUOTE — Decorative break ── */
+.pullquote{background:linear-gradient(135deg,var(--cream-2) 0%,var(--bone) 100%);padding:5rem 0;text-align:center;position:relative;overflow:hidden;}
+.pullquote::before{content:'"';position:absolute;top:-20px;left:50%;transform:translateX(-50%);font-family:var(--serif-body);font-size:18rem;color:var(--gold);opacity:0.12;line-height:1;font-style:italic;}
+.pullquote-text{font-family:var(--serif-body);font-style:italic;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:500;color:var(--navy);max-width:880px;margin:0 auto;line-height:1.32;position:relative;z-index:2;}
+.pullquote-text em{color:var(--gold-deep);font-weight:600;}
+.pullquote-attr{margin-top:1.6rem;font-family:var(--serif-display);font-size:0.72rem;font-weight:700;letter-spacing:0.4em;text-transform:uppercase;color:var(--ink-soft);position:relative;z-index:2;}
+
+/* ── IMPACT — Navy band, animated stats ── */
+.impact{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-3) 100%);color:var(--cream);padding:7rem 0;overflow:hidden;}
+.impact::before{content:'';position:absolute;top:-300px;right:-100px;width:600px;height:600px;background:radial-gradient(circle,rgba(226,35,26,0.16) 0%,transparent 65%);animation:drift 20s ease-in-out infinite;}
+.impact::after{content:'';position:absolute;bottom:-200px;left:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(200,150,46,0.16) 0%,transparent 65%);animation:drift 24s ease-in-out infinite reverse;}
+.impact .container{position:relative;z-index:2;}
+.impact .section-eyebrow{color:var(--gold-light);}
+.impact .section-eyebrow::before{background:linear-gradient(90deg,var(--gold-light),var(--gold-glow));}
+.impact .section-h{color:#fff;}
+.impact .section-h em{background:linear-gradient(120deg,var(--gold-light) 0%,var(--gold-glow) 50%,var(--gold-light) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.impact .section-lead{color:var(--bone);}
+.impact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem;margin-top:2rem;}
+.impact-card{padding:3rem 2rem;background:rgba(255,255,255,0.04);border:1px solid rgba(200,150,46,0.32);border-radius:12px;text-align:center;backdrop-filter:blur(10px);transition:transform .35s cubic-bezier(.21,.92,.36,1),border-color .35s,box-shadow .35s;position:relative;overflow:hidden;}
+.impact-card::before{content:'';position:absolute;inset:-2px;background:linear-gradient(135deg,var(--gold) 0%,var(--pp-red) 50%,var(--gold) 100%);background-size:200% 200%;opacity:0;border-radius:14px;z-index:-1;transition:opacity .4s;animation:shimmer 4s linear infinite;}
+.impact-card:hover{transform:translateY(-8px) scale(1.02);border-color:transparent;}
+.impact-card:hover::before{opacity:1;}
+.impact-stat{font-family:var(--serif-display);font-size:4.2rem;font-weight:900;color:var(--gold-light);line-height:1;margin-bottom:0.6rem;letter-spacing:-0.02em;background:linear-gradient(135deg,var(--gold-light) 0%,var(--gold-glow) 50%,var(--gold-light) 100%);background-size:200% 100%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 5s linear infinite;text-shadow:0 4px 24px rgba(200,150,46,0.4);}
+.impact-label{font-family:var(--serif-display);font-size:0.8rem;font-weight:800;letter-spacing:0.38em;text-transform:uppercase;color:#fff;margin-bottom:0.9rem;}
+.impact-desc{font-size:0.98rem;color:var(--bone);font-weight:500;line-height:1.62;font-family:var(--sans);}
+
+/* ── NEAR — feature with phone ── */
+.near{background:var(--paper);position:relative;overflow:hidden;}
+.near::before{content:'';position:absolute;top:50%;left:-150px;transform:translateY(-50%);width:340px;height:340px;background:radial-gradient(circle,rgba(226,35,26,0.08) 0%,transparent 65%);}
+.near-wrap{display:grid;grid-template-columns:1.1fr 0.9fr;gap:4.5rem;align-items:center;position:relative;z-index:2;}
+.near-points{margin-top:1.6rem;list-style:none;}
+.near-points li{padding:1.2rem 0 1.2rem 2.6rem;border-bottom:1px solid var(--rule);position:relative;font-size:1rem;color:var(--ink);line-height:1.62;font-family:var(--sans);font-weight:500;transition:padding-left .3s;}
+.near-points li:last-child{border-bottom:none;}
+.near-points li::before{content:'';position:absolute;left:0;top:1.45rem;width:18px;height:18px;background:linear-gradient(135deg,var(--gold) 0%,var(--gold-light) 100%);border-radius:50%;box-shadow:0 3px 10px rgba(200,150,46,0.45);transition:transform .3s;}
+.near-points li::after{content:'';position:absolute;left:6px;top:1.85rem;width:6px;height:6px;background:#fff;border-radius:50%;}
+.near-points li:hover{padding-left:3rem;}
+.near-points li:hover::before{transform:scale(1.15);}
+.near-points li strong{display:block;color:var(--navy);font-family:var(--serif-display);font-weight:800;font-size:0.94rem;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:0.35rem;}
+.near-visual{position:relative;}
+.near-visual::before{content:'';position:absolute;top:-30px;left:-30px;right:30px;bottom:30px;background:linear-gradient(135deg,var(--pp-red) 0%,var(--gold) 100%);border-radius:18px;z-index:0;opacity:0.22;transform:rotate(-3deg);}
+.near-visual::after{content:'';position:absolute;top:20px;left:20px;right:-20px;bottom:-20px;background:linear-gradient(135deg,var(--gold) 0%,var(--gold-light) 100%);border-radius:14px;z-index:0;opacity:0.15;transform:rotate(2deg);}
+.near-visual img{position:relative;z-index:2;width:100%;display:block;border-radius:14px;box-shadow:0 30px 80px rgba(20,33,61,0.32),0 0 0 1px rgba(20,33,61,0.45);}
+
+/* ── PLAN — Cream-2 with numbered cards ── */
+.plan{background:var(--cream-2);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);position:relative;}
+.plan-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.9rem;margin-top:2rem;}
+.plan-card{padding:2.7rem 2.2rem;background:var(--paper);border:1px solid var(--rule);border-radius:12px;transition:transform .35s cubic-bezier(.21,.92,.36,1),box-shadow .35s,border-color .35s;position:relative;overflow:hidden;}
+.plan-card::before{content:'';position:absolute;bottom:0;left:0;width:100%;height:0;background:linear-gradient(180deg,transparent 0%,rgba(200,150,46,0.05) 100%);transition:height .4s;}
+.plan-card::after{content:'';position:absolute;top:0;left:0;width:0;height:4px;background:linear-gradient(90deg,var(--gold),var(--gold-light));transition:width .5s cubic-bezier(.21,.92,.36,1);}
+.plan-card:hover{transform:translateY(-6px);box-shadow:0 24px 50px rgba(200,150,46,0.18);border-color:var(--gold);}
+.plan-card:hover::before{height:100%;}
+.plan-card:hover::after{width:100%;}
+.plan-num{font-family:var(--serif-display);font-size:0.82rem;font-weight:900;letter-spacing:0.44em;color:var(--gold-deep);margin-bottom:1.2rem;padding:0.4rem 0.9rem;background:linear-gradient(135deg,rgba(200,150,46,0.10) 0%,rgba(232,201,122,0.08) 100%);border:1px solid rgba(200,150,46,0.32);border-radius:99px;display:inline-block;}
+.plan-card h3{font-family:var(--serif-display);font-size:1.42rem;font-weight:800;color:var(--navy);margin-bottom:1rem;line-height:1.28;letter-spacing:0.012em;position:relative;z-index:2;}
+.plan-card p{font-size:1.02rem;color:var(--ink-soft);font-weight:500;line-height:1.65;font-family:var(--sans);position:relative;z-index:2;}
+
+/* ── PREVIEW — bcoc.us Gold tier mockup ── */
+.preview{background:linear-gradient(180deg,var(--paper) 0%,var(--cream) 100%);position:relative;}
+.preview-frame{margin-top:2.2rem;background:linear-gradient(135deg,#1a1a1a 0%,#2C2C2C 50%,#1a1a1a 100%);border-radius:14px;padding:2rem 1.5rem 2.4rem;box-shadow:0 30px 80px rgba(20,33,61,0.32),0 0 0 1px rgba(200,150,46,0.4);position:relative;overflow:hidden;}
+.preview-frame::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--gold),var(--gold-light),var(--gold),transparent);}
+.preview-browser-bar{display:flex;align-items:center;gap:0.6rem;margin-bottom:1.6rem;padding-bottom:1rem;border-bottom:1px solid rgba(255,255,255,0.08);}
+.preview-browser-dots{display:flex;gap:6px;}
+.preview-browser-dots span{width:11px;height:11px;border-radius:50%;}
+.preview-browser-dots span:nth-child(1){background:#ff5f57;}
+.preview-browser-dots span:nth-child(2){background:#febc2e;}
+.preview-browser-dots span:nth-child(3){background:#28c840;}
+.preview-browser-url{flex:1;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:5px;padding:0.45rem 0.9rem;font-family:'SF Mono',Menlo,Consolas,monospace;font-size:0.75rem;color:rgba(255,255,255,0.6);letter-spacing:0.04em;}
+.preview-browser-url .secure{color:#7adb7a;margin-right:0.4rem;}
+.preview-title{text-align:center;font-family:'Cinzel',serif;font-size:clamp(15px,3.2vw,22px);letter-spacing:0.32em;text-transform:uppercase;color:#fff;margin-bottom:0.4rem;font-weight:900;}
+.preview-subtitle{text-align:center;font-family:'Barlow',sans-serif;font-size:11px;letter-spacing:0.22em;color:rgba(255,255,255,0.55);text-transform:uppercase;margin-bottom:1.8rem;}
+.preview-gold-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;max-width:780px;margin:0 auto;}
+.preview-gold-card{background:#fff;border:1px solid var(--gold);border-radius:6px;padding:1.4rem 0.9rem 1rem;text-align:center;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:130px;box-shadow:0 4px 18px rgba(201,168,76,0.12);}
+.preview-gold-card .badge{position:absolute;top:8px;left:50%;transform:translateX(-50%);font-family:'Barlow',sans-serif;font-size:9px;font-weight:800;letter-spacing:0.28em;text-transform:uppercase;color:#6b4f00;background:rgba(255,250,235,0.95);border:1px solid var(--gold);padding:2px 9px;border-radius:12px;}
+.preview-gold-card img{max-width:120px;max-height:60px;width:auto;height:auto;object-fit:contain;margin-top:0.6rem;}
+.preview-gold-card .pp-highlight{position:absolute;top:-12px;right:-12px;background:linear-gradient(135deg,var(--pp-red),var(--pp-red-light));color:#fff;font-family:'Cinzel',serif;font-size:0.58rem;font-weight:800;letter-spacing:0.22em;text-transform:uppercase;padding:0.32rem 0.7rem;border-radius:3px;box-shadow:0 6px 18px rgba(226,35,26,0.4);animation:pulse-red 1.8s ease-in-out infinite;z-index:2;}
+.preview-gold-card.is-pulsepoint{box-shadow:0 0 0 3px var(--gold),0 0 0 5px rgba(200,150,46,0.35),0 14px 38px rgba(200,150,46,0.4);transform:scale(1.04);border-color:var(--gold-light);}
+.preview-caption{margin-top:2rem;text-align:center;color:rgba(255,255,255,0.7);font-family:var(--sans);font-size:0.92rem;font-style:italic;font-weight:400;}
+.preview-caption strong{color:var(--gold-light);font-weight:700;font-style:normal;}
+
+/* ── DELIVERABLES — Bold gold-framed checklist ── */
+.deliver{background:var(--paper);}
+.deliver-list{margin-top:2rem;display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:4px solid var(--gold);border-bottom:4px solid var(--gold);background:var(--cream);border-radius:12px;overflow:hidden;box-shadow:0 12px 40px rgba(20,33,61,0.10);}
+.deliver-item{padding:1.7rem 1.9rem;border-bottom:1px solid var(--rule);display:flex;align-items:flex-start;gap:1.2rem;background:var(--paper);transition:background .25s;}
+.deliver-item:hover{background:var(--cream);}
+.deliver-item:nth-child(2n){border-left:1px solid var(--rule);}
+.deliver-item:nth-last-child(-n+2){border-bottom:none;}
+.deliver-check{flex:0 0 32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--gold) 0%,var(--gold-light) 100%);color:var(--navy);display:flex;align-items:center;justify-content:center;font-size:0.86rem;font-weight:900;margin-top:0.1rem;box-shadow:0 4px 14px rgba(200,150,46,0.45);transition:transform .25s;}
+.deliver-item:hover .deliver-check{transform:scale(1.12) rotate(8deg);}
+.deliver-text strong{display:block;font-family:var(--serif-display);font-size:0.95rem;font-weight:800;letter-spacing:0.12em;color:var(--navy);margin-bottom:0.32rem;text-transform:uppercase;}
+.deliver-text span{color:var(--ink-soft);font-size:0.96rem;font-weight:500;line-height:1.55;font-family:var(--sans);}
+
+/* ── BUNDLE BUILDER — $5K equivalent value menu ── */
+.bundle{background:linear-gradient(180deg,var(--paper) 0%,var(--cream) 100%);position:relative;overflow:hidden;}
+.bundle::before{content:'';position:absolute;top:0;left:-200px;width:400px;height:400px;background:radial-gradient(circle,rgba(200,150,46,0.10) 0%,transparent 65%);}
+.bundle-menu{margin-top:2rem;display:grid;grid-template-columns:repeat(3,1fr);gap:0.9rem;}
+.bundle-item{background:var(--paper);border:1px solid var(--rule);border-radius:8px;padding:1rem 1.1rem;display:flex;justify-content:space-between;align-items:center;gap:0.8rem;transition:transform .25s,border-color .25s,box-shadow .25s;}
+.bundle-item:hover{transform:translateY(-2px);border-color:var(--gold);box-shadow:0 8px 22px rgba(200,150,46,0.18);}
+.bundle-name{font-family:var(--serif-display);font-size:0.78rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:var(--navy);line-height:1.32;}
+.bundle-name small{display:block;font-family:var(--sans);font-size:0.7rem;font-weight:500;color:var(--ink-soft);letter-spacing:0.04em;text-transform:none;margin-top:0.18rem;}
+.bundle-price{font-family:var(--serif-display);font-size:0.92rem;font-weight:900;color:var(--gold-deep);white-space:nowrap;flex:0 0 auto;}
+.bundle-divider{margin:3rem auto 1.6rem;max-width:520px;display:flex;align-items:center;gap:1rem;}
+.bundle-divider::before,.bundle-divider::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+.bundle-divider span{font-family:var(--serif-display);font-size:0.74rem;font-weight:800;letter-spacing:0.42em;text-transform:uppercase;color:var(--gold-deep);}
+.bundle-options{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;}
+.bundle-option{background:linear-gradient(160deg,var(--paper) 0%,var(--cream) 100%);border:2px solid var(--rule);border-radius:12px;padding:1.8rem 1.6rem 1.6rem;position:relative;transition:transform .35s,border-color .35s,box-shadow .35s;}
+.bundle-option:hover{transform:translateY(-6px);border-color:var(--gold);box-shadow:0 22px 50px rgba(200,150,46,0.22);}
+.bundle-option-tag{position:absolute;top:-12px;left:1.4rem;padding:0.32rem 0.85rem;background:linear-gradient(135deg,var(--gold) 0%,var(--gold-light) 100%);color:var(--navy);font-family:var(--serif-display);font-size:0.62rem;font-weight:900;letter-spacing:0.32em;text-transform:uppercase;border-radius:4px;box-shadow:0 5px 14px rgba(200,150,46,0.4);}
+.bundle-option h4{font-family:var(--serif-display);font-size:1.1rem;font-weight:800;color:var(--navy);margin:0.6rem 0 1rem;letter-spacing:0.012em;line-height:1.3;}
+.bundle-option ul{list-style:none;}
+.bundle-option ul li{padding:0.55rem 0;border-bottom:1px dashed var(--rule);font-size:0.9rem;color:var(--ink);display:flex;justify-content:space-between;gap:0.6rem;font-family:var(--sans);font-weight:500;}
+.bundle-option ul li:last-of-type{border-bottom:none;}
+.bundle-option ul li span{color:var(--gold-deep);font-weight:700;flex:0 0 auto;}
+.bundle-option .total{margin-top:0.7rem;padding-top:0.8rem;border-top:2px solid var(--gold);display:flex;justify-content:space-between;align-items:center;font-family:var(--serif-display);font-weight:900;font-size:0.92rem;letter-spacing:0.06em;color:var(--navy);text-transform:uppercase;}
+.bundle-option .total strong{font-size:1.3rem;color:var(--gold-deep);letter-spacing:-0.01em;}
+
+/* ── INVESTMENT — premium framed card ── */
+.invest{background:linear-gradient(180deg,var(--cream-2) 0%,var(--bone) 100%);position:relative;overflow:hidden;}
+.invest::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:140%;height:140%;background:radial-gradient(circle,rgba(200,150,46,0.10) 0%,transparent 50%);pointer-events:none;}
+.invest .container{position:relative;z-index:2;}
+.invest-card{max-width:860px;margin:2.5rem auto 0;padding:4rem 3.2rem;background:linear-gradient(160deg,var(--paper) 0%,var(--cream) 100%);border:3px solid var(--gold);border-radius:14px;text-align:center;position:relative;box-shadow:0 0 0 1px var(--gold-light),0 28px 70px rgba(200,150,46,0.32),0 0 120px rgba(200,150,46,0.15);}
+.invest-card::before{content:'';position:absolute;top:-3px;left:-3px;right:-3px;bottom:-3px;background:linear-gradient(135deg,var(--gold) 0%,var(--gold-light) 25%,var(--gold-glow) 50%,var(--gold-light) 75%,var(--gold) 100%);background-size:300% 300%;border-radius:17px;z-index:-1;animation:shimmer 6s linear infinite;}
+.invest-card .ribbon{position:absolute;top:-14px;left:50%;transform:translateX(-50%);padding:0.5rem 1.4rem;background:linear-gradient(135deg,var(--pp-red) 0%,var(--pp-red-light) 100%);color:#fff;font-family:var(--serif-display);font-size:0.65rem;font-weight:900;letter-spacing:0.36em;text-transform:uppercase;border-radius:4px;box-shadow:0 6px 18px rgba(226,35,26,0.4);animation:pulse-gold 3s ease-in-out infinite;}
+.invest-tier{font-family:var(--serif-display);font-size:0.82rem;font-weight:900;letter-spacing:0.5em;text-transform:uppercase;color:var(--gold-deep);margin-top:0.6rem;margin-bottom:1rem;}
+.invest-amount{font-family:var(--serif-display);font-size:clamp(3.4rem,6.5vw,5.2rem);font-weight:900;color:var(--navy);line-height:1;margin-bottom:0.5rem;letter-spacing:-0.02em;background:linear-gradient(135deg,var(--navy) 0%,var(--navy-3) 50%,var(--navy) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-shadow:0 4px 20px rgba(20,33,61,0.15);}
+.invest-range{font-family:var(--serif-body);font-style:italic;font-size:1.02rem;color:var(--ink-soft);margin-bottom:1.8rem;font-weight:500;}
+.invest-rule{width:100px;height:3px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 1.6rem;}
+.invest-detail{font-size:1.02rem;color:var(--ink);font-weight:500;line-height:1.72;max-width:600px;margin:0 auto;font-family:var(--sans);}
+.invest-detail strong{color:var(--navy);font-weight:800;}
+
+/* ── CLOSE ── */
+.close{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 50%,var(--navy-3) 100%);color:var(--cream);text-align:center;padding:7rem 0 5rem;position:relative;overflow:hidden;}
+.close::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,transparent,var(--gold),var(--gold-light),var(--gold-glow),var(--gold-light),var(--gold),transparent);background-size:300% 100%;animation:shimmer 6s linear infinite;}
+.close::after{content:'';position:absolute;bottom:-200px;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(200,150,46,0.18) 0%,transparent 65%);pointer-events:none;}
+.close .container{position:relative;z-index:2;}
+.close h2{font-family:var(--serif-display);font-size:clamp(2.2rem,4.2vw,3.6rem);font-weight:900;line-height:1.15;letter-spacing:0.01em;margin-bottom:1.5rem;color:#fff;max-width:860px;margin-left:auto;margin-right:auto;text-shadow:0 4px 28px rgba(0,0,0,0.45);}
+.close h2 em{font-family:var(--serif-body);font-style:italic;color:var(--gold-glow);font-weight:500;background:linear-gradient(135deg,var(--gold-light) 0%,var(--gold-glow) 50%,var(--gold-light) 100%);background-size:200% 100%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 5s linear infinite;}
+.close p{font-family:var(--serif-body);font-size:1.18rem;color:var(--bone);max-width:680px;margin:0 auto 2.8rem;font-weight:400;}
+.close-cta{display:inline-flex;gap:1.2rem;flex-wrap:wrap;justify-content:center;}
+.btn{display:inline-block;padding:1.2rem 2.8rem;font-family:var(--sans);font-size:0.78rem;font-weight:900;letter-spacing:0.3em;text-transform:uppercase;text-decoration:none;border-radius:3px;transition:all .35s cubic-bezier(.21,.92,.36,1);border:2px solid;position:relative;overflow:hidden;}
+.btn-primary{background:linear-gradient(135deg,var(--gold) 0%,var(--gold-light) 50%,var(--gold-glow) 100%);background-size:200% 200%;color:var(--navy);border-color:var(--gold);box-shadow:0 10px 28px rgba(200,150,46,0.5);animation:shimmer 6s linear infinite;}
+.btn-primary:hover{transform:translateY(-4px) scale(1.04);box-shadow:0 18px 44px rgba(200,150,46,0.7);}
+.btn-invoice{background:linear-gradient(135deg,var(--pp-red-deep) 0%,var(--pp-red) 50%,var(--pp-red-light) 100%);background-size:200% 200%;color:#fff;border-color:var(--pp-red);box-shadow:0 10px 28px rgba(226,35,26,0.45);animation:shimmer 6s linear infinite;}
+.btn-invoice:hover{transform:translateY(-4px) scale(1.04);box-shadow:0 18px 44px rgba(226,35,26,0.65);}
+.btn-secondary{background:transparent;color:var(--cream);border-color:var(--cream);}
+.btn-secondary:hover{border-color:var(--gold-light);color:var(--gold-light);background:rgba(232,190,90,0.10);transform:translateY(-2px);}
+.close-or{display:block;margin:1rem 0 0.6rem;font-family:var(--serif-body);font-style:italic;font-size:0.94rem;color:var(--bone);opacity:0.85;letter-spacing:0.04em;}
+
+/* ── FOOTER ── */
+footer{background:#04081a;color:var(--bone);padding:3rem 0;text-align:center;border-top:2px solid var(--gold);position:relative;}
+footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+footer p{font-family:var(--sans);font-size:0.88rem;opacity:0.85;font-weight:500;letter-spacing:0.04em;}
+footer .small{font-family:var(--serif-display);font-size:0.74rem;letter-spacing:0.42em;text-transform:uppercase;margin-top:0.9rem;opacity:0.65;color:var(--gold-light);font-weight:800;}
+
+/* responsive */
+@media (max-width:900px){
+  .nav{padding:1rem 1.5rem;}
+  .hero{padding:9rem 0 4rem;}
+  .container{padding:0 1.5rem;}
+  .context-grid,.impact-grid,.plan-grid,.near-wrap,.deliver-list{grid-template-columns:1fr;gap:1.4rem;}
+  .deliver-item:nth-child(2n){border-left:none;}
+  .invest-card{padding:2.8rem 1.6rem;}
+}
+</style>
+</head>
+<body>
+
+<div class="demo-banner"><span class="pulse"></span>Sponsorship Proposal — Confidential <span>For PulsePoint Foundation review</span></div>
+
+<nav class="nav">
+  <div class="nav-brand">PulsePoint <span class="x">×</span> BCOC</div>
+  <a href="#close" class="nav-cta">Reply &rarr;</a>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <div class="hero-glow-1"></div>
+  <div class="hero-glow-2"></div>
+  <div class="hero-particle"></div><div class="hero-particle"></div>
+  <div class="hero-particle"></div><div class="hero-particle"></div>
+  <div class="hero-particle"></div>
+  <div class="container hero-inner">
+    <div class="hero-eyebrow fade-up"><span class="dot"></span> Gold Partnership · 40th Anniversary Conference</div>
+    <h1 class="fade-up delay-1">Bring NEAR to 200+ chief officers <span class="accent">without leaving Pleasanton.</span></h1>
+    <p class="hero-sub fade-up delay-2">
+      A purpose-built Gold sponsorship for the PulsePoint Foundation —
+      designed around your constraints, anchored by the National Emergency
+      AED &amp; Resource Registry, and structured to deliver awareness,
+      education, and stakeholder reach across BCOC&rsquo;s 40th Anniversary
+      Conference without requiring a single PulsePoint staff member on the
+      ground in Atlanta.
+    </p>
+    <div class="hero-stats-strip fade-up delay-3">
+      <div class="hero-stat"><span class="hero-stat-num">$5K</span><span class="hero-stat-label">Anchor Gold</span></div>
+      <div class="hero-stat"><span class="hero-stat-num">0</span><span class="hero-stat-label">Travel Required</span></div>
+      <div class="hero-stat"><span class="hero-stat-num">7/1</span><span class="hero-stat-label">FY26 Invoice</span></div>
+      <div class="hero-stat"><span class="hero-stat-num">4</span><span class="hero-stat-label">Channels</span></div>
+    </div>
+    <div class="hero-logos fade-up delay-3">
+      <span class="hero-logos-label">A partnership between</span>
+      <span class="hero-logo-bcoc">BCOC <span>2026</span></span>
+      <span class="hero-cross">&times;</span>
+      <span class="hero-logo-pp"><img src="./images/sponsors/pulsepoint/logo.png" alt="PulsePoint Foundation"></span>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CONTEXT ─── -->
+<section class="context">
+  <div class="container">
+    <div class="section-eyebrow">We Heard You</div>
+    <h2 class="section-h">You don&rsquo;t need to be there. <em>Your message can be.</em></h2>
+    <p class="section-lead">
+      You raised four real constraints. Each one is solvable inside a Gold
+      sponsorship that doesn&rsquo;t depend on attendance.
+    </p>
+    <div class="context-grid">
+      <div class="context-card">
+        <h3>You&rsquo;ll be on vacation. Your team is spread thin.</h3>
+        <p>No problem &mdash; this package is built for asynchronous delivery. BCOC handles every touchpoint on PulsePoint&rsquo;s behalf, on the schedule we already control.</p>
+      </div>
+      <div class="context-card">
+        <h3>Budget is locked through June 30.</h3>
+        <p>The Gold tier is anchored at $5,000, with optional invoice timing dated July 1, 2026 to align cleanly with the start of your FY26.</p>
+      </div>
+      <div class="context-card">
+        <h3>You want NEAR education, not just a logo.</h3>
+        <p>The package is anchored around NEAR awareness. A half-page program ad, on-stage verbal recognition, a session recognition slide, and event-level attribution carry the NEAR message to every attendee.</p>
+      </div>
+      <div class="context-card">
+        <h3>BCOC chiefs are <em>exactly</em> the audience for AED &amp; resource registries.</h3>
+        <p>Decision-makers responsible for cardiac response programs, opioid response, and tactical medical resources across the country &mdash; the people who decide whether a registry is adopted regionally.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PULL QUOTE ─── -->
+<section class="pullquote">
+  <div class="container">
+    <p class="pullquote-text">
+      &ldquo;There is a way&hellip; <em>let&rsquo;s explore.</em>&rdquo;
+    </p>
+    <div class="pullquote-attr">— Dr. Hezedean A. Smith, Chair, BCOC</div>
+  </div>
+</section>
+
+<!-- ─── IMPACT ─── -->
+<section class="impact">
+  <div class="container">
+    <div class="section-eyebrow">The Reach</div>
+    <h2 class="section-h">Three audiences. <em>One sponsorship.</em></h2>
+    <p class="section-lead">
+      What the Gold tier touches across the conference week, the website,
+      and the year-round member network &mdash; quantified.
+    </p>
+    <div class="impact-grid">
+      <div class="impact-card">
+        <div class="impact-stat">200+</div>
+        <div class="impact-label">Chief Officers</div>
+        <div class="impact-desc">Fire chiefs, deputy chiefs, EMS executives, and senior staff on the ground August 2&ndash;7, 2026.</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-stat">19</div>
+        <div class="impact-label">States &amp; Territories</div>
+        <div class="impact-desc">Procurement and policy reach across the BCOC member departments and partner Caribbean fire services.</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-stat">12&nbsp;Months</div>
+        <div class="impact-label">Logo on bcoc.us</div>
+        <div class="impact-desc">Gold-tier placement on the conference sponsor page through the 2026 cycle, plus presence in the printed conference program chiefs take home.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── NEAR ─── -->
+<section class="near">
+  <div class="container">
+    <div class="near-wrap">
+      <div>
+        <div class="section-eyebrow">The Anchor</div>
+        <h2 class="section-h">NEAR Registry, <em>front-and-center.</em></h2>
+        <p class="section-lead">
+          The largest universally accessible AED registry in North America &mdash;
+          and soon, the home of stand-alone resources like naloxone and
+          bleeding-control kits. The Gold sponsorship is built to surface NEAR
+          where it matters most: in the room with the chiefs who decide whether
+          their cities adopt it.
+        </p>
+        <ul class="near-points">
+          <li>
+            <strong>Half-Page NEAR Ad &mdash; Conference Program</strong>
+            PulsePoint&rsquo;s artwork printed in the official Conference Program &mdash; in every attendee&rsquo;s hands at registration.
+          </li>
+          <li>
+            <strong>NEAR Recognition Slide</strong>
+            Featured during a general session as part of standard Gold-tier recognition &mdash; PulsePoint copy and visuals approved in advance.
+          </li>
+          <li>
+            <strong>Bundled Event Attribution</strong>
+            Your $5,000 Gold contribution can be applied to specific event-level items (Luncheon, Lanyard, Session, Awards Ceremony, Game Night, etc.) &mdash; see the bundle menu below.
+          </li>
+        </ul>
+      </div>
+      <div class="near-visual">
+        <img src="./images/sponsors/pulsepoint/respond-app.webp" alt="PulsePoint Respond — Professional Responder incident view">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PLAN ─── -->
+<section class="plan">
+  <div class="container">
+    <div class="section-eyebrow">The Mechanics</div>
+    <h2 class="section-h">How BCOC delivers visibility <em>on PulsePoint&rsquo;s behalf.</em></h2>
+    <p class="section-lead">
+      Four channels, none of which require a PulsePoint team member to fly to Atlanta.
+    </p>
+    <div class="plan-grid">
+      <div class="plan-card">
+        <div class="plan-num">Channel 01</div>
+        <h3>Printed Recognition</h3>
+        <p>A half-page PulsePoint &amp; NEAR ad runs in the conference program alongside Gold-tier logo placement. Chiefs take the program home; it lives in their departments long after the week ends.</p>
+      </div>
+      <div class="plan-card">
+        <div class="plan-num">Channel 02</div>
+        <h3>Live Recognition, on Stage</h3>
+        <p>The PulsePoint logo appears on the session recognition slide visible to the full general assembly, and the BCOC chair delivers verbal recognition during a plenary session &mdash; BCOC speaks the name; PulsePoint doesn&rsquo;t need to be in the room.</p>
+      </div>
+      <div class="plan-card">
+        <div class="plan-num">Channel 03</div>
+        <h3>Digital Presence</h3>
+        <p>PulsePoint&rsquo;s logo lands in the Gold tier on bcoc.us with a click-through to your site, plus one social-media feature across BCOC&rsquo;s channels in the conference window.</p>
+      </div>
+      <div class="plan-card">
+        <div class="plan-num">Channel 04</div>
+        <h3>Event-Level Attribution</h3>
+        <p>Whichever event your $5,000 bundle anchors to &mdash; luncheon, lanyard, awards ceremony, game night &mdash; carries &ldquo;Sponsored by PulsePoint Foundation&rdquo; attribution in signage, the printed program, and on stage when that event is introduced.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PREVIEW: bcoc.us Gold tier mockup ─── -->
+<section class="preview">
+  <div class="container">
+    <div class="section-eyebrow">See Your Placement</div>
+    <h2 class="section-h">Your logo, <em>on bcoc.us &mdash; today.</em></h2>
+    <p class="section-lead">
+      A live preview of the BCOC sponsor page Gold tier with PulsePoint
+      placed alongside the confirmed 2026 partners. This is the exact
+      treatment that goes live when the agreement is countersigned.
+    </p>
+    <div class="preview-frame">
+      <div class="preview-browser-bar">
+        <div class="preview-browser-dots"><span></span><span></span><span></span></div>
+        <div class="preview-browser-url"><span class="secure">&#128274;</span> bcoc.us/conference-sponsorship</div>
+      </div>
+      <div class="preview-title">&#129351; Gold Sponsors</div>
+      <div class="preview-subtitle">Hover any partner to visit their site</div>
+      <div class="preview-gold-grid">
+        <div class="preview-gold-card">
+          <span class="badge">Gold</span>
+          <img src="https://static.wixstatic.com/media/a6fc8b_f9abf493ff34402aab2d5d11da7687de~mv2.jpg" alt="American Wood Council">
+        </div>
+        <div class="preview-gold-card">
+          <span class="badge">Gold</span>
+          <img src="https://static.wixstatic.com/media/a6fc8b_ddbd919c2d804f998e51e89df58ce2e8~mv2.png" alt="Sutphen">
+        </div>
+        <div class="preview-gold-card">
+          <span class="badge">Gold</span>
+          <img src="https://static.wixstatic.com/media/7c3afa_bb6b78ceb9f844d989a4b1f3403530de~mv2.png" alt="Globe Turnout Gear">
+        </div>
+        <div class="preview-gold-card">
+          <span class="badge">Gold</span>
+          <img src="https://static.wixstatic.com/media/a6fc8b_7a3afa7e06d84025a46a0e1b9d3644cc~mv2.jpg" alt="1-800-BoardUp">
+        </div>
+        <div class="preview-gold-card">
+          <span class="badge">Gold</span>
+          <img src="https://static.wixstatic.com/media/a6fc8b_3a7305bc74d54ec4afd60b305955ac13~mv2.png" alt="Whelen">
+        </div>
+        <div class="preview-gold-card is-pulsepoint">
+          <span class="pp-highlight">Your Placement</span>
+          <span class="badge">Gold</span>
+          <img src="./images/sponsors/pulsepoint/logo.png" alt="PulsePoint Foundation">
+        </div>
+      </div>
+      <p class="preview-caption">
+        Each Gold card features a <strong>hover-flip interaction</strong> revealing the company name and a <strong>Visit Website</strong> button linked to pulsepoint.org. Logo replacement and rollout takes &lt;24 hours after the agreement is signed.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── DELIVERABLES ─── -->
+<section class="deliver">
+  <div class="container">
+    <div class="section-eyebrow">Gold &mdash; What&rsquo;s Included</div>
+    <h2 class="section-h">A line-by-line picture of the package.</h2>
+    <p class="section-lead">
+      Every item below is committed in writing inside the sponsorship agreement.
+    </p>
+    <div class="deliver-list">
+      <div class="deliver-item">
+        <div class="deliver-check">✓</div>
+        <div class="deliver-text">
+          <strong>Logo on Website &amp; Program</strong>
+          <span>Permanent inclusion in the live Gold tier on bcoc.us with logo, name, and link to pulsepoint.org &mdash; plus printed program logo placement.</span>
+        </div>
+      </div>
+      <div class="deliver-item">
+        <div class="deliver-check">✓</div>
+        <div class="deliver-text">
+          <strong>Half-Page Program Ad</strong>
+          <span>Dedicated PulsePoint half-page placement in the printed Conference Program.</span>
+        </div>
+      </div>
+      <div class="deliver-item">
+        <div class="deliver-check">✓</div>
+        <div class="deliver-text">
+          <strong>Exhibit Table</strong>
+          <span>Standard Gold-tier exhibit table reserved for PulsePoint (held even if unattended &mdash; can be staffed by a BCOC volunteer with PulsePoint signage on request).</span>
+        </div>
+      </div>
+      <div class="deliver-item">
+        <div class="deliver-check">✓</div>
+        <div class="deliver-text">
+          <strong>Verbal Recognition</strong>
+          <span>Stage recognition during a general session as a Gold-tier sponsor.</span>
+        </div>
+      </div>
+      <div class="deliver-item">
+        <div class="deliver-check">✓</div>
+        <div class="deliver-text">
+          <strong>One Social Media Mention</strong>
+          <span>Standard Gold-tier social media feature across BCOC channels in the lead-up to the conference.</span>
+        </div>
+      </div>
+      <div class="deliver-item">
+        <div class="deliver-check">✓</div>
+        <div class="deliver-text">
+          <strong>Session Recognition Slide</strong>
+          <span>PulsePoint &amp; NEAR recognition slide displayed during a general session.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── BUNDLE: $5K event-level value (live bcoc.us pricing) ─── -->
+<section class="bundle">
+  <div class="container">
+    <div class="section-eyebrow">Build the Bundle</div>
+    <h2 class="section-h">$5,000 of event-level content. <em>From the live open inventory.</em></h2>
+    <p class="section-lead">
+      Every price below is taken directly from <strong>bcoc.us/conference-sponsorship</strong>
+      (the live source of truth). Items already claimed by FirstNet/AT&amp;T, The REV
+      Fire Group, American Wood Council, MSA/Globe, Atlantic Emergency Solutions,
+      1-800-BoardUp, and the 40th Anniversary Coin partner are excluded.
+    </p>
+
+    <div class="bundle-menu">
+      <div class="bundle-item"><div class="bundle-name">Oratorical Contest<small>Exclusive &middot; 2 spots</small></div><div class="bundle-price">$5,000</div></div>
+      <div class="bundle-item"><div class="bundle-name">Evening Social &mdash; Day 4<small>Exclusive</small></div><div class="bundle-price">$5,000</div></div>
+      <div class="bundle-item"><div class="bundle-name">Awards Ceremony<small>Exclusive &middot; 2 spots</small></div><div class="bundle-price">$3,000</div></div>
+      <div class="bundle-item"><div class="bundle-name">Spouses Luncheon<small>Exclusive</small></div><div class="bundle-price">$3,000</div></div>
+      <div class="bundle-item"><div class="bundle-name">Comedy Show<small>Exclusive</small></div><div class="bundle-price">$3,000</div></div>
+      <div class="bundle-item"><div class="bundle-name">Luncheon &mdash; Day 2<small>Exclusive &middot; 1 final slot</small></div><div class="bundle-price">$2,500</div></div>
+      <div class="bundle-item"><div class="bundle-name">Luncheon &mdash; Day 3 or 4<small>Exclusive &middot; 2 slots per day</small></div><div class="bundle-price">$2,500</div></div>
+      <div class="bundle-item"><div class="bundle-name">Dinner / Reception<small>Exclusive &middot; 4 spots</small></div><div class="bundle-price">$2,500</div></div>
+      <div class="bundle-item"><div class="bundle-name">Lanyard Sponsor<small>Exclusive &middot; every attendee badge</small></div><div class="bundle-price">$2,000</div></div>
+      <div class="bundle-item"><div class="bundle-name">Executive Board Dinner &mdash; Day 1<small>Exclusive</small></div><div class="bundle-price">$2,000</div></div>
+      <div class="bundle-item"><div class="bundle-name">Executive STK Dinner &mdash; Day 3<small>Exclusive</small></div><div class="bundle-price">$2,000</div></div>
+      <div class="bundle-item"><div class="bundle-name">Breakfast &mdash; Day 5<small>Exclusive</small></div><div class="bundle-price">$1,500</div></div>
+      <div class="bundle-item"><div class="bundle-name">Farewell Breakfast<small>Exclusive &middot; final-morning send-off</small></div><div class="bundle-price">$1,500</div></div>
+      <div class="bundle-item"><div class="bundle-name">Game Night<small>Exclusive</small></div><div class="bundle-price">$1,000</div></div>
+      <div class="bundle-item"><div class="bundle-name">Coffee / Beverage Station<small>3 stations remaining</small></div><div class="bundle-price">$1,000</div></div>
+      <div class="bundle-item"><div class="bundle-name">Swag Bag &mdash; Name/Logo on Bag<small>14 spots remaining</small></div><div class="bundle-price">$1,000</div></div>
+      <div class="bundle-item"><div class="bundle-name">Session Sponsorship<small>12 sessions open &middot; NEAR-aligned</small></div><div class="bundle-price">$500</div></div>
+      <div class="bundle-item"><div class="bundle-name">Swag Bag (in-bag item)<small>15 available &middot; PulsePoint NEAR card</small></div><div class="bundle-price">$500</div></div>
+      <div class="bundle-item"><div class="bundle-name">Full Page Ad + 40th Anniversary Book<small>40 available &middot; book included</small></div><div class="bundle-price">$350</div></div>
+      <div class="bundle-item"><div class="bundle-name">Vendor Table &mdash; Entire Conference<small>Full-conference exhibit</small></div><div class="bundle-price">$350</div></div>
+      <div class="bundle-item"><div class="bundle-name">Swag Bag Insert<small>25 available</small></div><div class="bundle-price">$250</div></div>
+      <div class="bundle-item"><div class="bundle-name">½ Page Ad<small>20 available</small></div><div class="bundle-price">$200</div></div>
+      <div class="bundle-item"><div class="bundle-name">Business Card Ad<small>20 available</small></div><div class="bundle-price">$150</div></div>
+      <div class="bundle-item"><div class="bundle-name">Logo on T-Shirt<small>15 available &middot; hi-res required</small></div><div class="bundle-price">$150</div></div>
+      <div class="bundle-item"><div class="bundle-name">Logo on Retractable Banner<small>20 available</small></div><div class="bundle-price">$100</div></div>
+    </div>
+
+    <div class="bundle-divider"><span>Four Sample Bundles &mdash; All Equal $5,000</span></div>
+
+    <div class="bundle-options" style="grid-template-columns:repeat(2,1fr);">
+      <div class="bundle-option">
+        <span class="bundle-option-tag">Education Single-Item</span>
+        <h4>Sponsor a flagship education moment &mdash; exclusive recognition.</h4>
+        <ul>
+          <li><strong>Oratorical Contest</strong> (Exclusive) <span>$5,000</span></li>
+          <li style="opacity:0.7;font-style:italic;color:var(--ink-soft);font-size:0.86rem;border-bottom:none;padding:0.6rem 0 0;">Single-item anchor. Exclusive sponsorship of the BCOC Oratorical Contest with on-program attribution and stage recognition.</li>
+        </ul>
+        <div class="total">Total <strong>$5,000</strong></div>
+      </div>
+
+      <div class="bundle-option">
+        <span class="bundle-option-tag">Education Anchor</span>
+        <h4>Brand the badge, host a meal, anchor a session.</h4>
+        <ul>
+          <li>Luncheon &mdash; Day 2 (final slot) <span>$2,500</span></li>
+          <li>Lanyard Sponsor (Exclusive) <span>$2,000</span></li>
+          <li>Session Sponsorship (NEAR-aligned) <span>$500</span></li>
+        </ul>
+        <div class="total">Total <strong>$5,000</strong></div>
+      </div>
+
+      <div class="bundle-option">
+        <span class="bundle-option-tag">Recognition Build</span>
+        <h4>Leadership ceremony + evening engagement attribution.</h4>
+        <ul>
+          <li>Awards Ceremony (Exclusive) <span>$3,000</span></li>
+          <li>Game Night (Exclusive) <span>$1,000</span></li>
+          <li>Coffee / Beverage Station <span>$1,000</span></li>
+        </ul>
+        <div class="total">Total <strong>$5,000</strong></div>
+      </div>
+
+      <div class="bundle-option">
+        <span class="bundle-option-tag">Brand Saturation</span>
+        <h4>NEAR visibility across multiple attendee touchpoints.</h4>
+        <ul>
+          <li>Lanyard Sponsor <span>$2,000</span></li>
+          <li>Swag Bag &mdash; Name/Logo on Bag <span>$1,000</span></li>
+          <li>Coffee / Beverage Station <span>$1,000</span></li>
+          <li>Game Night <span>$1,000</span></li>
+        </ul>
+        <div class="total">Total <strong>$5,000</strong></div>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:2rem;font-family:var(--serif-body);font-style:italic;font-size:0.94rem;color:var(--ink-soft);max-width:820px;margin-left:auto;margin-right:auto;">
+      All pricing is taken from the live <strong><a href="https://www.bcoc.us/conference-sponsorship" target="_blank" rel="noopener" style="color:var(--gold-deep);font-style:normal;">BCOC Conference Sponsorship page</a></strong>. Standard <strong>Gold-tier benefits</strong> (logo on website + program, exhibit table, half-page program ad, verbal recognition, one social media mention, session recognition slide &mdash; Prospectus Page 11) are <strong>included automatically</strong> with the $5,000 Gold contribution and are additional to the event-level items selected above.
+    </p>
+  </div>
+</section>
+
+<!-- ─── INVESTMENT ─── -->
+<section class="invest">
+  <div class="container">
+    <div class="section-eyebrow">The Investment</div>
+    <h2 class="section-h">Anchored at <em>$5,000.</em> Flexible to your fiscal calendar.</h2>
+    <p class="section-lead">
+      Sized to land at the top of the range you proposed &mdash; with optional
+      invoice timing that respects your July 1, 2026 fiscal-year start.
+    </p>
+    <div class="invest-card">
+      <div class="ribbon">Recommended</div>
+      <div class="invest-tier">Gold Tier &mdash; PulsePoint Foundation</div>
+      <div class="invest-amount">$5,000</div>
+      <div class="invest-range">Full Gold benefits set &middot; Any $5,000 bundle combination from the open inventory above</div>
+      <div class="invest-rule"></div>
+      <p class="invest-detail">
+        Invoice can be dated <strong>July 1, 2026</strong> to align with FY26.
+        Choose any one of the three sample bundles above &mdash; or build your own
+        combination of currently open event items totaling $5,000.
+        Happy to finalize the mix on a 20-minute call.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CLOSE ─── -->
+<section class="close" id="close">
+  <div class="container">
+    <h2>Twenty minutes. <em>One yes.</em></h2>
+    <p>
+      A short brainstorm call between BCOC leadership and PulsePoint &mdash;
+      to confirm the deliverables that matter most for NEAR awareness, fix
+      the invoice timing, and lock the Gold slot before the next-tier window
+      opens.
+    </p>
+    <div class="close-cta">
+      <a href="mailto:chair@bcoc.us?subject=PulsePoint%20Gold%20Sponsorship%20-%20Brainstorm%20Call" class="btn btn-primary">Reply to Schedule &rarr;</a>
+      <a href="mailto:chair@bcoc.us?cc=srichards@bcoc.us&subject=PulsePoint%20Gold%20Sponsorship%20-%20Invoice%20Request%20%245%2C000&body=Hi%20Dr.%20Smith%2C%0A%0APlease%20issue%20the%20%245%2C000%20Gold%20sponsorship%20invoice%20to%20PulsePoint%20Foundation.%20Bundle%20preference%20below%3A%0A%0A%5B%20%5D%20Education%20Single-Item%20%E2%80%94%20Oratorical%20Contest%20Exclusive%20(%245%2C000)%0A%5B%20%5D%20Education%20Anchor%20%E2%80%94%20Day%202%20Luncheon%20%2B%20Lanyard%20%2B%20Session%20(%242%2C500%20%2B%20%242%2C000%20%2B%20%24500)%0A%5B%20%5D%20Recognition%20Build%20%E2%80%94%20Awards%20Ceremony%20%2B%20Game%20Night%20%2B%20Coffee%2FBeverage%20(%243%2C000%20%2B%20%241%2C000%20%2B%20%241%2C000)%0A%5B%20%5D%20Brand%20Saturation%20%E2%80%94%20Lanyard%20%2B%20Swag%20Bag%20%2B%20Coffee%2FBeverage%20%2B%20Game%20Night%20(%242%2C000%20%2B%20%241%2C000%20%2B%20%241%2C000%20%2B%20%241%2C000)%0A%5B%20%5D%20Custom%20bundle%20%E2%80%94%20details%20below%0A%0AInvoice%20date%20preference%3A%20July%201%2C%202026%20(FY26)%0A%0AThank%20you." class="btn btn-invoice">&#9997;&#65039; Request Invoice &mdash; $5,000</a>
+    </div>
+    <span class="close-or">&mdash; or &mdash;</span>
+    <div class="close-cta">
+      <a href="https://www.bcoc.us" target="_blank" rel="noopener" class="btn btn-secondary">Learn About BCOC</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>Black Chief Officers Committee &middot; 2026 Educational Symposium &amp; Conference &middot; Loews Atlanta Hotel</p>
+    <p class="small">Prepared for the PulsePoint Foundation by Dr. Hezedean Smith, BCOC Chair</p>
+  </div>
+</footer>
+
+</body>
+</html>
