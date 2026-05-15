@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BCOC · Bylaws Committee</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;background:#e8e4de;font-family:'Source Sans 3',sans-serif;color:#1a1a1a;min-height:100vh}
+.wrap{max-width:1100px;margin:0 auto;padding:18px 24px 60px}
+
+/* === Masthead (BCOC standard) === */
+.masthead{position:relative;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:12px 24px;background:linear-gradient(100deg,#0a0f1a 0%,#14213d 45%,#1b2d50 75%,#14213d 100%);border-radius:12px 12px 0 0;box-shadow:0 8px 24px rgba(0,0,0,0.28);overflow:hidden;color:#fff}
+.masthead::after{content:'';position:absolute;bottom:0;left:0;right:0;height:5px;background:repeating-linear-gradient(90deg,#c8962e 0,#c8962e 20%,#b82040 20%,#b82040 40%,#c8962e 40%,#c8962e 60%,#b82040 60%,#b82040 80%,#c8962e 80%,#c8962e 100%)}
+.mh-logo-left,.mh-logo-right{flex-shrink:0;filter:drop-shadow(0 3px 8px rgba(0,0,0,0.4))}
+.mh-logo-left{height:52px}
+.mh-logo-right{height:56px}
+.mh-center{flex:1;text-align:center;min-width:0}
+.mh-title{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(14px,1.9vw,20px);letter-spacing:2px;line-height:1.15;white-space:nowrap}
+.mh-title span{color:#e8be5a}
+.mh-tag{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(10px,1.2vw,13px);color:rgba(232,190,90,0.92);margin-top:3px;letter-spacing:0.8px}
+
+/* === Hero === */
+.eth-hero{position:relative;background:linear-gradient(170deg,#14213d 0%,#1b2d50 55%,#14213d 100%);color:#fff;padding:38px 32px 44px;text-align:center;border-radius:0 0 14px 14px;box-shadow:0 10px 30px rgba(0,0,0,0.2);margin-top:-4px;overflow:hidden}
+.eth-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:6px;background:repeating-linear-gradient(90deg,#c8962e 0,#c8962e 20%,#b82040 20%,#b82040 40%,#c8962e 40%,#c8962e 60%,#b82040 60%,#b82040 80%,#c8962e 80%,#c8962e 100%)}
+.eth-hero-eyebrow{font-size:11px;font-weight:800;letter-spacing:6px;color:#e8be5a;text-transform:uppercase;margin-bottom:12px}
+.eth-hero h1{font-family:'Playfair Display',serif;font-size:clamp(40px,6.5vw,64px);font-weight:900;margin:0 0 12px;letter-spacing:1.5px;line-height:1.05}
+.eth-hero h1 em{font-style:italic;background:linear-gradient(135deg,#e8be5a,#c8962e);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.eth-hero-role{font-family:'Playfair Display',serif;font-style:italic;font-size:21px;color:#e8be5a;margin-top:8px;letter-spacing:1.2px}
+.eth-hero-sub{font-family:'Playfair Display',serif;font-style:italic;font-size:16px;color:rgba(255,255,255,0.82);max-width:760px;margin:14px auto 0;line-height:1.6}
+.eth-meta-pills{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:22px;flex-wrap:wrap}
+.eth-meta-pill{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#e8be5a;border:1px solid rgba(232,190,90,0.55);padding:6px 14px;border-radius:999px}
+.eth-back-link{display:inline-flex;align-items:center;gap:8px;margin-top:24px;padding:11px 22px;color:#e8be5a;border:1px solid rgba(232,190,90,0.6);border-radius:999px;text-decoration:none;font-weight:700;font-size:12px;letter-spacing:2px;text-transform:uppercase;transition:all 0.2s}
+.eth-back-link:hover{background:#c8962e;color:#14213d}
+
+/* === Section titles === */
+.sec-title{text-align:center;margin:48px 0 26px}
+.sec-title h2{font-family:'Playfair Display',serif;font-size:40px;font-weight:900;color:#14213d;letter-spacing:1.2px;line-height:1.1}
+.sec-title .rule{width:96px;height:3px;background:linear-gradient(90deg,transparent,#c8962e,transparent);margin:14px auto 0}
+.sec-title p{font-size:14.5px;color:#777;font-style:italic;margin-top:12px;max-width:720px;margin-left:auto;margin-right:auto;line-height:1.55}
+
+/* === Purpose card === */
+.eth-purpose{background:#fff;border:1px solid #eae4d6;border-radius:14px;padding:30px 34px;box-shadow:0 4px 18px rgba(20,33,61,0.07);position:relative;overflow:hidden}
+.eth-purpose::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#c8962e,#b82040,#c8962e)}
+.eth-purpose p{font-size:15.5px;color:#3a3a3a;line-height:1.75;margin-bottom:14px}
+.eth-purpose p:last-child{margin-bottom:0}
+.eth-purpose strong{color:#14213d;font-weight:700}
+.eth-purpose blockquote{margin:18px 0;padding:14px 18px;background:#fdf6e8;border-left:4px solid #c8962e;border-radius:4px;font-style:italic;color:#5d4a1f;font-size:14.5px;line-height:1.65}
+
+/* === Members grid === */
+.members-section{display:flex;flex-direction:column;gap:20px;width:100%}
+.member-row{display:grid;gap:20px;width:100%}
+.member-row-top{grid-template-columns:repeat(3,1fr)}
+.member-row-bottom{grid-template-columns:repeat(2,1fr);max-width:66%;margin:0 auto}
+.member-card{background:#fff;border:1px solid #eae4d6;border-radius:14px;padding:30px 22px 24px;box-shadow:0 4px 18px rgba(20,33,61,0.07);position:relative;overflow:hidden;text-align:center;transition:all 0.2s}
+.member-card:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(20,33,61,0.14);border-color:#c8962e}
+.member-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#c8962e,#b82040,#c8962e)}
+.member-card.chair::before{background:linear-gradient(90deg,#b82040,#c8962e,#b82040)}
+.member-photo{width:120px;height:120px;border-radius:50%;margin:0 auto 18px;overflow:hidden;border:4px solid #c8962e;box-shadow:0 4px 20px rgba(200,150,46,0.25);background:#14213d;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.member-photo svg{width:60px;height:60px;color:#e8be5a}
+.member-photo.pending{background:linear-gradient(135deg,#14213d 0%,#1b2d50 100%);position:relative}
+.member-photo.pending::after{content:'PHOTO PENDING';position:absolute;bottom:8px;left:50%;transform:translateX(-50%);font-size:7.5px;font-weight:800;letter-spacing:1.2px;color:#e8be5a;background:rgba(20,33,61,0.85);padding:2px 6px;border-radius:3px}
+.member-card.chair .member-photo{border-color:#b82040;box-shadow:0 4px 20px rgba(184,32,64,0.28)}
+.member-photo img{width:100%;height:100%;object-fit:cover;object-position:center 22%}
+.member-role-pill{display:inline-block;font-size:10px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:#fff;background:#14213d;padding:4px 12px;border-radius:999px;margin-bottom:10px}
+.member-role-pill.chair{background:#b82040}
+.member-name{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;color:#14213d;line-height:1.2;margin-bottom:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.member-rank{font-size:12px;letter-spacing:1.2px;text-transform:uppercase;color:#c8962e;font-weight:800;margin-bottom:8px}
+.member-position{font-size:13px;color:#3a3a3a;line-height:1.5;font-style:italic}
+.member-recusal-flag{display:inline-block;margin-top:10px;font-size:10px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;color:#b82040;background:#fdf0f3;border:1px solid #f0c5cf;padding:4px 10px;border-radius:999px}
+
+@media(max-width:900px){
+  .member-row-top,.member-row-bottom{grid-template-columns:repeat(2,1fr);max-width:none}
+}
+@media(max-width:540px){
+  .member-row-top,.member-row-bottom{grid-template-columns:1fr}
+}
+
+/* === Two-column governance grid === */
+.gov-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;width:100%}
+@media(max-width:760px){.gov-grid{grid-template-columns:1fr}}
+.gov-card{background:#fff;border:1px solid #eae4d6;border-radius:14px;padding:26px 28px;box-shadow:0 4px 18px rgba(20,33,61,0.07);position:relative;overflow:hidden}
+.gov-card::before{content:'';position:absolute;top:0;left:0;width:6px;bottom:0;background:linear-gradient(180deg,#c8962e,#b82040)}
+.gov-card h3{font-family:'Playfair Display',serif;color:#14213d;font-size:25px;margin-bottom:16px;font-weight:900;letter-spacing:0.5px;line-height:1.2}
+.gov-card ul{list-style:none;padding:0;margin:0}
+.gov-card li{font-size:14.5px;color:#3a3a3a;line-height:1.65;margin-bottom:12px;padding-left:24px;position:relative}
+.gov-card li::before{content:'';position:absolute;left:0;top:9px;width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,#c8962e,#b82040)}
+.gov-card li:last-child{margin-bottom:0}
+.gov-card p{font-size:14.5px;color:#3a3a3a;line-height:1.7;margin-bottom:10px}
+.gov-card p:last-child{margin-bottom:0}
+.gov-card strong{color:#14213d}
+
+/* === Procedures strip === */
+.proc-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:14px}
+@media(max-width:780px){.proc-strip{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:420px){.proc-strip{grid-template-columns:1fr}}
+.proc-card{background:#fff;border:1px solid #eae4d6;border-radius:10px;padding:18px 16px;text-align:center;box-shadow:0 4px 14px rgba(20,33,61,0.06);position:relative;overflow:hidden}
+.proc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#c8962e,#b82040)}
+.proc-num{font-family:'Playfair Display',serif;font-size:32px;font-weight:900;color:#14213d;line-height:1}
+.proc-num em{font-style:normal;background:linear-gradient(135deg,#e8be5a,#c8962e);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.proc-unit{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#c8962e;margin-top:4px}
+.proc-label{font-size:12px;color:#5a5a5a;margin-top:8px;line-height:1.45}
+
+/* === Milestone timeline === */
+.timeline{margin-top:8px;background:#fff;border:1px solid #eae4d6;border-radius:14px;padding:6px 10px;box-shadow:0 4px 18px rgba(20,33,61,0.07);position:relative;overflow:hidden}
+.timeline::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#c8962e,#b82040,#c8962e)}
+.timeline-row{display:grid;grid-template-columns:200px 1fr;gap:18px;align-items:flex-start;padding:18px 18px;border-bottom:1px solid #f0eadb}
+.timeline-row:last-child{border-bottom:none}
+.timeline-date{font-family:'Playfair Display',serif;font-size:17px;font-weight:900;color:#b82040;letter-spacing:0.4px;line-height:1.25}
+.timeline-date small{display:block;font-family:'Source Sans 3',sans-serif;font-size:10px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:#c8962e;margin-top:4px}
+.timeline-body{font-size:14.5px;color:#3a3a3a;line-height:1.6}
+.timeline-body strong{color:#14213d;font-weight:700}
+@media(max-width:620px){
+  .timeline-row{grid-template-columns:1fr;gap:6px;padding:14px 14px}
+  .timeline-date{font-size:15px}
+  .timeline-body{font-size:13.5px;line-height:1.55}
+}
+
+/* === Resolution / signature footer === */
+.resolution-mark{margin:42px auto 0;max-width:760px;padding:22px 28px;background:linear-gradient(135deg,#fdf6e8,#fffaf2);border:1px solid #e8dfc7;border-left:5px solid #b82040;border-radius:8px;box-shadow:0 4px 14px rgba(20,33,61,0.06)}
+.resolution-mark .rm-label{font-size:10px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:#b82040;margin-bottom:6px}
+.resolution-mark .rm-title{font-family:'Playfair Display',serif;font-size:18px;color:#14213d;font-weight:900;margin-bottom:6px}
+.resolution-mark .rm-body{font-size:13.5px;color:#5d4a1f;line-height:1.6;font-style:italic}
+.resolution-mark .rm-sig{margin-top:14px;padding-top:14px;border-top:1px solid #e8dfc7;display:flex;justify-content:space-between;align-items:flex-start;gap:18px;flex-wrap:wrap}
+.resolution-mark .rm-sig-block{flex:1;min-width:240px}
+.resolution-mark .rm-sig-name{font-family:'Playfair Display',serif;font-weight:900;color:#14213d;font-size:14.5px;line-height:1.3}
+.resolution-mark .rm-sig-role{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:#c8962e;font-weight:700;margin-top:3px}
+
+/* === Footer === */
+.eth-footer{margin-top:60px;padding:42px 20px 32px;text-align:center;background:linear-gradient(170deg,#14213d 0%,#1b2d50 100%);color:rgba(255,255,255,0.78);border-radius:14px;position:relative;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,0.12)}
+.eth-footer::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:repeating-linear-gradient(90deg,#c8962e 0,#c8962e 20%,#b82040 20%,#b82040 40%,#c8962e 40%,#c8962e 60%,#b82040 60%,#b82040 80%,#c8962e 80%,#c8962e 100%)}
+.footer-logos{display:flex;align-items:center;justify-content:center;gap:24px;margin:4px auto 14px;flex-wrap:wrap}
+.footer-logos img{height:56px}
+.footer-motto{font-family:'Playfair Display',serif;letter-spacing:5px;font-size:13px;color:#e8be5a;margin:10px 0 4px;text-transform:uppercase;font-weight:700}
+.footer-text{font-size:12.5px;line-height:1.6;color:rgba(255,255,255,0.6);max-width:640px;margin:6px auto 0}
+.footer-small{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-top:14px}
+.footer-small a{color:#e8be5a;text-decoration:none;border-bottom:1px solid rgba(232,190,90,0.4);padding-bottom:2px}
+
+/* === Mobile tightening === */
+@media(max-width:620px){
+  .wrap{padding:12px 14px 40px}
+  .masthead{flex-direction:column;padding:14px 16px;gap:10px}
+  .mh-logo-left,.mh-logo-right{height:50px}
+  .mh-title{white-space:normal;line-height:1.25;font-size:16px}
+  .mh-tag{font-size:11px}
+  .eth-hero{padding:30px 20px 36px;border-radius:0 0 10px 10px}
+  .eth-hero-eyebrow{letter-spacing:4px;font-size:10px}
+  .eth-hero h1{font-size:38px;letter-spacing:1px}
+  .eth-hero-role{font-size:16px}
+  .eth-hero-sub{font-size:14.5px;line-height:1.5}
+  .eth-meta-pills{gap:6px;margin-top:18px}
+  .eth-meta-pill{font-size:10px;padding:5px 10px;letter-spacing:1.5px}
+  .eth-back-link{margin-top:18px;font-size:11px;padding:9px 18px}
+  .sec-title{margin:36px 0 20px}
+  .sec-title h2{font-size:28px;letter-spacing:0.8px}
+  .sec-title .rule{width:70px;margin-top:10px}
+  .sec-title p{font-size:13.5px;margin-top:10px;padding:0 4px}
+  .eth-purpose{padding:22px 20px;border-radius:10px}
+  .eth-purpose p{font-size:14.5px;line-height:1.7}
+  .eth-purpose blockquote{font-size:13.5px;padding:12px 14px;margin:14px 0}
+  .member-card{padding:24px 16px 20px;border-radius:10px}
+  .member-photo{width:100px;height:100px}
+  .member-name{white-space:normal;line-height:1.2;font-size:19px}
+  .member-rank{font-size:11px;letter-spacing:1px}
+  .member-position{font-size:12.5px}
+  .gov-card{padding:22px 20px;border-radius:10px}
+  .gov-card h3{font-size:21px;margin-bottom:12px}
+  .gov-card li,.gov-card p{font-size:13.5px;line-height:1.6}
+  .proc-card{padding:14px 12px}
+  .proc-num{font-size:26px}
+  .proc-unit{font-size:9px;letter-spacing:1.5px}
+  .proc-label{font-size:11px}
+  .resolution-mark{padding:18px 20px;margin-top:32px;border-radius:6px}
+  .resolution-mark .rm-title{font-size:16px;line-height:1.25}
+  .resolution-mark .rm-body{font-size:12.5px}
+  .resolution-mark .rm-sig-name{font-size:13px}
+  .eth-footer{padding:32px 16px 24px;border-radius:10px}
+  .footer-logos img{height:46px}
+  .footer-text{font-size:12px}
+}
+@media(max-width:520px){
+  .wrap{padding:10px 10px 32px}
+  .masthead{padding:12px 12px;gap:8px}
+  .mh-logo-left,.mh-logo-right{height:42px}
+  .mh-title{font-size:13.5px;letter-spacing:1.2px}
+  .mh-tag{font-size:10px;letter-spacing:0.4px}
+  .eth-hero{padding:24px 16px 28px}
+  .eth-hero-eyebrow{letter-spacing:3px;font-size:9.5px}
+  .eth-hero h1{font-size:30px;letter-spacing:0.6px;line-height:1.08}
+  .eth-hero-role{font-size:14px;letter-spacing:0.5px;padding:0 4px}
+  .eth-hero-sub{font-size:13px;line-height:1.5;padding:0 4px}
+  .eth-meta-pill{font-size:9.5px;padding:4px 9px;letter-spacing:1.2px}
+  .eth-back-link{font-size:10.5px;padding:8px 14px;letter-spacing:1.5px}
+  .sec-title h2{font-size:22px;letter-spacing:0.4px}
+  .sec-title p{font-size:12.5px}
+  .gov-card h3{font-size:18px}
+  .resolution-mark{padding:16px 14px}
+  .resolution-mark .rm-title{font-size:14px}
+  .resolution-mark .rm-body{font-size:12px}
+}
+
+/* === Governance Documents pill (members-only link) === */
+.gov-docs-pill{display:inline-flex;align-items:center;gap:12px;margin-top:20px;background:#b82040;border:1px solid #b82040;color:#ffffff;font-family:'Source Sans 3',sans-serif;font-weight:800;font-size:15px;letter-spacing:2.5px;padding:14px 30px;border-radius:8px;text-decoration:none;text-transform:uppercase;box-shadow:0 4px 14px rgba(184,32,64,0.32);transition:all 0.2s ease}
+.gov-docs-pill:hover{background:#9a1a36;border-color:#9a1a36;color:#fff;transform:translateY(-2px);box-shadow:0 6px 20px rgba(184,32,64,0.42)}
+.gov-docs-pill:active{transform:translateY(0)}
+.gov-docs-pill .lock{width:18px;height:18px;fill:currentColor;flex-shrink:0}
+.gov-docs-pill .arrow{width:16px;height:16px;fill:currentColor;flex-shrink:0;transition:transform 0.2s ease}
+.gov-docs-pill:hover .arrow{transform:translateX(3px)}
+.gov-docs-pill .members-tag{font-size:11px;letter-spacing:2px;color:#14213d;background:#c8962e;padding:3px 10px;border-radius:10px;margin-left:2px;font-weight:800}
+@media(max-width:520px){.gov-docs-pill{font-size:12.5px;letter-spacing:1.8px;padding:12px 20px;gap:9px}.gov-docs-pill .lock{width:15px;height:15px}.gov-docs-pill .arrow{width:13px;height:13px}.gov-docs-pill .members-tag{font-size:9.5px;letter-spacing:1.4px;padding:2px 7px}}
+
+/* === Member Feedback CTA === */
+.report-cta{margin-top:24px;padding:36px 32px 32px;background:linear-gradient(160deg,#f3ede2 0%,#efe7d6 100%);border:1px solid #c8962e;border-radius:14px;text-align:center;position:relative;overflow:hidden;box-shadow:0 6px 20px rgba(20,33,61,0.08)}
+.report-cta::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:repeating-linear-gradient(90deg,#c8962e 0,#c8962e 20%,#b82040 20%,#b82040 40%,#c8962e 40%,#c8962e 60%,#b82040 60%,#b82040 80%,#c8962e 80%,#c8962e 100%)}
+.report-cta-eyebrow{font-family:'Source Sans 3',sans-serif;font-weight:800;font-size:11px;letter-spacing:5px;color:#b82040;text-transform:uppercase;margin-bottom:12px}
+.report-cta-title{font-family:'Playfair Display',serif;font-weight:900;font-size:30px;color:#14213d;margin-bottom:10px;line-height:1.15}
+.report-cta-text{font-family:'Source Sans 3',sans-serif;font-size:15px;color:#3a3a3a;line-height:1.55;max-width:640px;margin:0 auto 22px}
+.report-cta-btn{display:inline-flex;align-items:center;gap:10px;background:#b82040;color:#ffffff;font-family:'Source Sans 3',sans-serif;font-weight:800;font-size:15px;letter-spacing:2.5px;padding:16px 36px;border:none;border-radius:8px;text-decoration:none;text-transform:uppercase;box-shadow:0 4px 14px rgba(184,32,64,0.32);transition:all 0.18s ease;cursor:pointer}
+.report-cta-btn:hover{background:#9a1a36;transform:translateY(-2px);box-shadow:0 6px 20px rgba(184,32,64,0.42)}
+.report-cta-btn:active{transform:translateY(0)}
+.report-cta-btn svg{width:18px;height:18px;fill:currentColor;flex-shrink:0}
+.report-cta-email{display:block;margin-top:14px;font-family:'Source Sans 3',sans-serif;font-size:13px;color:#5a5a5a;letter-spacing:0.5px}
+.report-cta-email a{color:#14213d;font-weight:700;text-decoration:none;border-bottom:1px solid rgba(20,33,61,0.25);padding-bottom:1px}
+.report-cta-email a:hover{color:#b82040;border-bottom-color:#b82040}
+.report-cta-note{margin-top:18px;font-family:'Source Sans 3',sans-serif;font-size:12px;color:#7a6f5a;letter-spacing:0.5px;font-style:italic}
+.cta-toast{display:inline-block;margin-top:14px;padding:9px 18px;background:#0a7a3e;color:#fff;font-family:'Source Sans 3',sans-serif;font-weight:700;font-size:12.5px;letter-spacing:1px;border-radius:6px;opacity:0;transform:translateY(-4px);transition:all 0.3s ease;pointer-events:none;max-width:560px;line-height:1.4}
+.cta-toast.show{opacity:1;transform:translateY(0)}
+.cta-toast .check{display:inline-block;margin-right:8px;font-weight:900}
+@media(max-width:560px){
+  .report-cta{padding:28px 16px 24px;margin-top:20px}
+  .report-cta-eyebrow{font-size:10px;letter-spacing:3.5px}
+  .report-cta-title{font-size:21px;line-height:1.2}
+  .report-cta-text{font-size:13.5px;line-height:1.5}
+  .report-cta-btn{font-size:12.5px;padding:13px 22px;letter-spacing:1.8px;width:auto}
+  .report-cta-email{font-size:12px}
+  .report-cta-email a{word-break:break-all}
+  .report-cta-note{font-size:11px;line-height:1.45;padding:0 4px}
+}
+@media(max-width:380px){
+  .report-cta-title{font-size:18px}
+  .report-cta-btn{font-size:11.5px;padding:12px 18px;letter-spacing:1.5px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- Masthead -->
+  <div class="masthead">
+    <img class="mh-logo-left" src="https://static.wixstatic.com/media/1700c8_b2680286f4244f40a9afec02808f2d36~mv2.png" alt="BCOC">
+    <div class="mh-center">
+      <div class="mh-title">BLACK CHIEF OFFICERS <span>COMMITTEE</span></div>
+      <div class="mh-tag">Office of the Chair &middot; Article X &middot; Bylaws Stewardship</div>
+    </div>
+    <img class="mh-logo-right" src="https://static.wixstatic.com/media/a6fc8b_b3b55f4d44cb46c3a8c981c0bcf42ad3~mv2.png" alt="40th Anniversary">
+  </div>
+
+  <!-- Hero -->
+  <header class="eth-hero">
+    <div class="eth-hero-eyebrow">Resolution 2026 &middot; 04 — May 15, 2026</div>
+    <h1><em>Bylaws</em> Committee</h1>
+    <div class="eth-hero-role">Article X stewardship &middot; Member-driven review &middot; Recommending authority</div>
+    <div class="eth-hero-sub">Established by the Chair to review, draft, and shepherd proposed amendments to the BCOC Bylaws — reporting through the Chair to the Executive Board and the membership.</div>
+    <div class="eth-meta-pills">
+      <span class="eth-meta-pill">Five Members</span>
+      <span class="eth-meta-pill">30-Day Draft</span>
+      <span class="eth-meta-pill">Member Comment</span>
+      <span class="eth-meta-pill">Recommending Authority</span>
+    </div>
+    <a href="BCOC_Landing.html" class="eth-back-link">&larr; Back to BCOC</a>
+    <div style="margin-top:14px">
+      <a class="gov-docs-pill" href="https://www.bcoc.us/governance-transparency" target="_top">
+        <svg class="lock" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/></svg>
+        Governance Documents
+        <span class="members-tag">Members</span>
+        <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.59 16.59 13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+      </a>
+    </div>
+  </header>
+
+  <!-- Member Feedback CTA -->
+  <section class="report-cta" aria-labelledby="report-cta-title">
+    <div class="report-cta-eyebrow">Member Input</div>
+    <h2 class="report-cta-title" id="report-cta-title">Submit Bylaws Feedback</h2>
+    <p class="report-cta-text">Members are invited to submit suggestions, comments, and proposed language on the Bylaws revision directly to the Bylaws Committee. The formal member comment period is open through <strong>June 30, 2026</strong>.</p>
+    <button class="report-cta-btn" type="button" onclick="bcocCopyBylawsTemplate(event,this)">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+      Copy Feedback Template
+    </button>
+    <div class="cta-toast" id="ctaToast" role="status" aria-live="polite"></div>
+    <span class="report-cta-email">Send to: <strong>bylaws@bcoc.us</strong></span>
+    <div class="report-cta-note">Click the button above to copy a pre-formatted feedback template. Paste it into a new email. Comments are received and processed by the Committee Chair.</div>
+  </section>
+
+  <script>
+  (function(){
+    var TEMPLATE = "To: bylaws@bcoc.us\n" +
+      "Subject: BCOC Bylaws — Member Feedback\n\n" +
+      "To the BCOC Bylaws Committee:\n\n" +
+      "I submit the following feedback for the Committee's consideration during the member comment period.\n\n" +
+      "1. Your Name:\n" +
+      "2. Your Role / Affiliation:\n" +
+      "3. Bylaws Article / Section Referenced:\n" +
+      "4. Nature of Feedback (proposed language, clarification, concern, etc.):\n" +
+      "5. Proposed Language or Comment:\n" +
+      "6. Rationale:\n\n" +
+      "Respectfully,\n";
+
+    function showToast(msg, isError){
+      var t = document.getElementById('ctaToast');
+      if(!t) return;
+      t.innerHTML = '<span class="check">'+(isError?'!':'✓')+'</span>'+msg;
+      if(isError){ t.style.background = '#b82040'; } else { t.style.background = '#0a7a3e'; }
+      t.classList.add('show');
+      clearTimeout(t._h);
+      t._h = setTimeout(function(){ t.classList.remove('show'); }, 5000);
+    }
+
+    function fallbackCopy(text){
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.setAttribute('readonly','');
+      ta.style.position = 'fixed';
+      ta.style.top = '0'; ta.style.left = '0';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.focus(); ta.select();
+      try {
+        var ok = document.execCommand('copy');
+        document.body.removeChild(ta);
+        return !!ok;
+      } catch(e){
+        try{document.body.removeChild(ta);}catch(e2){}
+        return false;
+      }
+    }
+
+    window.bcocCopyBylawsTemplate = function(e, btn){
+      if(e){ e.preventDefault(); e.stopPropagation(); }
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(TEMPLATE).then(function(){
+          showToast('Template copied to clipboard. Paste into a new email.', false);
+        }).catch(function(){
+          if(fallbackCopy(TEMPLATE)){
+            showToast('Template copied to clipboard. Paste into a new email.', false);
+          } else {
+            showToast('Could not copy automatically. Email: bylaws@bcoc.us', true);
+          }
+        });
+      } else {
+        if(fallbackCopy(TEMPLATE)){
+          showToast('Template copied to clipboard. Paste into a new email.', false);
+        } else {
+          showToast('Could not copy automatically. Email: bylaws@bcoc.us', true);
+        }
+      }
+      return false;
+    };
+  })();
+  </script>
+
+  <!-- Purpose -->
+  <div class="sec-title">
+    <h2>Purpose</h2>
+    <div class="rule"></div>
+    <p>What the Committee exists to do, and how it operates.</p>
+  </div>
+  <div class="eth-purpose">
+    <p>The Bylaws Committee is a working body of the Office of the Chair, charged with the orderly review, drafting, and stewardship of proposed amendments to the BCOC Bylaws in accordance with <strong>Article X</strong> of the BCOC Bylaws.</p>
+    <blockquote>The Committee operates as a working body of the Chair and reports through the Chair to the Executive Board and the membership.</blockquote>
+    <p>The Committee opens a member comment period on its initial draft, integrates feedback received, and transmits a final draft to the Executive Board for adoption consideration. <strong>Adoption authority</strong> rests with the Executive Board and the membership under Article X — the Committee&rsquo;s role is to prepare, recommend, and present.</p>
+  </div>
+
+  <!-- Members -->
+  <div class="sec-title">
+    <h2>Committee Members</h2>
+    <div class="rule"></div>
+    <p>Five members in good standing appointed by the Chair pursuant to Resolution 2026&middot;04. The Chair is listed first; remaining members in alphabetical order.</p>
+  </div>
+  <div class="members-section">
+
+    <div class="member-row member-row-top">
+
+      <!-- Maylor (Chair) -->
+      <div class="member-card chair">
+        <div class="member-photo">
+          <img src="https://static.wixstatic.com/media/a6fc8b_a33369fd97094d01bb2efee253ea069a~mv2.jpg" alt="Battalion Chief Terry Maylor">
+        </div>
+        <div class="member-role-pill chair">Chair</div>
+        <div class="member-name">Terry Maylor</div>
+        <div class="member-rank">Battalion Chief</div>
+        <div class="member-position">Ft. Lauderdale, FL &middot; Chair of the Committee</div>
+      </div>
+
+      <!-- Anunay -->
+      <div class="member-card">
+        <div class="member-photo">
+          <img src="https://static.wixstatic.com/media/a6fc8b_0d46e1c1007b42729a0c668f9213f0a4~mv2.jpeg" alt="Deputy Chief Queen Anunay">
+        </div>
+        <div class="member-role-pill">Member</div>
+        <div class="member-name">Queen Anunay</div>
+        <div class="member-rank">Deputy Chief</div>
+        <div class="member-position">Las Vegas, NV</div>
+      </div>
+
+      <!-- Jordan -->
+      <div class="member-card">
+        <div class="member-photo">
+          <img src="https://static.wixstatic.com/media/a6fc8b_a44042216a694050a2152cf130b9f661~mv2.png" alt="Deputy Chief (Ret.) Ruben Jordan" style="object-position:center center">
+        </div>
+        <div class="member-role-pill">Member</div>
+        <div class="member-name">Ruben Jordan</div>
+        <div class="member-rank">Deputy Chief (Ret.)</div>
+        <div class="member-position">Albany, GA</div>
+      </div>
+
+    </div>
+
+    <div class="member-row member-row-bottom">
+
+      <!-- Speight -->
+      <div class="member-card">
+        <div class="member-photo">
+          <img src="https://static.wixstatic.com/media/a6fc8b_38aba5868a3d4528b0afeb0e13b05ef6~mv2.jpg" alt="Battalion Chief Cerisa Speight">
+        </div>
+        <div class="member-role-pill">Member</div>
+        <div class="member-name">Cerisa Speight</div>
+        <div class="member-rank">Battalion Chief</div>
+        <div class="member-position">Baltimore, MD</div>
+      </div>
+
+      <!-- Thomas (mandatory Exec Board recusal) -->
+      <div class="member-card">
+        <div class="member-photo pending"></div>
+        <div class="member-role-pill">Member</div>
+        <div class="member-name">Levi Thomas</div>
+        <div class="member-rank">Battalion Chief (Ret.)</div>
+        <div class="member-position">Miami, FL</div>
+        <span class="member-recusal-flag">Recused at Executive Board</span>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Charge & Limitations -->
+  <div class="sec-title">
+    <h2>Charge &amp; Authority</h2>
+    <div class="rule"></div>
+    <p>What the Committee is empowered to do — and where its authority ends.</p>
+  </div>
+  <div class="gov-grid">
+
+    <div class="gov-card">
+      <h3>The Committee is charged to:</h3>
+      <ul>
+        <li>Review the BCOC Bylaws and identify provisions warranting amendment, clarification, or modernization.</li>
+        <li>Draft proposed amendments in redline or blue-font form and circulate them to the membership through the Chair of the BCOC.</li>
+        <li>Open and administer a member comment period and incorporate received feedback into a final draft.</li>
+        <li>Transmit the final draft to the Executive Board through the Chair of the BCOC, with the Committee&rsquo;s recommendation.</li>
+        <li>Assist with and present the key changes to the membership at the BCOC Annual Conference prior to the membership vote.</li>
+      </ul>
+    </div>
+
+    <div class="gov-card">
+      <h3>Limitations on Authority</h3>
+      <p>The Committee is a <strong>working body with recommending authority</strong>. It does <strong>not adopt, ratify, or finalize</strong> any Bylaws amendment.</p>
+      <p>Adoption authority for proposed Bylaws amendments rests with the <strong>Executive Board and the membership</strong> in accordance with Article X of the BCOC Bylaws.</p>
+      <p>Nothing in the Committee&rsquo;s operating protocols modifies, supersedes, or waives any provision of the BCOC Bylaws, the BCOC Code of Ethics, or any standing policy of the BCOC.</p>
+    </div>
+
+  </div>
+
+  <!-- Procedures key facts -->
+  <div class="sec-title">
+    <h2>Voting &amp; Procedures</h2>
+    <div class="rule"></div>
+    <p>Quorum, vote threshold, meeting notice, and confidentiality — at a glance.</p>
+  </div>
+  <div class="proc-strip">
+    <div class="proc-card">
+      <div class="proc-num"><em>3</em></div>
+      <div class="proc-unit">YEA Votes</div>
+      <div class="proc-label">Minimum affirmative votes required for any Committee action</div>
+    </div>
+    <div class="proc-card">
+      <div class="proc-num"><em>3</em></div>
+      <div class="proc-unit">Quorum</div>
+      <div class="proc-label">Minimum members required for any meeting or vote</div>
+    </div>
+    <div class="proc-card">
+      <div class="proc-num"><em>72</em></div>
+      <div class="proc-unit">Hours Notice</div>
+      <div class="proc-label">Standard meeting notice provided to members where practicable</div>
+    </div>
+    <div class="proc-card">
+      <div class="proc-num"><em>100%</em></div>
+      <div class="proc-unit">Confidential</div>
+      <div class="proc-label">Deliberations &amp; draft language remain confidential until released through the Chair</div>
+    </div>
+  </div>
+
+  <!-- Milestone timeline -->
+  <div class="sec-title">
+    <h2>Milestone Timeline</h2>
+    <div class="rule"></div>
+    <p>Key deadlines for the 2026 Bylaws amendment cycle.</p>
+  </div>
+  <div class="timeline">
+    <div class="timeline-row">
+      <div class="timeline-date">June 14, 2026<small>Within 30 Days</small></div>
+      <div class="timeline-body"><strong>Initial draft</strong> of proposed Bylaws revisions transmitted to the membership and the Executive Board through the Chair of the BCOC — opens the member comment period.</div>
+    </div>
+    <div class="timeline-row">
+      <div class="timeline-date">June 30, 2026<small>Comment Period Closes</small></div>
+      <div class="timeline-body"><strong>Member comment period</strong> closes at close of business. All member feedback must be received by the Committee through the Chair of the BCOC by this date.</div>
+    </div>
+    <div class="timeline-row">
+      <div class="timeline-date">July 6, 2026<small>Final Draft Due</small></div>
+      <div class="timeline-body"><strong>Final draft</strong> incorporating member and Executive Board feedback submitted to the Executive Board through the Chair of the BCOC, with the Committee&rsquo;s recommendation.</div>
+    </div>
+    <div class="timeline-row">
+      <div class="timeline-date">July 13, 2026<small>Exec Board Vote</small></div>
+      <div class="timeline-body"><strong>Executive Board vote</strong> on the final draft Bylaws revisions. Chief Thomas shall be recused in accordance with the Operating Protocols.</div>
+    </div>
+    <div class="timeline-row">
+      <div class="timeline-date">July 15, 2026<small>Posted for Members</small></div>
+      <div class="timeline-body"><strong>Electronic copy</strong> of the Executive Board-approved revisions made available to the membership for review (posting to the BCOC website is acceptable).</div>
+    </div>
+    <div class="timeline-row">
+      <div class="timeline-date">Aug 2&ndash;7, 2026<small>Annual Conference</small></div>
+      <div class="timeline-body"><strong>Committee presents</strong> the key changes to the membership at the BCOC Annual Conference (Loews Atlanta Hotel) prior to the membership vote on the proposed Bylaws revisions.</div>
+    </div>
+  </div>
+
+  <!-- Recusals & Counsel -->
+  <div class="sec-title">
+    <h2>Recusals &amp; Counsel</h2>
+    <div class="rule"></div>
+  </div>
+  <div class="gov-grid">
+    <div class="gov-card">
+      <h3>Mandatory Recusal — Chief Thomas</h3>
+      <p>Battalion Chief (Ret.) Levi Thomas serves on both the BCOC Executive Board and the Bylaws Committee. To preserve the integrity of the process and avoid any appearance of self-review, Chief Thomas shall <strong>recuse himself from Executive Board deliberations and votes</strong> on Bylaws Committee work product.</p>
+      <p>Chief Thomas <strong>retains full voting rights within the Committee</strong>. The recusal applies only at the Executive Board level and is lifted upon completion of the applicable amendment cycle.</p>
+      <p style="margin-top:14px"><strong>General standard:</strong> Any member who becomes aware of a personal, professional, or institutional interest that may reasonably call impartiality into question shall disclose it and recuse from deliberations and votes on that specific item.</p>
+    </div>
+    <div class="gov-card">
+      <h3>Engagement of Counsel</h3>
+      <p>Where the Committee identifies a question warranting legal or parliamentary review, the Chair of the Committee shall refer the question to the <strong>Chair of the BCOC</strong>, who may engage counsel or the Parliamentarian as appropriate.</p>
+      <h3 style="margin-top:18px">Term &amp; Dissolution</h3>
+      <p>The Committee remains in effect until superseded by another resolution of the Chair or the Executive Board. Members serve at the pleasure of the Chair; vacancies are filled by the Chair at any time.</p>
+    </div>
+  </div>
+
+  <!-- Resolution attestation block -->
+  <div class="resolution-mark">
+    <div class="rm-label">Resolution 2026 &middot; 04 — In Witness Whereof</div>
+    <div class="rm-title">Executed under the authority of the Chair of the Black Chief Officers Committee</div>
+    <div class="rm-body">&ldquo;Pursuant to the authority vested in the Chair under Article IV, Section 1(a) and 1(d) of the BCOC Bylaws, and in support of the functions described in Article X, this Resolution shall take effect immediately and shall be entered into the official records of the BCOC.&rdquo;</div>
+    <div class="rm-sig">
+      <div class="rm-sig-block">
+        <div class="rm-sig-name">Dr. Hezedean A. Smith, DM, CFO, CEMSO, NRP, CPM, COSS, EFO-EMSO</div>
+        <div class="rm-sig-role">Chair, Black Chief Officers Committee</div>
+      </div>
+      <div class="rm-sig-block">
+        <div class="rm-sig-name">Donna Gayden, CFE</div>
+        <div class="rm-sig-role">Executive Coordinator, Attest</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="eth-footer">
+    <div class="footer-logos">
+      <img src="https://static.wixstatic.com/media/1700c8_b2680286f4244f40a9afec02808f2d36~mv2.png" alt="BCOC">
+      <img src="https://static.wixstatic.com/media/a6fc8b_b3b55f4d44cb46c3a8c981c0bcf42ad3~mv2.png" alt="40th Anniversary">
+    </div>
+    <div class="footer-motto">Black Chief Officers Committee</div>
+    <div class="footer-text">For Bylaws Committee correspondence, contact the Committee at <a href="mailto:bylaws@bcoc.us" style="color:#e8be5a;text-decoration:none">bylaws@bcoc.us</a> or the Office of the Chair.</div>
+    <div class="footer-small">Resolution 2026 &middot; 04 &middot; Adopted May 15, 2026</div>
+  </footer>
+
+</div>
+</body>
+</html>
