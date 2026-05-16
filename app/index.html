@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>BCOC 2026 Conference App</title>
+<meta name="description" content="Black Chief Officers Committee 40th Anniversary Conference — Agenda, Speakers, Sessions">
+<meta name="theme-color" content="#14213d">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="BCOC 2026">
+
+<!-- Open Graph / WhatsApp link preview -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="BCOC 2026 Conference App">
+<meta property="og:description" content="Black Chief Officers Committee 40th Anniversary Conference — Agenda, Speakers, Sessions. Tap to add to your home screen.">
+<meta property="og:image" content="https://hsmith-cyber.github.io/bcoc-website/app/icons/icon-512.png">
+<meta property="og:url" content="https://hsmith-cyber.github.io/bcoc-website/app/">
+<meta name="twitter:card" content="summary_large_image">
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0a0f1a;
+  --navy-2:#14213d;
+  --gold:#c8962e;
+  --gold-light:#e8be5a;
+  --crimson:#b82040;
+  --ink:#f1ebd9;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{
+  min-height:100vh;
+  background:var(--navy);
+  font-family:'Source Sans 3',sans-serif;
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+}
+body{
+  background-image:
+    radial-gradient(ellipse at top right,rgba(200,150,46,0.08) 0%,transparent 55%),
+    radial-gradient(ellipse at bottom left,rgba(184,32,64,0.08) 0%,transparent 50%);
+  background-attachment:fixed;
+  padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+.app-shell{max-width:560px;margin:0 auto;padding:20px 18px 40px}
+.brand{
+  display:flex;align-items:center;gap:14px;padding:8px 4px 18px;
+  border-bottom:1px solid rgba(232,190,90,0.18);margin-bottom:22px;
+}
+.brand img{width:54px;height:54px;border-radius:10px;background:#fff;padding:4px}
+.brand-text h1{
+  font-family:'Cinzel',serif;font-size:18px;font-weight:700;letter-spacing:1px;color:var(--gold-light);line-height:1.1;
+}
+.brand-text p{font-size:12px;color:rgba(241,235,217,0.7);letter-spacing:1.5px;text-transform:uppercase;margin-top:3px}
+.hero{
+  text-align:center;padding:28px 18px 32px;margin-bottom:24px;
+  background:linear-gradient(180deg,rgba(20,33,61,0.6) 0%,rgba(10,15,26,0.2) 100%);
+  border:1px solid rgba(232,190,90,0.22);border-radius:14px;
+}
+.hero .badge{
+  display:inline-block;font-family:'Cinzel',serif;font-size:11px;letter-spacing:3px;color:var(--gold);
+  padding:5px 14px;border:1px solid rgba(200,150,46,0.45);border-radius:20px;margin-bottom:14px;
+}
+.hero h2{font-family:'Cinzel',serif;font-size:24px;color:var(--ink);line-height:1.25;margin-bottom:10px}
+.hero p{font-size:14px;color:rgba(241,235,217,0.75);line-height:1.5}
+.section-label{
+  font-family:'Cinzel',serif;font-size:12px;letter-spacing:2.5px;color:var(--gold);
+  text-transform:uppercase;margin:8px 4px 12px;
+}
+.cards{display:grid;grid-template-columns:1fr;gap:12px}
+.card{
+  display:flex;align-items:center;gap:14px;padding:16px 18px;
+  background:linear-gradient(135deg,rgba(20,33,61,0.7) 0%,rgba(10,15,26,0.5) 100%);
+  border:1px solid rgba(232,190,90,0.2);border-radius:12px;
+  text-decoration:none;color:var(--ink);
+  transition:transform 0.15s ease, border-color 0.15s ease;
+}
+.card:active{transform:scale(0.98);border-color:rgba(232,190,90,0.45)}
+.card-icon{
+  flex-shrink:0;width:44px;height:44px;border-radius:10px;
+  background:linear-gradient(135deg,var(--gold) 0%,var(--gold-light) 100%);
+  display:flex;align-items:center;justify-content:center;color:var(--navy);font-size:22px;font-weight:700;
+}
+.card-body{flex:1;min-width:0}
+.card-title{font-weight:700;font-size:16px;color:var(--ink);margin-bottom:2px}
+.card-desc{font-size:13px;color:rgba(241,235,217,0.65);line-height:1.35}
+.card-arrow{color:var(--gold);font-size:20px;flex-shrink:0}
+.install-banner{
+  display:none;margin-top:22px;padding:14px 16px;
+  background:linear-gradient(135deg,rgba(200,150,46,0.12) 0%,rgba(184,32,64,0.1) 100%);
+  border:1px solid rgba(200,150,46,0.35);border-radius:12px;
+  font-size:13px;line-height:1.5;
+}
+.install-banner.show{display:block}
+.install-banner strong{color:var(--gold-light)}
+footer{text-align:center;margin-top:28px;padding-top:18px;border-top:1px solid rgba(232,190,90,0.15);font-size:11px;letter-spacing:1.5px;color:rgba(241,235,217,0.5);text-transform:uppercase}
+</style>
+</head>
+<body>
+<div class="app-shell">
+
+  <div class="brand">
+    <img src="icons/icon-192.png" alt="BCOC">
+    <div class="brand-text">
+      <h1>BCOC 2026</h1>
+      <p>40th Anniversary</p>
+    </div>
+  </div>
+
+  <div class="hero">
+    <div class="badge">Conference Companion</div>
+    <h2>Welcome to BCOC 2026</h2>
+    <p>Your pocket guide to the conference — agenda, speakers, and session details, all in one place.</p>
+  </div>
+
+  <div class="section-label">Conference</div>
+  <div class="cards">
+    <a class="card" href="../BCOC_2026_Conference_Binder.html">
+      <div class="card-icon">B</div>
+      <div class="card-body">
+        <div class="card-title">Conference Binder</div>
+        <div class="card-desc">Full program book — schedule, speakers, sponsors</div>
+      </div>
+      <div class="card-arrow">›</div>
+    </a>
+
+    <a class="card" href="../BCOC_2026_Agenda_Flipbook.html">
+      <div class="card-icon">A</div>
+      <div class="card-body">
+        <div class="card-title">Agenda</div>
+        <div class="card-desc">Day-by-day schedule with sessions and times</div>
+      </div>
+      <div class="card-arrow">›</div>
+    </a>
+
+    <a class="card" href="../BCOC_2026_Session_Details.html">
+      <div class="card-icon">S</div>
+      <div class="card-body">
+        <div class="card-title">Session Details</div>
+        <div class="card-desc">Descriptions, learning objectives, room assignments</div>
+      </div>
+      <div class="card-arrow">›</div>
+    </a>
+
+    <a class="card" href="../BCOC_2026_Speaker_Bios.html">
+      <div class="card-icon">P</div>
+      <div class="card-body">
+        <div class="card-title">Speakers</div>
+        <div class="card-desc">Bios and headshots for every presenter</div>
+      </div>
+      <div class="card-arrow">›</div>
+    </a>
+  </div>
+
+  <div class="section-label" style="margin-top:24px">Committees</div>
+  <div class="cards">
+    <a class="card" href="../BCOC_Committees_v2.html">
+      <div class="card-icon">C</div>
+      <div class="card-body">
+        <div class="card-title">Committees</div>
+        <div class="card-desc">Bylaws, Ethics, Elections, and more</div>
+      </div>
+      <div class="card-arrow">›</div>
+    </a>
+  </div>
+
+  <div class="install-banner" id="installBanner">
+    <strong>Install this app:</strong> Tap the share button in your browser, then choose <strong>Add to Home Screen</strong> for one-tap access throughout the conference.
+  </div>
+
+  <footer>Black Chief Officers Committee · Est. 1986</footer>
+
+</div>
+
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('service-worker.js').catch(() => {});
+  });
+}
+
+const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
+const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+if (isMobile && !isStandalone) {
+  document.getElementById('installBanner').classList.add('show');
+}
+</script>
+</body>
+</html>
