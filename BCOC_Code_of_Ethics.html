@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BCOC · Code of Ethics</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;background:#e8e4de;font-family:'Source Sans 3',sans-serif;color:#1a1a1a;min-height:100vh}
+.wrap{max-width:1100px;margin:0 auto;padding:18px 24px 60px}
+
+/* === Masthead === */
+.masthead{position:relative;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:12px 24px;background:linear-gradient(100deg,#0a0f1a 0%,#14213d 45%,#1b2d50 75%,#14213d 100%);border-radius:12px 12px 0 0;box-shadow:0 8px 24px rgba(0,0,0,0.28);overflow:hidden;color:#fff}
+.masthead::after{content:'';position:absolute;bottom:0;left:0;right:0;height:5px;background:repeating-linear-gradient(90deg,#c8962e 0,#c8962e 20%,#b82040 20%,#b82040 40%,#c8962e 40%,#c8962e 60%,#b82040 60%,#b82040 80%,#c8962e 80%,#c8962e 100%)}
+.mh-logo-left,.mh-logo-right{flex-shrink:0;filter:drop-shadow(0 3px 8px rgba(0,0,0,0.4))}
+.mh-logo-left{height:52px}
+.mh-logo-right{height:56px}
+.mh-center{flex:1;text-align:center;min-width:0}
+.mh-title{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(14px,1.9vw,20px);letter-spacing:2px;line-height:1.15;white-space:nowrap}
+.mh-title span{color:#e8be5a}
+.mh-tag{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(10px,1.2vw,13px);color:rgba(232,190,90,0.92);margin-top:3px;letter-spacing:0.8px}
+
+/* === Hero === */
+.eth-hero{position:relative;background:linear-gradient(170deg,#14213d 0%,#1b2d50 55%,#14213d 100%);color:#fff;padding:42px 32px 48px;text-align:center;border-radius:0 0 14px 14px;box-shadow:0 10px 30px rgba(0,0,0,0.2);margin-top:-4px;overflow:hidden}
+.eth-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:6px;background:repeating-linear-gradient(90deg,#c8962e 0,#c8962e 20%,#b82040 20%,#b82040 40%,#c8962e 40%,#c8962e 60%,#b82040 60%,#b82040 80%,#c8962e 80%,#c8962e 100%)}
+.eth-hero-eyebrow{font-size:11px;font-weight:800;letter-spacing:6px;color:#e8be5a;text-transform:uppercase;margin-bottom:14px}
+.eth-hero h1{font-family:'Playfair Display',serif;font-size:clamp(40px,6.5vw,68px);font-weight:900;margin:0 0 12px;letter-spacing:1.5px;line-height:1.05}
+.eth-hero h1 em{font-style:italic;background:linear-gradient(135deg,#e8be5a,#c8962e);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.eth-hero-role{font-family:'Playfair Display',serif;font-style:italic;font-size:20px;color:#e8be5a;margin-top:8px;letter-spacing:1.2px}
+.eth-hero-sub{font-family:'Playfair Display',serif;font-style:italic;font-size:16px;color:rgba(255,255,255,0.82);max-width:780px;margin:18px auto 0;line-height:1.65}
+.eth-meta-pills{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:24px;flex-wrap:wrap}
+.eth-meta-pill{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#e8be5a;border:1px solid rgba(232,190,90,0.55);padding:6px 14px;border-radius:999px}
+
+/* === Section titles === */
+.sec-title{text-align:center;margin:52px 0 26px}
+.sec-title h2{font-family:'Playfair Display',serif;font-size:40px;font-weight:900;color:#14213d;letter-spacing:1.2px;line-height:1.1}
+.sec-title h2 em{font-style:italic;color:#c8962e}
+.sec-title .rule{width:96px;height:3px;background:linear-gradient(90deg,transparent,#c8962e,transparent);margin:14px auto 0}
+.sec-title p{font-size:14.5px;color:#777;font-style:italic;margin-top:12px;max-width:760px;margin-left:auto;margin-right:auto;line-height:1.55}
+
+/* === Purpose card === */
+.eth-purpose{background:#fff;border:1px solid #eae4d6;border-radius:14px;padding:34px 38px;box-shadow:0 4px 18px rgba(20,33,61,0.07);position:relative;overflow:hidden}
+.eth-purpose::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#c8962e,#b82040,#c8962e)}
+.eth-purpose p{font-size:15.5px;color:#3a3a3a;line-height:1.78;margin-bottom:16px}
+.eth-purpose p:last-child{margin-bottom:0}
+.eth-purpose strong{color:#14213d;font-weight:700}
+.eth-purpose .pledge{margin:24px 0 6px;padding:18px 22px;background:#fdf6e8;border-left:4px solid #c8962e;border-radius:4px;font-style:italic;color:#5d4a1f;font-size:15px;line-height:1.7}
+
+/* === Standards grid (member conduct items) === */
+.standards-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;width:100%}
+@media(max-width:760px){.standards-grid{grid-template-columns:1fr}}
+.std-card{background:#fff;border:1px solid #eae4d6;border-radius:12px;padding:20px 22px 20px 64px;box-shadow:0 3px 12px rgba(20,33,61,0.06);position:relative;transition:all 0.2s}
+.std-card:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(20,33,61,0.12);border-color:#c8962e}
+.std-num{position:absolute;left:18px;top:18px;width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#c8962e,#b82040);color:#fff;font-family:'Playfair Display',serif;font-weight:900;font-size:14px;display:flex;align-items:center;justify-content:center;letter-spacing:0.5px}
+.std-card p{font-size:14.5px;color:#2a2a2a;line-height:1.65}
+.std-card p strong{color:#14213d}
+
+/* === Board Members card === */
+.board-card{background:#fff;border:1px solid #eae4d6;border-radius:14px;padding:34px 38px;box-shadow:0 4px 18px rgba(20,33,61,0.07);position:relative;overflow:hidden}
+.board-card::before{content:'';position:absolute;top:0;left:0;width:6px;bottom:0;background:linear-gradient(180deg,#b82040,#c8962e,#b82040)}
+.board-card .lead{font-size:15.5px;color:#3a3a3a;line-height:1.75;margin-bottom:20px}
+.board-card .lead strong{color:#14213d;font-weight:700}
+.board-card .shall-not-label{font-family:'Playfair Display',serif;font-weight:900;font-size:18px;letter-spacing:2px;color:#b82040;text-transform:uppercase;margin:10px 0 16px;padding-bottom:8px;border-bottom:2px solid #f0e3d2}
+.board-card ul{list-style:none;padding:0;margin:0}
+.board-card li{font-size:14.5px;color:#2a2a2a;line-height:1.7;margin-bottom:14px;padding-left:32px;position:relative}
+.board-card li::before{content:'\2715';position:absolute;left:0;top:1px;width:22px;height:22px;border-radius:50%;background:rgba(184,32,64,0.12);color:#b82040;font-weight:900;font-size:11px;display:flex;align-items:center;justify-content:center}
+.board-card li:last-child{margin-bottom:0}
+.board-card .gift-amount{display:inline-block;padding:2px 10px;background:#fdf6e8;border:1px dashed #c8962e;border-radius:4px;color:#8a6817;font-weight:700;font-size:13px;letter-spacing:0.5px}
+
+/* === Reporting note === */
+.reporting{margin-top:26px;padding:22px 26px;background:linear-gradient(135deg,#14213d 0%,#1b2d50 100%);color:#fff;border-radius:14px;box-shadow:0 6px 22px rgba(20,33,61,0.18);position:relative;overflow:hidden}
+.reporting::after{content:'';position:absolute;bottom:0;left:0;right:0;height:4px;background:repeating-linear-gradient(90deg,#c8962e 0,#c8962e 20%,#b82040 20%,#b82040 40%,#c8962e 40%,#c8962e 60%,#b82040 60%,#b82040 80%,#c8962e 80%,#c8962e 100%)}
+.reporting h3{font-family:'Playfair Display',serif;color:#e8be5a;font-size:22px;margin-bottom:10px;font-weight:900;letter-spacing:0.6px}
+.reporting p{font-size:15px;line-height:1.7;color:rgba(255,255,255,0.92)}
+.reporting p strong{color:#e8be5a;font-weight:700}
+
+/* === Footnote === */
+.footnote{margin-top:30px;font-size:12.5px;color:#777;font-style:italic;text-align:center;line-height:1.6;max-width:820px;margin-left:auto;margin-right:auto}
+
+/* === Action row === */
+.actions{display:flex;justify-content:center;gap:14px;margin-top:34px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;color:#fff;background:#14213d;border:2px solid #14213d;border-radius:999px;text-decoration:none;font-weight:700;font-size:12px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all 0.2s;font-family:'Source Sans 3',sans-serif}
+.btn:hover{background:#c8962e;border-color:#c8962e;color:#14213d}
+.btn.ghost{background:transparent;color:#14213d}
+.btn.ghost:hover{background:#14213d;color:#fff}
+
+@media print{
+  body{background:#fff}
+  .wrap{padding:0;max-width:100%}
+  .masthead,.eth-hero{box-shadow:none;border-radius:0}
+  .actions{display:none}
+  .std-card,.board-card,.eth-purpose,.reporting{box-shadow:none;page-break-inside:avoid}
+}
+
+@media(max-width:720px){
+  .masthead{flex-direction:column;padding:14px 16px;gap:10px}
+  .mh-title{white-space:normal;line-height:1.25;font-size:16px}
+  .eth-purpose,.board-card{padding:24px 22px}
+  .sec-title h2{font-size:30px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- Masthead -->
+  <div class="masthead">
+    <img class="mh-logo-left" src="https://static.wixstatic.com/media/1700c8_b2680286f4244f40a9afec02808f2d36~mv2.png" alt="BCOC">
+    <div class="mh-center">
+      <div class="mh-title">BLACK CHIEF OFFICERS <span>COMMITTEE</span></div>
+      <div class="mh-tag">Governance &amp; Standards · Code of Ethics</div>
+    </div>
+    <img class="mh-logo-right" src="https://static.wixstatic.com/media/a6fc8b_b3b55f4d44cb46c3a8c981c0bcf42ad3~mv2.png" alt="40th Anniversary">
+  </div>
+
+  <!-- Hero -->
+  <header class="eth-hero">
+    <div class="eth-hero-eyebrow">Professional Standards · BCOC</div>
+    <h1>Code of <em>Ethics</em></h1>
+    <div class="eth-hero-role">Integrity · Professionalism · Public Trust</div>
+    <div class="eth-hero-sub">A shared standard of conduct for the members and Board of the Black Chief Officers Committee — protecting the integrity of the organization and the communities its members serve.</div>
+    <div class="eth-meta-pills">
+      <span class="eth-meta-pill">All Members</span>
+      <span class="eth-meta-pill">Officers &amp; Board</span>
+      <span class="eth-meta-pill">On &amp; Off Duty</span>
+      <span class="eth-meta-pill">Reportable</span>
+    </div>
+  </header>
+
+  <!-- Purpose -->
+  <section>
+    <div class="sec-title">
+      <h2>Purpose &amp; <em>Pledge</em></h2>
+      <div class="rule"></div>
+      <p>Why this Code exists and what every member commits to upholding.</p>
+    </div>
+    <div class="eth-purpose">
+      <p>The <strong>Black Chief Officers Committee (BCOC)</strong> primarily represents current and aspiring Black executives in the "All Hazards" response community. Trust is a staple of our organization. To ensure the continuing integrity of the BCOC, the highest standards of ethical conduct must be maintained at all times.</p>
+      <p>The purpose of this <strong>Professional Code of Ethics</strong> is to establish criteria that encourages members to promote a culture of ethical integrity and high standards of professionalism in our field. The broad scope of this Code is intended to mitigate and negate situations that may result in embarrassment and waning support for what has historically been a highly respected organization.</p>
+      <div class="pledge">
+        All members of the BCOC share a responsibility to project an ethical character of <strong style="color:#5d4a1f">professionalism, integrity, compassion, loyalty, and honesty</strong> in all that we do, all of the time. Doing so assists in fostering a positive public perception.
+      </div>
+    </div>
+  </section>
+
+  <!-- Members standards -->
+  <section>
+    <div class="sec-title">
+      <h2>Members <em>Shall</em></h2>
+      <div class="rule"></div>
+      <p>The standards of conduct every BCOC member is expected to uphold.</p>
+    </div>
+    <div class="standards-grid">
+      <div class="std-card"><div class="std-num">1</div><p>Always conduct themselves, on and off duty, in a manner that reflects positively on self, family, and the BCOC.</p></div>
+      <div class="std-card"><div class="std-num">2</div><p>Accept responsibility for their actions and for the consequences of their actions.</p></div>
+      <div class="std-card"><div class="std-num">3</div><p>Support the concept of fairness and the value of diverse thoughts and opinions.</p></div>
+      <div class="std-card"><div class="std-num">4</div><p>Avoid situations that would adversely affect the credibility or public perception of the BCOC.</p></div>
+      <div class="std-card"><div class="std-num">5</div><p>Are truthful and honest at all times and report instances of cheating or other dishonest or unethical acts that compromise the integrity of the BCOC.</p></div>
+      <div class="std-card"><div class="std-num">6</div><p>Conduct personal affairs in a manner that does not improperly influence the performance of their duties or bring discredit to the BCOC.</p></div>
+      <div class="std-card"><div class="std-num">7</div><p>Are respectful and conscious of each member's safety and welfare.</p></div>
+      <div class="std-card"><div class="std-num">8</div><p>Recognize that they serve in a position of public trust that requires stewardship in the honest and efficient use of human resources, fiscal resources, and all publicly owned resources, and that these resources are protected from misuse and theft.</p></div>
+      <div class="std-card"><div class="std-num">9</div><p>Exercise professionalism, competence, respect, and loyalty in the performance of their duties and use information, confidential or otherwise, gained by virtue of their positions, only to benefit those they are entrusted to serve.</p></div>
+      <div class="std-card"><div class="std-num">10</div><p>Avoid financial investments, outside employment, outside business interests, or activities that conflict with — or are enhanced by — their official positions, or have the potential to create the perception of impropriety.</p></div>
+      <div class="std-card"><div class="std-num">11</div><p>Never propose or accept personal rewards, special privileges, benefits, advancement, honors, or gifts that may create a conflict of interest or the appearance thereof.</p></div>
+      <div class="std-card"><div class="std-num">12</div><p>Never discriminate on the basis of race, religion, color, creed, age, marital status, national origin, ancestry, gender, sexual preference, medical condition, or disability.</p></div>
+      <div class="std-card"><div class="std-num">13</div><p>Never harass, intimidate, threaten, or bully — in any manner — fellow members of the BCOC, the fire service, and/or the public; and shall stop and/or report the actions of others who engage in such behaviors.</p></div>
+      <div class="std-card"><div class="std-num">14</div><p>Comply with all laws and campaign rules when supporting political candidates and engaging in political activities.</p></div>
+      <div class="std-card"><div class="std-num">15</div><p>Refrain from endorsing commercial products through quotations, use of photographs, and testimonials for personal gain.</p></div>
+      <div class="std-card"><div class="std-num">16</div><p>Responsibly use social networking, electronic communications, or other media technology in a manner that does not discredit, dishonor, or embarrass the BCOC. Members also understand that failure to resolve or report inappropriate use of these media equates to condoning such behavior.</p></div>
+    </div>
+  </section>
+
+  <!-- Board Members -->
+  <section>
+    <div class="sec-title">
+      <h2>Officers &amp; <em>Board Members</em></h2>
+      <div class="rule"></div>
+      <p>Heightened standards for those entrusted with the leadership of the organization.</p>
+    </div>
+    <div class="board-card">
+      <p class="lead">All officers and Board members of the BCOC are required to exercise the <strong>highest ethical standards of conduct</strong> and practice fundamental honesty at all times.</p>
+      <div class="shall-not-label">Officers and Board Members Shall Not</div>
+      <ul>
+        <li>Deceive, defraud, or mislead BCOC members, officers, or those with whom the BCOC has business or other relationships.</li>
+        <li>Misrepresent the BCOC in any negotiations, dealings, contracts, or agreements.</li>
+        <li>Divulge or release any information relating to the BCOC's plans, mission, or operational databases without appropriate approval.</li>
+        <li>Obtain a personal advantage or benefit by use of the organization's name.</li>
+        <li>Accept individual gifts of any kind in excess of <span class="gift-amount">$[amount to be set]</span> in connection with the board member's relationship with the BCOC.</li>
+        <li>Withhold their best efforts to perform their duties to acceptable standards.</li>
+        <li>Engage in unethical business practices of any type.</li>
+        <li>Use BCOC property, financial resources, or services of BCOC members for personal benefit.</li>
+        <li>Be convicted of any civil or criminal offense(s).</li>
+      </ul>
+    </div>
+
+    <div class="reporting">
+      <h3>Reporting Infractions</h3>
+      <p>Infractions of this Statement of Personal and Professional Standards of Conduct are to be reported directly to <strong>any member of the Audit Committee</strong>, who shall, in their determination, bring the infraction to the <strong>full Executive Committee</strong>.</p>
+    </div>
+
+    <p class="footnote">* This Professional Code of Ethics is adopted by the Black Chief Officers Committee to articulate the shared standards of conduct expected of every member and officer. It is intended to complement — not replace — applicable laws, employer rules of conduct, and any sworn oaths of office that BCOC members may hold in their primary roles.</p>
+
+    <div class="actions">
+      <button class="btn" onclick="window.print()">Print Code of Ethics</button>
+      <a class="btn ghost" href="BCOC_Ethics_Committee.html">Ethics Review Committee →</a>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
