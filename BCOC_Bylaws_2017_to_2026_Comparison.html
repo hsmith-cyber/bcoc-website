@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BCOC Bylaws 2026 - Two-Column Comparison</title>
+<style>
+  :root{
+    --navy:#001F5B;
+    --gold:#C8A24B;
+    --red:#C8102E;
+    --green:#1B5E33;
+    --ink:#1a1a1a;
+    --paper:#fffdf8;
+    --cream:#f6f1e7;
+    --line:#d9cfba;
+    --newbg:#fdf0f0;
+    --nochangebg:#f3f6f2;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:"Georgia","Cambria",serif;
+    line-height:1.5;
+  }
+  .wrap{max-width:1100px;margin:0 auto;padding:0 20px 80px;}
+  header.masthead{
+    background:var(--navy);
+    color:#fff;
+    padding:42px 20px 34px;
+    text-align:center;
+    border-bottom:6px solid var(--gold);
+  }
+  header.masthead .kicker{
+    font-family:"Trebuchet MS","Segoe UI",sans-serif;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    font-size:12px;
+    color:var(--gold);
+    margin:0 0 10px;
+  }
+  header.masthead h1{
+    margin:0 0 8px;
+    font-size:32px;
+    letter-spacing:0.5px;
+  }
+  header.masthead p{
+    margin:4px 0 0;
+    font-size:16px;
+    color:#cfd7e6;
+    font-family:"Trebuchet MS","Segoe UI",sans-serif;
+  }
+  .legend{
+    max-width:1100px;
+    margin:26px auto 0;
+    padding:14px 18px;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-left:5px solid var(--gold);
+    border-radius:6px;
+    font-family:"Trebuchet MS","Segoe UI",sans-serif;
+    font-size:15.5px;
+  }
+  .legend strong{color:var(--navy);}
+  .legend .chip{
+    display:inline-block;
+    padding:2px 9px;
+    border-radius:3px;
+    font-weight:bold;
+    margin:0 4px;
+    font-size:12px;
+  }
+  .chip.new{background:var(--newbg);color:var(--red);border:1px solid #eccccc;}
+  .chip.same{background:var(--nochangebg);color:var(--green);border:1px solid #cfe0d2;}
+  .source-link{
+    display:inline-block;
+    margin-top:10px;
+    padding:8px 14px;
+    background:var(--navy);
+    color:#fff;
+    text-decoration:none;
+    font-family:"Trebuchet MS","Segoe UI",sans-serif;
+    font-size:14.5px;
+    letter-spacing:0.5px;
+    text-transform:uppercase;
+    border-radius:4px;
+    border:2px solid var(--navy);
+    transition:background .15s,color .15s;
+  }
+  .source-link:hover{background:#fff;color:var(--navy);}
+  .exhibits-row{
+    margin:18px 0 8px;
+    padding:16px 18px;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-left:5px solid var(--gold);
+    border-radius:6px;
+  }
+  .exhibits-row .label{
+    display:block;
+    font-family:"Trebuchet MS","Segoe UI",sans-serif;
+    font-size:13.5px;
+    color:var(--navy);
+    font-weight:bold;
+    letter-spacing:0.5px;
+    text-transform:uppercase;
+    margin-bottom:10px;
+  }
+  .exhibits-row .ex-btns{display:flex;flex-wrap:wrap;gap:8px;}
+  .exhibits-row .ex-btn{
+    display:inline-block;
+    background:var(--navy);
+    color:#fff;
+    text-decoration:none;
+    font-family:"Trebuchet MS","Segoe UI",sans-serif;
+    font-size:13.5px;
+    padding:8px 13px;
+    border-radius:4px;
+    border:2px solid var(--navy);
+    transition:background .15s,color .15s;
+  }
+  .exhibits-row .ex-btn:hover{background:#fff;color:var(--navy);}
+  .exhibits-row .ex-btn.ack{border-color:var(--green);background:var(--green);}
+  .exhibits-row .ex-btn.ack:hover{background:#fff;color:var(--green);}
+
+  .toc{
+    max-width:1100px;
+    margin:22px auto 0;
+    padding:18px 22px;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:6px;
+  }
+  .toc h2{
+    margin:0 0 12px;
+    font-size:17px;
+    color:var(--navy);
+    font-family:"Trebuchet MS","Segoe UI",sans-serif;
+    letter-spacing:1px;
+    text-transform:uppercase;
+  }
+  .toc ol{margin:0;padding-left:22px;columns:2;column-gap:34px;font-size:16px;}
+  .toc li{margin:0 0 7px;break-inside:avoid;}
+  .toc a{color:var(--ink);text-decoration:none;border-bottom:1px dotted var(--gold);}
+  .toc a:hover{color:var(--red);}
+  .toc .flag{
+    font-family:"Trebuchet MS","Segoe UI",sans-serif;
+    font-size:10.5px;
+    font-weight:bold;
+    text-transform:uppercase;
+    letter-spacing:0.5px;
+    padding:1px 6px;
+    border-radius:3px;
+    margin-left:6px;
+  }
+  .flag.changed{background:var(--newbg);color:var(--red);}
+  .flag.unchanged{background:var(--nochangebg);color:var(--green);}
+  article.art{
+    margin-top:40px;
+    scroll-margin-top:16px;
+  }
+  article.art > h2{
+    font-size:23px;
+    color:#fff;
+    background:var(--navy);
+    margin:0;
+    padding:13px 18px;
+    border-radius:6px 6px 0 0;
+    font-family:"Trebuchet MS","Segoe UI",sans-serif;
+    letter-spacing:0.5px;
+  }
+  article.art > h2 .adopt{
+    display:block;
+    font-size:12px;
+    font-weight:normal;
+    color:#cfd7e6;
+    margin-top:3px;
+    letter-spacing:0.3px;
+  }
+  table{
+    width:100%;
+    border-collapse:collapse;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-top:none;
+  }
+  thead th{
+    background:var(--cream);
+    color:var(--navy);
+    text-align:left;
+    font-family:"Trebuchet MS","Segoe UI",sans-serif;
+    font-size:14.5px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    padding:10px 16px;
+    border-bottom:2px solid var(--gold);
+    width:50%;
+  }
+  tbody td{
+    vertical-align:top;
+    padding:14px 16px;
+    border-bottom:1px solid var(--line);
+    font-size:17px;
+  }
+  tbody td:first-child{border-right:1px solid var(--line);}
+  tr.section-band td{
+    background:var(--gold);
+    color:var(--navy);
+    font-family:"Trebuchet MS","Segoe UI",sans-serif;
+    font-weight:bold;
+    font-size:15px;
+    letter-spacing:0.8px;
+    text-transform:uppercase;
+    padding:9px 16px;
+  }
+  td.new{background:var(--newbg);}
+  td.new .tag{
+    display:inline-block;
+    font-family:"Trebuchet MS","Segoe UI",sans-serif;
+    font-size:10.5px;
+    font-weight:bold;
+    color:#fff;
+    background:var(--red);
+    padding:1px 7px;
+    border-radius:3px;
+    margin-right:7px;
+    letter-spacing:0.5px;
+    vertical-align:middle;
+  }
+  td.revised .tag{background:var(--gold);color:var(--navy);}
+  td.nochange{
+    background:var(--nochangebg);
+    color:var(--green);
+    font-style:italic;
+    font-family:"Trebuchet MS","Segoe UI",sans-serif;
+    font-size:14.5px;
+  }
+  .lettered{font-weight:bold;color:var(--navy);}
+  .backtop{
+    font-family:"Trebuchet MS","Segoe UI",sans-serif;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    color:var(--gold);
+    text-decoration:none;
+    float:right;
+    margin-top:6px;
+  }
+  .backtop:hover{color:var(--red);}
+  .fb-bar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:10px;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-top:none;
+    border-radius:0 0 6px 6px;
+    padding:12px 16px;
+  }
+  .fb-bar .fb-label{
+    font-family:"Trebuchet MS","Segoe UI",sans-serif;
+    font-size:15px;
+    color:var(--navy);
+    font-weight:bold;
+    letter-spacing:0.3px;
+  }
+  .fb-btn{
+    display:inline-block;
+    color:#fff;
+    font-family:"Trebuchet MS","Segoe UI",sans-serif;
+    font-size:15px;
+    font-weight:bold;
+    letter-spacing:0.5px;
+    text-transform:uppercase;
+    text-decoration:none;
+    padding:9px 18px;
+    border-radius:4px;
+    transition:background .15s,color .15s;
+  }
+  .fb-agree{background:var(--green);border:2px solid var(--green);}
+  .fb-agree:hover{background:#fff;color:var(--green);}
+  .fb-disagree{background:var(--red);border:2px solid var(--red);}
+  .fb-disagree:hover{background:#fff;color:var(--red);}
+  .fb-btns{display:flex;gap:10px;flex-wrap:wrap;}
+  .fb-hint{display:block;width:100%;font-family:"Trebuchet MS","Segoe UI",sans-serif;font-size:13.5px;color:#6a6253;font-style:italic;margin-top:6px;}
+  .fb-note{font-family:"Trebuchet MS","Segoe UI",sans-serif;font-size:14.5px;color:var(--green);font-style:italic;}
+  footer{
+    max-width:1100px;
+    margin:50px auto 0;
+    padding:22px;
+    text-align:center;
+    font-family:"Trebuchet MS","Segoe UI",sans-serif;
+    font-size:14.5px;
+    color:#6a6253;
+    border-top:1px solid var(--line);
+  }
+  @media (max-width:760px){
+    thead{display:none;}
+    tbody td, tbody td:first-child{
+      display:block;
+      width:100%;
+      border-right:none;
+    }
+    tbody td:first-child::before{content:"CURRENT 2017 LANGUAGE";display:block;font-family:"Trebuchet MS",sans-serif;font-size:10px;letter-spacing:1px;color:var(--navy);margin-bottom:5px;font-weight:bold;}
+    tbody td:last-child::before{content:"PROPOSED 2026 LANGUAGE";display:block;font-family:"Trebuchet MS",sans-serif;font-size:10px;letter-spacing:1px;color:var(--red);margin-bottom:5px;font-weight:bold;}
+    .toc ol{columns:1;}
+  }
+</style>
+</head>
+<body>
+<header class="masthead">
+  <p class="kicker">Black Chief Officers' Committee &middot; IABPFF</p>
+  <h1>BCOC Bylaws: 2017 to 2026 Comparison</h1>
+  <p>Complete article-by-article review for member feedback</p>
+  <p>40th Anniversary Educational Symposium &amp; Conference &middot; Atlanta &middot; August 2026</p>
+</header>
+
+<div class="legend">
+  <strong>How to read this document:</strong>
+  The left column shows the current bylaws language as adopted in 1993 and amended through 2017.
+  The right column shows the proposed 2026 status.
+  <span class="chip same">No change</span> means the provision carries forward unchanged.
+  <span class="chip new">New / Revised</span> marks proposed 2026 additions or revisions.
+  <br><a class="source-link" href="https://bcoc-website.onrender.com/BCOC_Bylaws_v10_Redlined_Source.pdf" target="_blank" rel="noopener">View the original redlined v10 bylaws (blue edits, red 2017 language)</a>
+</div>
+
+<div class="wrap">
+
+<div class="toc" id="top">
+  <h2>Articles</h2>
+  <ol>
+    <li><a href="#a1">Name</a><span class="flag unchanged">No change</span></li>
+    <li><a href="#a2">Purpose</a><span class="flag unchanged">No change</span></li>
+    <li><a href="#a3">Membership</a><span class="flag unchanged">No change</span></li>
+    <li><a href="#a4">Officers</a><span class="flag changed">Changes</span></li>
+    <li><a href="#a5">Election</a><span class="flag changed">Changes</span></li>
+    <li><a href="#a6">Executive Board</a><span class="flag changed">Changes</span></li>
+    <li><a href="#a7">Attire and Meeting Protocols</a><span class="flag unchanged">No change</span></li>
+    <li><a href="#a8">Conduct of Members</a><span class="flag unchanged">No change</span></li>
+    <li><a href="#a9">Conduct of Meetings</a><span class="flag changed">Changes</span></li>
+    <li><a href="#a10">Amendment to the By-Laws</a><span class="flag changed">Changes</span></li>
+    <li><a href="#a11">Distribution of Assets</a><span class="flag unchanged">No change</span></li>
+    <li><a href="#a12">Organizational Policies</a><span class="flag changed">New</span></li>
+    <li><a href="#a13">Appointed Non-Voting Positions</a><span class="flag changed">New</span></li>
+  </ol>
+</div>
+
+<!-- ARTICLE I -->
+<article class="art" id="a1">
+  <h2>Article I: Name <span class="adopt">Adopted 1993</span></h2>
+  <table>
+    <thead><tr><th>Current 2017 Language</th><th>Proposed 2026 Language</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>The organization is a standing committee of the International Association of Black Professional Firefighters (IABPFF) and shall be named the Black Chief Officers' Committee, hereafter referred to as "BCOC".</td>
+        <td class="nochange">No change.</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="fb-bar">
+    <span class="fb-label">Article I: Name</span>
+    <span class="fb-note">No change proposed for this Article</span>
+  </div>
+  <a class="backtop" href="#top">Back to top</a>
+</article>
+
+<!-- ARTICLE II -->
+<article class="art" id="a2">
+  <h2>Article II: Purpose <span class="adopt">Adopted 1993</span></h2>
+  <table>
+    <thead><tr><th>Current 2017 Language</th><th>Proposed 2026 Language</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>The "BCOC" is a membership organization formed to provide unique resources to Black Fire Executives to enhance their ability to better serve the public and the firefighting profession. The BCOC shall exercise leadership in the development of minorities in public and private management positions; sponsor forums for discussion of timely issues and topical concerns; support the development and maintenance of a repository of Black Executive talent for job openings and technical assistance.</td>
+        <td class="nochange">No change.</td>
+      </tr>
+      <tr class="section-band"><td colspan="2">Section I: Directives</td></tr>
+      <tr><td>a) To serve as a resource to the members of the IABPFF and assist in providing mentoring to the organization's leadership.</td><td class="nochange">No change.</td></tr>
+      <tr><td>b) To assist our Black brothers and sisters in securing appointments as chief officers as well as other advancements within the fire service.</td><td class="nochange">No change.</td></tr>
+      <tr><td>c) To represent the IABPFF at all Chief Officer functions when appropriate and necessary.</td><td class="nochange">No change.</td></tr>
+      <tr><td>d) To promote unity between Chief Officers and other members of the IABPFF.</td><td class="nochange">No change.</td></tr>
+      <tr><td>e) To continue to be active participants within the IABPFF.</td><td class="nochange">No change.</td></tr>
+      <tr><td>f) To provide a viable and valuable conduit between the IABPFF and the IAFC.</td><td class="nochange">No change.</td></tr>
+      <tr class="section-band"><td colspan="2">Section II: Functions</td></tr>
+      <tr><td>a) To identify and respond to issues within the fire service that affect Black firefighters and Black Communities, which merit attention, inquiry or investigation.</td><td class="nochange">No change.</td></tr>
+      <tr><td>b) To provide a forum for discussion of issues which affect Black firefighters and the fire service.</td><td class="nochange">No change.</td></tr>
+      <tr><td>c) To develop recommendations for corrective action to resolve issues that affect Black firefighters.</td><td class="nochange">No change.</td></tr>
+      <tr><td>d) To provide resources which enhance the upward mobility of Blacks in the fire service.</td><td class="nochange">No change.</td></tr>
+      <tr><td>e) To develop an effective network of information on promotional opportunities for Black Firefighters.</td><td class="nochange">No change.</td></tr>
+    </tbody>
+  </table>
+  <div class="fb-bar">
+    <span class="fb-label">Article II: Purpose</span>
+    <span class="fb-note">No change proposed for this Article</span>
+  </div>
+  <a class="backtop" href="#top">Back to top</a>
+</article>
+
+<!-- ARTICLE III -->
+<article class="art" id="a3">
+  <h2>Article III: Membership <span class="adopt">Adopted 1993; Amended 2015</span></h2>
+  <table>
+    <thead><tr><th>Current 2017 Language</th><th>Proposed 2026 Language</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>Membership is open to any person holding the rank of Chief Officer in a paid fire organization, and a member of a local affiliate or independent member of the IABPFF (if one exists) and is financially current with regards to applicable dues.</td>
+        <td class="nochange">No change.</td>
+      </tr>
+      <tr class="section-band"><td colspan="2">Section 1: Categories</td></tr>
+      <tr><td>a) Individual Membership: Open to all Chief Fire Officers who subscribe to the goals and objectives of the organization.</td><td class="nochange">No change.</td></tr>
+      <tr><td>b) Associate Membership: Open to all professional associations, organizations and institutions, public and private, which subscribe to the goals and objectives of the BCOC and especially wish to help promote equal opportunities for all minorities.</td><td class="nochange">No change.</td></tr>
+      <tr><td>c) Corporate Membership: Open to all private organizations, which subscribe to the goals and objectives of the BCOC.</td><td class="nochange">No change.</td></tr>
+      <tr><td>e) Retired Membership: Open to any BCOC member who, at the time of separation, without prejudice, from a paid fire organization, was a member in good standing, is eligible for retired membership.</td><td class="nochange">No change.</td></tr>
+      <tr><td>f) Affiliate Membership: Open to all non-chief officers of fire rescue, EMS and communications department personnel who subscribe to the goals and objectives of the organization.</td><td class="nochange">No change.</td></tr>
+      <tr><td>g) Only Individual and Retired Membership are eligible to vote.</td><td class="nochange">No change.</td></tr>
+    </tbody>
+  </table>
+  <div class="fb-bar">
+    <span class="fb-label">Article III: Membership</span>
+    <span class="fb-note">No change proposed for this Article</span>
+  </div>
+  <a class="backtop" href="#top">Back to top</a>
+</article>
+
+<!-- ARTICLE IV -->
+<article class="art" id="a4">
+  <h2>Article IV: Officers <span class="adopt">Adopted 1993; Amended 2015, 2017; Proposed Changes 2026</span></h2>
+  <table>
+    <thead><tr><th>Current 2017 Language</th><th>Proposed 2026 Language</th></tr></thead>
+    <tbody>
+      <tr class="section-band"><td colspan="2">Section 1: Chairperson</td></tr>
+      <tr><td>a) The Chairperson shall preside at all meetings of the BCOC and Executive Board and perform all the duties pertaining to the office of the Chairperson. Appoint Regional Coordinators, BCOC committees and other staff assignments as prescribed by the Executive Board. In addition, he/she shall perform those duties that may be prescribed by the BCOC and bring such matters to the attention of the Executive Board.</td><td class="nochange">No change.</td></tr>
+      <tr><td>b) The Chairperson shall represent the BCOC at official functions and in activities or deliberations which require BCOC representation.</td><td class="nochange">No change.</td></tr>
+      <tr><td>c) The Chairperson shall approve official BCOC announcements, statements and correspondence when in the Chairperson's opinion, such documents accurately reflect the consensus opinion of the BCOC.</td><td class="nochange">No change.</td></tr>
+      <tr><td>d) The Chairperson shall accept volunteers or appoint members to BCOC committees as necessary. Additionally, the Chairperson shall receive reports, proposals, and minutes of BCOC committees for transmittal to the membership.</td><td class="nochange">No change.</td></tr>
+      <tr><td>No provision.</td><td class="new"><span class="tag">New</span>e) The Chair, with the concurrence of the Vice-Chair, may appoint individuals to the following non-voting positions to support the operations and mission of the BCOC.</td></tr>
+      <tr><td>No provision.</td><td class="new"><span class="tag">New</span>f) Appointed position holders shall serve non-voting, advisory roles and shall have no authority to cast votes on any Executive Board or membership matter unless they separately hold an elected office.</td></tr>
+      <tr><td>No provision.</td><td class="new"><span class="tag">New</span>g) Terms of appointment shall align with the term of the seated Chair. When a new Chair assumes office, all appointed positions under this Article shall be vacated and subject to reappointment. Where election cycles permit, appointments shall align with the staggered election schedule set forth in Article V, Section 1.</td></tr>
+      <tr><td>No provision.</td><td class="new"><span class="tag">New</span>h) Appointed individuals shall be members of the BCOC in good standing. The Chair may remove an appointed position holder at any time with notice to the Vice-Chair.</td></tr>
+      <tr><td>No provision.</td><td class="new"><span class="tag">New</span>i) Each appointed position holder shall submit a brief written report to the Executive Board no less than twice per year, summarizing activities, progress, and upcoming plans within their area of responsibility.</td></tr>
+      <tr class="section-band"><td colspan="2">Section 2: Vice Chairperson</td></tr>
+      <tr><td>a) The Vice-Chairperson shall act for the Chairperson when the Chairperson is unable to attend BCOC meetings, Executive Board meetings or a function where BCOC representation is required or desired.</td><td class="nochange">No change.</td></tr>
+      <tr><td>b) Additionally, the Vice-Chairperson shall serve as coordinator of appointed committees, keep a calendar of all committee meetings (Executive, standing, etc.) and perform such other duties as may be prescribed by the Chairperson.</td><td class="nochange">No change.</td></tr>
+      <tr class="section-band"><td colspan="2">Section 3: Recording Secretary</td></tr>
+      <tr><td>a) The Recording Secretary shall keep minutes of regular meetings, as directed by the Chairperson, and shall disseminate minutes of BCOC meetings to the Membership.</td><td class="nochange">No change.</td></tr>
+      <tr><td>b) The Recording Secretary shall assist in identifying and selecting material relevant to proposed agenda items, and shall collaborate with the Correspondence Secretary in disseminating such material to all members prior to BCOC meetings.</td><td class="nochange">No change.</td></tr>
+      <tr><td>c) In addition, as necessary, the Recording Secretary shall assist the Correspondence Secretary in notifying the membership of meetings and perform all duties pertaining to the office, or as prescribed by the Chairperson.</td><td class="nochange">No change.</td></tr>
+      <tr class="section-band"><td colspan="2">Section 4: Correspondence Secretary</td></tr>
+      <tr><td>a) The Corresponding Secretary shall send written notice of regular and called meetings and conduct the correspondence of the BCOC.</td><td class="nochange">No change.</td></tr>
+      <tr><td>b) The Correspondence Secretary shall assist the Recording Secretary in gathering and preparing materials relevant to BCOC meetings.</td><td class="nochange">No change.</td></tr>
+      <tr class="section-band"><td colspan="2">Section 5: Parliamentarian</td></tr>
+      <tr><td>a) The Parliamentarian shall have the responsibility for ensuring that meetings are conducted in accordance with parliamentary procedures as outlined in Robert's Rules of Order.</td><td class="nochange">No change.</td></tr>
+      <tr><td>b) Additionally, the Parliamentarian shall prepare the BCOC for silent meditation at the beginning of each meeting.</td><td class="nochange">No change.</td></tr>
+      <tr class="section-band"><td colspan="2">Section 6: Treasurer</td></tr>
+      <tr><td>a) The Treasurer shall be held accountable for all monies due and in receipt of the organization. The Treasurer shall also be responsible for the accurate disbursement of funds owed by the BCOC.</td><td class="nochange">No change.</td></tr>
+      <tr><td>b) All checks, drafts, payments of money or evidence of indebtedness, issued in the name of the organization, shall be signed by the Treasurer and either the Chairperson or his/her designee. The designee must be a Board member. The Board retains the authority to designate an institution(s) for the deposit of funds of the organization.</td><td class="nochange">No change.</td></tr>
+      <tr><td>c) The Treasurer shall ensure an external annual financial statement and audit report is prepared within thirty (30) days of the end of the fiscal year. The external auditor shall be approved by the Executive Board.</td><td class="revised"><span class="tag">Revised</span>c) The Chair shall ensure an external annual financial statement and audit report is prepared within thirty (30) days of the end of the fiscal year. Selection of the independent auditor or auditing firm shall be governed by Section 6(i) and 6(j) of this Article.</td></tr>
+      <tr><td>No provision.</td><td class="new"><span class="tag">New</span>d) The Treasurer shall maintain accurate financial records of all revenues, expenditures, deposits, and disbursements of the organization in accordance with sound financial management practices.</td></tr>
+      <tr><td>No provision.</td><td class="new"><span class="tag">New</span>e) The Treasurer shall provide a quarterly financial report to the Executive Board outlining revenues, expenditures, account balances, and any outstanding financial obligations.</td></tr>
+      <tr><td>No provision.</td><td class="new"><span class="tag">New</span>f) The Treasurer shall present an annual financial summary to the membership during the annual conference outlining the financial condition of the organization. This report shall be delivered electronically in PDF format or as a slide presentation and distributed to all members no fewer than seven (7) days prior to the annual conference.</td></tr>
+      <tr><td>No provision.</td><td class="new"><span class="tag">New</span>g) The organization shall undergo a financial audit at the close of each fiscal year.</td></tr>
+      <tr><td>No provision.</td><td class="new"><span class="tag">New</span>h) At the discretion of the Chairperson, an additional financial audit may be conducted when a new Chairperson assumes office.</td></tr>
+      <tr><td>No provision.</td><td class="new"><span class="tag">New</span>i) The selection of the independent auditor or auditing firm shall be conducted through a process to ensure independence and objectivity: a Finance and Audit Committee of no fewer than three (3) Executive Board members who are not the Chairperson or Treasurer, convened by the Vice Chairperson, shall solicit, evaluate, and recommend a qualified independent auditor to the full Executive Board, which approves the final selection by majority vote. No auditor with a pre-existing financial or personal relationship with the Chairperson or Treasurer shall be eligible.</td></tr>
+      <tr><td>No provision.</td><td class="new"><span class="tag">New</span>j) Any Executive Board member with a financial, professional, or personal relationship with a firm or individual under consideration for the audit engagement shall disclose that relationship to the Finance and Audit Committee and shall recuse themselves from all related deliberations and votes. The Committee shall document its selection process and present its recommendation to the full Executive Board prior to final approval.</td></tr>
+      <tr><td>No qualifications stated.</td><td class="new"><span class="tag">New</span>k) Treasurer Qualifications: To be eligible to serve as Treasurer, a candidate must possess demonstrated knowledge of or experience in financial management, accounting, bookkeeping, or a related field. The Treasurer is not required to be a chief officer, active firefighter, or affiliated with a fire department. Prior professional experience in financial administration, public accounting, non-profit finance, government finance, or a comparable discipline is strongly preferred. The Executive Board may establish additional qualification criteria by written policy.</td></tr>
+      <tr><td>No provision.</td><td class="new"><span class="tag">New</span>l) The Treasurer shall maintain a centralized, electronic document repository accessible to all Executive Board members, including quarterly and annual financial reports, audit reports, IRS filings and returns, QuickBooks or equivalent accounting records, invoices, receipts, and records of all approved expenditures. Bank statements need not be in the shared repository but must be available upon written request. The repository shall be kept current within thirty (30) days of any filing or transaction period close.</td></tr>
+      <tr class="section-band"><td colspan="2">Section 7: Financial Secretary</td></tr>
+      <tr><td>a) The Financial Secretary shall be responsible for supervising the use of all assets of the Black Chief Officers' Committee (BCOC).</td><td class="nochange">No change.</td></tr>
+      <tr><td>b) The Financial Secretary shall ensure that all monies of the BCOC are deposited in proper accounts and that the BCOC is properly bonded.</td><td class="nochange">No change.</td></tr>
+      <tr><td>c) The Financial Secretary will keep record of all funds collected and dispersed by the Treasurer and that funds are collected, recorded, and disbursed according to accepted accounting principles and in accordance with the Bylaws of the BCOC and policies adopted by the Board.</td><td class="nochange">No change.</td></tr>
+      <tr><td>d) The Financial Secretary will report to the annual conference on the financial condition of the BCOC, including a summary of all revenues and disbursements.</td><td class="nochange">No change.</td></tr>
+      <tr><td>e) The Financial Secretary shall assist the Treasurer in gathering and preparing materials relevant to BCOC meetings.</td><td class="nochange">No change.</td></tr>
+      <tr><td>f) The Financial Secretary shall assist in ensuring financial accountability by maintaining records of funds collected and verifying deposits.</td><td class="nochange">No change.</td></tr>
+      <tr><td>g) The Financial Secretary shall coordinate with the Treasurer to ensure financial reports accurately reflect the financial condition of the organization.</td><td class="nochange">No change.</td></tr>
+      <tr><td>h) The Financial Secretary may assist the Executive Board in reviewing financial documentation to support transparency and responsible financial management.</td><td class="nochange">No change.</td></tr>
+      <tr class="section-band"><td colspan="2">Sections 8 through 13: New Positions</td></tr>
+      <tr><td>No corresponding section.</td><td class="new"><span class="tag">New</span>Section 8. Educational Coordinator (Non-Voting, Appointed): primary planner and coordinator for all educational programming including the annual conference, training workshops, seminars, and virtual education sessions.</td></tr>
+      <tr><td>No corresponding section.</td><td class="new"><span class="tag">New</span>Section 9. Public Information Officer (Non-Voting, Appointed): manages public image, communications strategy, media relations, social media, website, press releases, and newsletters.</td></tr>
+      <tr><td>No corresponding section.</td><td class="new"><span class="tag">New</span>Section 10. Corresponding Secretary (Voting, Elected): assists with administrative correspondence, drafting and sending notices, maintaining records of outgoing correspondence.</td></tr>
+      <tr><td>No corresponding section.</td><td class="new"><span class="tag">New</span>Section 11. Chaplain (Non-Voting, Appointed): provides spiritual support, opens meetings with invocation or reflection, coordinates memorial tributes; conducted in an inclusive, non-denominational manner.</td></tr>
+      <tr><td>No corresponding section.</td><td class="new"><span class="tag">New</span>Section 12. Sergeant-at-Arms (Non-Voting, Appointed): maintains order and decorum, verifies member credentials and registration, enforces meeting protocols.</td></tr>
+      <tr><td>No corresponding section.</td><td class="new"><span class="tag">New</span>Section 13. Ad-Hoc Committees (Non-Voting, Appointed): Elections, Bylaws, Ethics, Membership.</td></tr>
+    </tbody>
+  </table>
+  <div class="fb-bar">
+    <span class="fb-label">Your feedback on Article IV: Officers</span>
+    <span class="fb-btns">
+      <a class="fb-btn fb-agree" href="https://form.jotform.com/261475391421052" target="_blank" rel="noopener">Agree in the form</a>
+      <a class="fb-btn fb-disagree" href="https://form.jotform.com/261475391421052" target="_blank" rel="noopener">Object in the form</a>
+    </span>
+    <span class="fb-hint">Buttons open the feedback form, where your vote is recorded. Selecting a position and submitting the form is what casts your vote.</span>
+  </div>
+  <a class="backtop" href="#top">Back to top</a>
+</article>
+
+<!-- ARTICLE V -->
+<article class="art" id="a5">
+  <h2>Article V: Election <span class="adopt">Adopted 1993; Amended 2015, 2017; Proposed 2026</span></h2>
+  <table>
+    <thead><tr><th>Current 2017 Language</th><th>Proposed 2026 Language</th></tr></thead>
+    <tbody>
+      <tr class="section-band"><td colspan="2">Section 1: Time and Place</td></tr>
+      <tr><td>a) Elections of the Chairperson, Recording Secretary, Financial Secretary, and Parliamentarian shall take place in odd years.</td><td class="nochange">No change.</td></tr>
+      <tr><td>b) Elections of the Vice Chairperson, Treasurer and Correspondence Secretary shall take place in even years.</td><td class="nochange">No change.</td></tr>
+      <tr><td>c) Staggered odd and even elections shall become effective commencing with the 2017 Business year.</td><td class="nochange">No change.</td></tr>
+      <tr class="section-band"><td colspan="2">Section 2: Mode of Election</td></tr>
+      <tr><td>a) The election of the officers of the BCOC shall be by blind ballot after direct nomination. The nominee receiving the highest number of votes shall be declared elected by the presiding officers.</td><td class="nochange">No change.</td></tr>
+      <tr><td>b) If competing candidates receive an equal number of votes thereby creating a tie vote situation, the Executive Board will choose the winner on a majority vote of the Executive Board. This vote will be announced by the Chairperson.</td><td class="nochange">No change.</td></tr>
+      <tr><td>c) The Elections Committee will certify the "official results". "Official Results" of the vote will be presented to the membership. The candidate receiving the highest number of votes shall be elected to office.</td><td class="nochange">No change.</td></tr>
+      <tr class="section-band"><td colspan="2">Section 3: Term of Office</td></tr>
+      <tr><td>a) The term of office of the officers of the BCOC shall begin at the close of the regular annual session of the BCOC Meeting in which they were elected.</td><td class="nochange">No change.</td></tr>
+      <tr><td>b) Term of office for elected officers shall be limited to two (2) consecutive terms.</td><td class="nochange">No change.</td></tr>
+      <tr class="section-band"><td colspan="2">Section 4: Voting (Qualifications and Balloting)</td></tr>
+      <tr><td>Items 1 through 8 establish qualifications for receiving a ballot (good standing, registration, roll-call distribution, one vote per member, candidate profile submission 30 days before the annual meeting, ratification of single candidates, election process for two or more candidates, and Elections Committee integrity duties).</td><td class="nochange">No change.</td></tr>
+      <tr><td>9. Absentee ballots will be sent to members in good standing following a request by mail or electronically to the Elections Committee stating their name, address and email contact information. Requests must be received at least 45 days before the annual meeting.</td><td class="revised"><span class="tag">Revised</span>9. Absentee ballots will be sent to members in good standing following a request by mail or electronically to the Elections Committee stating their name, address and email contact information. Requests must be received at least 30 days before the annual meeting.</td></tr>
+      <tr><td>Items 10 through 17 address confirmation of absentee requests, return deadlines, proxy ballot dissemination and handling, official mail results, floor nominations, and filling vacant offices.</td><td class="nochange">No change.</td></tr>
+      <tr class="section-band"><td colspan="2">Section 5: Removal of Officers</td></tr>
+      <tr><td>a) The BCOC Executive Board may recommend to the BCOC membership that an officer be removed for failure to perform his/her duties. Such removal requires a two-thirds affirmative vote of both the BCOC Executive Board and or the BCOC membership.</td><td class="nochange">No change.</td></tr>
+      <tr><td>b) Any officer of the BCOC may resign by filing (timely) written notice with the Executive Board.</td><td class="nochange">No change.</td></tr>
+      <tr><td>c) Following removal or resignation of an officer, the Chairperson (or Vice Chairperson in the case of the Chairperson's removal or resignation) shall appoint a member to serve the remaining term of the vacated position.</td><td class="nochange">No change.</td></tr>
+      <tr class="section-band"><td colspan="2">Section 6: Eligibility for Elected Office</td></tr>
+      <tr><td>a) To be eligible for any elected office, a candidate must have been an individual or Retired member in good standing for at least three (3) consecutive years. Service must have been immediately prior to announcement of intention to run for office.</td><td class="nochange">No change.</td></tr>
+      <tr><td>b) Those desiring to run for office must be financial and in good standing at least thirty (30) days prior to the start of the Annual Conference. Members must be financially current prior to the start of the Annual Conference in order to be eligible to vote in elections.</td><td class="nochange">No change.</td></tr>
+      <tr><td>c) The Corresponding/Recording Secretaries shall ensure that candidate profile and position statements are disseminated to all members of the organization no less than 30 days before the annual conference.</td><td class="nochange">No change.</td></tr>
+      <tr class="section-band"><td colspan="2">Section 7: Electronic Voting (New)</td></tr>
+      <tr><td>No corresponding section.</td><td class="new"><span class="tag">New</span>a) The Executive Board authorizes the use of electronic voting for officer elections, bylaw amendments, and any other organizational business. Such authorization shall be communicated to the membership in advance of the voting period.</td></tr>
+      <tr><td>No corresponding section.</td><td class="new"><span class="tag">New</span>b) Electronic voting shall be conducted through a secure, verifiable platform approved by the Executive Board. The platform shall ensure ballot secrecy, prevent duplicate voting, and produce an auditable record of participation and results.</td></tr>
+      <tr><td>No corresponding section.</td><td class="new"><span class="tag">New</span>c) Only members in good standing who are otherwise eligible to vote shall be permitted to participate in electronic voting. The Elections Committee shall be responsible for verifying member eligibility prior to distribution of electronic ballots.</td></tr>
+      <tr><td>No corresponding section.</td><td class="new"><span class="tag">New</span>d) The Chair shall establish the voting window for any electronic vote, which shall be open for no fewer than five (5) days and no more than thirty (30) days, unless otherwise required by these Bylaws or by the nature of the matter being voted upon.</td></tr>
+      <tr><td>No corresponding section.</td><td class="new"><span class="tag">New</span>e) Notice of any electronic vote shall be provided to all eligible members via email or other electronic communication no fewer than five (5) days before the voting window opens. Notice shall include the matter being voted upon, the voting window dates, and instructions for accessing the voting platform.</td></tr>
+      <tr><td>No corresponding section.</td><td class="new"><span class="tag">New</span>f) Results of any electronic vote related to Executive Board positions shall be certified by the Elections Committee and reported to the membership promptly upon the close of the voting window. Electronic vote results shall carry the same force and effect as votes conducted at an in-person meeting. For all other organizational business conducted electronically, results shall be recorded and reported by the Chairperson or designee to the Executive Board and membership at the next available opportunity.</td></tr>
+      <tr><td>No corresponding section.</td><td class="new"><span class="tag">New</span>g) The quorum and vote threshold requirements otherwise applicable to a given matter under these Bylaws shall apply equally to electronic votes. For officer elections conducted electronically, the provisions of Article V, Sections 2 and 4 shall govern.</td></tr>
+    </tbody>
+  </table>
+  <div class="fb-bar">
+    <span class="fb-label">Your feedback on Article V: Election</span>
+    <span class="fb-btns">
+      <a class="fb-btn fb-agree" href="https://form.jotform.com/261475391421052" target="_blank" rel="noopener">Agree in the form</a>
+      <a class="fb-btn fb-disagree" href="https://form.jotform.com/261475391421052" target="_blank" rel="noopener">Object in the form</a>
+    </span>
+    <span class="fb-hint">Buttons open the feedback form, where your vote is recorded. Selecting a position and submitting the form is what casts your vote.</span>
+  </div>
+  <a class="backtop" href="#top">Back to top</a>
+</article>
+
+<!-- ARTICLE VI -->
+<article class="art" id="a6">
+  <h2>Article VI: Executive Board <span class="adopt">Adopted 1993; Amended 2015, 2017; Proposed 2026</span></h2>
+  <table>
+    <thead><tr><th>Current 2017 Language</th><th>Proposed 2026 Language</th></tr></thead>
+    <tbody>
+      <tr class="section-band"><td colspan="2">Section 1: Composition</td></tr>
+      <tr><td>The Executive Board shall be composed of the BCOC officers in good standing.</td><td class="nochange">No change.</td></tr>
+      <tr class="section-band"><td colspan="2">Section 2: Functions and Authority</td></tr>
+      <tr><td>a) The Executive Board shall conduct the business affairs of the BCOC and set the agenda for BCOC meetings. The Executive Board shall meet, prior to the meeting, to prepare the agenda whenever possible.</td><td class="nochange">No change.</td></tr>
+      <tr><td>b) The Executive Board shall be authorized to initiate the removal of a BCOC officer.</td><td class="nochange">No change.</td></tr>
+      <tr><td>c) The Executive Board shall recommend the level of dues required by each BCOC member or member category. Effectuation of dues level shall be approved by two-thirds of the members assembled at the annual conference.</td><td class="nochange">No change.</td></tr>
+      <tr><td>d) The fiscal year of the BCOC shall end on December 31. The change in fiscal year is effective December 31, 2015.</td><td class="nochange">No change.</td></tr>
+      <tr><td>e) A transition period shall occur between the incoming and the outgoing boards and shall be effective for a thirty (30) day interim after the close of the annual meeting. Outgoing board members shall remain functionally responsible for their respective duties. The incoming board members shall assume full duties at the conclusion of the Transition Period. During this transition period, all decisions pertaining to any new affairs must be discussed at a joint board meeting. The outgoing board shall not be involved in decisions pertaining to events scheduled after the transition period. The outgoing board members shall submit a transition report.</td><td class="nochange">No change.</td></tr>
+      <tr><td>No provision.</td><td class="new"><span class="tag">New</span>f) The Chair may initiate an electronic vote of the Executive Board on matters that are significant in nature and require urgent action that cannot reasonably be deferred to the next scheduled board meeting. Such votes may be conducted by email, secure electronic platform, or other verifiable electronic means designated by the Chairperson, and shall not require a formal motion. A majority of the seated Executive Board members must participate for the vote to be valid. Results shall be recorded in the minutes of the next regular board meeting. The Chairperson shall provide all board members with a clear description of the matter, the proposed action, and a reasonable response deadline of no fewer than forty-eight (48) hours. Any action taken under this provision shall be reported to the full membership at the next regular or annual meeting.</td></tr>
+      <tr class="section-band"><td colspan="2">Section 3: Executive Coordinator</td></tr>
+      <tr><td>Section 3. Executive Coordinator. The Executive Board shall appoint an Executive Coordinator, who shall perform such duties and responsibilities as prescribed by the Executive Board.</td><td class="revised"><span class="tag">Revised</span>a) The Executive Board shall appoint an Executive Coordinator to assist with administrative and operational functions of the organization. The duties and responsibilities of the Executive Coordinator shall be prescribed by the Chairperson.</td></tr>
+      <tr><td>No provision.</td><td class="new"><span class="tag">New</span>b) The Executive Coordinator shall operate under the direction of the Chairperson and support coordination of meetings, communications to the Executive Board, conferences, and organizational initiatives as directed by the Chairperson.</td></tr>
+      <tr><td>No provision.</td><td class="new"><span class="tag">New</span>c) The Executive Coordinator shall not possess voting authority unless separately elected to an officer position.</td></tr>
+      <tr><td>No provision.</td><td class="new"><span class="tag">New</span>d) The Executive Coordinator shall provide periodic administrative and operational updates to the Chairperson, who shall relay relevant information to the Executive Board as appropriate.</td></tr>
+      <tr><td>No provision.</td><td class="new"><span class="tag">New</span>e) The Chairperson may establish written policies outlining the responsibilities, scope of work, and reporting structure for the Executive Coordinator.</td></tr>
+    </tbody>
+  </table>
+  <div class="fb-bar">
+    <span class="fb-label">Your feedback on Article VI: Executive Board</span>
+    <span class="fb-btns">
+      <a class="fb-btn fb-agree" href="https://form.jotform.com/261475391421052" target="_blank" rel="noopener">Agree in the form</a>
+      <a class="fb-btn fb-disagree" href="https://form.jotform.com/261475391421052" target="_blank" rel="noopener">Object in the form</a>
+    </span>
+    <span class="fb-hint">Buttons open the feedback form, where your vote is recorded. Selecting a position and submitting the form is what casts your vote.</span>
+  </div>
+  <a class="backtop" href="#top">Back to top</a>
+</article>
+
+<!-- ARTICLE VII -->
+<article class="art" id="a7">
+  <h2>Article VII: Attire and Meeting Protocols <span class="adopt">Adopted 1993</span></h2>
+  <table>
+    <thead><tr><th>Current 2017 Language</th><th>Proposed 2026 Language</th></tr></thead>
+    <tbody>
+      <tr><td>a) There shall be an annual meeting, training conference/symposium.</td><td class="nochange">No change.</td></tr>
+      <tr><td>b) The dress shall be at least sports coat, business attire or department Class A uniform.</td><td class="nochange">No change.</td></tr>
+      <tr><td>c) The Sergeant-at-Arms, who shall be appointed by the Chairman at the beginning of the annual meeting, shall be stationed at the door(s). They shall admit only those persons who are in good standing with the BCOC and have registered for the meeting.</td><td class="nochange">No change.</td></tr>
+    </tbody>
+  </table>
+  <div class="fb-bar">
+    <span class="fb-label">Article VII: Attire and Meeting Protocols</span>
+    <span class="fb-note">No change proposed for this Article</span>
+  </div>
+  <a class="backtop" href="#top">Back to top</a>
+</article>
+
+<!-- ARTICLE VIII -->
+<article class="art" id="a8">
+  <h2>Article VIII: Conduct of Members <span class="adopt">Adopted 1993</span></h2>
+  <table>
+    <thead><tr><th>Current 2017 Language</th><th>Proposed 2026 Language</th></tr></thead>
+    <tbody>
+      <tr><td>a) Members must be loyal, respectful, helpful and diligent in assisting all members of the organization.</td><td class="nochange">No change.</td></tr>
+      <tr><td>b) Members found to be disloyal, disrespectful, and harmful and/or spread false rumors against brothers and sisters of this organization may be expelled from the BCOC by majority vote.</td><td class="nochange">No change.</td></tr>
+    </tbody>
+  </table>
+  <div class="fb-bar">
+    <span class="fb-label">Article VIII: Conduct of Members</span>
+    <span class="fb-note">No change proposed for this Article</span>
+  </div>
+  <a class="backtop" href="#top">Back to top</a>
+</article>
+
+<!-- ARTICLE IX -->
+<article class="art" id="a9">
+  <h2>Article IX: Conduct of Meetings <span class="adopt">Adopted 1993; Proposed 2026</span></h2>
+  <table>
+    <thead><tr><th>Current 2017 Language</th><th>Proposed 2026 Language</th></tr></thead>
+    <tbody>
+      <tr class="section-band"><td colspan="2">Subsections (a) through (g): Existing Rules</td></tr>
+      <tr><td>a) Rules of Order: The presiding officer shall preserve order and decorum and shall take no part in debates while presiding. All questions of order shall be subject to an appeal to the conference, and upon such an appeal the vote shall be taken without debate. The presiding officer may state the reasons for the decision given and shall put the question as follows, "Shall the decision of the chair be sustained?" A two-thirds majority of those present and voting shall be necessary to reverse the decision of the chair.</td><td class="nochange">No change.</td></tr>
+      <tr><td>b) Speaking: Every member when speaking or offering a motion shall rise, state his or her name, their City and State and respectfully address the presiding officer, and when finished speaking shall at once resume his or her seat.</td><td class="nochange">No change.</td></tr>
+      <tr><td>c) Presiding Officer Duties: When two (2) or more members rise to speak at the same time, the presiding officer shall decide who is entitled to the floor.</td><td class="nochange">No change.</td></tr>
+      <tr><td>d) Point of Order: A member called to order shall immediately cease speaking and resume his or her seat until the point of order in question has been decided, when he or she shall again be entitled to the floor.</td><td class="nochange">No change.</td></tr>
+      <tr><td>e) Calling Questions: A motion to take the previous question shall always be in order except when a member is in possession of the floor, and must be put forward without debate and if supported by a majority vote of those voting, the motion shall be declared carried and no further debate or amendments shall be in order until the main question shall be decided.</td><td class="nochange">No change.</td></tr>
+      <tr><td>f) Motions to Adjourn: A motion to adjourn shall always be in order, except when a member is in possession of the floor or a vote is being taken or it has been decided that a vote shall now be taken. A motion to adjourn is not debatable, but a motion to adjourn to a given time is open to debate.</td><td class="nochange">No change.</td></tr>
+      <tr><td>g) Questions without Provision: The rules contained in the current edition of Robert's Rules of Order shall provide guidance for the organization in all cases to which they are applicable and in which they are not inconsistent with this constitution and by-laws and any special rules of order the organization may adopt.</td><td class="nochange">No change.</td></tr>
+      <tr class="section-band"><td colspan="2">Subsection (h): Chair Discretion on Motions (New)</td></tr>
+      <tr><td>No provision.</td><td class="new"><span class="tag">New</span>h) Chair Discretion on Motions: The presiding officer may decline to entertain a motion that is dilatory, frivolous, or manifestly designed to obstruct the orderly conduct of business. The presiding officer may also decline to entertain a motion that: (i) is substantially identical to a motion already defeated at the same meeting; (ii) conflicts with an existing standing rule, policy, or resolution of the Executive Board that has not been rescinded; or (iii) would require action that is outside the authority of the organization or its officers as defined by these bylaws. When the presiding officer declines to entertain a motion, the officer shall briefly state the reason for the ruling. Any such ruling is subject to appeal consistent with Article IX, Section (a). The Parliamentarian shall advise the presiding officer on all rulings made under this section.</td></tr>
+    </tbody>
+  </table>
+  <div class="fb-bar">
+    <span class="fb-label">Your feedback on Article IX: Conduct of Meetings</span>
+    <span class="fb-btns">
+      <a class="fb-btn fb-agree" href="https://form.jotform.com/261475391421052" target="_blank" rel="noopener">Agree in the form</a>
+      <a class="fb-btn fb-disagree" href="https://form.jotform.com/261475391421052" target="_blank" rel="noopener">Object in the form</a>
+    </span>
+    <span class="fb-hint">Buttons open the feedback form, where your vote is recorded. Selecting a position and submitting the form is what casts your vote.</span>
+  </div>
+  <a class="backtop" href="#top">Back to top</a>
+</article>
+
+<!-- ARTICLE X -->
+<article class="art" id="a10">
+  <h2>Article X: Amendment to the By-Laws <span class="adopt">Adopted 1993; Proposed 2026</span></h2>
+  <table>
+    <thead><tr><th>Current 2017 Language</th><th>Proposed 2026 Language</th></tr></thead>
+    <tbody>
+      <tr><td>1. No amendment to the By-Laws shall be made except when notice of such Amendment has been presented at least twenty-four (24) hours prior to action, and a two-thirds vote of the members present shall be required to adopt such amendment.</td><td class="revised"><span class="tag">Revised</span>No amendment to the By-Laws shall be made except when notice of such Amendment has been presented at least twenty-four (24) hours prior to action, whether at an in-person membership meeting or by electronic vote conducted pursuant to Article V, Section 7.</td></tr>
+      <tr><td>A two-thirds vote of the members present shall be required.</td><td class="revised"><span class="tag">Revised</span>A two-thirds affirmative vote of eligible members participating shall be required to adopt such amendment, whether voting is conducted in person or electronically. Members must be in good standing to vote on any bylaw amendment or position. When a bylaw amendment vote is conducted electronically, the Chair shall certify the results and report them to the full membership no later than seven (7) days following the close of the voting window.</td></tr>
+      <tr><td>No provision.</td><td class="new"><span class="tag">New</span>Certified results shall carry the same legal force and effect as amendments adopted at an in-person membership meeting. The Recording Secretary shall record all amendment votes in the official minutes of the organization.</td></tr>
+      <tr><td>2. All amendments, alterations or revisions of any part of the By-Laws shall take effect upon their adoption by the members, unless otherwise so specified.</td><td class="nochange">No change.</td></tr>
+    </tbody>
+  </table>
+  <div class="fb-bar">
+    <span class="fb-label">Your feedback on Article X: Amendment to the By-Laws</span>
+    <span class="fb-btns">
+      <a class="fb-btn fb-agree" href="https://form.jotform.com/261475391421052" target="_blank" rel="noopener">Agree in the form</a>
+      <a class="fb-btn fb-disagree" href="https://form.jotform.com/261475391421052" target="_blank" rel="noopener">Object in the form</a>
+    </span>
+    <span class="fb-hint">Buttons open the feedback form, where your vote is recorded. Selecting a position and submitting the form is what casts your vote.</span>
+  </div>
+  <a class="backtop" href="#top">Back to top</a>
+</article>
+
+<!-- ARTICLE XI -->
+<article class="art" id="a11">
+  <h2>Article XI: Distribution of Assets and Properties <span class="adopt">Adopted 1993</span></h2>
+  <table>
+    <thead><tr><th>Current 2017 Language</th><th>Proposed 2026 Language</th></tr></thead>
+    <tbody>
+      <tr><td>1. The BCOC is organized exclusively for charitable, religious, educational and scientific purposes, including, for such purposes as, the making of distributions to Organizations that qualify as exempt organizations under section 501(c)(3) of the Internal Revenue Code, or corresponding section of any federal tax code.</td><td class="nochange">No change.</td></tr>
+      <tr><td>2. No part of the net earnings of the BCOC shall inure to the benefit of, or be distributable to its members, trustees, officers, or other private persons, except that the BCOC shall be authorized and empowered to pay reasonable compensation for services rendered and to make payments and distributions in furtherance of the purposes set forth in the purpose clause hereof. No substantial part of the activities of the BCOC shall be carrying on of propaganda, or otherwise attempting to influence legislation, and they shall not participate in, or intervene in (including the publishing or distribution of statements) any political campaign on behalf of any candidate for public office.</td><td class="nochange">No change.</td></tr>
+      <tr><td>3. Notwithstanding any other provisions of this document, the BCOC shall not carry on any other activities not permitted to be carried on by an organization exempt from Federal income tax under section 501(c)(3) of the Internal Revenue Code, or corresponding section of any future federal tax code, or by an organization, contributions to which are deductible under section 170(c)(2) of the Internal Revenue Code, or corresponding section of any future federal tax code.</td><td class="nochange">No change.</td></tr>
+      <tr><td>4. Upon the dissolution of the BCOC, assets shall be distributed for one or more exempt purposes within the meaning of section 501(c)(3) of the Internal Revenue Code, or corresponding section of any future federal tax code, or shall be distributed to the federal government, or to a state or local government, for a public purpose. Any such assets not disposed of shall be disposed of by the Court of Common Pleas of the county in which the principal office of the BCOC is then located, exclusively for such purposes or to such organization or organizations, as said Court shall determine, which are organized and operated exclusively for such purposes.</td><td class="nochange">No change.</td></tr>
+    </tbody>
+  </table>
+  <div class="fb-bar">
+    <span class="fb-label">Article XI: Distribution of Assets and Properties</span>
+    <span class="fb-note">No change proposed for this Article</span>
+  </div>
+  <a class="backtop" href="#top">Back to top</a>
+</article>
+
+<!-- ARTICLE XII -->
+<article class="art" id="a12">
+  <h2>Article XII: Organizational Policies <span class="adopt">New (Proposed 2026)</span></h2>
+  <table>
+    <thead><tr><th>Current 2017 Language</th><th>Proposed 2026 Language</th></tr></thead>
+    <tbody>
+      <tr><td>No corresponding article in 2017.</td><td class="new"><span class="tag">New</span><span class="lettered">Section 1.</span> Records Retention and Destruction Policy (Exhibit I), incorporated by reference.</td></tr>
+      <tr><td>No corresponding article in 2017.</td><td class="new"><span class="tag">New</span><span class="lettered">Section 2.</span> Whistleblower Protection Policy (Exhibit II) for reports of suspected violations, fraud, or improper conduct.</td></tr>
+      <tr><td>No corresponding article in 2017.</td><td class="new"><span class="tag">New</span><span class="lettered">Section 3.</span> Conflict of Interest Policy (Exhibit III); board members file a disclosure form (Exhibit IV) within 30 days of taking office and annually by January 31.</td></tr>
+      <tr><td>No corresponding article in 2017.</td><td class="new"><span class="tag">New</span><span class="lettered">Section 4.</span> Annual Returns Policy; Executive Board reviews the BCOC IRS filing before submission.</td></tr>
+      <tr><td>No corresponding article in 2017.</td><td class="new"><span class="tag">New</span><span class="lettered">Section 5.</span> Code of Ethics (Exhibit V) applicable to all members, officers, appointees, employees, contractors, and volunteers.</td></tr>
+    </tbody>
+  </table>
+<div class="exhibits-row">
+  <span class="label">Read the Five Companion Exhibits</span>
+  <div class="ex-btns">
+    <a class="ex-btn" href="https://bcoc-website.onrender.com/BCOC_Exhibit_I_Records_Retention.html" target="_blank" rel="noopener">Exhibit I: Records Retention</a>
+    <a class="ex-btn" href="https://bcoc-website.onrender.com/BCOC_Exhibit_II_Whistleblower.html" target="_blank" rel="noopener">Exhibit II: Whistleblower</a>
+    <a class="ex-btn" href="https://bcoc-website.onrender.com/BCOC_Exhibit_III_Conflict_of_Interest_Policy.html" target="_blank" rel="noopener">Exhibit III: Conflict of Interest</a>
+    <a class="ex-btn" href="https://bcoc-website.onrender.com/BCOC_Exhibit_IV_Conflict_Disclosure_Form.html" target="_blank" rel="noopener">Exhibit IV: Disclosure Form</a>
+    <a class="ex-btn ack" href="https://bcoc-website.onrender.com/BCOC_Exhibit_V_Code_of_Ethics.html" target="_blank" rel="noopener">Exhibit V: Code of Ethics (Acknowledge)</a>
+  </div>
+</div>
+
+  <div class="fb-bar">
+    <span class="fb-label">Your feedback on Article XII: Organizational Policies</span>
+    <span class="fb-btns">
+      <a class="fb-btn fb-agree" href="https://form.jotform.com/261475391421052" target="_blank" rel="noopener">Agree in the form</a>
+      <a class="fb-btn fb-disagree" href="https://form.jotform.com/261475391421052" target="_blank" rel="noopener">Object in the form</a>
+    </span>
+    <span class="fb-hint">Buttons open the feedback form, where your vote is recorded. Selecting a position and submitting the form is what casts your vote.</span>
+  </div>
+  <a class="backtop" href="#top">Back to top</a>
+</article>
+
+<!-- ARTICLE XIII -->
+<article class="art" id="a13">
+  <h2>Article XIII: Appointed Non-Voting Positions <span class="adopt">New (Proposed 2026)</span></h2>
+  <table>
+    <thead><tr><th>Current 2017 Language</th><th>Proposed 2026 Language</th></tr></thead>
+    <tbody>
+      <tr><td>No corresponding article in 2017.</td><td class="new"><span class="tag">New</span><span class="lettered">(1)</span> Chair, with Vice-Chair concurrence, may appoint individuals to non-voting positions supporting BCOC operations and mission.</td></tr>
+      <tr><td>No corresponding article in 2017.</td><td class="new"><span class="tag">New</span><span class="lettered">(2)</span> Appointees serve in non-voting, advisory roles with no vote unless separately holding an elected office.</td></tr>
+      <tr><td>No corresponding article in 2017.</td><td class="new"><span class="tag">New</span><span class="lettered">(3)</span> Terms align with the seated Chair; positions vacate when a new Chair takes office and are subject to reappointment.</td></tr>
+      <tr><td>No corresponding article in 2017.</td><td class="new"><span class="tag">New</span><span class="lettered">(4)</span> Appointees must be members in good standing; Chair may remove an appointee at any time with notice to the Vice-Chair.</td></tr>
+      <tr><td>No corresponding article in 2017.</td><td class="new"><span class="tag">New</span><span class="lettered">(5)</span> Each appointee submits a brief written report to the Executive Board at least twice per year.</td></tr>
+      <tr><td>No corresponding article in 2017.</td><td class="new"><span class="tag">New</span><span class="lettered">(6)</span> Positions: Educational Coordinator, Public Information Officer, Chaplain, Sergeant-at-Arms, and Ad-Hoc Committee Chairs (Elections, Bylaws, Ethics, Membership).</td></tr>
+    </tbody>
+  </table>
+  <div class="fb-bar">
+    <span class="fb-label">Your feedback on Article XIII: Appointed Non-Voting Positions</span>
+    <span class="fb-btns">
+      <a class="fb-btn fb-agree" href="https://form.jotform.com/261475391421052" target="_blank" rel="noopener">Agree in the form</a>
+      <a class="fb-btn fb-disagree" href="https://form.jotform.com/261475391421052" target="_blank" rel="noopener">Object in the form</a>
+    </span>
+    <span class="fb-hint">Buttons open the feedback form, where your vote is recorded. Selecting a position and submitting the form is what casts your vote.</span>
+  </div>
+  <a class="backtop" href="#top">Back to top</a>
+</article>
+
+<footer>
+  Black Chief Officers' Committee &middot; Bylaws 2017 to 2026 Comparison &middot; Prepared for feedback prior to the Executive Board vote and member vote in August 2026.<br>
+  This comparison summarizes provisions for review. The full redlined v10 bylaws document governs in case of any discrepancy.
+</footer>
+
+</div>
+</body>
+</html>
