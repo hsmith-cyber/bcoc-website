@@ -22,7 +22,14 @@ body{font-family:'Source Sans 3',sans-serif;background:#14213d;display:flex;flex
 .vbtn.ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.5)}
 .vbtn.ghost:hover{background:rgba(255,255,255,.12);border-color:#fff}
 .vbtn svg{width:14px;height:14px;fill:currentColor}
+.pdf-host{flex:1;display:flex;flex-direction:column;min-height:0}
 .pdf-frame{flex:1;width:100%;border:0;background:#525659}
+/* Mobile fallback card (iframes can't render PDFs on iOS) */
+.mobile-open{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:40px 24px;text-align:center;background:#1b2d50;color:#fff}
+.mobile-open svg{width:64px;height:64px;fill:#e8be5a}
+.mobile-open h2{font-family:'Playfair Display',serif;font-size:24px;font-weight:900}
+.mobile-open p{font-size:15px;color:#cdd6e6;max-width:340px;line-height:1.55}
+.mobile-open .vbtn{font-size:14px;padding:14px 26px}
 @media(max-width:560px){.viewer-title{font-size:16px}.vbtn{padding:9px 14px;font-size:11px}}
 </style>
 </head>
@@ -37,12 +44,28 @@ body{font-family:'Source Sans 3',sans-serif;background:#14213d;display:flex;flex
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
         Library
       </a>
-      <a class="vbtn solid" href="BCOC_Bylaws_2017.pdf" download>
+      <a class="vbtn solid" href="BCOC_Bylaws_2017.pdf" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
-        Download PDF
+        Open PDF
       </a>
     </div>
   </div>
-  <iframe class="pdf-frame" src="BCOC_Bylaws_2017.pdf#view=FitH&toolbar=1" title="BCOC Bylaws 2017 Amended"></iframe>
+  <div class="pdf-host" id="pdfHost">
+    <iframe class="pdf-frame" src="BCOC_Bylaws_2017.pdf#view=FitH&toolbar=1" title="BCOC Bylaws 2017 Amended"></iframe>
+  </div>
+  <script>
+  (function(){
+    var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth < 820;
+    if(isMobile){
+      document.getElementById('pdfHost').innerHTML =
+        '<div class="mobile-open">' +
+        '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>' +
+        '<h2>BCOC Bylaws (2017 · Amended)</h2>' +
+        '<p>Tap below to open the full document. It will open in your phone&rsquo;s built-in document viewer.</p>' +
+        '<a class="vbtn solid" href="BCOC_Bylaws_2017.pdf" target="_blank" rel="noopener">Open the Document</a>' +
+        '</div>';
+    }
+  })();
+  </script>
 </body>
 </html>
