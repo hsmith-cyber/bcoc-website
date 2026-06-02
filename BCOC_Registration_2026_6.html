@@ -379,17 +379,17 @@
           <div class="cu-lbl">Seconds</div>
         </div>
       </div>
-      <div class="countdown-msg" id="countdown-msg">🎉 Register now and save — Early Bird ends <strong>May 31, 2026</strong></div>
+      <div class="countdown-msg" id="countdown-msg">🎉 Register now and save — Early Bird ends <strong>June 15, 2026 at 11:59 PM</strong></div>
     </div>
   </div>
 
   <div class="reg-cards">
     <!-- Early Bird -->
     <div class="reg-card" id="card-early" onclick="selectReg('early')">
-      <div class="rc-badge early">Early Bird</div>
+      <div class="rc-badge early">Early Bird *Extended</div>
       <div class="rc-name">Early Bird Registration</div>
       <div class="rc-price">$425</div>
-      <div class="rc-dates">Available through<br><strong>May 31, 2026</strong></div>
+      <div class="rc-dates">Available through<br><strong>June 15,        11:59 PM</strong></div>
       <button class="rc-select">Select</button>
     </div>
     <!-- Guest -->
@@ -405,7 +405,7 @@
       <div class="rc-badge late">Late Registration</div>
       <div class="rc-name">Late Registration</div>
       <div class="rc-price">$475</div>
-      <div class="rc-dates">Available starting<br><strong>June 1, 2026</strong></div>
+      <div class="rc-dates">Available starting<br><strong>June 16, 2026</strong></div>
       <button class="rc-select">Select</button>
     </div>
   </div>
@@ -1399,7 +1399,7 @@
 
 <script>
 var currentReg = null;
-var earlyBirdDeadline = new Date('2026-06-01');
+var earlyBirdDeadline = new Date('2026-06-16T00:00:00');
 var today = new Date();
 
 function selectReg(type) {
@@ -1449,12 +1449,12 @@ window.onload = function() {
     label.textContent = 'Early Bird Registration Has Closed';
     units.style.display = 'none';
     msg.classList.add('closed-msg');
-    msg.innerHTML = '⚠️ Early Bird closed May 31, 2026. <strong>Late Registration is now open at $475.</strong>';
+    msg.innerHTML = '⚠️ Early Bird closed June 15, 2026. <strong>Late Registration is now open at $475.</strong>';
   } else {
     // Countdown active — Late not open yet
     cardLate.classList.add('disabled');
     cardLate.querySelector('.rc-badge').className = 'rc-badge closed';
-    cardLate.querySelector('.rc-badge').textContent = 'Opens June 1';
+    cardLate.querySelector('.rc-badge').textContent = 'Opens June 16';
 
     function updateClock() {
       var now = new Date();
