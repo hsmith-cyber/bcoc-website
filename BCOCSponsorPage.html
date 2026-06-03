@@ -583,7 +583,14 @@
           <a href="https://www.firstnet.com" target="_blank" rel="noopener" style="display:block;background:#fff;border-radius:10px;padding:24px 28px;box-shadow:0 10px 30px rgba(0,0,0,0.45),0 0 0 1px rgba(201,168,76,0.4);transition:transform .3s ease,box-shadow .3s ease;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 14px 36px rgba(0,0,0,0.55),0 0 0 1px var(--gold),0 0 30px rgba(201,168,76,0.4)';" onmouseout="this.style.transform='';this.style.boxShadow='0 10px 30px rgba(0,0,0,0.45),0 0 0 1px rgba(201,168,76,0.4)';">
             <img src="https://static.wixstatic.com/media/a6fc8b_8364ac20fa6f47bcaf9ba80edfa4055b~mv2.png" alt="FirstNet — America's Public Safety Network" style="max-width:460px;width:100%;height:auto;display:block;">
           </a>
-          <video src="https://video.wixstatic.com/video/a6fc8b_cf32a8df5bd345a894bb05121e41fdf3/1080p/mp4/file.mp4" controls playsinline style="max-width:420px;width:100%;height:auto;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,0.45),0 0 0 1px rgba(201,168,76,0.4);"></video>
+          <div onclick="playPromo('https://video.wixstatic.com/video/a6fc8b_cf32a8df5bd345a894bb05121e41fdf3/1080p/mp4/file.mp4','large')" title="Watch FirstNet promo" style="position:relative;cursor:pointer;max-width:420px;width:100%;border-radius:10px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.45),0 0 0 1px rgba(201,168,76,0.4);">
+            <video src="https://video.wixstatic.com/video/a6fc8b_cf32a8df5bd345a894bb05121e41fdf3/1080p/mp4/file.mp4#t=0.5" muted playsinline preload="metadata" style="width:100%;height:auto;display:block;"></video>
+            <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.28);transition:background .2s;" onmouseover="this.style.background='rgba(0,0,0,0.42)';" onmouseout="this.style.background='rgba(0,0,0,0.28)';">
+              <div style="width:66px;height:66px;border-radius:50%;background:rgba(201,168,76,0.94);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 18px rgba(0,0,0,0.55);">
+                <span style="color:#0d0d0d;font-size:26px;margin-left:5px;line-height:1;">&#9654;</span>
+              </div>
+            </div>
+          </div>
         </div>
 
         <!-- Tagline -->
@@ -734,7 +741,10 @@
             </div>
             <div class="bs-flip-back">
               <div class="bs-name" style="font-size:0.85rem;">Whelen</div>
-              <a href="https://www.whelen.com/" target="_blank" rel="noopener" class="bs-visit" style="padding:7px 16px;font-size:0.65rem;">Visit</a>
+              <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;">
+                <a href="javascript:void(0)" onclick="playPromo('https://video.wixstatic.com/video/a6fc8b_85a163a765cc4b71a045f8bee23de3d9/1080p/mp4/file.mp4')" class="bs-visit" style="padding:7px 16px;font-size:0.65rem;">&#9654; Watch Promo</a>
+                <a href="https://www.whelen.com/" target="_blank" rel="noopener" class="bs-visit" style="padding:7px 16px;font-size:0.65rem;">Visit</a>
+              </div>
             </div>
           </div>
         </div>
@@ -1145,6 +1155,32 @@ function toggleJfChat(){
   var btn=document.getElementById('jf-chat-btn');
   if(box.style.display==='none'){box.style.display='block';btn.style.display='none';}
   else{box.style.display='none';btn.style.display='flex';}
+}
+</script>
+
+<!-- Promo video modal (plays in same window) -->
+<div id="promo-modal" onclick="closePromo(event)" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.78);align-items:center;justify-content:center;padding:20px;">
+  <div id="promo-box" style="position:relative;width:100%;max-width:560px;">
+    <button onclick="closePromo()" style="position:absolute;top:-14px;right:-14px;width:34px;height:34px;border-radius:50%;background:var(--gold,#c8962e);color:#0d0d0d;border:none;font-size:1.2rem;line-height:1;cursor:pointer;box-shadow:0 3px 12px rgba(0,0,0,0.4);z-index:2;">&times;</button>
+    <video id="promo-video" controls playsinline style="width:100%;height:auto;border-radius:10px;box-shadow:0 12px 48px rgba(0,0,0,0.5);background:#000;"></video>
+  </div>
+</div>
+<script>
+function playPromo(url,size){
+  var modal=document.getElementById('promo-modal');
+  var box=document.getElementById('promo-box');
+  var vid=document.getElementById('promo-video');
+  box.style.maxWidth=(size==='large')?'960px':'560px';
+  vid.src=url;
+  modal.style.display='flex';
+  vid.play().catch(function(){});
+}
+function closePromo(e){
+  if(e&&e.target&&e.target.id!=='promo-modal'&&e.type==='click')return;
+  var modal=document.getElementById('promo-modal');
+  var vid=document.getElementById('promo-video');
+  vid.pause();vid.removeAttribute('src');vid.load();
+  modal.style.display='none';
 }
 </script>
 
