@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BCOC 2026 — Sponsor Thank-You Social Posts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#14213d;
+    --navy-2:#1d2f54;
+    --gold:#c8962e;
+    --gold-lt:#e8be5a;
+    --red:#b82040;
+    --cream:#f1ead9;
+    --silver:#cfd6e2;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:#2b2b2b;font-family:'Source Sans 3',sans-serif;padding:40px 0;display:flex;flex-direction:column;align-items:center;gap:46px;}
+  .note{color:#fff;font-size:14px;letter-spacing:0.03em;opacity:0.78;width:1080px;text-align:left;}
+  .note b{color:var(--gold-lt);}
+
+  /* ── 1080×1080 CARD ── */
+  .card{
+    width:1080px;height:1080px;position:relative;overflow:hidden;
+    background:
+      radial-gradient(ellipse at 50% 30%, #20355f 0%, var(--navy) 55%, #0f1a30 100%);
+    color:#fff;display:flex;flex-direction:column;align-items:center;
+    padding:64px 70px 56px;box-shadow:0 24px 70px rgba(0,0,0,0.55);
+  }
+  /* gold frame */
+  .card::before{content:"";position:absolute;inset:30px;border:2px solid rgba(200,150,46,0.55);border-radius:6px;pointer-events:none;}
+  .card::after{content:"";position:absolute;inset:38px;border:1px solid rgba(232,190,90,0.25);border-radius:4px;pointer-events:none;}
+
+  /* Header */
+  .crest{font-size:30px;color:var(--gold);letter-spacing:8px;}
+  .eyebrow{font-family:'Cinzel',serif;font-size:15px;font-weight:600;letter-spacing:0.5em;text-transform:uppercase;color:var(--gold-lt);margin-top:8px;text-indent:0.5em;}
+  .wordmark{font-family:'Cinzel',serif;font-weight:900;font-size:72px;letter-spacing:0.04em;color:#fff;line-height:1;margin:6px 0 4px;}
+  .wordmark .yr{color:var(--gold);}
+  .anniv{font-family:'Playfair Display',serif;font-style:italic;font-size:23px;color:var(--silver);letter-spacing:0.02em;}
+  .divider{display:flex;align-items:center;justify-content:center;gap:14px;width:70%;margin:22px 0 10px;}
+  .divider .ln{height:1px;flex:1;background:linear-gradient(90deg,transparent,var(--gold));}
+  .divider .ln.r{background:linear-gradient(90deg,var(--gold),transparent);}
+  .divider .dia{color:var(--gold);font-size:14px;}
+
+  .thanks{font-family:'Playfair Display',serif;font-size:30px;font-weight:400;color:#fff;letter-spacing:0.01em;}
+  .tier-chip{
+    display:inline-block;margin-top:16px;padding:9px 30px;border-radius:40px;
+    font-family:'Cinzel',serif;font-weight:700;font-size:21px;letter-spacing:0.22em;text-transform:uppercase;
+  }
+  .chip-elite{background:linear-gradient(135deg,#c8962e,#e8be5a,#c8962e);color:#3a2a06;box-shadow:0 6px 22px rgba(200,150,46,0.4);}
+  .chip-plat{background:linear-gradient(135deg,#d8dee9,#fff,#bcc6d6);color:#1c2a47;box-shadow:0 6px 22px rgba(207,214,226,0.3);}
+  .chip-gold{background:linear-gradient(135deg,#c8962e,#e8be5a,#c8962e);color:#3a2a06;box-shadow:0 6px 22px rgba(200,150,46,0.4);}
+
+  /* Logos area */
+  .logos{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;gap:24px;}
+  .tile{
+    background:#fff;border-radius:18px;box-shadow:0 10px 34px rgba(0,0,0,0.4);
+    display:flex;align-items:center;justify-content:center;padding:26px 34px;
+  }
+  .tile img{max-width:100%;max-height:100%;object-fit:contain;display:block;}
+  .row{display:flex;gap:24px;justify-content:center;width:100%;}
+
+  /* Footer */
+  .foot{width:100%;text-align:center;margin-top:8px;}
+  .foot .when{font-family:'Cinzel',serif;font-weight:700;font-size:22px;letter-spacing:0.12em;text-transform:uppercase;color:#fff;}
+  .foot .motto{font-family:'Playfair Display',serif;font-style:italic;font-size:21px;color:var(--gold-lt);margin-top:6px;}
+  .foot .url{font-size:13px;letter-spacing:0.34em;text-transform:uppercase;color:var(--silver);margin-top:12px;}
+</style>
+</head>
+<body>
+
+<!-- ═══════════ POST 1 — ELITE PREMIER PRESENTING ═══════════ -->
+<div class="note">📸 <b>POST 1 of 3 — Elite Premier Presenting.</b> Screenshot / export the 1080×1080 card below.</div>
+<div class="card" id="post1">
+  <div class="crest">&#9733;</div>
+  <div class="eyebrow">With Heartfelt Thanks</div>
+  <div class="wordmark">BCOC&nbsp;<span class="yr">2026</span></div>
+  <div class="anniv">The 40th Anniversary Symposium</div>
+  <div class="divider"><span class="ln"></span><span class="dia">&#9670;</span><span class="ln r"></span></div>
+  <div class="thanks">Proudly Presented By</div>
+  <div class="tier-chip chip-elite">Elite Premier Presenting Sponsor</div>
+
+  <div class="logos">
+    <div class="tile" style="width:780px;height:340px;padding:48px 60px;">
+      <img src="https://static.wixstatic.com/media/a6fc8b_8364ac20fa6f47bcaf9ba80edfa4055b~mv2.png" alt="FirstNet / AT&amp;T">
+    </div>
+  </div>
+
+  <div class="foot">
+    <div class="when">August 4&ndash;7, 2026 &middot; Atlanta, Georgia</div>
+    <div class="motto">Lifting As We Climb</div>
+    <div class="url">Black Chief Officers Committee &middot; Est. 1986 &middot; bcoc.us</div>
+  </div>
+</div>
+
+<!-- ═══════════ POST 2 — PLATINUM ═══════════ -->
+<div class="note">📸 <b>POST 2 of 3 — Platinum Sponsors.</b> Screenshot / export the 1080×1080 card below.</div>
+<div class="card" id="post2">
+  <div class="crest">&#9733;</div>
+  <div class="eyebrow">With Heartfelt Thanks</div>
+  <div class="wordmark">BCOC&nbsp;<span class="yr">2026</span></div>
+  <div class="anniv">The 40th Anniversary Symposium</div>
+  <div class="divider"><span class="ln"></span><span class="dia">&#9670;</span><span class="ln r"></span></div>
+  <div class="thanks">In Distinguished Company</div>
+  <div class="tier-chip chip-plat">Platinum Sponsors</div>
+
+  <div class="logos">
+    <div class="tile" style="width:660px;height:178px;">
+      <img src="https://static.wixstatic.com/media/a6fc8b_f650ca4c388146709c28a329394cc680~mv2.png" alt="REV Fire Group">
+    </div>
+    <div class="tile" style="width:660px;height:178px;">
+      <img src="https://static.wixstatic.com/media/a6fc8b_05859d0734474e6380d748e8294274e4~mv2.png" alt="Atlantic Emergency Solutions">
+    </div>
+    <div class="tile" style="width:660px;height:178px;">
+      <img src="./images/pierce-manufacturing.png" alt="Pierce Manufacturing">
+    </div>
+  </div>
+
+  <div class="foot">
+    <div class="when">August 4&ndash;7, 2026 &middot; Atlanta, Georgia</div>
+    <div class="motto">Lifting As We Climb</div>
+    <div class="url">Black Chief Officers Committee &middot; Est. 1986 &middot; bcoc.us</div>
+  </div>
+</div>
+
+<!-- ═══════════ POST 3 — GOLD ═══════════ -->
+<div class="note">📸 <b>POST 3 of 3 — Gold Sponsors.</b> Screenshot / export the 1080×1080 card below.</div>
+<div class="card" id="post3">
+  <div class="crest">&#9733;</div>
+  <div class="eyebrow">With Heartfelt Thanks</div>
+  <div class="wordmark">BCOC&nbsp;<span class="yr">2026</span></div>
+  <div class="anniv">The 40th Anniversary Symposium</div>
+  <div class="divider"><span class="ln"></span><span class="dia">&#9670;</span><span class="ln r"></span></div>
+  <div class="thanks">A Standing Ovation For Our</div>
+  <div class="tier-chip chip-gold">Gold Sponsors</div>
+
+  <div class="logos">
+    <div class="row">
+      <div class="tile" style="width:420px;height:170px;">
+        <img src="https://static.wixstatic.com/media/a6fc8b_f9abf493ff34402aab2d5d11da7687de~mv2.jpg" alt="American Wood Council">
+      </div>
+      <div class="tile" style="width:420px;height:170px;">
+        <img src="https://static.wixstatic.com/media/a6fc8b_ddbd919c2d804f998e51e89df58ce2e8~mv2.png" alt="Sutphen">
+      </div>
+    </div>
+    <div class="row">
+      <div class="tile" style="width:420px;height:170px;">
+        <img src="https://static.wixstatic.com/media/7c3afa_bb6b78ceb9f844d989a4b1f3403530de~mv2.png" alt="MSA / Globe">
+      </div>
+      <div class="tile" style="width:420px;height:170px;">
+        <img src="https://static.wixstatic.com/media/a6fc8b_7a3afa7e06d84025a46a0e1b9d3644cc~mv2.jpg" alt="1-800-BoardUp">
+      </div>
+    </div>
+    <div class="row">
+      <div class="tile" style="width:420px;height:170px;">
+        <img src="https://static.wixstatic.com/media/a6fc8b_3a7305bc74d54ec4afd60b305955ac13~mv2.png" alt="Whelen">
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <div class="when">August 4&ndash;7, 2026 &middot; Atlanta, Georgia</div>
+    <div class="motto">Lifting As We Climb</div>
+    <div class="url">Black Chief Officers Committee &middot; Est. 1986 &middot; bcoc.us</div>
+  </div>
+</div>
+
+</body>
+</html>
