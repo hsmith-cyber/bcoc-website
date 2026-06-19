@@ -3,62 +3,85 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BCOC 2026 — Sponsor Thank-You Social Posts</title>
+<title>BCOC 2026 — Sponsor Thank-You Social Posts (one per sponsor)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
   *{box-sizing:border-box;margin:0;padding:0;}
   body{background:#252525;font-family:'Source Sans 3',sans-serif;padding:42px 0;display:flex;flex-direction:column;align-items:center;gap:44px;}
-  .note{color:#fff;font-size:14px;letter-spacing:0.03em;opacity:0.75;width:1080px;text-align:left;}
+  .note{color:#fff;font-size:14px;letter-spacing:0.03em;opacity:0.78;width:1080px;text-align:left;}
   .note b{color:#e8be5a;}
 
-  /* ── 1080×1080 CARD · Professional · Ivory & Gold · Cinzel ── */
+  /* ── 1080×1080 CARD · Professional · Cinzel · scheme-driven ── */
   .card{
     width:1080px;height:1080px;position:relative;overflow:hidden;
-    background:radial-gradient(ellipse at 50% 16%, #fdfaf1 0%, #f4ead2 58%, #ead9b4 100%);
-    color:#11203c;box-shadow:0 24px 70px rgba(0,0,0,0.55);
-    --gold:#c8962e;--gold-lt:#e8be5a;--navy:#11203c;--deepgold:#9c7a20;
+    background:var(--bg);color:var(--ink);
     display:flex;flex-direction:column;align-items:center;text-align:center;padding:78px;
+    box-shadow:0 24px 70px rgba(0,0,0,0.55);
   }
-  .wm{position:absolute;top:50%;left:50%;width:900px;height:900px;transform:translate(-50%,-46%);opacity:0.045;z-index:0;background:url('./images/bcoc-gold-logo.png') center/contain no-repeat;}
+  .wm{position:absolute;top:50%;left:50%;width:900px;height:900px;transform:translate(-50%,-46%);opacity:var(--wm);z-index:0;background:url('./images/bcoc-gold-logo.png') center/contain no-repeat;}
   .frame{position:absolute;inset:44px;border:2px solid var(--gold);z-index:1;pointer-events:none;}
-  .frame::after{content:"";position:absolute;inset:6px;border:1px solid rgba(156,122,32,0.5);}
+  .frame::after{content:"";position:absolute;inset:6px;border:1px solid var(--key);}
   .crn{position:absolute;width:18px;height:18px;background:var(--gold);z-index:2;transform:rotate(45deg);}
   .crn.tl{top:50px;left:50px;}.crn.tr{top:50px;right:50px;}
   .crn.bl{bottom:50px;left:50px;}.crn.br{bottom:50px;right:50px;}
 
   .inner{position:relative;z-index:3;display:flex;flex-direction:column;align-items:center;flex:1;width:100%;}
-  .emblem{width:172px;height:172px;object-fit:contain;filter:drop-shadow(0 6px 16px rgba(120,90,30,0.3));}
-  .kicker{font-family:'Cinzel',serif;font-weight:600;font-size:16px;letter-spacing:0.42em;text-transform:uppercase;color:var(--deepgold);margin-top:18px;text-indent:0.42em;}
-  .headline{font-family:'Cinzel',serif;font-weight:800;font-size:52px;letter-spacing:0.14em;text-transform:uppercase;color:var(--navy);line-height:1;margin:12px 0 0;text-indent:0.14em;}
-  .lead{font-family:'Cinzel',serif;font-weight:400;font-size:15px;letter-spacing:0.26em;text-transform:uppercase;color:#6b5a37;margin-top:14px;text-indent:0.26em;}
-
-  .tier{display:flex;align-items:center;justify-content:center;gap:20px;margin:16px 0 2px;width:84%;}
-  .tier .ln{height:1px;flex:1;max-width:170px;background:linear-gradient(90deg,transparent,var(--gold));}
+  .emblem{width:156px;height:156px;object-fit:contain;filter:var(--emb);}
+  .kicker{font-family:'Cinzel',serif;font-weight:600;font-size:16px;letter-spacing:0.42em;text-transform:uppercase;color:var(--kicker);margin-top:16px;text-indent:0.42em;}
+  .headline{font-family:'Cinzel',serif;font-weight:800;font-size:50px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink);line-height:1;margin:12px 0 0;text-indent:0.14em;}
+  .lead{font-family:'Cinzel',serif;font-weight:400;font-size:15px;letter-spacing:0.26em;text-transform:uppercase;color:var(--muted);margin-top:14px;text-indent:0.26em;}
+  .tier{display:flex;align-items:center;justify-content:center;gap:20px;margin:16px 0 2px;width:80%;}
+  .tier .ln{height:1px;flex:1;max-width:160px;background:linear-gradient(90deg,transparent,var(--gold));}
   .tier .ln.r{background:linear-gradient(90deg,var(--gold),transparent);}
   .tier .dia{color:var(--gold);font-size:12px;}
-  .tier .lbl{font-family:'Cinzel',serif;font-weight:700;font-size:25px;letter-spacing:0.2em;text-transform:uppercase;color:var(--deepgold);white-space:nowrap;}
+  .tier .lbl{font-family:'Cinzel',serif;font-weight:700;font-size:24px;letter-spacing:0.2em;text-transform:uppercase;color:var(--label);white-space:nowrap;}
 
-  .logos{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;gap:24px;}
-  .row{display:flex;gap:24px;justify-content:center;width:100%;}
-  .plate{background:#ffffff;border-radius:10px;border:1px solid rgba(200,150,46,0.65);
-    box-shadow:0 10px 26px rgba(120,90,30,0.18);position:relative;
-    display:flex;align-items:center;justify-content:center;padding:24px 36px;}
-  .plate::after{content:"";position:absolute;inset:7px;border:1px solid rgba(200,150,46,0.28);border-radius:5px;pointer-events:none;}
-  .plate img{max-width:86%;max-height:100%;object-fit:contain;display:block;}
+  .logos{flex:1;display:flex;align-items:center;justify-content:center;width:100%;}
+  .plate{background:var(--plate);border-radius:10px;border:1px solid var(--platebd);
+    box-shadow:var(--platesh);position:relative;display:flex;align-items:center;justify-content:center;
+    width:740px;height:360px;padding:56px 68px;}
+  .plate::after{content:"";position:absolute;inset:8px;border:1px solid var(--plateinner);border-radius:5px;pointer-events:none;}
+  .plate img{max-width:88%;max-height:100%;object-fit:contain;display:block;}
 
   .foot{width:100%;text-align:center;}
   .foot .hair{width:64px;height:2px;background:var(--gold);margin:0 auto 14px;}
-  .foot .when{font-family:'Cinzel',serif;font-weight:700;font-size:21px;letter-spacing:0.14em;text-transform:uppercase;color:var(--navy);}
-  .foot .url{font-family:'Cinzel',serif;font-weight:500;font-size:14px;letter-spacing:0.4em;text-transform:uppercase;color:var(--deepgold);margin-top:9px;}
+  .foot .when{font-family:'Cinzel',serif;font-weight:700;font-size:21px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink);}
+  .foot .url{font-family:'Cinzel',serif;font-weight:500;font-size:14px;letter-spacing:0.4em;text-transform:uppercase;color:var(--kicker);margin-top:9px;}
+
+  /* ───── SCHEMES ───── */
+  .s-ivory{
+    --bg:radial-gradient(ellipse at 50% 16%, #fdfaf1 0%, #f4ead2 58%, #ead9b4 100%);
+    --ink:#11203c;--muted:#6b5a37;--kicker:#9c7a20;--label:#9c7a20;--gold:#c8962e;--key:rgba(156,122,32,0.5);
+    --plate:#fff;--platebd:rgba(200,150,46,0.65);--platesh:0 12px 30px rgba(120,90,30,0.2);--plateinner:rgba(200,150,46,0.28);
+    --emb:drop-shadow(0 6px 16px rgba(120,90,30,0.3));--wm:0.05;
+  }
+  .s-champ{
+    --bg:linear-gradient(160deg,#f8ecd3 0%,#edd6a0 46%,#dcb869 100%);
+    --ink:#13233f;--muted:#6a531f;--kicker:#7d5410;--label:#9e1b2f;--gold:#7d5410;--key:rgba(19,35,63,0.32);
+    --plate:#fff;--platebd:rgba(19,35,63,0.32);--platesh:0 14px 32px rgba(90,70,20,0.32);--plateinner:rgba(125,84,16,0.3);
+    --emb:drop-shadow(0 6px 16px rgba(90,70,20,0.4));--wm:0.05;
+  }
+  .s-white{
+    --bg:radial-gradient(ellipse at 50% 0%, #ffffff 0%, #f3f4f7 100%);
+    --ink:#11203c;--muted:#5a6275;--kicker:#b3851f;--label:#b3851f;--gold:#c8962e;--key:rgba(200,150,46,0.5);
+    --plate:#fff;--platebd:#e3e6ec;--platesh:0 12px 30px rgba(20,33,61,0.14);--plateinner:rgba(200,150,46,0.22);
+    --emb:drop-shadow(0 6px 16px rgba(20,33,61,0.18));--wm:0.05;
+  }
+  .s-crimson{
+    --bg:radial-gradient(ellipse at 50% 18%, #c2273f 0%, #9e1b2f 55%, #7a1325 100%);
+    --ink:#ffffff;--muted:#f3d9c0;--kicker:#f0dca5;--label:#f0dca5;--gold:#e8be5a;--key:rgba(232,190,90,0.5);
+    --plate:#fdfcf8;--platebd:rgba(232,190,90,0.75);--platesh:0 14px 32px rgba(0,0,0,0.34);--plateinner:rgba(232,190,90,0.4);
+    --emb:drop-shadow(0 6px 18px rgba(0,0,0,0.42));--wm:0.08;
+  }
 </style>
 </head>
 <body>
 
-<!-- ═══════════ POST 1 — ELITE PREMIER PRESENTING ═══════════ -->
-<div class="note">📸 <b>POST 1 of 3 — Elite Premier Presenting.</b> Screenshot / export the 1080×1080 card below.</div>
-<div class="card" id="post1">
+<!-- 1 · FirstNet/AT&T · Elite Premier · IVORY -->
+<div class="note">📸 <b>1 of 9 — FirstNet/AT&T</b> · Elite Premier Presenting · Ivory</div>
+<div class="card s-ivory">
   <div class="wm"></div><div class="frame"></div>
   <span class="crn tl"></span><span class="crn tr"></span><span class="crn bl"></span><span class="crn br"></span>
   <div class="inner">
@@ -67,18 +90,14 @@
     <div class="headline">With Gratitude</div>
     <div class="lead">Proudly Presented By</div>
     <div class="tier"><span class="ln"></span><span class="dia">&#9670;</span><span class="lbl">Elite Premier Presenting Sponsor</span><span class="dia">&#9670;</span><span class="ln r"></span></div>
-    <div class="logos">
-      <div class="plate" style="width:760px;height:340px;padding:52px 64px;">
-        <img src="https://static.wixstatic.com/media/a6fc8b_8364ac20fa6f47bcaf9ba80edfa4055b~mv2.png" alt="FirstNet / AT&amp;T">
-      </div>
-    </div>
+    <div class="logos"><div class="plate"><img src="https://static.wixstatic.com/media/a6fc8b_8364ac20fa6f47bcaf9ba80edfa4055b~mv2.png" alt="FirstNet / AT&amp;T"></div></div>
     <div class="foot"><div class="hair"></div><div class="when">August 3&ndash;7, 2026 &middot; Atlanta, Georgia</div><div class="url">bcoc.us</div></div>
   </div>
 </div>
 
-<!-- ═══════════ POST 2 — PLATINUM ═══════════ -->
-<div class="note">📸 <b>POST 2 of 3 — Platinum Sponsors.</b> Screenshot / export the 1080×1080 card below.</div>
-<div class="card" id="post2">
+<!-- 2 · REV Fire Group · Platinum · CHAMPAGNE -->
+<div class="note">📸 <b>2 of 9 — REV Fire Group</b> · Platinum · Champagne</div>
+<div class="card s-champ">
   <div class="wm"></div><div class="frame"></div>
   <span class="crn tl"></span><span class="crn tr"></span><span class="crn bl"></span><span class="crn br"></span>
   <div class="inner">
@@ -86,40 +105,120 @@
     <div class="kicker">40th Anniversary Symposium &middot; 2026</div>
     <div class="headline">With Gratitude</div>
     <div class="lead">In Distinguished Company</div>
-    <div class="tier"><span class="ln"></span><span class="dia">&#9670;</span><span class="lbl">Platinum Sponsors</span><span class="dia">&#9670;</span><span class="ln r"></span></div>
-    <div class="logos">
-      <div class="plate" style="width:660px;height:172px;"><img src="https://static.wixstatic.com/media/a6fc8b_f650ca4c388146709c28a329394cc680~mv2.png" alt="REV Fire Group"></div>
-      <div class="plate" style="width:660px;height:172px;"><img src="https://static.wixstatic.com/media/a6fc8b_05859d0734474e6380d748e8294274e4~mv2.png" alt="Atlantic Emergency Solutions"></div>
-      <div class="plate" style="width:660px;height:172px;"><img src="./images/pierce-manufacturing.png" alt="Pierce Manufacturing"></div>
-    </div>
+    <div class="tier"><span class="ln"></span><span class="dia">&#9670;</span><span class="lbl">Platinum Sponsor</span><span class="dia">&#9670;</span><span class="ln r"></span></div>
+    <div class="logos"><div class="plate"><img src="https://static.wixstatic.com/media/a6fc8b_f650ca4c388146709c28a329394cc680~mv2.png" alt="REV Fire Group"></div></div>
     <div class="foot"><div class="hair"></div><div class="when">August 3&ndash;7, 2026 &middot; Atlanta, Georgia</div><div class="url">bcoc.us</div></div>
   </div>
 </div>
 
-<!-- ═══════════ POST 3 — GOLD ═══════════ -->
-<div class="note">📸 <b>POST 3 of 3 — Gold Sponsors.</b> Screenshot / export the 1080×1080 card below.</div>
-<div class="card" id="post3">
+<!-- 3 · Atlantic Emergency Solutions · Platinum · WHITE -->
+<div class="note">📸 <b>3 of 9 — Atlantic Emergency Solutions</b> · Platinum · White</div>
+<div class="card s-white">
   <div class="wm"></div><div class="frame"></div>
   <span class="crn tl"></span><span class="crn tr"></span><span class="crn bl"></span><span class="crn br"></span>
   <div class="inner">
     <img class="emblem" src="./images/bcoc-gold-logo.png" alt="BCOC">
     <div class="kicker">40th Anniversary Symposium &middot; 2026</div>
     <div class="headline">With Gratitude</div>
-    <div class="lead">A Standing Ovation For Our</div>
-    <div class="tier"><span class="ln"></span><span class="dia">&#9670;</span><span class="lbl">Gold Sponsors</span><span class="dia">&#9670;</span><span class="ln r"></span></div>
-    <div class="logos">
-      <div class="row">
-        <div class="plate" style="width:400px;height:158px;"><img src="https://static.wixstatic.com/media/a6fc8b_f9abf493ff34402aab2d5d11da7687de~mv2.jpg" alt="American Wood Council"></div>
-        <div class="plate" style="width:400px;height:158px;"><img src="https://static.wixstatic.com/media/a6fc8b_ddbd919c2d804f998e51e89df58ce2e8~mv2.png" alt="Sutphen"></div>
-      </div>
-      <div class="row">
-        <div class="plate" style="width:400px;height:158px;"><img src="https://static.wixstatic.com/media/7c3afa_bb6b78ceb9f844d989a4b1f3403530de~mv2.png" alt="MSA / Globe"></div>
-        <div class="plate" style="width:400px;height:158px;"><img src="https://static.wixstatic.com/media/a6fc8b_7a3afa7e06d84025a46a0e1b9d3644cc~mv2.jpg" alt="1-800-BoardUp"></div>
-      </div>
-      <div class="row">
-        <div class="plate" style="width:400px;height:158px;"><img src="https://static.wixstatic.com/media/a6fc8b_3a7305bc74d54ec4afd60b305955ac13~mv2.png" alt="Whelen"></div>
-      </div>
-    </div>
+    <div class="lead">In Distinguished Company</div>
+    <div class="tier"><span class="ln"></span><span class="dia">&#9670;</span><span class="lbl">Platinum Sponsor</span><span class="dia">&#9670;</span><span class="ln r"></span></div>
+    <div class="logos"><div class="plate"><img src="https://static.wixstatic.com/media/a6fc8b_05859d0734474e6380d748e8294274e4~mv2.png" alt="Atlantic Emergency Solutions"></div></div>
+    <div class="foot"><div class="hair"></div><div class="when">August 3&ndash;7, 2026 &middot; Atlanta, Georgia</div><div class="url">bcoc.us</div></div>
+  </div>
+</div>
+
+<!-- 4 · Pierce Manufacturing · Platinum · CRIMSON -->
+<div class="note">📸 <b>4 of 9 — Pierce Manufacturing</b> · Platinum · Crimson</div>
+<div class="card s-crimson">
+  <div class="wm"></div><div class="frame"></div>
+  <span class="crn tl"></span><span class="crn tr"></span><span class="crn bl"></span><span class="crn br"></span>
+  <div class="inner">
+    <img class="emblem" src="./images/bcoc-gold-logo.png" alt="BCOC">
+    <div class="kicker">40th Anniversary Symposium &middot; 2026</div>
+    <div class="headline">With Gratitude</div>
+    <div class="lead">In Distinguished Company</div>
+    <div class="tier"><span class="ln"></span><span class="dia">&#9670;</span><span class="lbl">Platinum Sponsor</span><span class="dia">&#9670;</span><span class="ln r"></span></div>
+    <div class="logos"><div class="plate"><img src="./images/pierce-manufacturing.png" alt="Pierce Manufacturing"></div></div>
+    <div class="foot"><div class="hair"></div><div class="when">August 3&ndash;7, 2026 &middot; Atlanta, Georgia</div><div class="url">bcoc.us</div></div>
+  </div>
+</div>
+
+<!-- 5 · American Wood Council · Gold · IVORY -->
+<div class="note">📸 <b>5 of 9 — American Wood Council</b> · Gold · Ivory</div>
+<div class="card s-ivory">
+  <div class="wm"></div><div class="frame"></div>
+  <span class="crn tl"></span><span class="crn tr"></span><span class="crn bl"></span><span class="crn br"></span>
+  <div class="inner">
+    <img class="emblem" src="./images/bcoc-gold-logo.png" alt="BCOC">
+    <div class="kicker">40th Anniversary Symposium &middot; 2026</div>
+    <div class="headline">With Gratitude</div>
+    <div class="lead">With Heartfelt Thanks</div>
+    <div class="tier"><span class="ln"></span><span class="dia">&#9670;</span><span class="lbl">Gold Sponsor</span><span class="dia">&#9670;</span><span class="ln r"></span></div>
+    <div class="logos"><div class="plate"><img src="https://static.wixstatic.com/media/a6fc8b_f9abf493ff34402aab2d5d11da7687de~mv2.jpg" alt="American Wood Council"></div></div>
+    <div class="foot"><div class="hair"></div><div class="when">August 3&ndash;7, 2026 &middot; Atlanta, Georgia</div><div class="url">bcoc.us</div></div>
+  </div>
+</div>
+
+<!-- 6 · Sutphen · Gold · CHAMPAGNE -->
+<div class="note">📸 <b>6 of 9 — Sutphen</b> · Gold · Champagne</div>
+<div class="card s-champ">
+  <div class="wm"></div><div class="frame"></div>
+  <span class="crn tl"></span><span class="crn tr"></span><span class="crn bl"></span><span class="crn br"></span>
+  <div class="inner">
+    <img class="emblem" src="./images/bcoc-gold-logo.png" alt="BCOC">
+    <div class="kicker">40th Anniversary Symposium &middot; 2026</div>
+    <div class="headline">With Gratitude</div>
+    <div class="lead">With Heartfelt Thanks</div>
+    <div class="tier"><span class="ln"></span><span class="dia">&#9670;</span><span class="lbl">Gold Sponsor</span><span class="dia">&#9670;</span><span class="ln r"></span></div>
+    <div class="logos"><div class="plate"><img src="https://static.wixstatic.com/media/a6fc8b_ddbd919c2d804f998e51e89df58ce2e8~mv2.png" alt="Sutphen"></div></div>
+    <div class="foot"><div class="hair"></div><div class="when">August 3&ndash;7, 2026 &middot; Atlanta, Georgia</div><div class="url">bcoc.us</div></div>
+  </div>
+</div>
+
+<!-- 7 · MSA / Globe · Gold · WHITE -->
+<div class="note">📸 <b>7 of 9 — MSA / Globe</b> · Gold · White</div>
+<div class="card s-white">
+  <div class="wm"></div><div class="frame"></div>
+  <span class="crn tl"></span><span class="crn tr"></span><span class="crn bl"></span><span class="crn br"></span>
+  <div class="inner">
+    <img class="emblem" src="./images/bcoc-gold-logo.png" alt="BCOC">
+    <div class="kicker">40th Anniversary Symposium &middot; 2026</div>
+    <div class="headline">With Gratitude</div>
+    <div class="lead">With Heartfelt Thanks</div>
+    <div class="tier"><span class="ln"></span><span class="dia">&#9670;</span><span class="lbl">Gold Sponsor</span><span class="dia">&#9670;</span><span class="ln r"></span></div>
+    <div class="logos"><div class="plate"><img src="https://static.wixstatic.com/media/7c3afa_bb6b78ceb9f844d989a4b1f3403530de~mv2.png" alt="MSA / Globe"></div></div>
+    <div class="foot"><div class="hair"></div><div class="when">August 3&ndash;7, 2026 &middot; Atlanta, Georgia</div><div class="url">bcoc.us</div></div>
+  </div>
+</div>
+
+<!-- 8 · 1-800-BoardUp · Gold · CRIMSON -->
+<div class="note">📸 <b>8 of 9 — 1-800-BoardUp</b> · Gold · Crimson</div>
+<div class="card s-crimson">
+  <div class="wm"></div><div class="frame"></div>
+  <span class="crn tl"></span><span class="crn tr"></span><span class="crn bl"></span><span class="crn br"></span>
+  <div class="inner">
+    <img class="emblem" src="./images/bcoc-gold-logo.png" alt="BCOC">
+    <div class="kicker">40th Anniversary Symposium &middot; 2026</div>
+    <div class="headline">With Gratitude</div>
+    <div class="lead">With Heartfelt Thanks</div>
+    <div class="tier"><span class="ln"></span><span class="dia">&#9670;</span><span class="lbl">Gold Sponsor</span><span class="dia">&#9670;</span><span class="ln r"></span></div>
+    <div class="logos"><div class="plate"><img src="https://static.wixstatic.com/media/a6fc8b_7a3afa7e06d84025a46a0e1b9d3644cc~mv2.jpg" alt="1-800-BoardUp"></div></div>
+    <div class="foot"><div class="hair"></div><div class="when">August 3&ndash;7, 2026 &middot; Atlanta, Georgia</div><div class="url">bcoc.us</div></div>
+  </div>
+</div>
+
+<!-- 9 · Whelen · Gold · IVORY -->
+<div class="note">📸 <b>9 of 9 — Whelen</b> · Gold · Ivory</div>
+<div class="card s-ivory">
+  <div class="wm"></div><div class="frame"></div>
+  <span class="crn tl"></span><span class="crn tr"></span><span class="crn bl"></span><span class="crn br"></span>
+  <div class="inner">
+    <img class="emblem" src="./images/bcoc-gold-logo.png" alt="BCOC">
+    <div class="kicker">40th Anniversary Symposium &middot; 2026</div>
+    <div class="headline">With Gratitude</div>
+    <div class="lead">With Heartfelt Thanks</div>
+    <div class="tier"><span class="ln"></span><span class="dia">&#9670;</span><span class="lbl">Gold Sponsor</span><span class="dia">&#9670;</span><span class="ln r"></span></div>
+    <div class="logos"><div class="plate"><img src="https://static.wixstatic.com/media/a6fc8b_3a7305bc74d54ec4afd60b305955ac13~mv2.png" alt="Whelen"></div></div>
     <div class="foot"><div class="hair"></div><div class="when">August 3&ndash;7, 2026 &middot; Atlanta, Georgia</div><div class="url">bcoc.us</div></div>
   </div>
 </div>
