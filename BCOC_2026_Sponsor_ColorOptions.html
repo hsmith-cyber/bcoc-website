@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BCOC 2026 — Sponsor Card Color Options</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;1,400;1,500&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:#2b2b2b;font-family:'Source Sans 3',sans-serif;padding:42px 0;display:flex;flex-direction:column;align-items:center;gap:14px;}
+  .opt-label{color:#fff;width:1080px;text-align:left;font-family:'Cinzel',serif;font-weight:700;font-size:20px;letter-spacing:0.12em;margin-top:34px;}
+  .opt-label span{font-family:'Source Sans 3';font-weight:400;letter-spacing:0;font-size:15px;opacity:0.7;text-transform:none;}
+
+  /* ── 1080×1080 CARD (variables drive each scheme) ── */
+  .card{
+    width:1080px;height:1080px;position:relative;overflow:hidden;
+    background:var(--bg);color:var(--ink);
+    display:flex;flex-direction:column;align-items:center;padding:74px;
+    box-shadow:0 24px 70px rgba(0,0,0,0.55);
+  }
+  .wm{position:absolute;top:50%;left:50%;width:880px;height:880px;transform:translate(-50%,-46%);
+      opacity:var(--wm);z-index:0;pointer-events:none;
+      background:url('./images/bcoc-gold-logo.png') center/contain no-repeat;}
+  .keyline{position:absolute;inset:46px;border:1px solid var(--key);z-index:1;pointer-events:none;}
+  .crn{position:absolute;width:34px;height:34px;border-color:var(--gold);z-index:2;pointer-events:none;}
+  .crn.tl{top:38px;left:38px;border-top:3px solid;border-left:3px solid;}
+  .crn.tr{top:38px;right:38px;border-top:3px solid;border-right:3px solid;}
+  .crn.bl{bottom:38px;left:38px;border-bottom:3px solid;border-left:3px solid;}
+  .crn.br{bottom:38px;right:38px;border-bottom:3px solid;border-right:3px solid;}
+
+  .inner{position:relative;z-index:3;display:flex;flex-direction:column;align-items:center;text-align:center;flex:1;width:100%;}
+  .emblem{width:182px;height:182px;object-fit:contain;filter:var(--emb);}
+  .kicker{font-family:'Cinzel',serif;font-weight:600;font-size:16px;letter-spacing:0.46em;text-transform:uppercase;color:var(--kicker);margin-top:18px;text-indent:0.46em;}
+  .headline{font-family:'Playfair Display',serif;font-style:italic;font-weight:500;font-size:52px;color:var(--ink);line-height:1;margin:6px 0 2px;}
+  .lead{font-family:'Cinzel',serif;font-weight:400;font-size:17px;letter-spacing:0.24em;text-transform:uppercase;color:var(--muted);text-indent:0.24em;}
+  .tier{display:flex;align-items:center;justify-content:center;gap:20px;margin:22px 0 4px;width:88%;}
+  .tier .ln{height:1px;flex:1;max-width:150px;background:var(--lng);}
+  .tier .ln.r{background:var(--lngr);}
+  .tier .lbl{font-family:'Cinzel',serif;font-weight:800;font-size:26px;letter-spacing:0.18em;text-transform:uppercase;white-space:nowrap;color:var(--label);}
+  .tier .star{color:var(--gold);font-size:13px;}
+  .logos{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;gap:22px;}
+  .plate{background:var(--plate);border-radius:14px;border:1px solid var(--platebd);
+    box-shadow:var(--platesh);display:flex;align-items:center;justify-content:center;padding:24px 32px;width:640px;height:166px;}
+  .plate img{max-width:100%;max-height:100%;object-fit:contain;display:block;}
+  .foot{width:100%;text-align:center;}
+  .foot .when{font-family:'Cinzel',serif;font-weight:700;font-size:21px;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink);}
+  .foot .url{font-family:'Cinzel',serif;font-weight:500;font-size:14px;letter-spacing:0.4em;text-transform:uppercase;color:var(--kicker);margin-top:12px;}
+  .foot .hair{width:60px;height:2px;background:var(--gold);margin:0 auto 14px;}
+
+  /* ───────── SCHEME A — IVORY & GOLD ───────── */
+  .s-ivory{
+    --bg:radial-gradient(ellipse at 50% 20%, #fdf8ec 0%, #f3e8cf 60%, #e9d6b0 100%);
+    --ink:#11203c;--muted:#6b5a37;--kicker:#9e7a1f;--label:#b3851f;
+    --gold:#c8962e;--key:rgba(178,133,31,0.5);
+    --lng:linear-gradient(90deg,transparent,#c8962e);--lngr:linear-gradient(90deg,#c8962e,transparent);
+    --plate:#ffffff;--platebd:rgba(200,150,46,0.7);--platesh:0 10px 26px rgba(120,90,30,0.22);
+    --emb:drop-shadow(0 6px 16px rgba(120,90,30,0.32));--wm:0.06;
+  }
+  /* ───────── SCHEME B — CHAMPAGNE GOLD ───────── */
+  .s-champ{
+    --bg:linear-gradient(160deg,#f8ecd3 0%,#edd6a0 46%,#dcb869 100%);
+    --ink:#13233f;--muted:#6a531f;--kicker:#8a1d2c;--label:#9e1b2f;
+    --gold:#a9791d;--key:rgba(19,35,63,0.35);
+    --lng:linear-gradient(90deg,transparent,#13233f);--lngr:linear-gradient(90deg,#13233f,transparent);
+    --plate:#ffffff;--platebd:rgba(19,35,63,0.35);--platesh:0 12px 30px rgba(90,70,20,0.3);
+    --emb:drop-shadow(0 6px 16px rgba(90,70,20,0.4));--wm:0.05;
+  }
+  /* ───────── SCHEME C — CLEAN WHITE ───────── */
+  .s-white{
+    --bg:radial-gradient(ellipse at 50% 0%, #ffffff 0%, #f3f4f7 100%);
+    --ink:#11203c;--muted:#5a6275;--kicker:#b3851f;--label:#b3851f;
+    --gold:#c8962e;--key:rgba(200,150,46,0.55);
+    --lng:linear-gradient(90deg,transparent,#c8962e);--lngr:linear-gradient(90deg,#c8962e,transparent);
+    --plate:#ffffff;--platebd:#e3e6ec;--platesh:0 10px 28px rgba(20,33,61,0.14);
+    --emb:drop-shadow(0 6px 16px rgba(20,33,61,0.18));--wm:0.05;
+  }
+  /* ───────── SCHEME D — CRIMSON GALA ───────── */
+  .s-crimson{
+    --bg:radial-gradient(ellipse at 50% 20%, #c2273f 0%, #9e1b2f 55%, #7a1325 100%);
+    --ink:#ffffff;--muted:#f3d9c0;--kicker:#f0dca5;--label:#f0dca5;
+    --gold:#e8be5a;--key:rgba(232,190,90,0.5);
+    --lng:linear-gradient(90deg,transparent,#e8be5a);--lngr:linear-gradient(90deg,#e8be5a,transparent);
+    --plate:#fdfcf8;--platebd:rgba(232,190,90,0.75);--platesh:0 12px 30px rgba(0,0,0,0.32);
+    --emb:drop-shadow(0 6px 18px rgba(0,0,0,0.4));--wm:0.08;
+  }
+</style>
+</head>
+<body>
+
+<!-- sample = Platinum tier; swap your favorite scheme onto all 3 final cards -->
+<div class="opt-label">OPTION A — Ivory &amp; Gold <span>· warm, light, editorial</span></div>
+<div class="card s-ivory">
+  <div class="wm"></div><div class="keyline"></div>
+  <span class="crn tl"></span><span class="crn tr"></span><span class="crn bl"></span><span class="crn br"></span>
+  <div class="inner">
+    <img class="emblem" src="./images/bcoc-gold-logo.png" alt="BCOC">
+    <div class="kicker">40th Anniversary Symposium &middot; 2026</div>
+    <div class="headline">With Gratitude</div>
+    <div class="lead">In Distinguished Company</div>
+    <div class="tier"><span class="ln"></span><span class="star">&#9670;</span><span class="lbl">Platinum Sponsors</span><span class="star">&#9670;</span><span class="ln r"></span></div>
+    <div class="logos">
+      <div class="plate"><img src="https://static.wixstatic.com/media/a6fc8b_f650ca4c388146709c28a329394cc680~mv2.png" alt="REV Fire Group"></div>
+      <div class="plate"><img src="https://static.wixstatic.com/media/a6fc8b_05859d0734474e6380d748e8294274e4~mv2.png" alt="Atlantic Emergency Solutions"></div>
+      <div class="plate"><img src="./images/pierce-manufacturing.png" alt="Pierce Manufacturing"></div>
+    </div>
+    <div class="foot"><div class="hair"></div><div class="when">August 3&ndash;7, 2026 &middot; Atlanta, Georgia</div><div class="url">bcoc.us</div></div>
+  </div>
+</div>
+
+<div class="opt-label">OPTION B — Champagne Gold <span>· celebratory 40th-anniversary gold</span></div>
+<div class="card s-champ">
+  <div class="wm"></div><div class="keyline"></div>
+  <span class="crn tl"></span><span class="crn tr"></span><span class="crn bl"></span><span class="crn br"></span>
+  <div class="inner">
+    <img class="emblem" src="./images/bcoc-gold-logo.png" alt="BCOC">
+    <div class="kicker">40th Anniversary Symposium &middot; 2026</div>
+    <div class="headline">With Gratitude</div>
+    <div class="lead">In Distinguished Company</div>
+    <div class="tier"><span class="ln"></span><span class="star">&#9670;</span><span class="lbl">Platinum Sponsors</span><span class="star">&#9670;</span><span class="ln r"></span></div>
+    <div class="logos">
+      <div class="plate"><img src="https://static.wixstatic.com/media/a6fc8b_f650ca4c388146709c28a329394cc680~mv2.png" alt="REV Fire Group"></div>
+      <div class="plate"><img src="https://static.wixstatic.com/media/a6fc8b_05859d0734474e6380d748e8294274e4~mv2.png" alt="Atlantic Emergency Solutions"></div>
+      <div class="plate"><img src="./images/pierce-manufacturing.png" alt="Pierce Manufacturing"></div>
+    </div>
+    <div class="foot"><div class="hair"></div><div class="when">August 3&ndash;7, 2026 &middot; Atlanta, Georgia</div><div class="url">bcoc.us</div></div>
+  </div>
+</div>
+
+<div class="opt-label">OPTION C — Clean White <span>· crisp, modern, maximum logo clarity</span></div>
+<div class="card s-white">
+  <div class="wm"></div><div class="keyline"></div>
+  <span class="crn tl"></span><span class="crn tr"></span><span class="crn bl"></span><span class="crn br"></span>
+  <div class="inner">
+    <img class="emblem" src="./images/bcoc-gold-logo.png" alt="BCOC">
+    <div class="kicker">40th Anniversary Symposium &middot; 2026</div>
+    <div class="headline">With Gratitude</div>
+    <div class="lead">In Distinguished Company</div>
+    <div class="tier"><span class="ln"></span><span class="star">&#9670;</span><span class="lbl">Platinum Sponsors</span><span class="star">&#9670;</span><span class="ln r"></span></div>
+    <div class="logos">
+      <div class="plate"><img src="https://static.wixstatic.com/media/a6fc8b_f650ca4c388146709c28a329394cc680~mv2.png" alt="REV Fire Group"></div>
+      <div class="plate"><img src="https://static.wixstatic.com/media/a6fc8b_05859d0734474e6380d748e8294274e4~mv2.png" alt="Atlantic Emergency Solutions"></div>
+      <div class="plate"><img src="./images/pierce-manufacturing.png" alt="Pierce Manufacturing"></div>
+    </div>
+    <div class="foot"><div class="hair"></div><div class="when">August 3&ndash;7, 2026 &middot; Atlanta, Georgia</div><div class="url">bcoc.us</div></div>
+  </div>
+</div>
+
+<div class="opt-label">OPTION D — Crimson Gala <span>· bold, warm, high-energy (not blue)</span></div>
+<div class="card s-crimson">
+  <div class="wm"></div><div class="keyline"></div>
+  <span class="crn tl"></span><span class="crn tr"></span><span class="crn bl"></span><span class="crn br"></span>
+  <div class="inner">
+    <img class="emblem" src="./images/bcoc-gold-logo.png" alt="BCOC">
+    <div class="kicker">40th Anniversary Symposium &middot; 2026</div>
+    <div class="headline">With Gratitude</div>
+    <div class="lead">In Distinguished Company</div>
+    <div class="tier"><span class="ln"></span><span class="star">&#9670;</span><span class="lbl">Platinum Sponsors</span><span class="star">&#9670;</span><span class="ln r"></span></div>
+    <div class="logos">
+      <div class="plate"><img src="https://static.wixstatic.com/media/a6fc8b_f650ca4c388146709c28a329394cc680~mv2.png" alt="REV Fire Group"></div>
+      <div class="plate"><img src="https://static.wixstatic.com/media/a6fc8b_05859d0734474e6380d748e8294274e4~mv2.png" alt="Atlantic Emergency Solutions"></div>
+      <div class="plate"><img src="./images/pierce-manufacturing.png" alt="Pierce Manufacturing"></div>
+    </div>
+    <div class="foot"><div class="hair"></div><div class="when">August 3&ndash;7, 2026 &middot; Atlanta, Georgia</div><div class="url">bcoc.us</div></div>
+  </div>
+</div>
+
+</body>
+</html>
