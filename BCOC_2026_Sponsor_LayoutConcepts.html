@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BCOC 2026 — Sponsor Card Layout Concepts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;1,400;1,500&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:#2b2b2b;font-family:'Source Sans 3',sans-serif;padding:42px 0;display:flex;flex-direction:column;align-items:center;gap:14px;}
+  .lbl{color:#fff;width:1080px;text-align:left;font-family:'Cinzel',serif;font-weight:700;font-size:20px;letter-spacing:0.1em;margin-top:34px;}
+  .lbl span{font-family:'Source Sans 3';font-weight:400;letter-spacing:0;font-size:15px;opacity:0.72;text-transform:none;display:block;margin-top:4px;}
+
+  .card{
+    width:1080px;height:1080px;position:relative;overflow:hidden;
+    background:radial-gradient(ellipse at 50% 18%, #fdf8ec 0%, #f3e8cf 60%, #e9d6b0 100%);
+    color:#11203c;box-shadow:0 24px 70px rgba(0,0,0,0.55);
+    --gold:#c8962e;--gold-lt:#e8be5a;--navy:#11203c;--red:#9e1b2f;
+  }
+  .wm{position:absolute;top:50%;left:50%;width:880px;height:880px;transform:translate(-50%,-46%);opacity:0.05;z-index:0;background:url('./images/bcoc-gold-logo.png') center/contain no-repeat;}
+  .keyline{position:absolute;inset:46px;border:1px solid rgba(178,133,31,0.5);z-index:1;}
+  .crn{position:absolute;width:34px;height:34px;border-color:var(--gold);z-index:4;}
+  .crn.tl{top:38px;left:38px;border-top:3px solid;border-left:3px solid;}
+  .crn.tr{top:38px;right:38px;border-top:3px solid;border-right:3px solid;}
+  .crn.bl{bottom:38px;left:38px;border-bottom:3px solid;border-left:3px solid;}
+  .crn.br{bottom:38px;right:38px;border-bottom:3px solid;border-right:3px solid;}
+  .emblem{width:150px;height:150px;object-fit:contain;filter:drop-shadow(0 6px 16px rgba(120,90,30,0.3));}
+  .kicker{font-family:'Cinzel',serif;font-weight:600;font-size:15px;letter-spacing:0.44em;text-transform:uppercase;color:#9e7a1f;text-indent:0.44em;}
+  .headline{font-family:'Playfair Display',serif;font-style:italic;font-weight:500;font-size:46px;line-height:1;}
+  .tierlbl{font-family:'Cinzel',serif;font-weight:800;font-size:24px;letter-spacing:0.18em;text-transform:uppercase;color:#b3851f;}
+  .foot .when{font-family:'Cinzel',serif;font-weight:700;font-size:20px;letter-spacing:0.14em;text-transform:uppercase;color:var(--navy);}
+  .foot .url{font-family:'Cinzel',serif;font-weight:500;font-size:13px;letter-spacing:0.4em;text-transform:uppercase;color:#9e7a1f;margin-top:8px;}
+  .plate img,.logo-img{max-width:100%;max-height:100%;object-fit:contain;display:block;}
+
+  /* ════ CONCEPT 1 — ANNIVERSARY MEDALLIONS (overlapping coins) ════ */
+  .c1 .inner{position:relative;z-index:3;height:100%;display:flex;flex-direction:column;align-items:center;text-align:center;padding:70px;}
+  .c1 .head{display:flex;flex-direction:column;align-items:center;gap:6px;}
+  .c1 .coins{flex:1;display:flex;align-items:center;justify-content:center;}
+  .med{width:300px;height:300px;border-radius:50%;background:#fff;
+    box-shadow:0 0 0 8px var(--gold), 0 0 0 11px #fff, 0 0 0 13px var(--gold-lt), 0 16px 36px rgba(0,0,0,0.3);
+    display:flex;align-items:center;justify-content:center;padding:54px;}
+  .med img{max-width:100%;max-height:100%;object-fit:contain;}
+  .med.mid{width:340px;height:340px;z-index:2;padding:60px;}
+  .med.side{margin:0 -34px;}
+  .c1 .foot{margin-top:auto;text-align:center;}
+
+  /* ════ CONCEPT 2 — HONEYCOMB HEX ════ */
+  .c2 .inner{position:relative;z-index:3;height:100%;display:flex;flex-direction:column;align-items:center;text-align:center;padding:70px;}
+  .c2 .combs{flex:1;display:flex;align-items:center;justify-content:center;gap:26px;}
+  .hexwrap{width:316px;height:352px;display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(var(--gold),var(--gold-lt));clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);
+    filter:drop-shadow(0 14px 30px rgba(0,0,0,0.28));}
+  .hex{width:296px;height:332px;background:#fff;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);
+    display:flex;align-items:center;justify-content:center;padding:54px 46px;}
+  .hexwrap.lift{margin-top:-64px;}
+  .c2 .foot{margin-top:auto;text-align:center;}
+
+  /* ════ CONCEPT 3 — EDITORIAL DIAGONAL (asymmetric, dynamic) ════ */
+  .c3 .inner{position:relative;z-index:3;height:100%;padding:78px 84px;display:flex;flex-direction:column;}
+  .c3 .sash{position:absolute;top:-120px;right:-160px;width:760px;height:300px;background:linear-gradient(135deg,var(--gold),var(--gold-lt));transform:rotate(-18deg);opacity:0.16;z-index:-1;}
+  .c3 .toprow{display:flex;align-items:center;gap:22px;}
+  .c3 .toprow .emblem{width:118px;height:118px;}
+  .c3 .htext{text-align:left;}
+  .c3 .htext .kicker{text-indent:0;}
+  .c3 .htext .headline{font-size:54px;margin-top:2px;}
+  .c3 .tierline{display:flex;align-items:center;gap:16px;margin:30px 0 4px;}
+  .c3 .tierline .bar{width:64px;height:4px;background:var(--red);}
+  .c3 .stack{flex:1;display:flex;flex-direction:column;justify-content:center;gap:30px;}
+  .c3 .plate{background:#fff;border-radius:14px;box-shadow:0 12px 30px rgba(120,90,30,0.22);display:flex;align-items:center;padding:26px 40px;height:168px;}
+  .c3 .p1{width:90%;align-self:flex-start;transform:rotate(-1.4deg);}
+  .c3 .p2{width:90%;align-self:flex-end;transform:rotate(1.4deg);}
+  .c3 .p3{width:90%;align-self:flex-start;transform:rotate(-1.4deg);}
+  .c3 .plate .tag{font-family:'Cinzel',serif;font-weight:700;font-size:12px;letter-spacing:0.2em;color:#b3851f;writing-mode:vertical-rl;transform:rotate(180deg);margin-right:26px;text-transform:uppercase;}
+  .c3 .plate img{max-height:120px;max-width:78%;object-fit:contain;}
+  .c3 .foot{margin-top:24px;}
+  .c3 .foot .when{text-align:left;}
+  .c3 .foot .url{text-align:left;}
+</style>
+</head>
+<body>
+
+<!-- ═══════════ CONCEPT 1 — MEDALLIONS ═══════════ -->
+<div class="lbl">CONCEPT 1 — Anniversary Medallions<span>Logos as gold-ringed coins (ties to the 40th-anniversary coin). Scales: Elite = 1 large coin; Gold = 5 coins in an arc. Tradeoff: wide logos sit smaller inside circles.</span></div>
+<div class="card c1">
+  <div class="wm"></div><div class="keyline"></div>
+  <span class="crn tl"></span><span class="crn tr"></span><span class="crn bl"></span><span class="crn br"></span>
+  <div class="inner">
+    <div class="head">
+      <img class="emblem" src="./images/bcoc-gold-logo.png" alt="BCOC">
+      <div class="kicker">40th Anniversary Symposium &middot; 2026</div>
+      <div class="headline">With Gratitude</div>
+      <div class="tierlbl">Platinum Sponsors</div>
+    </div>
+    <div class="coins">
+      <div class="med side"><img src="https://static.wixstatic.com/media/a6fc8b_f650ca4c388146709c28a329394cc680~mv2.png" alt="REV Fire Group"></div>
+      <div class="med mid"><img src="https://static.wixstatic.com/media/a6fc8b_05859d0734474e6380d748e8294274e4~mv2.png" alt="Atlantic Emergency Solutions"></div>
+      <div class="med side"><img src="./images/pierce-manufacturing.png" alt="Pierce Manufacturing"></div>
+    </div>
+    <div class="foot"><div class="when">August 3&ndash;7, 2026 &middot; Atlanta, Georgia</div><div class="url">bcoc.us</div></div>
+  </div>
+</div>
+
+<!-- ═══════════ CONCEPT 2 — HONEYCOMB ═══════════ -->
+<div class="lbl">CONCEPT 2 — Honeycomb Hex<span>Hexagon tiles, fire-service nod, modern & dynamic. Scales: stagger into a honeycomb cluster for 5. Same wide-logo tradeoff as circles.</span></div>
+<div class="card c2">
+  <div class="wm"></div><div class="keyline"></div>
+  <span class="crn tl"></span><span class="crn tr"></span><span class="crn bl"></span><span class="crn br"></span>
+  <div class="inner">
+    <div class="head">
+      <img class="emblem" src="./images/bcoc-gold-logo.png" alt="BCOC">
+      <div class="kicker">40th Anniversary Symposium &middot; 2026</div>
+      <div class="headline">With Gratitude</div>
+      <div class="tierlbl">Platinum Sponsors</div>
+    </div>
+    <div class="combs">
+      <div class="hexwrap"><div class="hex"><img src="https://static.wixstatic.com/media/a6fc8b_f650ca4c388146709c28a329394cc680~mv2.png" alt="REV Fire Group"></div></div>
+      <div class="hexwrap lift"><div class="hex"><img src="https://static.wixstatic.com/media/a6fc8b_05859d0734474e6380d748e8294274e4~mv2.png" alt="Atlantic Emergency Solutions"></div></div>
+      <div class="hexwrap"><div class="hex"><img src="./images/pierce-manufacturing.png" alt="Pierce Manufacturing"></div></div>
+    </div>
+    <div class="foot"><div class="when">August 3&ndash;7, 2026 &middot; Atlanta, Georgia</div><div class="url">bcoc.us</div></div>
+  </div>
+</div>
+
+<!-- ═══════════ CONCEPT 3 — EDITORIAL DIAGONAL ═══════════ -->
+<div class="lbl">CONCEPT 3 — Editorial Diagonal<span>Asymmetric, magazine-style: off-center crest, diagonal gold sash, staggered tilted plates. Most dynamic AND keeps wide logos legible. Scales cleanly to 1 or 5.</span></div>
+<div class="card c3">
+  <div class="wm"></div><div class="keyline"></div>
+  <span class="crn tl"></span><span class="crn tr"></span><span class="crn bl"></span><span class="crn br"></span>
+  <div class="inner">
+    <div class="sash"></div>
+    <div class="toprow">
+      <img class="emblem" src="./images/bcoc-gold-logo.png" alt="BCOC">
+      <div class="htext">
+        <div class="kicker">40th Anniversary Symposium &middot; 2026</div>
+        <div class="headline">With Gratitude</div>
+      </div>
+    </div>
+    <div class="tierline"><span class="bar"></span><span class="tierlbl">Platinum Sponsors</span></div>
+    <div class="stack">
+      <div class="plate p1"><img src="https://static.wixstatic.com/media/a6fc8b_f650ca4c388146709c28a329394cc680~mv2.png" alt="REV Fire Group"></div>
+      <div class="plate p2"><img src="https://static.wixstatic.com/media/a6fc8b_05859d0734474e6380d748e8294274e4~mv2.png" alt="Atlantic Emergency Solutions"></div>
+      <div class="plate p3"><img src="./images/pierce-manufacturing.png" alt="Pierce Manufacturing"></div>
+    </div>
+    <div class="foot"><div class="when">August 3&ndash;7, 2026 &middot; Atlanta, Georgia</div><div class="url">bcoc.us</div></div>
+  </div>
+</div>
+
+</body>
+</html>
