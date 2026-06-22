@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BCOC 2026 Elections — Declare Your Candidacy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#14213d;--gold:#c8962e;--gold-lt:#e8be5a;--red:#b82040;--cream:#f1ead9;--ink:#1c1a14;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Source Sans 3',sans-serif;color:var(--ink);background:#f6f2e9;padding:28px 16px;line-height:1.5;}
+  .wrap{max-width:680px;margin:0 auto;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 14px 44px rgba(20,33,61,0.16);}
+  .head{background:radial-gradient(ellipse at 50% 0%,#1d2f54,var(--navy));color:#fff;text-align:center;padding:34px 26px 28px;border-bottom:4px solid var(--gold);}
+  .head img{width:96px;height:96px;object-fit:contain;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.4));}
+  .head .kick{font-family:'Cinzel',serif;font-size:13px;letter-spacing:0.4em;text-transform:uppercase;color:var(--gold-lt);margin-top:12px;}
+  .head h1{font-family:'Playfair Display',serif;font-size:30px;line-height:1.1;margin:6px 0 4px;}
+  .head .sub{font-size:14px;color:#cdd4e0;}
+  .body{padding:28px 30px 8px;}
+  .intro{font-size:14px;color:#4a4636;background:#faf6ec;border-left:3px solid var(--gold);padding:12px 14px;border-radius:6px;margin-bottom:22px;}
+  .fg{margin-bottom:18px;}
+  .fg label{display:block;font-weight:700;font-size:14px;color:var(--navy);margin-bottom:6px;}
+  .fg label .req{color:var(--red);}
+  .fg input,.fg select,.fg textarea{width:100%;padding:11px 13px;border:1px solid #cfc7b3;border-radius:8px;font-family:inherit;font-size:15px;background:#fffdf8;}
+  .fg input:focus,.fg select:focus,.fg textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(200,150,46,0.18);}
+  .fg textarea{min-height:120px;resize:vertical;}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  @media(max-width:560px){.row2{grid-template-columns:1fr;}}
+  .note{font-size:12.5px;color:#7a7256;margin-top:4px;}
+  .actions{padding:6px 30px 30px;text-align:center;}
+  .btn{display:inline-block;background:var(--navy);color:#fff;font-family:'Cinzel',serif;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;font-size:15px;border:none;border-radius:40px;padding:15px 42px;cursor:pointer;transition:transform .15s,box-shadow .15s;box-shadow:0 8px 22px rgba(20,33,61,0.28);}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(20,33,61,0.35);}
+  .btn:disabled{opacity:.6;cursor:default;transform:none;}
+  #status{margin:0 30px 22px;font-size:14.5px;display:none;border-radius:8px;padding:14px 16px;}
+  .ok{background:#e8f3ea;border:1px solid #2e7d4f;color:#1f5b39;}
+  .err{background:#fbe9e9;border:1px solid var(--red);color:#8b1a1a;}
+  .foot{background:var(--navy);color:#cdd4e0;text-align:center;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;padding:14px;}
+  .foot span{color:var(--gold-lt);}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="head">
+    <img src="./images/bcoc-gold-logo.png" alt="BCOC crest">
+    <div class="kick">2026 Elections &middot; 40th Anniversary</div>
+    <h1>Declare Your Candidacy</h1>
+    <div class="sub">Black Chief Officers Committee</div>
+  </div>
+
+  <form id="candidacy-form" class="body" onsubmit="submitCandidacy(event)">
+    <div class="intro">Complete this form to formally declare your candidacy for a BCOC office. Your submission is sent directly to the Elections Committee. Confirm your membership eligibility before applying.</div>
+
+    <div class="fg">
+      <label>Full Name <span class="req">*</span></label>
+      <input type="text" name="Full Name" required>
+    </div>
+    <div class="row2">
+      <div class="fg">
+        <label>Rank / Title <span class="req">*</span></label>
+        <input type="text" name="Rank / Title" required>
+      </div>
+      <div class="fg">
+        <label>Department / Agency <span class="req">*</span></label>
+        <input type="text" name="Department / Agency" required>
+      </div>
+    </div>
+    <div class="row2">
+      <div class="fg">
+        <label>Email <span class="req">*</span></label>
+        <input type="email" name="Email" required>
+      </div>
+      <div class="fg">
+        <label>Phone <span class="req">*</span></label>
+        <input type="tel" name="Phone" required>
+      </div>
+    </div>
+    <div class="row2">
+      <div class="fg">
+        <label>Office Sought <span class="req">*</span></label>
+        <select name="Office Sought" required>
+          <option value="">— Select —</option>
+          <option>Chair</option>
+          <option>Vice-Chair</option>
+          <option>Secretary</option>
+          <option>Treasurer</option>
+          <option>At-Large Director</option>
+        </select>
+      </div>
+      <div class="fg">
+        <label>Years of BCOC Membership <span class="req">*</span></label>
+        <input type="text" name="Years of BCOC Membership" required>
+      </div>
+    </div>
+    <div class="fg">
+      <label>Statement of Interest <span class="req">*</span></label>
+      <textarea name="Statement of Interest" placeholder="Briefly share your vision, qualifications, and why you are seeking this office." required></textarea>
+    </div>
+    <div class="fg">
+      <label>Nominated By <span style="font-weight:400;color:#7a7256;">(if applicable)</span></label>
+      <input type="text" name="Nominated By">
+    </div>
+    <div class="intro" style="margin:4px 0 0;">📎 Please email your <strong>headshot and resume/CV</strong> to <strong>elections@bcoc.us</strong> after submitting this form.</div>
+  </form>
+
+  <div id="status"></div>
+  <div class="actions">
+    <button type="submit" form="candidacy-form" class="btn" id="submit-btn">Submit Candidacy</button>
+  </div>
+
+  <div class="foot">Lifting As We Climb &middot; <span>bcoc.us</span></div>
+</div>
+
+<script>
+// ── BCOC 2026 Elections — Candidacy submission ──
+// Submissions are emailed to elections@bcoc.us (cc hsmith@bcoc.us, glawrence@bcoc.us)
+// via the Google Apps Script web app below. Paste the deployed Web App URL here:
+const ENDPOINT = 'PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE';
+
+function collect(form){
+  const data = { formType:'BCOC 2026 Candidacy', timestamp:new Date().toISOString() };
+  form.querySelectorAll('input, select, textarea').forEach(el=>{
+    if(el.name) data[el.name] = (el.value||'').trim();
+  });
+  return data;
+}
+
+function submitCandidacy(e){
+  e.preventDefault();
+  const form = document.getElementById('candidacy-form');
+  const btn = document.getElementById('submit-btn');
+  const status = document.getElementById('status');
+
+  // validate required
+  let missing=false;
+  form.querySelectorAll('[required]').forEach(el=>{
+    if(!el.value.trim()){ el.style.borderColor='#b82040'; missing=true; }
+    else el.style.borderColor='';
+  });
+  if(missing){
+    status.className='err'; status.style.display='block';
+    status.innerHTML='⚠ Please fill in all required fields.';
+    return;
+  }
+
+  const data = collect(form);
+  btn.disabled=true; btn.textContent='Submitting…';
+  status.className='ok'; status.style.display='block';
+  status.innerHTML='⏳ Submitting your candidacy…';
+
+  if(ENDPOINT === 'PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE'){
+    status.className='err';
+    status.innerHTML='⚠ This form is not connected yet. Please email your candidacy to <strong>elections@bcoc.us</strong>.';
+    btn.disabled=false; btn.textContent='Submit Candidacy';
+    return;
+  }
+
+  fetch(ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)})
+    .then(()=>{
+      form.style.display='none';
+      document.getElementById('submit-btn').style.display='none';
+      status.className='ok';
+      status.innerHTML='✅ <strong>Thank you — your candidacy has been submitted</strong> to the BCOC Elections Committee. Remember to email your headshot &amp; resume to <strong>elections@bcoc.us</strong>.';
+    })
+    .catch(()=>{
+      status.className='err';
+      status.innerHTML='⚠ Submission could not be sent. Please email your candidacy to <strong>elections@bcoc.us</strong>.';
+      btn.disabled=false; btn.textContent='Submit Candidacy';
+    });
+}
+</script>
+</body>
+</html>
