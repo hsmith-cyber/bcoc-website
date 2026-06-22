@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elections Committee | BCOC</title>
+<!-- BCOC 2026 Elections Committee — hosted page (Render). Point the Wix Custom HTML element here in Website-Address mode. -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#f6f2e9;}
+.bcoc-ec,.bcoc-ec *{box-sizing:border-box}
+.bcoc-ec{font-family:'Source Sans 3',system-ui,sans-serif;color:#14213d;max-width:1040px;margin:0 auto;background:#fff;border-radius:16px;box-shadow:0 18px 50px rgba(20,33,61,.18);overflow:hidden}
+.bcoc-ec .head{position:relative;background:linear-gradient(135deg,#14213d 0%,#0b1a33 100%);color:#fff;padding:24px 36px 22px;overflow:hidden;display:flex;align-items:center;gap:26px}
+.bcoc-ec .head::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 0%,rgba(200,150,46,.25),transparent 55%),radial-gradient(circle at 100% 100%,rgba(139,26,26,.2),transparent 55%);pointer-events:none}
+.bcoc-ec .head::after{content:"";position:absolute;left:0;right:0;bottom:0;height:5px;background:linear-gradient(90deg,#c8962e,#8b1a1a,#c8962e)}
+.bcoc-ec .head > *{position:relative;z-index:1}
+.bcoc-ec .logo{flex-shrink:0;max-width:130px;width:130px;height:auto;filter:drop-shadow(0 6px 18px rgba(0,0,0,.35))}
+.bcoc-ec .head-text{flex:1;min-width:0;text-align:left}
+.bcoc-ec .eyebrow{display:inline-block;font-size:11px;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:#c8962e;border:1px solid rgba(200,150,46,.55);padding:5px 12px;border-radius:999px;margin-bottom:10px}
+.bcoc-ec h1{font-family:'Playfair Display',serif;font-size:clamp(28px,4.6vw,46px);font-weight:900;line-height:1.08;margin:0 0 6px;color:#fff}
+.bcoc-ec h1 em{color:#c8962e;font-style:normal}
+.bcoc-ec .sub{font-size:14px;letter-spacing:1.6px;text-transform:uppercase;color:rgba(253,245,230,.9);font-weight:700}
+.bcoc-ec .body{padding:38px 40px 44px}
+.bcoc-ec .res-bar{display:flex;flex-wrap:wrap;gap:18px;justify-content:space-between;align-items:center;background:#fdf5e6;border:1px solid #ece2c8;border-left:5px solid #c8962e;border-radius:8px;padding:14px 22px;margin-bottom:30px}
+.bcoc-ec .res-bar .item{font-size:13px;color:#5a4a1f}
+.bcoc-ec .res-bar .item strong{display:block;color:#14213d;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:2px;font-weight:700}
+.bcoc-ec h2{font-family:'Playfair Display',serif;color:#14213d;font-size:24px;font-weight:900;margin:36px 0 14px;padding-bottom:8px;border-bottom:3px solid #c8962e;letter-spacing:.2px}
+.bcoc-ec h2 .roman{color:#c8962e;margin-right:8px;font-style:italic}
+.bcoc-ec h3{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:#14213d;margin:22px 0 8px}
+.bcoc-ec p,.bcoc-ec li{font-size:15.5px;line-height:1.6;color:#2b3244}
+.bcoc-ec ul,.bcoc-ec ol{padding-left:22px;margin:10px 0 14px}
+.bcoc-ec li{margin-bottom:6px}
+.bcoc-ec .members{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin:18px 0 12px}
+.bcoc-ec .member{background:#fbf8f1;border:1px solid #ece2c8;border-radius:14px;overflow:hidden;box-shadow:0 6px 18px rgba(20,33,61,.08);display:flex;flex-direction:column}
+.bcoc-ec .member .photo-wrap{position:relative;background:linear-gradient(135deg,#14213d 0%,#0b1a33 100%);padding:22px 22px 0;text-align:center}
+.bcoc-ec .member .photo-wrap::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:linear-gradient(90deg,#c8962e,#8b1a1a,#c8962e)}
+.bcoc-ec .member img{width:170px;height:170px;border-radius:50%;object-fit:cover;border:4px solid #c8962e;box-shadow:0 6px 18px rgba(0,0,0,.35);margin-bottom:18px;background:#fff;object-position:center 20%}
+.bcoc-ec .member .info{padding:20px 22px 22px;text-align:center}
+.bcoc-ec .member .role-tag{display:inline-block;background:#c8962e;color:#14213d;font-weight:800;font-size:11px;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;border-radius:999px;margin-bottom:10px}
+.bcoc-ec .member .role-tag.member{background:#14213d;color:#c8962e;border:1px solid #c8962e}
+.bcoc-ec .member .name{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;color:#14213d;margin:0 0 4px;line-height:1.2}
+.bcoc-ec .member .rank{font-size:14px;color:#5a4a1f;font-weight:600;letter-spacing:.5px;margin-bottom:8px}
+.bcoc-ec .member .agency{font-size:13px;color:#4d5468;font-style:italic}
+.bcoc-ec .duties{background:#fbf8f1;border:1px solid #ece2c8;border-radius:10px;padding:18px 26px;margin:14px 0 22px}
+.bcoc-ec .duties li{margin-bottom:10px;padding-left:4px}
+.bcoc-ec .duties li::marker{color:#c8962e;font-weight:900}
+.bcoc-ec .info-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin:14px 0 24px}
+.bcoc-ec .info-card{background:#fff;border:1px solid #ece2c8;border-top:4px solid #c8962e;border-radius:10px;padding:18px 22px;box-shadow:0 4px 14px rgba(20,33,61,.06)}
+.bcoc-ec .info-card h4{font-family:'Playfair Display',serif;font-size:16px;font-weight:900;color:#14213d;margin:0 0 8px;letter-spacing:.3px}
+.bcoc-ec .info-card p{font-size:14.5px;margin:0;line-height:1.55}
+.bcoc-ec .contact-bar{background:linear-gradient(135deg,#14213d 0%,#0b1a33 100%);border-radius:12px;padding:28px 32px;color:#fff;margin:30px 0 10px;display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between;border:2px solid #c8962e}
+.bcoc-ec .contact-bar .label{font-family:'Playfair Display',serif;font-size:18px;font-weight:900;color:#c8962e;letter-spacing:.5px;margin-bottom:4px}
+.bcoc-ec .contact-bar .text{font-size:14.5px;color:rgba(253,245,230,.9);line-height:1.5}
+.bcoc-ec .contact-bar a{color:#c8962e;font-weight:700;text-decoration:underline}
+.bcoc-ec .contact-bar .btn-contact{background:#c8962e;color:#14213d;padding:14px 28px;border-radius:8px;font-family:'Playfair Display',serif;font-weight:900;font-size:14px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border:2px solid #c8962e;box-shadow:0 4px 14px rgba(200,150,46,.3);transition:transform .15s,box-shadow .15s}
+.bcoc-ec .contact-bar .btn-contact:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(200,150,46,.4);background:#d6a23c}
+.bcoc-ec .contact-btns{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.bcoc-ec .contact-bar .btn-cta{background:linear-gradient(180deg,#c8962e 0%,#8b1a1a 100%);color:#fff;padding:14px 28px;border-radius:8px;font-family:'Playfair Display',serif;font-weight:900;font-size:14px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border:2px solid #c8962e;box-shadow:0 4px 14px rgba(139,26,26,.4),inset 0 1px 0 rgba(255,255,255,.2);text-shadow:0 1px 2px rgba(0,0,0,.3);transition:transform .15s,box-shadow .15s,background .2s}
+.bcoc-ec .contact-bar .btn-cta:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(139,26,26,.5),inset 0 1px 0 rgba(255,255,255,.3);background:linear-gradient(180deg,#d6a23c 0%,#a32020 100%)}
+.bcoc-ec .signoff{margin:26px 0 0;padding:20px 24px;background:#fbf8f1;border-radius:8px;border-left:4px solid #14213d;font-style:italic;color:#4d4a42;font-size:14.5px;line-height:1.6}
+.bcoc-ec .signoff b{color:#14213d;font-style:normal}
+@media (max-width:680px){.bcoc-ec .head{flex-direction:column;text-align:center;gap:14px;padding:22px 22px 20px}.bcoc-ec .logo{max-width:100px;width:100px}.bcoc-ec .head-text{text-align:center}.bcoc-ec .body{padding:28px 22px 34px}.bcoc-ec .members{grid-template-columns:1fr}.bcoc-ec .info-grid{grid-template-columns:1fr}.bcoc-ec h2{font-size:20px}.bcoc-ec .contact-bar{flex-direction:column;text-align:center;padding:24px}.bcoc-ec .contact-btns{flex-direction:column;width:100%}.bcoc-ec .contact-bar .btn-contact,.bcoc-ec .contact-bar .btn-cta{width:100%;text-align:center}}
+</style>
+</head>
+<body>
+<div class="bcoc-ec">
+  <header class="head">
+    <img class="logo" src="https://static.wixstatic.com/media/1700c8_c3249910647e4ed5be5d657b963528d1~mv2.png" alt="BCOC Logo">
+    <div class="head-text">
+      <span class="eyebrow">Resolution 2026-[03] &middot; April 23, 2026</span>
+      <h1><em>Elections</em> Committee</h1>
+      <div class="sub">Black Chief Officers Committee &middot; Office of the Chair</div>
+    </div>
+  </header>
+  <div class="body">
+
+    <div class="res-bar">
+      <div class="item"><strong>Resolution</strong>2026-[03]</div>
+      <div class="item"><strong>Date Adopted</strong>April 23, 2026</div>
+      <div class="item"><strong>Authority</strong>Article V, BCOC Bylaws</div>
+      <div class="item"><strong>Term</strong>Until superseded by another resolution</div>
+    </div>
+
+    <p>Pursuant to the authority vested in the Chair under the BCOC Bylaws, the 2026 Elections Committee has been formally constituted to administer the 2026 election process for the Black Chief Officers Committee. The Committee shall serve in accordance with Article V of the Bylaws and the duties set forth in Resolution 2026-[03].</p>
+
+    <h2>Committee Membership</h2>
+    <div class="members">
+      <div class="member">
+        <div class="photo-wrap">
+          <img src="./images/elections-tripp.jpg" onerror="this.onerror=null;this.src='./images/bcoc-gold-logo.png'" alt="Fire Chief Barbara Tripp">
+        </div>
+        <div class="info">
+          <span class="role-tag">Chair</span>
+          <h3 class="name">Barbara Tripp</h3>
+          <div class="rank">Fire Chief</div>
+          <div class="agency">Tampa Fire Rescue</div>
+        </div>
+      </div>
+      <div class="member">
+        <div class="photo-wrap">
+          <img src="./images/elections-collins.jpg" onerror="this.onerror=null;this.src='./images/bcoc-gold-logo.png'" alt="Division Chief Robert Collins">
+        </div>
+        <div class="info">
+          <span class="role-tag member">Member</span>
+          <h3 class="name">Robert Collins</h3>
+          <div class="rank">Division Chief</div>
+          <div class="agency">Tampa Fire Rescue</div>
+        </div>
+      </div>
+    </div>
+
+    <h2><span class="roman">Section 3</span>Duties and Responsibilities</h2>
+    <p>The 2026 Elections Committee shall perform all duties assigned to the Elections Committee under Article V of the BCOC Bylaws, including:</p>
+    <ul class="duties">
+      <li>Oversee and administer the election of officers conducted during the 2026 annual BCOC conference.</li>
+      <li>Receive and process candidate submissions in accordance with bylaw deadlines and eligibility requirements.</li>
+      <li>Verify, in coordination with the appropriate BCOC officers, that candidates and voting members are in good standing as required by the Bylaws.</li>
+      <li>Coordinate the distribution and receipt of absentee and proxy ballots in accordance with Article V.</li>
+      <li>Ensure the integrity of the balloting process.</li>
+      <li>Count and certify the official election results.</li>
+      <li>Present the official results to the membership at the conclusion of the election process.</li>
+    </ul>
+
+    <h2>Governance Provisions</h2>
+    <div class="info-grid">
+      <div class="info-card">
+        <h4>Section 4 &middot; Eligibility and Compliance</h4>
+        <p>The Committee shall conduct its work in conformity with Article V of the BCOC Bylaws, including provisions on voting qualifications, absentee ballot requests, proxy ballots, candidate eligibility, and certification of results.</p>
+      </div>
+      <div class="info-card">
+        <h4>Section 5 &middot; Impartiality and Conflicts</h4>
+        <p>Members shall act impartially and in the best interests of BCOC. Any member who becomes a candidate for elected office, or who has a conflict that may reasonably call impartiality into question, shall disclose that fact and recuse from related deliberations.</p>
+      </div>
+      <div class="info-card">
+        <h4>Section 6 &middot; Records</h4>
+        <p>The Committee shall maintain records of candidate submissions, ballot requests, ballot distribution, ballot receipt, tabulation, and certification of results, and shall provide a final written report to the Chair for inclusion in the organizational records.</p>
+      </div>
+      <div class="info-card">
+        <h4>Section 7 &middot; Term</h4>
+        <p>The Committee shall remain in effect until superseded by another resolution of the Chair or the Executive Board.</p>
+      </div>
+    </div>
+
+    <h2>Contact the Elections Committee</h2>
+    <div class="contact-bar">
+      <div>
+        <div class="label">Fire Chief Barbara Tripp, Elections Chair</div>
+        <div class="text">Direct all candidate submissions, eligibility verifications, ballot questions, and election-related correspondence to <a href="mailto:elections@bcoc.us?cc=hsmith@bcoc.us,glawrence@bcoc.us" target="_top">elections@bcoc.us</a> with hsmith@bcoc.us and glawrence@bcoc.us copied.</div>
+      </div>
+      <div class="contact-btns">
+        <a class="btn-cta" target="_top" href="mailto:elections@bcoc.us?cc=hsmith@bcoc.us,glawrence@bcoc.us&amp;subject=BCOC%20Elections%202026%3A%20Candidate%20Interest%20Submission&amp;body=Dear%20BCOC%20Elections%20Committee%2C%0A%0AI%20am%20submitting%20my%20interest%20to%20run%20for%20office%20in%20the%202026%20BCOC%20Elections.%0A%0ANAME%20%28full%20name%2C%20rank%2C%20credentials%29%3A%0A%0AOFFICE%20SOUGHT%20%28mark%20one%29%3A%0A%5B%20%5D%20Vice-Chairperson%0A%5B%20%5D%20Corresponding%20Secretary%0A%5B%20%5D%20Treasurer%0A%0AQUALIFICATIONS%20PROFILE%0ABio%20covering%20current%20role%2Fagency%2C%20years%20of%20service%2C%20leadership%20history%2C%20education%2C%20certifications%2C%20BCOC%20involvement%2C%20key%20accomplishments%3A%0A%0A%0AHEADSHOT%20LINK%20%28or%20attach%20to%20email%3B%20min%20300%20DPI%2C%20professional%2FClass%20A%20uniform%2C%20neutral%20background%29%3A%0A%0A%0APOSITION%20STATEMENT%20%28250%20words%20max%29%0AStructure%3A%20Opening%20%28who%20you%20are%2C%20why%20this%20office%29%20%7C%20Vision%20%28what%20you%20bring%2C%20priorities%29%20%7C%20Experience%20%28one%20or%20two%20accomplishments%29%20%7C%20Closing%20%28pledge%20to%20BCOC%20mission%29.%0AStatement%3A%0A%0A%0ACONTACT%0APhone%3A%0AEmail%3A%0ADepartment%2FAgency%3A%0ACity%2FState%3A%0A%0AELIGIBILITY%3A%20I%20confirm%20BCOC%20good%20standing%20for%202024%2C%202025%2C%202026%20per%20Article%20V.%0A%0ARespectfully%2C%0A%5BYour%20Name%2C%20Title%2C%20Agency%5D">Declare Candidacy</a>
+        <a class="btn-contact" target="_top" href="mailto:elections@bcoc.us?cc=hsmith@bcoc.us,glawrence@bcoc.us">Email Committee</a>
+      </div>
+    </div>
+
+    <div class="signoff">
+      Adopted by the Chair on <b>April 23, 2026</b>, and entered into the official records of the Black Chief Officers Committee.<br>
+      <b>Dr. Hezedean A. Smith,</b> DM, CFO, CEMSO, NRP, CPM, COSS, EFO-EMSO &middot; Chair, BCOC<br>
+      <b>Attest:</b> Donna Gayden, CFE &middot; Executive Coordinator, BCOC
+    </div>
+  </div>
+</div>
+</body>
+</html>
